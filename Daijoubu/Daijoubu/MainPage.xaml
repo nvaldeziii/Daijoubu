@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Daijoubu"
              x:Class="Daijoubu.MainPage">
 
-  <Label Text="Welcome to Xamarin Forms!"
+  <Label Text="Landing Page!"
            VerticalOptions="Center"
            HorizontalOptions="Center" />
 

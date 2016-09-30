@@ -13,7 +13,7 @@ namespace Daijoubu
         {
             InitializeComponent();
 
-            MainPage = new Daijoubu.MainPage();
+            MainPage = new NavigationPage( new Daijoubu.SideMenuPage() );
         }
 
         protected override void OnStart()
