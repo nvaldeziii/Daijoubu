@@ -30,5 +30,6 @@ namespace Daijoubu
         {
             // Handle when your app resumes
         }
+        
     }
 }

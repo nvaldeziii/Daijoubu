@@ -2,17 +2,11 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.SideMenuPage"
-             xmlns:local="clr-namespace:Daijoubu;assembly=Daijoubu">
+             xmlns:local="clr-namespace:Daijoubu;assembly=Daijoubu"
+              Title="Daijoubu">
 
   <MasterDetailPage.Master>
-    <ContentPage Title="Menu">
-      <StackLayout Orientation="Vertical">
-        <Button Text="Profile" />
-        <Button Text="Settings" />
-        <Button Text="About" />
-        
-      </StackLayout>
-    </ContentPage>
+    <local:MainPage x:Name="SideMenuInstance" />
   </MasterDetailPage.Master>
 
   <MasterDetailPage.Detail>

@@ -13,6 +13,16 @@ namespace Daijoubu
         public SideMenuPage()
         {
             InitializeComponent();
+            InitilizeClickEvents();
+
+            //Set the side menu items
+            SideMenuItems MenuItems = new SideMenuItems();
+            SideMenuInstance.Content = MenuItems;
+        } 
+
+        private void InitilizeClickEvents()
+        {
+            
         }
     }
 }

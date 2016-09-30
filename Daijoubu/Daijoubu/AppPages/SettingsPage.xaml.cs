@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 
-namespace Daijoubu
+namespace Daijoubu.AppPages
 {
-    public partial class MainPage : ContentPage
+    public partial class SettingsPage : ContentPage
     {
-        public MainPage()
+        public SettingsPage()
         {
-            InitializeComponent();  
+            InitializeComponent();
         }
     }
 }
