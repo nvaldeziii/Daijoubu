@@ -4,7 +4,7 @@
              x:Class="Daijoubu.AppPages.SettingsPage"
              Title="Settings">
 
-  <Label Text="Settins"
+  <Label Text="Settings"
          VerticalOptions="Center"
          HorizontalOptions="Center" />
 </ContentPage>

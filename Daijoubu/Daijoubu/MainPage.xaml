@@ -5,8 +5,28 @@
              x:Class="Daijoubu.MainPage"
              Title="Daijoubu">
 
-  <Label Text="Landing Page!"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
+  <StackLayout>
+
+    <RelativeLayout>
+      <!-- header image with text -->
+
+      <Image x:Name="image_homepage_header"
+             Source="homepage_header"
+             Aspect="AspectFit" />
+
+      <Label x:Name="label_homepage_header"
+                   Text="Welcome to だいじょうぶ"
+             
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
+                   TextColor="Red"
+                   BackgroundColor="Green"
+                   FontSize="25"
+             />
+
+
+    </RelativeLayout>
+  </StackLayout>
+
 
 </ContentPage>
