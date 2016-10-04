@@ -21,8 +21,7 @@
                    VerticalOptions="Center"
                    TextColor="Red"
                    BackgroundColor="Green"
-                   FontSize="25"
-             />
+                   FontSize="25" />
 
 
     </RelativeLayout>
