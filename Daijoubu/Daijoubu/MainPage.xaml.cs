@@ -11,7 +11,9 @@ namespace Daijoubu
     {
         public MainPage()
         {
-            InitializeComponent();  
+            InitializeComponent();
+            //this.Padding = -50;
+            
         }
     }
 }

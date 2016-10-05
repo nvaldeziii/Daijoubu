@@ -26,6 +26,8 @@ namespace Daijoubu.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::SimpleTTS.Resource.String.ApplicationName = global::Daijoubu.Droid.Resource.String.ApplicationName;
+			global::SimpleTTS.Resource.String.Hello = global::Daijoubu.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Resource.Animation.abc_fade_in = global::Daijoubu.Droid.Resource.Animation.abc_fade_in;
 			global::Xamarin.Forms.Platform.Resource.Animation.abc_fade_out = global::Daijoubu.Droid.Resource.Animation.abc_fade_out;
 			global::Xamarin.Forms.Platform.Resource.Animation.abc_grow_fade_in_from_bottom = global::Daijoubu.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -3312,8 +3314,17 @@ namespace Daijoubu.Droid
 			// aapt resource value: 0x7f020063
 			public const int mr_ic_settings_light = 2130837603;
 			
+			// aapt resource value: 0x7f020067
+			public const int notification_template_icon_bg = 2130837607;
+			
 			// aapt resource value: 0x7f020064
-			public const int notification_template_icon_bg = 2130837604;
+			public const int speaker = 2130837604;
+			
+			// aapt resource value: 0x7f020065
+			public const int splash = 2130837605;
+			
+			// aapt resource value: 0x7f020066
+			public const int splash_screen = 2130837606;
 			
 			static Drawable()
 			{
@@ -4483,6 +4494,15 @@ namespace Daijoubu.Droid
 			
 			// aapt resource value: 0x7f070145
 			public const int MainTheme_Base = 2131165509;
+			
+			// aapt resource value: 0x7f070148
+			public const int MyTheme = 2131165512;
+			
+			// aapt resource value: 0x7f070147
+			public const int MyTheme_Base = 2131165511;
+			
+			// aapt resource value: 0x7f070149
+			public const int MyTheme_Splash = 2131165513;
 			
 			// aapt resource value: 0x7f070016
 			public const int Platform_AppCompat = 2131165206;

@@ -4,9 +4,10 @@
              x:Class="Daijoubu.AppPages.AboutPage"
              Title="About">
   <StackLayout>
-    <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Label Text="About Page" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="About Page"
+           TextColor="Red"
+           BackgroundColor="Green" />
   </StackLayout>
- 
-  
+
+
 </ContentPage>

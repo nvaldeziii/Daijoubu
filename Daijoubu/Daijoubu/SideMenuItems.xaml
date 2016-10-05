@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.SideMenuItems">
 
-  <StackLayout Orientation="Vertical"
-               Padding="0,50,0,0">
+  <StackLayout Orientation="Vertical">
     <!-- <Button Text="Home" 
                  x:Name="SideMenuButton_Home"/> -->
     <Button Text="Profile"

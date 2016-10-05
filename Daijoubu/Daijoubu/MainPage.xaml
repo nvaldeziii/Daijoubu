@@ -3,28 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Daijoubu"
              x:Class="Daijoubu.MainPage"
-             Title="Daijoubu">
-
+             Title="Daijoubu"
+             BackgroundColor="Aqua">
+  
   <StackLayout>
-
     <RelativeLayout>
       <!-- header image with text -->
 
       <Image x:Name="image_homepage_header"
              Source="homepage_header"
-             Aspect="AspectFit" />
+             Aspect="AspectFill" />
 
       <Label x:Name="label_homepage_header"
-                   Text="Welcome to だいじょうぶ"
+             Text="Welcome to だいじょうぶ"
              
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="Center"
-                   TextColor="Red"
-                   BackgroundColor="Green"
-                   FontSize="25" />
-
-
+             HorizontalOptions="CenterAndExpand"
+             TextColor="Red"
+             BackgroundColor="Green"
+             FontSize="25"
+             
+             RelativeLayout.YConstraint =
+             "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-50}" />
     </RelativeLayout>
+  
+    <ListView x:Name="listview_homepage" />
   </StackLayout>
 
 

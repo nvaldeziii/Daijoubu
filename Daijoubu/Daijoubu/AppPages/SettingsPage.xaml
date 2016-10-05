@@ -2,9 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.SettingsPage"
-             Title="Settings">
+             Title="Settings"
+             BackgroundColor="Green">
 
-  <Label Text="Settings"
-         VerticalOptions="Center"
-         HorizontalOptions="Center" />
+  <StackLayout>
+    <Label Text="Settings Page"
+           TextColor="Red"
+           BackgroundColor="Green" />
+  </StackLayout>
 </ContentPage>

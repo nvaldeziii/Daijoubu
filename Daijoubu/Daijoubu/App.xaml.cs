@@ -14,7 +14,7 @@ namespace Daijoubu
             InitializeComponent();
 
             MainPage = new NavigationPage( new Daijoubu.SideMenuPage() );
-            MainPage.Padding = -50;
+            //MainPage.Padding = -50;
         }
 
         protected override void OnStart()

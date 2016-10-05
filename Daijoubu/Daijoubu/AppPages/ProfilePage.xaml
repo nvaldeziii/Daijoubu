@@ -5,8 +5,9 @@
              Title="Profile">
 
   <StackLayout>
-    <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
-    <Label Text="Profile Page" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="Profile Page"
+           TextColor="Red"
+           BackgroundColor="Green" />
   </StackLayout>
   
 </ContentPage>
