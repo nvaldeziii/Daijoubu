@@ -13,7 +13,6 @@ namespace Daijoubu
         {
             InitializeComponent();
             //this.Padding = -50;
-            
         }
     }
 }

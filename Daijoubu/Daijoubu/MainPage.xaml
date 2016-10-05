@@ -17,7 +17,7 @@
       <Label x:Name="label_homepage_header"
              Text="Welcome to だいじょうぶ"
              
-             HorizontalOptions="CenterAndExpand"
+             HorizontalOptions="Center"
              TextColor="Red"
              BackgroundColor="Green"
              FontSize="25"

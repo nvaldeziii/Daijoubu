@@ -13,6 +13,8 @@ namespace Daijoubu.AppPages.QuizPages
         public TypingPage()
         {
             InitializeComponent();
+
+            label_question.Text = "日曜日";
         }
     }
 }

@@ -3,10 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.AboutPage"
              Title="About">
-  <StackLayout>
-    <Label Text="About Page"
-           TextColor="Red"
-           BackgroundColor="Green" />
+  <StackLayout
+    Padding="20">
+
+    <Label Text=" " />
+    <Label Text=" " />
+           
+    <Label Text="Daijoubu app © 2016" />
+    <Label Text=" " />
+    
+    <Label x:Name="label_version_info"
+           Text=" " />
+    
+    <Label Text=" " />
+    <Label Text="Created By:" />
+    <Label Text="     Noli Valdez III" />
+    <Label Text="     Mikko Villanueva" />
+
+    <Label Text=" " />
+    <Label Text=" " />
+    
+    <Label Text="Special Thanks:" />
+    <Label Text="     Mary Jane Samonte" />
+    <Label Text="     Mika Kawasaki" />
+    <Label Text="     Nida Maramara" />
+    <Label Text="     Gonzalo Gumogda" />
+
+    <Label Text=" " />
+    <Label Text=" " />
+    
+    
   </StackLayout>
 
 

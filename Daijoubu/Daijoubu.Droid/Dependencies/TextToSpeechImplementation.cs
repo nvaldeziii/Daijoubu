@@ -44,5 +44,6 @@ namespace Daijoubu.Droid.Dependencies
         public void Speak(string text)
         {
             TextToSpeechInstance.Speak(text);
+        }
     }
 }
