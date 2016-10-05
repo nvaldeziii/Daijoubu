@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daijoubu.AppPages.QuizPage"
+             Title="Quiz">
+
+  <StackLayout>
+    <Button x:Name="btn_multiple"
+            Text="Multiple" />
+
+    <Button x:Name="btn_listen"
+            Text="Listening" />
+
+    <Button x:Name="btn_typing"
+            Text="Typing" />
+
+    <Button x:Name="btn_reading"
+            Text="Reading" />
+  </StackLayout>
+  
+</ContentPage>
