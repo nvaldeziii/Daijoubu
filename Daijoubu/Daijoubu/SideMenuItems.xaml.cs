@@ -18,11 +18,31 @@ namespace Daijoubu
 
         public void InitializeClickEvents()
         {
+            
+            SideMenuButton_Profile.Clicked += (o, e) =>
+            {
+                AppPages.ProfilePage page = new AppPages.ProfilePage();
+                Navigation.PushAsync(page);
+            };
+
             SideMenuButton_Settings.Clicked += (o, e) =>
             {
-                AppPages.SettingsPage settings_page = new AppPages.SettingsPage();
-                Navigation.PushAsync(settings_page);
+                AppPages.SettingsPage page = new AppPages.SettingsPage();
+                Navigation.PushAsync(page);
             };
+
+            SideMenuButton_About.Clicked += (o, e) =>
+            {
+                AppPages.AboutPage page = new AppPages.AboutPage();
+                Navigation.PushAsync(page);
+            };
+
+            SideMenuButton_Quiz.Clicked += (o, e) =>
+            {
+                AppPages.QuizPage page = new AppPages.QuizPage();
+                Navigation.PushAsync(page);
+            };
+
         }
     }
 }
