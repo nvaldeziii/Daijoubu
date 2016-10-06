@@ -38,6 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppModel\Table_Kana.cs" />
     <Compile Include="AppPages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
@@ -65,6 +66,7 @@
     <Compile Include="AppTemplates\HomepageListView.xaml.cs">
       <DependentUpon>HomepageListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dependencies\ISQLite.cs" />
     <Compile Include="Dependencies\ITextToSpeech.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

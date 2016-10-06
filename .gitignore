@@ -243,3 +243,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# SQLite
+SQLite/*.sqlite3
+*.sqlite3

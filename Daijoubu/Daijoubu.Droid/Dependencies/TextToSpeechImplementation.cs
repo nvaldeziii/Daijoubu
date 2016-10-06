@@ -15,6 +15,7 @@ using Xamarin.Forms;
 using Daijoubu.Dependencies;
 using Daijoubu.Droid.Dependencies;
 using SimpleTTS;
+
 [assembly: Xamarin.Forms.Dependency(typeof(TextToSpeechImplementation))]
 namespace Daijoubu.Droid.Dependencies
 {
