@@ -16,11 +16,30 @@ namespace Daijoubu
             InitializeComponent();
             //this.Padding = -50;
             var database = DependencyService.Get<ISQLite>().GetConnection();
-            var table = database.Table<Table_Kana>();
-            List<Table_Kana> KanaTable = new List<Table_Kana>();
+
+            database.CreateTable<tbl_kana>();
+
+            database.Execute("insert into tbl_kana (Id,romaji,hiragana,katakana) values (null,\"ju\",\"ぢゅ\",\"ヂュ\");");
+            if (database.Table<tbl_kana>().Count() == 0)
+            {
+                // only insert the data if it doesn't already exist
+                var new_row = new tbl_kana();
+                new_row.Id =1;
+                new_row.katakana="2";
+                new_row.hiragana="3";
+                new_row.romaji="4";
+                database.Insert(new_row);
+            }
+
+
+            //var map = database.GetMapping<tbl_kana>();
+           // var table = database.Query<tbl_kana>("select * from tbl_kana", null);
+            var table = database.Table<tbl_kana>();
+            List<tbl_kana> KanaTable = new List<tbl_kana>();
             foreach (var item in table)
             {
-                var row = new Table_Kana();
+               
+                var row = new tbl_kana();
                 row.Id = item.Id;
                 row.hiragana = item.hiragana;
                 row.katakana = item.katakana;
@@ -28,6 +47,7 @@ namespace Daijoubu
 
                 KanaTable.Add(row);
             }
+
             
 
         }

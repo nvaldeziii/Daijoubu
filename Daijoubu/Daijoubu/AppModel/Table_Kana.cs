@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Daijoubu.AppModel
 {
-    public class Table_Kana
+    public class tbl_kana
     {
         public int Id { get; set; }
         public string hiragana { get; set; }

@@ -31,9 +31,9 @@ create table tbl_grammar_N4(
 
 create table tbl_kana(
 	Id int CONSTRAINT constraint_name PRIMARY KEY,
-	hiragana char(3),
-	katakana char(3),
-	romaji char(5)
+	hiragana varchar(9),
+	katakana varchar(9),
+	romaji varchar(9)
 );
 
 insert into tbl_kana (Id,romaji,hiragana,katakana) values (null,"a","あ","ア");
