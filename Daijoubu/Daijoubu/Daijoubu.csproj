@@ -38,7 +38,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppModel\Table_Kana.cs" />
+    <Compile Include="AppModel\JapaneseDatabase.cs" />
+    <Compile Include="AppModel\tbl_grammar.cs" />
+    <Compile Include="AppModel\tbl_kana.cs" />
+    <Compile Include="AppModel\tbl_vocabulary.cs" />
     <Compile Include="AppPages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>

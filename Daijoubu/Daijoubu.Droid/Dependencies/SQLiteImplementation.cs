@@ -1,4 +1,4 @@
-using Daijoubu.Dependencies;
+﻿using Daijoubu.Dependencies;
 using Daijoubu.Droid.Dependencies;
 using System;
 using System.IO;
@@ -33,7 +33,7 @@ namespace Daijoubu.Droid.Dependencies
             }
             if (!File.Exists(path))
             {
-                
+
 
                 var s = Forms.Context.Resources.OpenRawResource(id);  // RESOURCE NAME ###
 
@@ -67,5 +67,7 @@ namespace Daijoubu.Droid.Dependencies
             readStream.Close();
             writeStream.Close();
         }
+
+
     }
 }
