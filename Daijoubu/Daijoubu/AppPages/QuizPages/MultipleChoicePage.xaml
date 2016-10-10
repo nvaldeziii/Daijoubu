@@ -20,7 +20,7 @@
     <Label Text=" " />
     <Label Text=" " />
 
-    <Grid>
+    <Grid x:Name="grid_multiple_choice">
       <Grid.RowDefinitions>
         <RowDefinition Height="*" />
         <RowDefinition Height="*" />
