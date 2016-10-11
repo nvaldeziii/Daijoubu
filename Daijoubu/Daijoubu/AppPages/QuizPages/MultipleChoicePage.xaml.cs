@@ -74,9 +74,8 @@ namespace Daijoubu.AppPages.QuizPages
         public void GenerateQuestion()
         {
             this.BackgroundColor = Color.White;
-            //Random rand = new Random();
 
-            //tbl_kana kana = JapaneseDatabase.Table_Kana[rand.Next(0, JapaneseDatabase.Table_Kana.Count)];
+            //tbl_kana kana = JapaneseDatabase.Table_Kana[random.Next(0, JapaneseDatabase.Table_Kana.Count)];
 
             //label_question.Text = kana.hiragana;
 
@@ -84,11 +83,13 @@ namespace Daijoubu.AppPages.QuizPages
 
             //string[] choices = new string[4];
             //choices[0] = Answer;
-            //for(int i = 1; i <= 3; i++)
+            //for (int i = 1; i <= 3; i++)
             //{
-            //    choices[i] = JapaneseDatabase.Table_Kana[rand.Next(0, JapaneseDatabase.Table_Kana.Count)].romaji;
+            //    choices[i] = JapaneseDatabase.Table_Kana[random.Next(0, JapaneseDatabase.Table_Kana.Count)].romaji;
             //}
-            QuestionFactory.GenerateKanaQuestion( ((QuestionType)random.Next(0,2)));
+            //GenerateChoices(choices);
+
+            QuestionFactory.GenerateKanaQuestion(((QuestionType)random.Next(0, 3)));
             label_question.Text = QuestionFactory.Question;
             Answer = QuestionFactory.Answer;
             GenerateChoices(QuestionFactory.Choices);
