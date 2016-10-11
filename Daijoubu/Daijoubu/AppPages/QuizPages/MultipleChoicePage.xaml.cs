@@ -1,4 +1,5 @@
-﻿using Daijoubu.AppLibrary;
+﻿
+using Daijoubu.AppLibrary;
 using Daijoubu.AppModel;
 using System;
 using System.Linq;
@@ -41,6 +42,10 @@ namespace Daijoubu.AppPages.QuizPages
             {
                 //wrong answer
                 this.BackgroundColor = Color.Red;
+                if (Setting.HapticFeedback)
+                {
+                    DependencyService.Get<Dependencies.INotifications>().Vibrate();
+                }
             }
 
             Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () => {

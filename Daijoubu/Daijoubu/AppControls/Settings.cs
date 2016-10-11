@@ -13,6 +13,8 @@ namespace Daijoubu
             MultipleChoice = new MultipleChoiceSettings();
             GetUserPreferences();
         }
+
+        public bool HapticFeedback { get; set; }
         public MultipleChoiceSettings MultipleChoice { get; set; }
 
         public void GetUserPreferences()
@@ -22,6 +24,7 @@ namespace Daijoubu
         public void SetDefault()
         {
             MultipleChoice.AnswerFeedBackDelay = new TimeSpan(0, 0, 0, 1, 500);
+            HapticFeedback = true;
         }
     }
 
