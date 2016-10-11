@@ -15,5 +15,28 @@ namespace Daijoubu.AppLibrary
                 return ("あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわゐゑをんっ").ToCharArray();
             }
         }
+
+        public static char[] Alphabet
+        {
+            get
+            {
+                return ("abcdefghijklmnopqrstuvwxyz").ToCharArray();
+            }
+        }
+
+        public static bool ContainsAlphabet(string input)
+        {
+            foreach (char c in input)
+            {
+                foreach (char i in Alphabet)
+                {
+                    if (c == i)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
     }
 }

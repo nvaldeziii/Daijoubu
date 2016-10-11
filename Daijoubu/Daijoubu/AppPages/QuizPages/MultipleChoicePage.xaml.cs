@@ -8,9 +8,11 @@ using Xamarin.Forms;
 
 namespace Daijoubu.AppPages.QuizPages
 {
-    public partial class MultipleChoicePage : ContentPage
+    public partial class MultipleChoicePage : ContentPage , IQuiz
     {
         private string Answer;
+        private bool IsCorrect;
+
         Settings Setting;
         MultipleChoiceQuestionFactory QuestionFactory;
         Random random;
@@ -30,28 +32,41 @@ namespace Daijoubu.AppPages.QuizPages
 
         private void CheckAnswer(object sender, EventArgs e)
         {
-            ButtonsEnabled(false);
-
-            var user_ans = ((Button)(sender)).Text; 
-            if(user_ans == Answer)
+            CheckAnswer(((Button)(sender)).Text);
+            if (!IsCorrect)
             {
-                //correct answer
-                this.BackgroundColor = Color.Green;
-            }
-            else
-            {
-                //wrong answer
-                this.BackgroundColor = Color.Red;
-                if (Setting.HapticFeedback)
+                if(btn_choice1.Text == QuestionFactory.Answer)
                 {
-                    DependencyService.Get<Dependencies.INotifications>().Vibrate();
+                    btn_choice1.BackgroundColor = Color.Green;
+                }else if (btn_choice2.Text == QuestionFactory.Answer)
+                {
+                    btn_choice2.BackgroundColor = Color.Green;
+                }
+                else if (btn_choice3.Text == QuestionFactory.Answer)
+                {
+                    btn_choice3.BackgroundColor = Color.Green;
+                }
+                else if (btn_choice4.Text == QuestionFactory.Answer)
+                {
+                    btn_choice4.BackgroundColor = Color.Green;
                 }
             }
 
-            Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () => {
-                GenerateQuestion();
-                return false;
-            });
+            if (Setting.SpeakWords)
+            {
+                string ToSpeak = "";
+
+                if (!JapaneseCharacter.ContainsAlphabet(QuestionFactory.Answer))
+                {
+                    ToSpeak = QuestionFactory.Answer;
+                    DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
+                }
+                else if (!JapaneseCharacter.ContainsAlphabet(QuestionFactory.Question))
+                {
+                    ToSpeak = QuestionFactory.Question;
+                    DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
+                }          
+            }
         }
 
         public void GenerateChoices(string[] choices)
@@ -73,25 +88,50 @@ namespace Daijoubu.AppPages.QuizPages
             Answer = QuestionFactory.Answer;
             GenerateChoices(QuestionFactory.Choices);
 
-            ButtonsEnabled(true);
+            EnableInterfaces(true);
         }
 
-        public void ButtonsEnabled(bool value)
+        public void CheckAnswer(string user_answer)
+        {
+            EnableInterfaces(false);
+            if (user_answer == Answer)
+            {
+                //correct answer
+                this.BackgroundColor = Color.Green;
+                IsCorrect = true;
+            }
+            else
+            {
+                //wrong answer
+                this.BackgroundColor = Color.Red;
+                IsCorrect = false;
+                if (Setting.HapticFeedback)
+                {
+                    DependencyService.Get<Dependencies.INotifications>().Vibrate();
+                }
+            }
+            
+
+            Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () => {
+                GenerateQuestion();
+                return false;
+            });
+        }
+
+        public void EnableInterfaces(bool value)
         {
             btn_choice1.IsEnabled = value;
             btn_choice2.IsEnabled = value;
             btn_choice3.IsEnabled = value;
             btn_choice4.IsEnabled = value;
-        }
 
-        private void JapaneseVocabularyQuestion()
-        {
-
-        }
-
-        private void EnglishVocabularyQuestion()
-        {
-
+            if (value == true)
+            {
+                btn_choice1.BackgroundColor =
+                     btn_choice2.BackgroundColor =
+                     btn_choice3.BackgroundColor =
+                     btn_choice4.BackgroundColor = Color.Gray;
+            }
         }
     }
 

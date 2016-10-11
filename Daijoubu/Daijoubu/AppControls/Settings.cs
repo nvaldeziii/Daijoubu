@@ -15,6 +15,7 @@ namespace Daijoubu
         }
 
         public bool HapticFeedback { get; set; }
+        public bool SpeakWords { get; set; }
         public MultipleChoiceSettings MultipleChoice { get; set; }
 
         public void GetUserPreferences()
@@ -25,6 +26,7 @@ namespace Daijoubu
         {
             MultipleChoice.AnswerFeedBackDelay = new TimeSpan(0, 0, 0, 1, 500);
             HapticFeedback = true;
+            SpeakWords = true;
         }
     }
 

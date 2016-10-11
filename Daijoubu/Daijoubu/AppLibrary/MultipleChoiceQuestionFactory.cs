@@ -18,15 +18,15 @@ namespace Daijoubu.AppLibrary
         public string Question { get; private set; }
         public string[] Choices { get; private set; }
         public string Answer { get; private set; }
-        Random rand;
+        Random random;
 
         public MultipleChoiceQuestionFactory()
         {
-            rand = new Random();
+            random = new Random();
         }
         public void GenerateKanaQuestion(QuestionType type)
         {
-            GenerateKanaQuestion(JapaneseDatabase.Table_Kana.Count, rand.Next(0, JapaneseDatabase.Table_Kana.Count), type);
+            GenerateKanaQuestion(JapaneseDatabase.Table_Kana.Count, random.Next(0, JapaneseDatabase.Table_Kana.Count), type);
         }
         public void GenerateKanaQuestion(int high, int CardId, QuestionType type)
         {
@@ -44,55 +44,55 @@ namespace Daijoubu.AppLibrary
                     kana = JapaneseDatabase.Table_Kana[CardId];
                     Question = kana.hiragana;
                     Answer = kana.romaji;
-                    GenerateChoices(() => { return JapaneseDatabase.Table_Kana[rand.Next(0, high)].romaji; });
+                    GenerateChoices(() => { return JapaneseDatabase.Table_Kana[random.Next(0, high)].romaji; });
                     break;
                 case QuestionType.Katakana:
                     kana = JapaneseDatabase.Table_Kana[CardId];
                     Question = kana.katakana;
                     Answer = kana.romaji;
-                    GenerateChoices(() => { return JapaneseDatabase.Table_Kana[rand.Next(0, high)].romaji; });
+                    GenerateChoices(() => { return JapaneseDatabase.Table_Kana[random.Next(0, high)].romaji; });
                     break;
                 case QuestionType.Romaji:
                     kana = JapaneseDatabase.Table_Kana[CardId];
                     Question = kana.romaji;
                     Answer = kana.hiragana;
-                    GenerateChoices(() => { return JapaneseDatabase.Table_Kana[rand.Next(0, high)].hiragana; });
+                    GenerateChoices(() => { return JapaneseDatabase.Table_Kana[random.Next(0, high)].hiragana; });
                     break;
                 case QuestionType.VocabularyJP:
                     vocabulary = JapaneseDatabase.Table_Vocabulary_N5[CardId];
                     Question = vocabulary.kanji;
                     Answer = vocabulary.meaning;
-                    GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[rand.Next(0, high)].meaning; });
+                    GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[random.Next(0, high)].meaning; });
                     break;
                 case QuestionType.VocabularyEN:
                     vocabulary = JapaneseDatabase.Table_Vocabulary_N5[CardId];
                     Question = vocabulary.meaning;
                     Answer = vocabulary.kanji;
-                    GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[rand.Next(0, high)].kanji; });
+                    GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[random.Next(0, high)].kanji; });
                     break;
                 case QuestionType.VocabularyJPFU:
                     vocabulary = JapaneseDatabase.Table_Vocabulary_N5[CardId];
                     Question = vocabulary.kanji;
                     Answer = vocabulary.furigana;
-                    GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[rand.Next(0, high)].furigana; });
+                    GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[random.Next(0, high)].furigana; });
                     break;
                 case QuestionType.VocabularyFUJP:
                     vocabulary = JapaneseDatabase.Table_Vocabulary_N5[CardId];
                     Question = vocabulary.furigana;
                     Answer = vocabulary.kanji;
-                    GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[rand.Next(0, high)].kanji; });
+                    GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[random.Next(0, high)].kanji; });
                     break;
                 case QuestionType.VocabularyFUEN:
                     vocabulary = JapaneseDatabase.Table_Vocabulary_N5[CardId];
                     Question = vocabulary.furigana;
                     Answer = vocabulary.meaning;
-                    GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[rand.Next(0, high)].meaning; });
+                    GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[random.Next(0, high)].meaning; });
                     break;
                 case QuestionType.VocabularyENFU:
                     vocabulary = JapaneseDatabase.Table_Vocabulary_N5[CardId];
                     Question = vocabulary.meaning;
                     Answer = vocabulary.furigana;
-                    GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[rand.Next(0, high)].furigana; });
+                    GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[random.Next(0, high)].furigana; });
                     break;
                 default:
                     throw new Exception("MultipleChoiceQuestionFactory->GenerateHiraganaQuestion(){switch_default} error");
