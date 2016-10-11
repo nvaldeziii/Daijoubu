@@ -11,5 +11,6 @@ namespace Daijoubu.Dependencies
     public interface ISQLite
     {
         SQLiteConnection GetConnection();
+        SQLiteConnection GetConnection(string DatabaseName);
     }
 }

@@ -38,6 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppLibrary\Card.cs" />
     <Compile Include="AppModel\JapaneseDatabase.cs" />
     <Compile Include="AppModel\tbl_grammar.cs" />
     <Compile Include="AppModel\tbl_kana.cs" />
@@ -75,13 +76,14 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Settings.cs" />
+    <Compile Include="AppControls\Settings.cs" />
     <Compile Include="SideMenuItems.xaml.cs">
       <DependentUpon>SideMenuItems.xaml</DependentUpon>
     </Compile>
     <Compile Include="SideMenuPage.xaml.cs">
       <DependentUpon>SideMenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppControls\UserData.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">

@@ -19,6 +19,11 @@ namespace Daijoubu.Droid.Dependencies
         {
             return this.GetConnection("master.db3", Resource.Raw.DaijoubuJapaneseLanguage);
         }
+        public SQLite.SQLiteConnection GetConnection(string DatabaseName)
+        {
+           return GetConnection(DatabaseName,null);
+        }
+
         public SQLite.SQLiteConnection GetConnection(string DatabaseName,int id)
         {
             var sqliteFilename = DatabaseName;
@@ -27,14 +32,14 @@ namespace Daijoubu.Droid.Dependencies
 
             // This is where we copy in the prepopulated database
             //Console.WriteLine(path);
-            if (File.Exists(path))
-            {
-                File.Delete(path);
-            }
-            if (!File.Exists(path))
-            {
 
+            //if (File.Exists(path)) //uncomment this to delete local db
+            //{
+            //    File.Delete(path);
+            //}
 
+            if (!File.Exists(path) && id != null)
+            {
                 var s = Forms.Context.Resources.OpenRawResource(id);  // RESOURCE NAME ###
 
                 // create a write stream
