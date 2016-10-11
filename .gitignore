@@ -247,3 +247,4 @@ ModelManifest.xml
 # SQLite
 SQLite/*.sqlite3
 *.sqlite3
+*.sqlite3*
