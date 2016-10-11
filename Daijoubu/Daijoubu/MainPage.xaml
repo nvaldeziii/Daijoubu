@@ -6,7 +6,8 @@
              Title="Daijoubu"
              BackgroundColor="Aqua">
   
-  <StackLayout>
+  <StackLayout 
+    Padding="0,-50,0,0">
     <RelativeLayout>
       <!-- header image with text -->
 

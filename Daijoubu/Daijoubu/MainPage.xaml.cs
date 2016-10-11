@@ -18,6 +18,8 @@ namespace Daijoubu
             var database = DependencyService.Get<ISQLite>().GetConnection();
 
             database.CreateTable<tbl_kana>();
+            database.CreateTable<tbl_vocabulary_N5>();
+            JapaneseDatabase.Table_Vocabulary_N5 = database.Table<tbl_vocabulary_N5>().ToList();
             JapaneseDatabase.Table_Kana = database.Table<tbl_kana>().ToList();
 
         }

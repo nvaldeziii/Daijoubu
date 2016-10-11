@@ -5,6 +5,21 @@
   <Application.Resources>
 
     <!-- Application resource dictionary -->
+    <ResourceDictionary>
+      <Style x:Key="MultipleChoiceButtonStyle" TargetType="Button">
+        <Setter Property="BorderColor" Value="Blue" />
+        <Setter Property="BorderRadius" Value="15" />
+        <Setter Property="BorderWidth" Value="5" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextColor" Value="Teal" />
+      </Style>
 
+      <Style x:Key="SingleQuestionLabel" TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="FontSize" Value="60" />
+        <Setter Property="TextColor" Value="Teal" />
+      </Style>
+    </ResourceDictionary>
+    
   </Application.Resources>
 </Application>

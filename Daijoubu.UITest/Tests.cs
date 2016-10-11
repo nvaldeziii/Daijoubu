@@ -42,6 +42,13 @@ namespace Daijoubu.UITest
             app.Tap("auto_btn_multiple");
             //act
             app.Tap("auto_btn_choice1");
+            app.Tap("auto_btn_choice2");
+            app.Tap("auto_btn_choice3");
+            app.Tap("auto_btn_choice4");
+
+            var QuestionLabelText = app.Query().First().Text;
+            var ShouldNotbe = "??";
+            Assert.AreNotSame(ShouldNotbe, QuestionLabelText);
 
         }
     }

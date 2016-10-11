@@ -2,15 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.QuizPages.ListeningPage"
-             Title="Listening Module"
-             BackgroundColor="Green">
+             Title="Listening Module">
 
   <StackLayout>
+    <Label Text=" " />
     <Image x:Name="img_speaker"
            Source="speaker"
-           Aspect="AspectFill" />
-    <Editor x:Name="edittext_tts_input"
-            Text="こんにちは、大丈夫へようこぞ."/>
+           Aspect="AspectFit"
+           Scale=".5"/>
+    <Label Text=" " />
+    <Label x:Name="lbl_correct_ans"
+           Text=" "
+           FontSize="15"/>
+    
+    <Entry x:Name="edittext_tts_input"
+           Text=""/>
+
+    <Button x:Name="btn_submit"
+            Text="Submit" />
     
   </StackLayout>
 </ContentPage>

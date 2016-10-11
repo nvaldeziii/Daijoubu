@@ -13,9 +13,8 @@
     <Label Text=" " />
 
     <Label x:Name="label_question"
-             Text="*value*"
-             FontSize="30"
-             HorizontalOptions="Center" />
+             Text="*val*"
+             Style="{StaticResource SingleQuestionLabel}" />
 
     <Label Text=" " />
     <Label Text=" " />
@@ -34,19 +33,23 @@
       <Button x:Name="btn_choice1"
               AutomationId="auto_btn_choice1"
               Grid.Row="0" Grid.Column="0"
-              Text="*ans1*" />
+              Text="*ans1*"
+              Style="{StaticResource MultipleChoiceButtonStyle}"/>
       <Button x:Name="btn_choice2"
               AutomationId="auto_btn_choice2"
               Grid.Row="0" Grid.Column="1"
-              Text="*ans2*" />
+              Text="*ans2*"
+              Style="{StaticResource MultipleChoiceButtonStyle}"/>
       <Button x:Name="btn_choice3"
               AutomationId="auto_btn_choice3"
               Grid.Row="1" Grid.Column="0"
-              Text="*ans3*" />
+              Text="*ans3*"
+              Style="{StaticResource MultipleChoiceButtonStyle}"/>
       <Button x:Name="btn_choice4"
               AutomationId="auto_btn_choice4"
               Grid.Row="1" Grid.Column="1"
-              Text="*ans4*" />
+              Text="*ans4*"
+              Style="{StaticResource MultipleChoiceButtonStyle}"/>
     </Grid>
 
   </StackLayout>
