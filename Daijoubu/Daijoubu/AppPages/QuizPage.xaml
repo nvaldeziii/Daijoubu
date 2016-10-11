@@ -6,6 +6,7 @@
 
   <StackLayout>
     <Button x:Name="btn_multiple"
+            AutomationId="auto_btn_multiple"
             Text="Multiple" />
 
     <Button x:Name="btn_listen"

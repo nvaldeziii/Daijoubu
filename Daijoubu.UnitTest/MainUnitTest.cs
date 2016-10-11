@@ -4,10 +4,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Daijoubu.UnitTest
 {
     [TestClass]
-    public class SQLiteUnitTest
+    public class MainUnitTest
     {
         [TestMethod]
-        public void GetData()
+        public void ExpectedToPass()
         {
             //arrange
 

@@ -9,7 +9,8 @@
     <Button Text="Profile"
             x:Name="SideMenuButton_Profile"/>
     <Button Text="Quiz"
-            x:Name="SideMenuButton_Quiz"/>
+            x:Name="SideMenuButton_Quiz"
+            AutomationId="auto_SideMenuButton_Quiz"/>
     <Button Text="Settings"
             x:Name="SideMenuButton_Settings"/>
     <Button Text="About"

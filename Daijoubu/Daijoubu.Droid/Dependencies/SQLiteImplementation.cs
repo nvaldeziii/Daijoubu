@@ -21,7 +21,25 @@ namespace Daijoubu.Droid.Dependencies
         }
         public SQLite.SQLiteConnection GetConnection(string DatabaseName)
         {
-           return GetConnection(DatabaseName,null);
+           return GetConnection(DatabaseName, -1);
+        }
+        string GetPath(string DatabaseName)
+        {
+            var sqliteFilename = DatabaseName;
+            string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
+            return Path.Combine(documentsPath, sqliteFilename);
+        }
+        public void DeleteDatabase()
+        {
+            DeleteDatabase("master.db3");
+        }
+        public void DeleteDatabase(string DatabaseName)
+        {
+            var path = GetPath(DatabaseName);
+            if (File.Exists(path)) //uncomment this to delete local db
+            {
+                File.Delete(path);
+            }
         }
 
         public SQLite.SQLiteConnection GetConnection(string DatabaseName,int id)
@@ -32,13 +50,7 @@ namespace Daijoubu.Droid.Dependencies
 
             // This is where we copy in the prepopulated database
             //Console.WriteLine(path);
-
-            //if (File.Exists(path)) //uncomment this to delete local db
-            //{
-            //    File.Delete(path);
-            //}
-
-            if (!File.Exists(path) && id != null)
+            if (!File.Exists(path) && id != -1)
             {
                 var s = Forms.Context.Resources.OpenRawResource(id);  // RESOURCE NAME ###
 
