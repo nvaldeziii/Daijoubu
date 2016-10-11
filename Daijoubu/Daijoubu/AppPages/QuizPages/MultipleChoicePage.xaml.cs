@@ -54,20 +54,8 @@ namespace Daijoubu.AppPages.QuizPages
             });
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public void GenerateChoices(string[] choices)
         {
-            //var random_num = rand.Next(0, JapaneseDatabase.Table_Kana.Count);
-
-            //string[] choices = new string[4];
-
-            //choices[0] = (from y in JapaneseDatabase.Table_Kana where y.romaji == correct_ans select y).First().romaji;
-            //choices[1] = JapaneseDatabase.Table_Kana[rand.Next(0, JapaneseDatabase.Table_Kana.Count)].romaji;
-            //choices[2] = JapaneseDatabase.Table_Kana[rand.Next(0, JapaneseDatabase.Table_Kana.Count)].romaji;
-            //choices[3] = JapaneseDatabase.Table_Kana[rand.Next(0, JapaneseDatabase.Table_Kana.Count)].romaji;
-
             choices = choices.OrderBy(x => random.Next()).ToArray();
 
             btn_choice1.Text = choices[0];
@@ -80,21 +68,7 @@ namespace Daijoubu.AppPages.QuizPages
         {
             this.BackgroundColor = Color.White;
 
-            //tbl_kana kana = JapaneseDatabase.Table_Kana[random.Next(0, JapaneseDatabase.Table_Kana.Count)];
-
-            //label_question.Text = kana.hiragana;
-
-            //Answer = kana.romaji;
-
-            //string[] choices = new string[4];
-            //choices[0] = Answer;
-            //for (int i = 1; i <= 3; i++)
-            //{
-            //    choices[i] = JapaneseDatabase.Table_Kana[random.Next(0, JapaneseDatabase.Table_Kana.Count)].romaji;
-            //}
-            //GenerateChoices(choices);
-
-            QuestionFactory.GenerateKanaQuestion(((QuestionType)random.Next(0, 3)));
+            QuestionFactory.GenerateKanaQuestion(((MultipleChoiceQuestionFactory.QuestionType)random.Next(0, 9))); // this should not be random
             label_question.Text = QuestionFactory.Question;
             Answer = QuestionFactory.Answer;
             GenerateChoices(QuestionFactory.Choices);
@@ -108,21 +82,6 @@ namespace Daijoubu.AppPages.QuizPages
             btn_choice2.IsEnabled = value;
             btn_choice3.IsEnabled = value;
             btn_choice4.IsEnabled = value;
-        }
-
-        private void HiraganaQuestion()
-        {
-
-        }
-
-        private void KatanaQuestion()
-        {
-
-        }
-
-        private void RomajiQuestion()
-        {
-
         }
 
         private void JapaneseVocabularyQuestion()
