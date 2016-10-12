@@ -8,5 +8,7 @@ namespace Daijoubu.AppModel
 {
     public class tbl_user_settings
     {
+        public string name { get; set; }
+        public string info { get; set; }
     }
 }

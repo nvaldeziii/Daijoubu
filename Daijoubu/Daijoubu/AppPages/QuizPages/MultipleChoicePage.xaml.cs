@@ -1,6 +1,7 @@
 ﻿
 using Daijoubu.AppLibrary;
 using Daijoubu.AppModel;
+using Daijoubu.Dependencies;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace Daijoubu.AppPages.QuizPages
         Settings Setting;
         MultipleChoiceQuestionFactory QuestionFactory;
         Random random;
+        Card CurrentQuestion;
+
         public MultipleChoicePage()
         {
             InitializeComponent();
@@ -83,7 +86,10 @@ namespace Daijoubu.AppPages.QuizPages
         {
             this.BackgroundColor = Color.White;
 
-            QuestionFactory.GenerateKanaQuestion(((MultipleChoiceQuestionFactory.QuestionType)random.Next(0, 9))); // this should not be random
+            //0 ,3 is kana
+            //3 , 9 is vocabs
+            CurrentQuestion = UserDatabase.KanaCardStack.Pop();
+            QuestionFactory.GenerateKanaQuestion(UserDatabase.KanaCardStackHigh, CurrentQuestion.Id, ((MultipleChoiceQuestionFactory.QuestionType)random.Next(0, 3)));
             label_question.Text = QuestionFactory.Question;
             Answer = QuestionFactory.Answer;
             GenerateChoices(QuestionFactory.Choices);
@@ -99,12 +105,36 @@ namespace Daijoubu.AppPages.QuizPages
                 //correct answer
                 this.BackgroundColor = Color.Green;
                 IsCorrect = true;
+
+                CurrentQuestion.CorrectCount++;
+                //todo: save to sql
+                //
+
+                var SQLConnection = DependencyService.Get<ISQLite>().GetUserDBconnection();
+                SQLConnection.BeginTransaction();
+                SQLConnection.Execute(string.Format("UPDATE tbl_us_cardknN5Dt SET CorrectCount={0},LastView=\"{1}\""
+                    , CurrentQuestion.CorrectCount
+                    , CurrentQuestion.LastView));
+                SQLConnection.Commit();
             }
             else
             {
                 //wrong answer
                 this.BackgroundColor = Color.Red;
                 IsCorrect = false;
+                CurrentQuestion.MistakeCount++;
+                CurrentQuestion.LastView = DateTime.Now;
+                //todo: save to sql
+                //
+
+                UserDatabase.KanaCardStack.Push(CurrentQuestion);
+                var SQLConnection = DependencyService.Get<ISQLite>().GetUserDBconnection();
+                SQLConnection.BeginTransaction();
+                SQLConnection.Execute(string.Format("UPDATE tbl_us_cardknN5Dt SET MistakeCount={0},LastView=\"{1}\""
+                    , CurrentQuestion.MistakeCount
+                    , CurrentQuestion.LastView));
+                SQLConnection.Commit();
+
                 if (Setting.HapticFeedback)
                 {
                     DependencyService.Get<Dependencies.INotifications>().Vibrate();

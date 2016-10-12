@@ -46,7 +46,10 @@
     <Compile Include="AppModel\JapaneseDatabase.cs" />
     <Compile Include="AppModel\tbl_grammar.cs" />
     <Compile Include="AppModel\tbl_kana.cs" />
+    <Compile Include="AppModel\tbl_user_card_data.cs" />
+    <Compile Include="AppModel\tbl_user_settings.cs" />
     <Compile Include="AppModel\tbl_vocabulary.cs" />
+    <Compile Include="AppModel\UserDatabase.cs" />
     <Compile Include="AppPages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>

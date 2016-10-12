@@ -2954,6 +2954,9 @@ namespace Daijoubu.Droid
 			// aapt resource value: 0x7f060000
 			public const int DaijoubuJapaneseLanguage = 2131099648;
 			
+			// aapt resource value: 0x7f060001
+			public const int userDB = 2131099649;
+			
 			static Raw()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
