@@ -88,8 +88,8 @@ namespace Daijoubu.AppPages.QuizPages
 
             //0 ,3 is kana
             //3 , 9 is vocabs
-            CurrentQuestion = UserDatabase.KanaCardStack.Pop();
-            QuestionFactory.GenerateKanaQuestion(UserDatabase.KanaCardStackHigh, CurrentQuestion.Id, ((MultipleChoiceQuestionFactory.QuestionType)random.Next(0, 3)));
+            CurrentQuestion = UserDatabase.KanaCardQueue.Pop();
+            QuestionFactory.GenerateKanaQuestion(UserDatabase.KanaCardQueueHigh, CurrentQuestion.Id, ((MultipleChoiceQuestionFactory.QuestionType)random.Next(0, 3)));
             label_question.Text = QuestionFactory.Question;
             Answer = QuestionFactory.Answer;
             GenerateChoices(QuestionFactory.Choices);
@@ -127,7 +127,7 @@ namespace Daijoubu.AppPages.QuizPages
                 //todo: save to sql
                 //
 
-                UserDatabase.KanaCardStack.Push(CurrentQuestion);
+                UserDatabase.KanaCardQueue.Push(CurrentQuestion);
                 var SQLConnection = DependencyService.Get<ISQLite>().GetUserDBconnection();
                 SQLConnection.BeginTransaction();
                 SQLConnection.Execute(string.Format("UPDATE tbl_us_cardknN5Dt SET MistakeCount={0},LastView=\"{1}\""

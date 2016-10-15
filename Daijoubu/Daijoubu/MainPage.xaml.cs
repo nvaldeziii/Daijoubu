@@ -50,10 +50,10 @@ namespace Daijoubu
             UserDatabase.Table_UserVocabCardsN5 = userDBO.Table<tbl_us_cardvbN5dt>().ToList();
 
             int High = 5; //max card to review
-            Stack<Card> tmpholder = new Stack<Card>();
+            Queue<Card> tmpholder = new Queue<Card>();
             for(int i = 0; High != 0; i++)
             {
-                UserDatabase.KanaCardStackHigh = i;
+                UserDatabase.KanaCardQueueHigh = i;
                 int numerator = UserDatabase.Table_UserKanaCardsN5[i].CorrectCount;
                 int denominator = UserDatabase.Table_UserKanaCardsN5[i].MistakeCount;
                 double percent = ((double)numerator) / (numerator + denominator);
@@ -62,8 +62,11 @@ namespace Daijoubu
                     percent = new double();
                     percent = 0;
                 }
-                
-                if(percent < 80)
+
+                //compute date vs correct items and mistakes 
+                DateTime TimeDiff = Convert.ToDateTime(UserDatabase.Table_UserKanaCardsN5[i].LastView).AddMinutes(percent * 100);
+
+                if (percent < 80 || TimeDiff < DateTime.Now)
                 {
                     Card NewCard = new Card();
                     NewCard.Id = UserDatabase.Table_UserKanaCardsN5[i].Id;
@@ -82,13 +85,13 @@ namespace Daijoubu
                     High--;
                 }
             }
-            UserDatabase.KanaCardStack = tmpholder;
+            UserDatabase.KanaCardQueue = tmpholder;
 
             High = 5; //max card to review
-            Stack<Card> tmpholder2 = new Stack<Card>();
+            Queue<Card> tmpholder2 = new Queue<Card>();
             for (int i = 0; High != 0; i++)
             {
-                UserDatabase.VocabularyCardStackHigh = i;
+                UserDatabase.VocabularyCardQueueHigh = i;
                 int numerator = UserDatabase.Table_UserKanaCardsN5[i].CorrectCount;
                 int denominator = UserDatabase.Table_UserKanaCardsN5[i].MistakeCount;
                 double percent = ((double)numerator) / (numerator + denominator);
@@ -98,7 +101,9 @@ namespace Daijoubu
                     percent = 0;
                 }
 
-                if (percent < 80)
+                DateTime TimeDiff = Convert.ToDateTime(UserDatabase.Table_UserVocabCardsN5[i].LastView).AddMinutes(percent * 100);
+
+                if (percent < 80 || TimeDiff < DateTime.Now)
                 {
                     Card NewCard = new Card();
                     NewCard.Id = UserDatabase.Table_UserVocabCardsN5[i].Id;
@@ -117,7 +122,7 @@ namespace Daijoubu
                     High--;
                 }
             }
-            UserDatabase.VocabularyCardStack = tmpholder2;
+            UserDatabase.VocabularyCardQueue = tmpholder2;
 
         }
 

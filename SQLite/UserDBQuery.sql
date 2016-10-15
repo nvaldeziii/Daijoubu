@@ -31,3 +31,4 @@ create table tbl_user_card_vocab_N4data(
         MistakeCount int,
         LastView varchar(254)
 );
+
