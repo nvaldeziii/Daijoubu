@@ -5,9 +5,9 @@
              Title="Profile">
 
   <StackLayout>
-    <Label Text="Profile Page"
-           TextColor="Red"
-           BackgroundColor="Green" />
+
+    <Button x:Name="btn_achivements"
+            Text="View Achivements" />
   </StackLayout>
   
 </ContentPage>

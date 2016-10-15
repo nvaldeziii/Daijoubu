@@ -31,8 +31,9 @@ namespace Daijoubu
             var userDBO = DependencyService.Get<ISQLite>().GetUserDBconnection();
             userDBO.CreateTable<tbl_us_cardknN5Dt>();
             userDBO.CreateTable<tbl_us_cardvbN5dt>();
+            userDBO.CreateTable<tbl_user_settings>();
 
-            
+
 
             var x = userDBO.Table<tbl_us_cardknN5Dt>().Count();
             userDBO.BeginTransaction();
@@ -48,6 +49,7 @@ namespace Daijoubu
 
             UserDatabase.Table_UserKanaCardsN5 = userDBO.Table<tbl_us_cardknN5Dt>().ToList();
             UserDatabase.Table_UserVocabCardsN5 = userDBO.Table<tbl_us_cardvbN5dt>().ToList();
+            UserDatabase.Table_UserSettings = userDBO.Table<tbl_user_settings>().ToList();
 
             int High = 5; //max card to review
             Queue<Card> tmpholder = new Queue<Card>();
@@ -81,7 +83,7 @@ namespace Daijoubu
                         NewCard.LastView = DateTime.Now;
                     }
 
-                    tmpholder.Push(NewCard);
+                    tmpholder.Enqueue(NewCard);
                     High--;
                 }
             }
@@ -118,7 +120,7 @@ namespace Daijoubu
                         NewCard.LastView = DateTime.Now;
                     }
 
-                    tmpholder2.Push(NewCard);
+                    tmpholder2.Enqueue(NewCard);
                     High--;
                 }
             }

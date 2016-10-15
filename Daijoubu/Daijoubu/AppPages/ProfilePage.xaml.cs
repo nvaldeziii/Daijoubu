@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Daijoubu.AppPages.ProfilePages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,10 @@ namespace Daijoubu.AppPages
         public ProfilePage()
         {
             InitializeComponent();
+
+            btn_achivements.Clicked += (o, e) => {
+                Navigation.PushAsync(new AchivementPage());
+            };
         }
     }
 }

@@ -43,6 +43,7 @@
     <Compile Include="AppLibrary\JapaneseCharacter.cs" />
     <Compile Include="AppLibrary\MultipleChoiceQuestionFactory.cs" />
     <Compile Include="AppLibrary\TypingQuestionFactory.cs" />
+    <Compile Include="AppModel\DatabaseManipulator.cs" />
     <Compile Include="AppModel\JapaneseDatabase.cs" />
     <Compile Include="AppModel\tbl_grammar.cs" />
     <Compile Include="AppModel\tbl_kana.cs" />
@@ -55,6 +56,9 @@
     </Compile>
     <Compile Include="AppPages\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\ProfilePages\AchivementPage.xaml.cs">
+      <DependentUpon>AchivementPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppPages\QuizPage.xaml.cs">
       <DependentUpon>QuizPage.xaml</DependentUpon>
@@ -183,7 +187,12 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="AppPages\ProfilePages\AchivementPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AppPages\ProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

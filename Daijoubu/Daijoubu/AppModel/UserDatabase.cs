@@ -12,6 +12,8 @@ namespace Daijoubu.AppModel
         public static List<tbl_us_cardknN5Dt> Table_UserKanaCardsN5 { get; set; }
         public static List<tbl_us_cardvbN5dt> Table_UserVocabCardsN5 { get; set; }
 
+        public static List<tbl_user_settings> Table_UserSettings { get; set; }
+
         public static int KanaCardQueueHigh { get; set; }
         public static int VocabularyCardQueueHigh { get; set; }
 

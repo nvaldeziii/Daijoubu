@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daijoubu.AppPages.ProfilePages.AchivementPage">
+
+
+  <StackLayout>
+    <ListView x:Name="listview_achivements" ItemsSource="{Binding UserCard_Kana}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <Label Text="{Binding Item}"/>
+          <Label Text="{Binding Item2}"/>
+          <Label Text="{Binding Correct}"/>
+          <Label Text="{Binding Mistake}"/>
+          <Label Text="{Binding LastView}"/>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+  </StackLayout>
+
+
+</ContentPage>
