@@ -35,6 +35,15 @@ namespace Daijoubu.AppPages.QuizPages
 
         private void CheckAnswer(object sender, EventArgs e)
         {
+            //int i;
+            //for(i = 0; i < 4; i++)
+            //{
+            //    if( ((Button)(sender)).Text == ChoiceText[i] )
+            //    {
+            //        break;
+            //    }
+            //}
+
             CheckAnswer(((Button)(sender)).Text);
             if (!IsCorrect)
             {
@@ -62,12 +71,12 @@ namespace Daijoubu.AppPages.QuizPages
                 if (!JapaneseCharacter.ContainsAlphabet(QuestionFactory.Answer))
                 {
                     ToSpeak = QuestionFactory.Answer;
-                    DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
+                    //DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
                 }
                 else if (!JapaneseCharacter.ContainsAlphabet(QuestionFactory.Question))
                 {
                     ToSpeak = QuestionFactory.Question;
-                    DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
+                    //DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
                 }          
             }
         }
@@ -97,10 +106,14 @@ namespace Daijoubu.AppPages.QuizPages
             EnableInterfaces(true);
         }
 
-        public void CheckAnswer(string user_answer)
+        public void CheckAnswer(int user_ans)
+        {
+
+        }
+        public void CheckAnswer(string user_ans)
         {
             EnableInterfaces(false);
-            if (user_answer == Answer)
+            if (user_ans == Answer)
             {
                 //correct answer
                 this.BackgroundColor = Color.Green;
@@ -112,9 +125,15 @@ namespace Daijoubu.AppPages.QuizPages
 
                 var SQLConnection = DependencyService.Get<ISQLite>().GetUserDBconnection();
                 SQLConnection.BeginTransaction();
-                SQLConnection.Execute(string.Format("UPDATE tbl_us_cardknN5Dt SET CorrectCount={0},LastView=\"{1}\""
+                var query = string.Format("UPDATE tbl_us_cardknN5Dt SET CorrectCount={0},LastView=\"{1}\" WHERE Id=\"{2}\""
                     , CurrentQuestion.CorrectCount
-                    , CurrentQuestion.LastView));
+                    , DateTime.Now.ToString()
+                    , CurrentQuestion.Id);
+                SQLConnection.Execute(query);
+
+
+
+
                 SQLConnection.Commit();
             }
             else
@@ -130,17 +149,23 @@ namespace Daijoubu.AppPages.QuizPages
                 UserDatabase.KanaCardQueue.Enqueue(CurrentQuestion);
                 var SQLConnection = DependencyService.Get<ISQLite>().GetUserDBconnection();
                 SQLConnection.BeginTransaction();
-                SQLConnection.Execute(string.Format("UPDATE tbl_us_cardknN5Dt SET MistakeCount={0},LastView=\"{1}\""
+                SQLConnection.Execute(string.Format("UPDATE tbl_us_cardknN5Dt SET MistakeCount={0},LastView=\"{1}\" WHERE Id=\"{2}\" "
                     , CurrentQuestion.MistakeCount
-                    , CurrentQuestion.LastView));
+                    , DateTime.Now.ToString()
+                    , CurrentQuestion.Id));
                 SQLConnection.Commit();
+
+                
 
                 if (Setting.HapticFeedback)
                 {
                     DependencyService.Get<Dependencies.INotifications>().Vibrate();
                 }
             }
-            
+
+            UserDatabase.Table_UserKanaCardsN5[CurrentQuestion.Id].CorrectCount = CurrentQuestion.CorrectCount;
+            UserDatabase.Table_UserKanaCardsN5[CurrentQuestion.Id].MistakeCount = CurrentQuestion.MistakeCount;
+            UserDatabase.Table_UserKanaCardsN5[CurrentQuestion.Id].LastView = CurrentQuestion.LastView.ToString();
 
             Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () => {
                 GenerateQuestion();

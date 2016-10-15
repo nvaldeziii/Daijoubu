@@ -103,7 +103,15 @@ namespace Daijoubu
                     percent = 0;
                 }
 
-                DateTime TimeDiff = Convert.ToDateTime(UserDatabase.Table_UserVocabCardsN5[i].LastView).AddMinutes(percent * 100);
+                DateTime time;
+                try
+                {
+                    time = Convert.ToDateTime(UserDatabase.Table_UserVocabCardsN5[i].LastView);
+                }
+                catch { time = DateTime.Now; }
+
+
+                DateTime TimeDiff = time.AddMinutes(percent * 100);
 
                 if (percent < 80 || TimeDiff < DateTime.Now)
                 {

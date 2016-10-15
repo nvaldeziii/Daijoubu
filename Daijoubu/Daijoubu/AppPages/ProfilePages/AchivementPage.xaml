@@ -8,11 +8,17 @@
     <ListView x:Name="listview_achivements" ItemsSource="{Binding UserCard_Kana}">
       <ListView.ItemTemplate>
         <DataTemplate>
-          <Label Text="{Binding Item}"/>
-          <Label Text="{Binding Item2}"/>
-          <Label Text="{Binding Correct}"/>
-          <Label Text="{Binding Mistake}"/>
-          <Label Text="{Binding LastView}"/>
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout>
+                <Label Text="{Binding Item}"/>
+                <Label Text="{Binding Item2}"/>
+                <Label Text="{Binding Correct}"/>
+                <Label Text="{Binding Mistake}"/>
+                <Label Text="{Binding LastView}"/>
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>

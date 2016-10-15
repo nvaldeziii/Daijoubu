@@ -1,6 +1,7 @@
 ﻿using Daijoubu.AppModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,14 @@ namespace Daijoubu.AppPages.ProfilePages
 {
     public partial class AchivementPage : ContentPage
     {
-        List<UserAchivements> UserCard_Kana;
+        ObservableCollection<UserAchivements> UserCard_Kana;
         public AchivementPage()
         {
             InitializeComponent();
 
-            UserCard_Kana = new List<UserAchivements>();
+            var x = UserDatabase.Table_UserKanaCardsN5;
+
+            UserCard_Kana = new ObservableCollection<UserAchivements>();
 
             bool checkCount = (UserDatabase.Table_UserKanaCardsN5.Count == JapaneseDatabase.Table_Kana.Count);
 
@@ -29,10 +32,12 @@ namespace Daijoubu.AppPages.ProfilePages
                     Correct = UserDatabase.Table_UserKanaCardsN5[i].CorrectCount,
                     Mistake = UserDatabase.Table_UserKanaCardsN5[i].MistakeCount,
                     LastView = UserDatabase.Table_UserKanaCardsN5[i].LastView
-            });
+                });
 
-            
+                
             }
+            listview_achivements.HasUnevenRows = true;
+            listview_achivements.ItemsSource = UserCard_Kana;
         }
 
         private class UserAchivements
@@ -46,5 +51,5 @@ namespace Daijoubu.AppPages.ProfilePages
         }
     }
 
-    
+
 }

@@ -15,6 +15,7 @@ namespace Daijoubu.AppLibrary
             Hiragana, Katakana, Romaji, VocabularyJP, VocabularyEN, VocabularyFUJP, VocabularyJPFU, VocabularyENFU, VocabularyFUEN
         };
 
+        public int QuestionID { get; private set; }
         public string Question { get; private set; }
         public string[] Choices { get; private set; }
         public string Answer { get; private set; }
@@ -37,6 +38,7 @@ namespace Daijoubu.AppLibrary
             //tbl_kana kana = JapaneseDatabase.Table_Kana[rand.Next(0, high)];
             tbl_kana kana;
             tbl_vocabulary_N5 vocabulary;
+            QuestionID = CardId;
 
             switch (type)
             {

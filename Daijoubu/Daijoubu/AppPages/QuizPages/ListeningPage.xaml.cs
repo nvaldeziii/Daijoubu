@@ -14,6 +14,7 @@ namespace Daijoubu.AppPages.QuizPages
     public partial class ListeningPage : ContentPage, IQuiz
     {
         private string ToSpeak;
+        bool correct;
         TypingQuestionFactory QuestionFactory;
         Settings Setting;
         Random random;
@@ -54,13 +55,23 @@ namespace Daijoubu.AppPages.QuizPages
 
         }
 
+
+        public void CheckAnswer(int id)
+        {
+            if (correct)
+            {
+                //change data in id
+            }
+        }
+
         public void CheckAnswer(string user_answer)
         {
             EnableInterfaces(false);
 
-            if (user_answer == QuestionFactory.Answer || user_answer == QuestionFactory.Answer2)
+            if (user_answer == QuestionFactory.Answer)
             {
                 //correct answer
+                correct = true;
                 this.BackgroundColor = Color.Green;
             }
             else
@@ -83,6 +94,7 @@ namespace Daijoubu.AppPages.QuizPages
 
         public void GenerateQuestion()
         {
+            correct = false;
             edittext_tts_input.Text = "";
             this.BackgroundColor = Color.White;
 

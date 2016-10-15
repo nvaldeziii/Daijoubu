@@ -14,6 +14,7 @@ namespace Daijoubu.AppLibrary
              Sentence, VoicedKanji, Kanji, Meaning
         };
 
+        public int QuestionId { get; private set; }
         public string Question { get; private set; }
         public string Answer { get; private set; }
         public string Answer2 { get; private set; }
@@ -27,6 +28,8 @@ namespace Daijoubu.AppLibrary
         public void GenerateQuestion(int CardId, QuestionType type)
         {
             tbl_vocabulary_N5 vocabulary;
+            QuestionId = CardId;
+
             switch (type)
             {
                 case QuestionType.Sentence:
