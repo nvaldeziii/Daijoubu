@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.SettingsPage"
              Title="Settings"
-             BackgroundColor="Green">
+             BackgroundColor="#CDFFFF">
 
   <StackLayout>
     <Label Text="Settings Page"
            TextColor="Red"
-           BackgroundColor="Green" />
+           />
   </StackLayout>
 </ContentPage>
