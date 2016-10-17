@@ -40,6 +40,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppLibrary\Card.cs" />
+    <Compile Include="AppLibrary\Categories.cs" />
     <Compile Include="AppLibrary\Computer.cs" />
     <Compile Include="AppLibrary\IQuiz.cs" />
     <Compile Include="AppLibrary\JapaneseCharacter.cs" />
@@ -136,9 +137,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="AppPages\multiple_choice.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AppPages\ProfilePage.xaml">

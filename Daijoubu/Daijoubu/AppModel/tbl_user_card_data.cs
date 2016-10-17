@@ -11,6 +11,10 @@ namespace Daijoubu.AppModel
         public int MistakeCount { get; set; }
         public string LastView { get; set; }
     }
+    public class tbl_us_cardktknN5Dt : AbstractCardTable
+    {
+
+    }
     public class tbl_us_cardknN5Dt : AbstractCardTable
     {
         

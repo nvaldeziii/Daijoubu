@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Daijoubu.AppLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace Daijoubu.AppPages
         {
             btn_multiple.Clicked += (o, e) =>
             {
-                var page = new QuizPages.MultipleChoicePage();
+                var page = new QuizPages.MultipleChoicePage(Categories.MultipleChoiceCategory.Hiragana);
                 Navigation.PushAsync(page);
             };
 
