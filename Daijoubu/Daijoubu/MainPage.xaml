@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Daijoubu"
              x:Class="Daijoubu.MainPage"
              Title="Daijoubu"
-             BackgroundColor="Aqua">
+             BackgroundColor="#CDFFFF">
   
   <StackLayout 
     Padding="0,-50,0,0">

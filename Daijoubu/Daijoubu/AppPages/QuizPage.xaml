@@ -2,9 +2,59 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.QuizPage"
-             Title="Quiz">
+             Title="Quiz"
+             BackgroundColor="#CDFFFF">
 
-  <StackLayout>
+  <Grid>
+   
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="1*" />
+      <ColumnDefinition Width="1*" />
+    </Grid.ColumnDefinitions>
+
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="1*" />
+      <RowDefinition Height="1*" />
+    </Grid.RowDefinitions>
+
+    <Button
+            x:Name="btn_multiple"
+            AutomationId="auto_btn_multiple"
+            TextColor="Red"
+            BackgroundColor="#400D12"
+            Text="Multiple Choice"
+            Image="@drawable/multiple_choice"
+            >
+    </Button>
+     
+
+
+
+
+    <Button Grid.Column="1"
+            x:Name="btn_listen"
+            TextColor="Red"
+            BackgroundColor="#400D12"
+            Text="Listening" />
+
+ 
+
+    <Button Grid.Row="1"
+            x:Name="btn_typing"
+            TextColor="Red"
+            BackgroundColor="#400D12"
+            Text="Typing" />
+
+    <Button Grid.Column="1"
+            Grid.Row="1"
+            TextColor="Red"
+            BackgroundColor="#400D12"
+            x:Name="btn_reading"
+            Text="Reading" />
+  </Grid>
+  
+  <!--<StackLayout>
     <Button x:Name="btn_multiple"
             AutomationId="auto_btn_multiple"
             Text="Multiple" />
@@ -17,6 +67,6 @@
 
     <Button x:Name="btn_reading"
             Text="Reading" />
-  </StackLayout>
+  </StackLayout>-->
   
 </ContentPage>
