@@ -40,6 +40,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppLibrary\Card.cs" />
+    <Compile Include="AppLibrary\Computer.cs" />
     <Compile Include="AppLibrary\IQuiz.cs" />
     <Compile Include="AppLibrary\JapaneseCharacter.cs" />
     <Compile Include="AppLibrary\MultipleChoiceQuestionFactory.cs" />

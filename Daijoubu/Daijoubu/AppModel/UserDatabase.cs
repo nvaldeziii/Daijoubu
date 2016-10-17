@@ -14,10 +14,12 @@ namespace Daijoubu.AppModel
 
         public static List<tbl_user_settings> Table_UserSettings { get; set; }
 
-        public static int KanaCardQueueHigh { get; set; }
-        public static int VocabularyCardQueueHigh { get; set; }
+        public static int KanaCardQueueHigh { get { return KanaCardQueue.Count; } }
+        public static int VocabularyCardQueueHigh { get { return VocabularyCardQueue.Count; } }
 
         public static Queue<Card> KanaCardQueue { get; set; }
         public static Queue<Card> VocabularyCardQueue { get; set; }
+        
+        
     }
 }

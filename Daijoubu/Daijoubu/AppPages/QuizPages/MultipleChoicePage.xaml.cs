@@ -95,7 +95,7 @@ namespace Daijoubu.AppPages.QuizPages
             Answer = QuestionFactory.Answer;
             GenerateChoices(QuestionFactory.Choices);
 
-            lbl_debug_txt.Text = string.Format("question id: {0}", CurrentQuestion.Id);
+            lbl_debug_txt.Text = string.Format("[DEBUG] Question Id: {0}", CurrentQuestion.Id);
 
             EnableInterfaces(true);
         }
@@ -114,21 +114,9 @@ namespace Daijoubu.AppPages.QuizPages
                 IsCorrect = true;
 
                 CurrentQuestion.CorrectCount++;
-                //todo: save to sql
-                //
 
-                var SQLConnection = DependencyService.Get<ISQLite>().GetUserDBconnection();
-                SQLConnection.BeginTransaction();
-                var query = string.Format("UPDATE tbl_us_cardknN5Dt SET CorrectCount={0},LastView=\"{1}\" WHERE Id=\"{2}\""
-                    , CurrentQuestion.CorrectCount
-                    , DateTime.Now.ToString()
-                    , CurrentQuestion.Id);
-                SQLConnection.Execute(query);
-
-
-
-
-                SQLConnection.Commit();
+                //save to sql
+                DatabaseManipulator.Update_User_KanaCard(CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);
             }
             else
             {
@@ -137,19 +125,9 @@ namespace Daijoubu.AppPages.QuizPages
                 IsCorrect = false;
                 CurrentQuestion.MistakeCount++;
                 CurrentQuestion.LastView = DateTime.Now;
-                //todo: save to sql
-                //
 
-                UserDatabase.KanaCardQueue.Enqueue(CurrentQuestion);
-                var SQLConnection = DependencyService.Get<ISQLite>().GetUserDBconnection();
-                SQLConnection.BeginTransaction();
-                SQLConnection.Execute(string.Format("UPDATE tbl_us_cardknN5Dt SET MistakeCount={0},LastView=\"{1}\" WHERE Id=\"{2}\" "
-                    , CurrentQuestion.MistakeCount
-                    , DateTime.Now.ToString()
-                    , CurrentQuestion.Id));
-                SQLConnection.Commit();
-
-                
+                //save to sql
+                DatabaseManipulator.Update_User_KanaCard(CurrentQuestion.MistakeCount, CurrentQuestion.Id, IsCorrect);
 
                 if (Setting.HapticFeedback)
                 {
@@ -157,9 +135,10 @@ namespace Daijoubu.AppPages.QuizPages
                 }
             }
 
-            UserDatabase.Table_UserKanaCardsN5[CurrentQuestion.Id].CorrectCount = CurrentQuestion.CorrectCount;
-            UserDatabase.Table_UserKanaCardsN5[CurrentQuestion.Id].MistakeCount = CurrentQuestion.MistakeCount;
-            UserDatabase.Table_UserKanaCardsN5[CurrentQuestion.Id].LastView = CurrentQuestion.LastView.ToString();
+            var cardIndex = CurrentQuestion.Id - 1;
+            UserDatabase.Table_UserKanaCardsN5[cardIndex].CorrectCount = CurrentQuestion.CorrectCount;
+            UserDatabase.Table_UserKanaCardsN5[cardIndex].MistakeCount = CurrentQuestion.MistakeCount;
+            UserDatabase.Table_UserKanaCardsN5[cardIndex].LastView = CurrentQuestion.LastView.ToString();
 
             Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () => {
                 GenerateQuestion();
