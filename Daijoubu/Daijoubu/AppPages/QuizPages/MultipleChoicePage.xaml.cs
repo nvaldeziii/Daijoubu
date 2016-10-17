@@ -35,14 +35,6 @@ namespace Daijoubu.AppPages.QuizPages
 
         private void CheckAnswer(object sender, EventArgs e)
         {
-            //int i;
-            //for(i = 0; i < 4; i++)
-            //{
-            //    if( ((Button)(sender)).Text == ChoiceText[i] )
-            //    {
-            //        break;
-            //    }
-            //}
 
             CheckAnswer(((Button)(sender)).Text);
             if (!IsCorrect)
@@ -71,12 +63,12 @@ namespace Daijoubu.AppPages.QuizPages
                 if (!JapaneseCharacter.ContainsAlphabet(QuestionFactory.Answer))
                 {
                     ToSpeak = QuestionFactory.Answer;
-                    //DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
+                    DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
                 }
                 else if (!JapaneseCharacter.ContainsAlphabet(QuestionFactory.Question))
                 {
                     ToSpeak = QuestionFactory.Question;
-                    //DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
+                    DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
                 }          
             }
         }
@@ -102,6 +94,8 @@ namespace Daijoubu.AppPages.QuizPages
             label_question.Text = QuestionFactory.Question;
             Answer = QuestionFactory.Answer;
             GenerateChoices(QuestionFactory.Choices);
+
+            lbl_debug_txt.Text = string.Format("question id: {0}", CurrentQuestion.Id);
 
             EnableInterfaces(true);
         }

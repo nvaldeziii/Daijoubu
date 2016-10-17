@@ -66,8 +66,14 @@ namespace Daijoubu
                 }
 
                 //compute date vs correct items and mistakes 
-                DateTime TimeDiff = Convert.ToDateTime(UserDatabase.Table_UserKanaCardsN5[i].LastView).AddMinutes(percent * 100);
-
+                DateTime TimeDiff;
+                try
+                {
+                    TimeDiff = Convert.ToDateTime(UserDatabase.Table_UserKanaCardsN5[i].LastView).AddMinutes(percent * 100);
+                }catch
+                {
+                    TimeDiff = DateTime.Now;
+                }
                 if (percent < 80 || TimeDiff < DateTime.Now)
                 {
                     Card NewCard = new Card();

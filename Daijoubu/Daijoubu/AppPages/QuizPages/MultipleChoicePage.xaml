@@ -18,7 +18,8 @@
 
     <Label Text=" " />
     <Label Text=" " />
-    <Label Text=" " />
+    <Label x:Name="lbl_debug_txt"
+           Text=" " />
     <Label Text=" " />
 
     <Grid x:Name="grid_multiple_choice">

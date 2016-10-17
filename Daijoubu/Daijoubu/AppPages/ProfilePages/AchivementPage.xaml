@@ -11,11 +11,31 @@
           <ViewCell>
             <ViewCell.View>
               <StackLayout>
-                <Label Text="{Binding Item}"/>
-                <Label Text="{Binding Item2}"/>
-                <Label Text="{Binding Correct}"/>
-                <Label Text="{Binding Mistake}"/>
-                <Label Text="{Binding LastView}"/>
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="Item ID: "/>
+                  <Label Text="{Binding ItemID}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="Item: "/>
+                  <Label Text="{Binding Item}"/>
+                  <Label Text=" / "/>
+                  <Label Text="{Binding Item2}"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="Correct: "/>
+                  <Label Text="{Binding Correct}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="Mistake: "/>
+                  <Label Text="{Binding Mistake}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="LastView: "/>
+                  <Label Text="{Binding LastView}"/>
+                </StackLayout>
+
               </StackLayout>
             </ViewCell.View>
           </ViewCell>

@@ -9,6 +9,8 @@
 
     <Button x:Name="btn_achivements"
             Text="View Achivements" />
+    <Button x:Name="btn_delete_data"
+            Text="Delete User Data" />
   </StackLayout>
   
 </ContentPage>

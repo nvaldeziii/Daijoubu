@@ -1,4 +1,5 @@
-﻿using Daijoubu.AppPages.ProfilePages;
+﻿using Daijoubu.AppModel;
+using Daijoubu.AppPages.ProfilePages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,13 @@ namespace Daijoubu.AppPages
 
             btn_achivements.Clicked += (o, e) => {
                 Navigation.PushAsync(new AchivementPage());
+            };
+
+            btn_delete_data.Clicked += (o, e) =>
+            {
+                DependencyService.Get<Dependencies.ISQLite>().DeleteUserDB();
+                UserDatabase.Table_UserSettings = DependencyService.Get<Dependencies.ISQLite>()
+                                                    .GetUserDBconnection().Table<tbl_user_settings>().ToList();
             };
         }
     }

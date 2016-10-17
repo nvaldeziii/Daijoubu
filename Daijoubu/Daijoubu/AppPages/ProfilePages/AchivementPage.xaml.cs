@@ -27,6 +27,7 @@ namespace Daijoubu.AppPages.ProfilePages
             {
                 UserCard_Kana.Add(new UserAchivements
                 {
+                    ItemID = JapaneseDatabase.Table_Kana[i].Id,
                     Item = JapaneseDatabase.Table_Kana[i].hiragana,
                     Item2 = JapaneseDatabase.Table_Kana[i].katakana,
                     Correct = UserDatabase.Table_UserKanaCardsN5[i].CorrectCount,
@@ -42,6 +43,7 @@ namespace Daijoubu.AppPages.ProfilePages
 
         private class UserAchivements
         {
+            public int ItemID { get; set; }
             public string Item { get; set; }
             public string Item2 { get; set; }
             public int Correct { get; set; }
