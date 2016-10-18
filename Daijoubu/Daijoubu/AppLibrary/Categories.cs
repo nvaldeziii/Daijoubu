@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Daijoubu.AppLibrary
 {
-    interface IQuiz
+    public class Categories
     {
-        //void CheckAnswer(int user_answer);
-        //void GenerateQuestion();
-        void EnableInterfaces(bool value);
+        public enum MultipleChoiceCategory { Hiragana, Katakana, Vocabulary }
     }
 }

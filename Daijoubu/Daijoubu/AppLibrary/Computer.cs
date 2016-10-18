@@ -45,13 +45,13 @@ namespace Daijoubu.AppLibrary
         }
         public static double ForPercentage(int numerator, int denominator)
         {
-            double percent = ((double)numerator) / (numerator + denominator);
+            double percent = ((double)numerator) / ((double)numerator + (double)denominator);
             if (double.IsNaN(percent))
             {
                 percent = new double();
                 percent = 0;
             }
-            return percent;
+            return percent*100.0;
         }
 
         public static bool ForQueuing(DateTime LastView, double Percent)
@@ -65,8 +65,9 @@ namespace Daijoubu.AppLibrary
             {
                 TimeDiff = DateTime.Now;
             }
-
-            return (Percent < 80 || TimeDiff < DateTime.Now);
+            var diff = TimeDiff < DateTime.Now;
+            var percentdiff = (Percent < 80);
+            return (percentdiff || diff);
         }
     }
 }
