@@ -22,21 +22,25 @@
             x:Name="btn_multiple"
             AutomationId="auto_btn_multiple"
             TextColor="Red"
+            
             BackgroundColor="#400D12"
             Text="Multiple Choice"
             Image="@drawable/multiple_choice"
-            >
-    </Button>
-     
+            ContentLayout="Top,0"
+            />
+           
 
-
+  
 
 
     <Button Grid.Column="1"
             x:Name="btn_listen"
             TextColor="Red"
             BackgroundColor="#400D12"
-            Text="Listening" />
+            Text="Listening"
+            Image="@drawable/Listening_logo"
+            ContentLayout="Top,0"
+            />
 
  
 
@@ -44,14 +48,18 @@
             x:Name="btn_typing"
             TextColor="Red"
             BackgroundColor="#400D12"
-            Text="Typing" />
+            Text="Typing"
+            Image="@drawable/FillBlank_logo"
+            ContentLayout="Top,0"/>
 
     <Button Grid.Column="1"
             Grid.Row="1"
             TextColor="Red"
             BackgroundColor="#400D12"
             x:Name="btn_reading"
-            Text="Reading" />
+            Text="Reading"
+            Image="@drawable/Reading_logo"
+            ContentLayout="Top,0"/>
   </Grid>
   
   <!--<StackLayout>
