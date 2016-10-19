@@ -116,7 +116,7 @@ namespace Daijoubu.AppPages.QuizPages
             if (!(TMPQueueHolder.Count > 0))
             {
                 Threshold = true;
-                ReplenishQueue();
+                TMPQueueHolder = ReplenishQueue();
             }
 
             //0 ,3 is kana
@@ -139,19 +139,19 @@ namespace Daijoubu.AppPages.QuizPages
             return Threshold;
         }
 
-        private void ReplenishQueue()
+        private Queue<Card> ReplenishQueue()
         {
             if (QuizCategory == MultipleChoiceCategory.Hiragana)
             {
-                UserDatabase.KanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>());
+                return UserDatabase.KanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>());
             }
             else if (QuizCategory == MultipleChoiceCategory.Katakana)
             {
-                UserDatabase.KataKanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>());
+                return UserDatabase.KataKanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>());
             }
             else if (QuizCategory == MultipleChoiceCategory.Vocabulary)
             {
-                UserDatabase.VocabularyCardQueue = Computer.CreateQueue(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
+                return UserDatabase.VocabularyCardQueue = Computer.CreateQueue(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
             }
             else
             {
