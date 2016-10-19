@@ -11,8 +11,13 @@
             x:Name="SideMenuButton_Profile"
             TextColor="Red"
             BackgroundColor="#400D12"/>
-    <Button Text="Quiz"
+    <Button Text="Quiz N5"
             x:Name="SideMenuButton_Quiz"
+            TextColor="Red"
+            AutomationId="auto_SideMenuButton_Quiz"
+            BackgroundColor="#400D12"/>
+    <Button Text="Quiz N4"
+            x:Name="SideMenuButton_QuizN4"
             TextColor="Red"
             AutomationId="auto_SideMenuButton_Quiz"
             BackgroundColor="#400D12"/>

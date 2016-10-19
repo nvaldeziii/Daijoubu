@@ -9,5 +9,6 @@ namespace Daijoubu.Dependencies
     public interface INotifications
     {
         void Vibrate(int miliseconds = 100);
+        void ToastDependency(string message);
     }
 }

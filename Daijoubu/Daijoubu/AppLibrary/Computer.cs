@@ -21,15 +21,13 @@ namespace Daijoubu.AppLibrary
             for (int i = 0; High != 0; i++)
             {
                 //UserDatabase.KanaCardQueueHigh = i;
-
-                double percent = Computer.ForPercentage(CardTable[i].CorrectCount, CardTable[i].MistakeCount);
                 DateTime LastView;
                 try
                 { LastView = Convert.ToDateTime(CardTable[i].LastView); }
                 catch
                 { LastView = DateTime.Now; }
                 //compute date vs correct items and mistakes 
-                if (Computer.ForQueuing(LastView, percent))
+                if (Computer.ForQueuing(LastView, CardTable[i].CorrectCount, CardTable[i].MistakeCount))
                 {
                     Card NewCard = new Card();
                     NewCard.Id = CardTable[i].Id;
@@ -54,20 +52,44 @@ namespace Daijoubu.AppLibrary
             return percent*100.0;
         }
 
-        public static bool ForQueuing(DateTime LastView, double Percent)
+        public static DateTime NextQueuing(DateTime LastView, int correct,int mistake)
         {
             DateTime TimeDiff;
+            double _Percent = ForPercentage( correct,  mistake);
+            mistake = mistake <= 0 ? 1 : mistake;
+            correct = correct <= 0 ? 1 : correct;
+            double _multiplier = ((double)correct + (mistake * 3.0)) / (correct * 1.5);
+            double fixed_multiplier = 7.5;////////////////////////////////////////////////////////////////////////////
             try
             {
-                TimeDiff = LastView.AddMinutes(Percent * 100);
+                double _minutes = _Percent * fixed_multiplier * _multiplier;
+                TimeDiff = LastView.AddMinutes(_minutes);
             }
             catch
             {
                 TimeDiff = DateTime.Now;
             }
-            var diff = TimeDiff < DateTime.Now;
-            var percentdiff = (Percent < 80);
-            return (percentdiff || diff);
+            return TimeDiff;
+        }
+        public static TimeSpan NextQueingSpan(DateTime LastView, int correct, int mistake)
+        {
+            TimeSpan span = (NextQueuing(LastView, correct, mistake) - DateTime.Now);
+            return span;
+        }
+
+        public static string NextQueingSpanToString(TimeSpan span)
+        {
+            return String.Format("{0}d, {1}hr/s, {2}min/s, {3}s",
+                span.Days, span.Hours, span.Minutes, span.Seconds);
+        }
+
+        public static bool ForQueuing(DateTime LastView, int correct, int mistake)
+        {
+            var TimeDiff = NextQueingSpan( LastView, correct, mistake);
+
+            var timelapse = TimeDiff.TotalSeconds <= 0;
+            var percentdiff = (ForPercentage(correct, mistake) < 50);///////////////////////////////////////////////////////////////////////////
+            return (percentdiff || timelapse);
         }
     }
 }

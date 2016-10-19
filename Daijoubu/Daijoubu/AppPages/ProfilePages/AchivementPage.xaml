@@ -35,7 +35,14 @@
                   <Label Text="LastView: "/>
                   <Label Text="{Binding LastView}"/>
                 </StackLayout>
-
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="Next Queuing: "/>
+                  <Label Text="{Binding NextQueue}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="Percent: "/>
+                  <Label Text="{Binding Percent}"/>
+                </StackLayout>
               </StackLayout>
             </ViewCell.View>
           </ViewCell>
