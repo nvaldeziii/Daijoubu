@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.QuizPage"
              Title="Quiz"
-             BackgroundColor="#CDFFFF">
+             BackgroundColor="#DFDFDF"
+             Padding="50"
+             >
 
   <Grid>
    
@@ -23,7 +25,7 @@
             AutomationId="auto_btn_multiple"
             TextColor="Red"
             
-            BackgroundColor="#400D12"
+            BackgroundColor="#FFFFFF"
             Text="Multiple Choice"
             Image="@drawable/multiple_choice"
             ContentLayout="Top,0"
@@ -36,7 +38,7 @@
     <Button Grid.Column="1"
             x:Name="btn_listen"
             TextColor="Red"
-            BackgroundColor="#400D12"
+            BackgroundColor="#FFFFFF"
             Text="Listening"
             Image="@drawable/Listening_logo"
             ContentLayout="Top,0"
@@ -47,7 +49,7 @@
     <Button Grid.Row="1"
             x:Name="btn_typing"
             TextColor="Red"
-            BackgroundColor="#400D12"
+            BackgroundColor="#FFFFFF"
             Text="Typing"
             Image="@drawable/FillBlank_logo"
             ContentLayout="Top,0"/>
@@ -55,7 +57,7 @@
     <Button Grid.Column="1"
             Grid.Row="1"
             TextColor="Red"
-            BackgroundColor="#400D12"
+            BackgroundColor="#FFFFFF"
             x:Name="btn_reading"
             Text="Reading"
             Image="@drawable/Reading_logo"
