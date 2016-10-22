@@ -29,14 +29,14 @@ namespace Daijoubu.AppLibrary
         {
             GenerateKanaQuestion(JapaneseDatabase.Table_Kana.Count, random.Next(0, JapaneseDatabase.Table_Kana.Count), type);
         }
-        public void GenerateKanaQuestion(int high, int CardId, QuestionType type,int low = 0)
+        public void GenerateKanaQuestion(int high, int CardId, QuestionType type, int low = 0)
         {
             //if (high > JapaneseDatabase.Table_Kana.Count)
             //{
             //    throw new Exception("MultipleChoiceQuestionFactory->GenerateHiraganaQuestion() error");
             //}
             //tbl_kana kana = JapaneseDatabase.Table_Kana[rand.Next(0, high)];
-            int cardindex = CardId > 0 ? CardId  - 1 : 0;
+            int cardindex = CardId > 0 ? CardId - 1 : 0;
             tbl_kana kana;
             tbl_vocabulary_N5 vocabulary;
             QuestionID = CardId;
@@ -101,7 +101,7 @@ namespace Daijoubu.AppLibrary
                     default:
                         throw new Exception("MultipleChoiceQuestionFactory->GenerateHiraganaQuestion(){switch_default} error");
                 }
-            } while (Question == "null");
+            } while (Question.ToLower() == "null" || Answer.ToLower() == "null");
         }
 
         public void GenerateChoices(Func<string> Choice)
@@ -114,7 +114,7 @@ namespace Daijoubu.AppLibrary
 
                 for (int j = 0; j < i; j++)
                 {
-                    while ( _Choice == Choices[j])
+                    while ( _Choice == Choices[j] || _Choice.ToLower() == "null")
                     {
                         j = 0;
                         _Choice = Choice();

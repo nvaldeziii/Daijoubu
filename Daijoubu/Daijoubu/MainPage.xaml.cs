@@ -16,6 +16,7 @@ namespace Daijoubu
         {
             InitializeComponent();
             //this.Padding = -50;
+        
             ApplicationInitialization();
         }
 

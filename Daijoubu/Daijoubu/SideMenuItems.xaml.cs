@@ -13,6 +13,10 @@ namespace Daijoubu
         public SideMenuItems()
         {
             InitializeComponent();
+
+            //this.Padding = 100;
+            //this.BackgroundColor = Color.Yellow;
+
             InitializeClickEvents();
         }
 

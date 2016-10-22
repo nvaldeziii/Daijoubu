@@ -4,20 +4,23 @@
              xmlns:local="clr-namespace:Daijoubu"
              x:Class="Daijoubu.MainPage"
              Title="Daijoubu"
-             BackgroundColor="#000000">
-  
+             BackgroundColor="#000000"
+             Padding="0,0,0,0">
+
   <StackLayout Orientation="Vertical" >
-      <!-- header image with text -->
 
-      <Image x:Name="image_homepage_header"
-             Source="homepage_header"
-             Aspect="AspectFill"/>
+    <Image x:Name="image_homepage_header"
+           Source="homepage_header"
+           Aspect="AspectFill"/>
 
-      <Label x:Name="label_homepage_header"
-             Text="Welcome to だいじょうぶ"/>
-  
-    <ListView x:Name="listview_homepage" />
+    <Label x:Name="label_homepage_header"
+           Text="Welcome to だいじょうぶ"
+           HorizontalOptions="Center"
+           TextColor="Red"
+           BackgroundColor="Green"
+           FontSize="25"/>
   </StackLayout>
+
 
 
 </ContentPage>

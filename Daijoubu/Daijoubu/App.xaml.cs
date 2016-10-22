@@ -15,12 +15,10 @@ namespace Daijoubu
 
             MainPage = new NavigationPage(new Daijoubu.SideMenuPage())
             {
-                BarBackgroundColor = Color.FromHex("#273442"),
-                Padding = new Thickness(0,-50,0,0)
-                
-                
+                BarBackgroundColor = Color.FromHex("#273442")
+               
             };
-            //MainPage.Padding = -50;
+            MainPage.Padding = -50;
         }
 
         protected override void OnStart()
