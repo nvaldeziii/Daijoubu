@@ -23,18 +23,22 @@ namespace Daijoubu.AppPages
 
             btn_delete_data.Clicked += (o, e) =>
             {
-                try
-                {
-                    DependencyService.Get<INotifications>().ToastDependency("Deleting please wait...");
-                    DatabaseManipulator.ResetUserData();
-                    DependencyService.Get<INotifications>().ToastDependency("User data deleted!");
-                }
-                catch
-                {
-                    DependencyService.Get<INotifications>().ToastDependency("An error has occured!");
-                }
+                btn_delete_data.IsEnabled = false;
+                DependencyService.Get<INotifications>().ToastDependency("Deleting please wait...");
 
-                
+                Device.StartTimer(new TimeSpan(0,0,2), () =>
+                {
+                    try
+                    {
+                        DatabaseManipulator.ResetUserData();
+                        DependencyService.Get<INotifications>().ToastDependency("User data deleted!");
+                    }
+                    catch
+                    {
+                        DependencyService.Get<INotifications>().ToastDependency("An error has occured!");
+                    }
+                    return false;
+                });         
             };
         }
     }

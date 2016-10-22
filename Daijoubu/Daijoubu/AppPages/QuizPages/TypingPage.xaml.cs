@@ -37,6 +37,7 @@ namespace Daijoubu.AppPages.QuizPages
             btn_submit.Clicked += (o, e) =>
             {
                 CheckAnswer(textentry_answer.Text);
+                textentry_answer.Text = "";
             };
         }
 
