@@ -4,7 +4,8 @@
              x:Class="Daijoubu.AppPages.QuizPages.MultipleChoicePage"
              Title="Choice Module" 
              x:Name="MultipleChoicePage"
-             AutomationId="auto_MultipleChoicePage">
+             AutomationId="auto_MultipleChoicePage"
+             Padding="50">
 
   <StackLayout>
 

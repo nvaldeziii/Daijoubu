@@ -13,7 +13,13 @@ namespace Daijoubu
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage( new Daijoubu.SideMenuPage() );
+            MainPage = new NavigationPage(new Daijoubu.SideMenuPage())
+            {
+                BarBackgroundColor = Color.FromHex("#273442"),
+                Padding = -50
+                
+                
+            };
             //MainPage.Padding = -50;
         }
 

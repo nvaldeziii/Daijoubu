@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Daijoubu.AppPages.QuizPages.MCCatSelectPage">
+             x:Class="Daijoubu.AppPages.QuizPages.MCCatSelectPage"
+             Padding="50">
   <StackLayout>
     <Button x:Name="btn_hiragana_quiz"
           Text="Hiragana" />

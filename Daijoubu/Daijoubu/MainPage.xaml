@@ -4,16 +4,19 @@
              xmlns:local="clr-namespace:Daijoubu"
              x:Class="Daijoubu.MainPage"
              Title="Daijoubu"
-             BackgroundColor="#CDFFFF">
+             BackgroundColor="#DFDFDF"
+             >
   
-  <StackLayout 
+  <StackLayout Orientation="Vertical" 
     Padding="0,-50,0,0">
     <RelativeLayout>
       <!-- header image with text -->
 
       <Image x:Name="image_homepage_header"
              Source="homepage_header"
-             Aspect="AspectFill" />
+             Aspect="AspectFill"
+             
+             />
 
       <Label x:Name="label_homepage_header"
              Text="Welcome to だいじょうぶ"
