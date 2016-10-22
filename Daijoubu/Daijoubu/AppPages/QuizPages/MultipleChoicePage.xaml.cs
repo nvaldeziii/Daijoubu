@@ -116,19 +116,28 @@ namespace Daijoubu.AppPages.QuizPages
             if (!(TMPQueueHolder.Count > 0))
             {
                 Threshold = true;
-                ReplenishQueue();
+                TMPQueueHolder = ReplenishQueue();
             }
 
             //0 ,3 is kana
             //3 , 9 is vocabs
             CurrentQuestion = TMPQueueHolder.Dequeue();
 
-            QuestionFactory.GenerateKanaQuestion(TMPQueueHolder.Count, CurrentQuestion.Id, nextnum);
+            try
+            {
+                QuestionFactory.GenerateKanaQuestion(CurrentQuestion.Id + 5, CurrentQuestion.Id, nextnum);
+            }
+            catch
+            {
+                QuestionFactory.GenerateKanaQuestion(CurrentQuestion.Id, CurrentQuestion.Id, nextnum);
+            }
             label_question.Text = QuestionFactory.Question;
             Answer = QuestionFactory.Answer;
             GenerateChoices(QuestionFactory.Choices);
 
             lbl_debug_txt.Text = string.Format("[DEBUG] Question Id: {0}", CurrentQuestion.Id);
+            lbl_percent.Text = string.Format("Learn ratio: {0}%", CurrentQuestion.LearnPercent);
+            RefreshItemInfo();
 
             EnableInterfaces(true);
             SaveQueue(TMPQueueHolder);
@@ -139,25 +148,26 @@ namespace Daijoubu.AppPages.QuizPages
             return Threshold;
         }
 
-        private void ReplenishQueue()
+        private Queue<Card> ReplenishQueue()
         {
             if (QuizCategory == MultipleChoiceCategory.Hiragana)
             {
-                UserDatabase.KanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>());
+                return UserDatabase.KanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>());
             }
             else if (QuizCategory == MultipleChoiceCategory.Katakana)
             {
-                UserDatabase.KataKanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>());
+                return UserDatabase.KataKanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>());
             }
             else if (QuizCategory == MultipleChoiceCategory.Vocabulary)
             {
-                UserDatabase.VocabularyCardQueue = Computer.CreateQueue(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
+                return UserDatabase.VocabularyCardQueue = Computer.CreateQueue(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
             }
             else
             {
                 throw new Exception("MultipleChoicePage->GenerateQuestion->replenish");
             }
         }
+
         private void SaveQueue(Queue<Card> tmpqueue)
         {
             if (QuizCategory == MultipleChoiceCategory.Hiragana)
@@ -226,6 +236,10 @@ namespace Daijoubu.AppPages.QuizPages
 
             }
 
+            //Show timespan
+            RefreshItemInfo();
+
+
 
 
             Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () =>
@@ -233,6 +247,13 @@ namespace Daijoubu.AppPages.QuizPages
                 GenerateQuestion(QuizCategory);
                 return false;
             });
+        }
+
+        private void RefreshItemInfo()
+        {
+            TimeSpan span = Computer.NextQueingSpan(CurrentQuestion.LastView, CurrentQuestion.CorrectCount, CurrentQuestion.MistakeCount);
+            lbl_nextview.Text = Computer.NextQueingSpanToString(span);
+            lbl_percent.Text = string.Format("Lear ratio: {0}%", CurrentQuestion.LearnPercent);
         }
 
         public void EnableInterfaces(bool value)

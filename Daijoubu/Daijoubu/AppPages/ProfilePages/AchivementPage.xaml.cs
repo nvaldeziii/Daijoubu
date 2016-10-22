@@ -1,4 +1,5 @@
-﻿using Daijoubu.AppModel;
+﻿using Daijoubu.AppLibrary;
+using Daijoubu.AppModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,6 +26,12 @@ namespace Daijoubu.AppPages.ProfilePages
 
             for (int i = 0; i < UserDatabase.Table_UserKanaCardsN5.Count; i++)
             {
+                DateTime _LastView;
+                try
+                {
+                    _LastView = Convert.ToDateTime(UserDatabase.Table_UserKanaCardsN5[i].LastView);
+                }
+                catch { _LastView = DateTime.Now; }
                 UserCard_Kana.Add(new UserAchivements
                 {
                     ItemID = JapaneseDatabase.Table_Kana[i].Id,
@@ -32,10 +39,12 @@ namespace Daijoubu.AppPages.ProfilePages
                     Item2 = JapaneseDatabase.Table_Kana[i].katakana,
                     Correct = UserDatabase.Table_UserKanaCardsN5[i].CorrectCount,
                     Mistake = UserDatabase.Table_UserKanaCardsN5[i].MistakeCount,
-                    LastView = UserDatabase.Table_UserKanaCardsN5[i].LastView
+                    LastView = UserDatabase.Table_UserKanaCardsN5[i].LastView,
+                    Percent = Computer.ForPercentage(UserDatabase.Table_UserKanaCardsN5[i].CorrectCount,UserDatabase.Table_UserKanaCardsN5[i].MistakeCount),
+                    NextQueue = Computer.NextQueingSpanToString(Computer.NextQueingSpan(_LastView, UserDatabase.Table_UserKanaCardsN5[i].CorrectCount,UserDatabase.Table_UserKanaCardsN5[i].MistakeCount))
                 });
 
-                
+
             }
             listview_achivements.HasUnevenRows = true;
             listview_achivements.ItemsSource = UserCard_Kana;
@@ -49,6 +58,8 @@ namespace Daijoubu.AppPages.ProfilePages
             public int Correct { get; set; }
             public int Mistake { get; set; }
             public string LastView { get; set; }
+            public string NextQueue { get; set; }
+            public double Percent { get; set; }
 
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Daijoubu.AppModel;
 using Daijoubu.AppPages.ProfilePages;
+using Daijoubu.Dependencies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,9 @@ namespace Daijoubu.AppPages
                                                     .GetUserDBconnection().Table<tbl_us_cardvbN5dt>().ToList();
                 UserDatabase.Table_UserKanaCardsN5 = DependencyService.Get<Dependencies.ISQLite>()
                                                     .GetUserDBconnection().Table<tbl_us_cardknN5Dt>().ToList();
+                UserDatabase.Table_UserKataKanaCardsN5 = DependencyService.Get<Dependencies.ISQLite>()
+                                                    .GetUserDBconnection().Table<tbl_us_cardktknN5Dt>().ToList();
+                DependencyService.Get<INotifications>().ToastDependency("User data deleted");
             };
         }
     }

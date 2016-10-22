@@ -30,28 +30,33 @@ namespace Daijoubu
 
             var userDBO = DependencyService.Get<ISQLite>().GetUserDBconnection();
             userDBO.CreateTable<tbl_us_cardknN5Dt>();
+            userDBO.CreateTable<tbl_us_cardktknN5Dt>();
             userDBO.CreateTable<tbl_us_cardvbN5dt>();
             userDBO.CreateTable<tbl_user_settings>();
 
-
-
-            var x = userDBO.Table<tbl_us_cardknN5Dt>().Count();
             userDBO.BeginTransaction();
             while (userDBO.Table<tbl_us_cardknN5Dt>().Count() < JapaneseDatabase.Table_Kana.Count)
             {
                 userDBO.Execute("insert into tbl_us_cardknN5Dt values (null,0,0,0);");
             }
-            while (userDBO.Table<tbl_us_cardvbN5dt>().Count() < JapaneseDatabase.Table_Kana.Count)
+            while (userDBO.Table<tbl_us_cardktknN5Dt>().Count() < JapaneseDatabase.Table_Kana.Count)
+            {
+                userDBO.Execute("insert into tbl_us_cardktknN5Dt values (null,0,0,0);");
+            }
+            while (userDBO.Table<tbl_us_cardvbN5dt>().Count() < JapaneseDatabase.Table_Vocabulary_N5.Count)
             {
                 userDBO.Execute("insert into tbl_us_cardvbN5dt values (null,0,0,0);");
             }
             userDBO.Commit();
 
+            
             UserDatabase.Table_UserKanaCardsN5 = userDBO.Table<tbl_us_cardknN5Dt>().ToList();
+            UserDatabase.Table_UserKataKanaCardsN5 = userDBO.Table<tbl_us_cardktknN5Dt>().ToList();
             UserDatabase.Table_UserVocabCardsN5 = userDBO.Table<tbl_us_cardvbN5dt>().ToList();
             UserDatabase.Table_UserSettings = userDBO.Table<tbl_user_settings>().ToList();
 
             UserDatabase.KanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>(), 5);
+            UserDatabase.KataKanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>(), 5);
             UserDatabase.VocabularyCardQueue = Computer.CreateQueue(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>(), 5);
 
         }

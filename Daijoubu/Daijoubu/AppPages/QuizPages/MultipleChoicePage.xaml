@@ -20,7 +20,10 @@
     <Label Text=" " />
     <Label x:Name="lbl_debug_txt"
            Text=" " />
-    <Label Text=" " />
+    <Label x:Name="lbl_nextview"
+           Text=" " />
+    <Label x:Name="lbl_percent"
+           Text=" " />
 
     <Grid x:Name="grid_multiple_choice">
       <Grid.RowDefinitions>

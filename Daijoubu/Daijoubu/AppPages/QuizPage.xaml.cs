@@ -21,7 +21,7 @@ namespace Daijoubu.AppPages
         {
             btn_multiple.Clicked += (o, e) =>
             {
-                var page = new QuizPages.MultipleChoicePage(Categories.MultipleChoiceCategory.Hiragana);
+                var page = new QuizPages.MCCatSelectPage();
                 Navigation.PushAsync(page);
             };
 
