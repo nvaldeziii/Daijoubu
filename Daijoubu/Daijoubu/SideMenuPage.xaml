@@ -5,8 +5,7 @@
              xmlns:local="clr-namespace:Daijoubu;assembly=Daijoubu"
              Title="Daijoubu"
              BackgroundColor="#273442"
-             
-             >
+             Padding="0,50,0,0">
 
   <MasterDetailPage.Master>
     <local:MainPage x:Name="SideMenuInstance" />

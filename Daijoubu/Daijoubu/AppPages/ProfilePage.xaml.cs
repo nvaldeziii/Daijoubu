@@ -23,14 +23,18 @@ namespace Daijoubu.AppPages
 
             btn_delete_data.Clicked += (o, e) =>
             {
-                DependencyService.Get<Dependencies.ISQLite>().DeleteUserDB();
-                UserDatabase.Table_UserVocabCardsN5 = DependencyService.Get<Dependencies.ISQLite>()
-                                                    .GetUserDBconnection().Table<tbl_us_cardvbN5dt>().ToList();
-                UserDatabase.Table_UserKanaCardsN5 = DependencyService.Get<Dependencies.ISQLite>()
-                                                    .GetUserDBconnection().Table<tbl_us_cardknN5Dt>().ToList();
-                UserDatabase.Table_UserKataKanaCardsN5 = DependencyService.Get<Dependencies.ISQLite>()
-                                                    .GetUserDBconnection().Table<tbl_us_cardktknN5Dt>().ToList();
-                DependencyService.Get<INotifications>().ToastDependency("User data deleted");
+                try
+                {
+                    DependencyService.Get<INotifications>().ToastDependency("Deleting please wait...");
+                    DatabaseManipulator.ResetUserData();
+                    DependencyService.Get<INotifications>().ToastDependency("User data deleted!");
+                }
+                catch
+                {
+                    DependencyService.Get<INotifications>().ToastDependency("An error has occured!");
+                }
+
+                
             };
         }
     }
