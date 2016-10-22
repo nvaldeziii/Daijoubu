@@ -103,7 +103,7 @@ namespace Daijoubu.AppPages.QuizPages
             }
             else if (category == MultipleChoiceCategory.Vocabulary)
             {
-                nextnum = ((MultipleChoiceQuestionFactory.QuestionType)random.Next(3, 9));
+                nextnum = ((MultipleChoiceQuestionFactory.QuestionType)random.Next(5, 6));
                 TMPQueueHolder = UserDatabase.VocabularyCardQueue;
             }
             else
