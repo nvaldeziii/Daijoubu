@@ -16,9 +16,15 @@ namespace Daijoubu
         {
             InitializeComponent();
             //this.Padding = -50;
+        
+            ApplicationInitialization();
+        }
+
+        void ApplicationInitialization()
+        {
             //DependencyService.Get<ISQLite>().DeleteUserDB();
             var japaneseDBO = DependencyService.Get<ISQLite>().GetJapaneseDBconnection();
-                
+
 
             //save the japanese dictionary to local list
             japaneseDBO.CreateTable<tbl_kana>();
@@ -26,7 +32,7 @@ namespace Daijoubu
 
             JapaneseDatabase.Table_Vocabulary_N5 = japaneseDBO.Table<tbl_vocabulary_N5>().ToList();
             JapaneseDatabase.Table_Kana = japaneseDBO.Table<tbl_kana>().ToList();
-            
+
 
             var userDBO = DependencyService.Get<ISQLite>().GetUserDBconnection();
             userDBO.CreateTable<tbl_us_cardknN5Dt>();
@@ -49,7 +55,7 @@ namespace Daijoubu
             }
             userDBO.Commit();
 
-            
+
             UserDatabase.Table_UserKanaCardsN5 = userDBO.Table<tbl_us_cardknN5Dt>().ToList();
             UserDatabase.Table_UserKataKanaCardsN5 = userDBO.Table<tbl_us_cardktknN5Dt>().ToList();
             UserDatabase.Table_UserVocabCardsN5 = userDBO.Table<tbl_us_cardvbN5dt>().ToList();
@@ -61,6 +67,6 @@ namespace Daijoubu
 
         }
 
-        
+
     }
 }

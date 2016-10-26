@@ -4,9 +4,7 @@
              x:Class="Daijoubu.SideMenuPage"
              xmlns:local="clr-namespace:Daijoubu;assembly=Daijoubu"
              Title="Daijoubu"
-             BackgroundColor="#273442"
-             
-             >
+             BackgroundColor="#273442">
 
   <MasterDetailPage.Master>
     <local:MainPage x:Name="SideMenuInstance" />

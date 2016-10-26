@@ -5,10 +5,13 @@
              Padding="50">
   <StackLayout>
     <Button x:Name="btn_hiragana_quiz"
-          Text="Hiragana" />
+            AutomationId="auto_btn_hiragana_quiz"
+            Text="Hiragana" />
     <Button x:Name="btn_katakana_quiz"
+            AutomationId="auto_btn_katakana_quiz"
             Text="Katakana" />
     <Button x:Name="btn_vocabulary_quiz"
+            AutomationId="auto_btn_katakana_quiz"
               Text="Vocabulary" />
   </StackLayout>
 </ContentPage>
