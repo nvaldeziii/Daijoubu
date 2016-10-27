@@ -4,7 +4,6 @@ using System.Linq;
 using NUnit.Framework;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
-using System.Drawing;
 
 namespace Daijoubu.UITest
 {
@@ -33,18 +32,104 @@ namespace Daijoubu.UITest
         }
 
         [Test]
-        public void MultipleChoiceUITest()
+        public void MultipleChoice_hiragana_UITest()
         {
             //arrange
-            app.DragCoordinates(10, 800, 650, 800);
-            //app.TapCoordinates(50, 115);
+            //app.DragCoordinates(10, 800, 650, 800);
+            app.TapCoordinates(50, 115);
             app.Tap("auto_SideMenuButton_Quiz");
             app.Tap("auto_btn_multiple");
+            app.Tap("auto_btn_hiragana_quiz");
             //act
-            app.Tap("auto_btn_choice1");
-            app.Tap("auto_btn_choice2");
-            app.Tap("auto_btn_choice3");
-            app.Tap("auto_btn_choice4");
+            var random = new Random();
+            for (int i = 0; i < 100; i++)
+            {
+                string ans = app.Query("auto_lbl_debug_ans").First().Text;
+                bool IsCorrect = random.Next(0, 100) < 90 ? true : false;
+                if (IsCorrect)
+                {
+                    if (app.Query("auto_btn_choice1").First().Text == ans)
+                    {
+                        app.Tap("auto_btn_choice1");
+                    }
+                    else if (app.Query("auto_btn_choice2").First().Text == ans)
+                    {
+                        app.Tap("auto_btn_choice2");
+                    }
+                    else if (app.Query("auto_btn_choice3").First().Text == ans)
+                    {
+                        app.Tap("auto_btn_choice3");
+                    }
+                    else if (app.Query("auto_btn_choice4").First().Text == ans)
+                    {
+                        app.Tap("auto_btn_choice4");
+                    }
+                }
+                else
+                {
+                    if (app.Query("auto_btn_choice1").First().Text != ans)
+                    {
+                        app.Tap("auto_btn_choice1");
+                    }
+                    else
+                    {
+                        app.Tap("auto_btn_choice2");
+                    }
+                }
+            }
+
+            var QuestionLabelText = app.Query().First().Text;
+            var ShouldNotbe = "??";
+            Assert.AreNotSame(ShouldNotbe, QuestionLabelText);
+
+        }
+        [Test]
+        public void MultipleChoice_katakana_UITest()
+        {
+            //arrange
+            //app.DragCoordinates(10, 800, 650, 800);
+            app.TapCoordinates(50, 115);
+            app.Tap("auto_SideMenuButton_Quiz");
+            app.Tap("auto_btn_multiple");
+            app.Tap("auto_btn_katakana_quiz");
+            //act
+            var random = new Random();
+            for (int i = 0; i < 100; i++)
+            {
+                string ans = app.Query("auto_lbl_debug_ans").First().Text;
+                bool IsCorrect = random.Next(0, 100) < 90 ? true : false;
+                if (IsCorrect)
+                {
+                    if (app.Query("auto_btn_choice1").First().Text == ans)
+                    {
+                        app.Tap("auto_btn_choice1");
+                    }
+                    else if (app.Query("auto_btn_choice2").First().Text == ans)
+                    {
+                        app.Tap("auto_btn_choice2");
+                    }
+                    else if (app.Query("auto_btn_choice3").First().Text == ans)
+                    {
+                        app.Tap("auto_btn_choice3");
+                    }
+                    else if (app.Query("auto_btn_choice4").First().Text == ans)
+                    {
+                        app.Tap("auto_btn_choice4");
+                    }
+                }
+                else
+                {
+                    if (app.Query("auto_btn_choice1").First().Text != ans)
+                    {
+                        app.Tap("auto_btn_choice1");
+                    }
+                    else
+                    {
+                        app.Tap("auto_btn_choice2");
+                    }
+                }
+
+            }
 
             var QuestionLabelText = app.Query().First().Text;
             var ShouldNotbe = "??";
