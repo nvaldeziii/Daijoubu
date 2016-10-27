@@ -8,42 +8,71 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using static Daijoubu.AppLibrary.Categories;
 
 namespace Daijoubu.AppPages.ProfilePages
 {
     public partial class AchivementPage : ContentPage
     {
         ObservableCollection<UserAchivements> UserCard_Kana;
-        public AchivementPage()
+        List<AbstractCardTable> GeneralKanaTable;
+        GeneralType _WordType;
+
+        public AchivementPage(GeneralType WordType)
         {
             InitializeComponent();
 
-            var x = UserDatabase.Table_UserKanaCardsN5;
+            if (_WordType == GeneralType.Hiragana)
+            {
+                GeneralKanaTable = UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>();
+            }
+            else if (_WordType == GeneralType.Katakana)
+            {
+                GeneralKanaTable = UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>();
+            }
+            else
+            {
+                throw new Exception("achivement page.cs");
+            }
 
+            _WordType = WordType;
             UserCard_Kana = new ObservableCollection<UserAchivements>();
 
-            bool checkCount = (UserDatabase.Table_UserKanaCardsN5.Count == JapaneseDatabase.Table_Kana.Count);
+            bool checkCount = (GeneralKanaTable.Count == JapaneseDatabase.Table_Kana.Count);
 
-            for (int i = 0; i < UserDatabase.Table_UserKanaCardsN5.Count; i++)
+            for (int i = 0; i < GeneralKanaTable.Count; i++)
             {
                 DateTime _LastView;
                 try
                 {
-                    _LastView = Convert.ToDateTime(UserDatabase.Table_UserKanaCardsN5[i].LastView);
+                    _LastView = Convert.ToDateTime(GeneralKanaTable[i].LastView);
                 }
                 catch { _LastView = DateTime.Now; }
-                if (UserDatabase.Table_UserKanaCardsN5[i].CorrectCount != 0 || UserDatabase.Table_UserKanaCardsN5[i].MistakeCount != 0)
+                if (GeneralKanaTable[i].CorrectCount != 0 || GeneralKanaTable[i].MistakeCount != 0)
                 {
+                    string _item;
+                    if(_WordType == GeneralType.Hiragana)
+                    {
+                        _item = JapaneseDatabase.Table_Kana[i].hiragana;
+                    }
+                    else if (_WordType == GeneralType.Katakana)
+                    {
+                        _item = JapaneseDatabase.Table_Kana[i].katakana;
+                    }
+                    else
+                    {
+                        throw new Exception("achivement page.cs");
+                    }
                     UserCard_Kana.Add(new UserAchivements
                     {
                         ItemID = JapaneseDatabase.Table_Kana[i].Id,
-                        Item = JapaneseDatabase.Table_Kana[i].hiragana,
-                        Item2 = JapaneseDatabase.Table_Kana[i].katakana,
-                        Correct = UserDatabase.Table_UserKanaCardsN5[i].CorrectCount,
-                        Mistake = UserDatabase.Table_UserKanaCardsN5[i].MistakeCount,
-                        LastView = UserDatabase.Table_UserKanaCardsN5[i].LastView,
-                        Percent = Computer.ForPercentage(UserDatabase.Table_UserKanaCardsN5[i].CorrectCount, UserDatabase.Table_UserKanaCardsN5[i].MistakeCount),
-                        NextQueue = Computer.NextQueingSpanToString(Computer.NextQueingSpan(_LastView, UserDatabase.Table_UserKanaCardsN5[i].CorrectCount, UserDatabase.Table_UserKanaCardsN5[i].MistakeCount))
+                        Item = _item,
+                        Item2 = "null",
+                        Correct = GeneralKanaTable[i].CorrectCount,
+                        Mistake = GeneralKanaTable[i].MistakeCount,
+                        LastView = GeneralKanaTable[i].LastView,
+                        Percent = Computer.ForPercentage(UserDatabase.Table_UserKanaCardsN5[i].CorrectCount, GeneralKanaTable[i].MistakeCount),
+                        NextQueue = Computer.NextQueingSpanToString(Computer.NextQueingSpan(_LastView, GeneralKanaTable[i].CorrectCount, GeneralKanaTable[i].MistakeCount))
                     });
                 }
 
@@ -67,7 +96,7 @@ namespace Daijoubu.AppPages.ProfilePages
             listview_achivements.ItemsSource = UserCard_Kana;
         }
 
-        private class UserAchivements
+        public class UserAchivements
         {
             public int ItemID { get; set; }
             public string Item { get; set; }

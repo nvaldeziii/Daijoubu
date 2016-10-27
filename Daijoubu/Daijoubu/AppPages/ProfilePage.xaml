@@ -8,8 +8,12 @@
 
   <StackLayout>
 
-    <Button x:Name="btn_achivements"
-            Text="View Achivements" />
+    <Button x:Name="btn_hiragana_achivements"
+            Text="View Hiragana Achivements" />
+    <Button x:Name="btn_katakana_achivements"
+            Text="View Katakana Achivements" />
+    <Button x:Name="btn_vocabulary_achivements"
+            Text="View Vocabulary Achivements" />
     <Button x:Name="btn_delete_data"
             Text="Delete User Data" />
   </StackLayout>
