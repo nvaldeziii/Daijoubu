@@ -14,6 +14,7 @@ namespace Daijoubu.UITest
             {
                 return ConfigureApp
                     .Android
+                    //.ApkFile("../../../Daijoubu/Daijoubu.Droid/bin/Debug/Daijoubu.Droid.apk")
                     .StartApp();
             }
 

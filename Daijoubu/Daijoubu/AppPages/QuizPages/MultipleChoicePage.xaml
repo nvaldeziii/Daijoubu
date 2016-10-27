@@ -20,9 +20,9 @@
     <Label Text=" " />
     <Label Text=" " />
     <Label x:Name="lbl_debug_txt"
-           AutomationId="auto_lbl_debug_ans"
            Text=" " />
     <Label x:Name="lbl_debug_ans"
+           AutomationId="auto_lbl_debug_ans"
            Text=" " />
     <Label x:Name="lbl_nextview"
            Text=" " />
