@@ -3,6 +3,7 @@ using Daijoubu.AppModel;
 using Daijoubu.Dependencies;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,14 +11,35 @@ using Xamarin.Forms;
 
 namespace Daijoubu
 {
+    
     public partial class MainPage : ContentPage
     {
+        ObservableCollection<lv_binding_hp_notifications> ListViewNotifications;
+
         public MainPage()
         {
             InitializeComponent();
             //this.Padding = -50;
-        
+            
             ApplicationInitialization();
+
+            ListViewNotifications = ListBuilder.HomePageNotifications();
+
+
+
+            //ListViewNotifications.Add(new lv_binding_hp_notifications
+            //{
+            //    MainLabel = "あ",
+            //    Title = "Sample title",
+            //    Subtitle = "Sample Subtitle",
+            //    Clock = "1d,1h,1m,1s",
+            //    Percent = "70"
+            //});
+            
+
+            listview_homepage_notifications.BackgroundColor = Color.Gray;
+            listview_homepage_notifications.HasUnevenRows = true;
+            listview_homepage_notifications.ItemsSource = ListViewNotifications;
         }
 
         void ApplicationInitialization()

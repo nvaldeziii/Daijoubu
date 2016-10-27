@@ -44,10 +44,12 @@
     <Compile Include="AppLibrary\Computer.cs" />
     <Compile Include="AppLibrary\IQuiz.cs" />
     <Compile Include="AppLibrary\JapaneseCharacter.cs" />
+    <Compile Include="AppLibrary\ListBuilder.cs" />
     <Compile Include="AppLibrary\MultipleChoiceQuestionFactory.cs" />
     <Compile Include="AppLibrary\TypingQuestionFactory.cs" />
     <Compile Include="AppModel\DatabaseManipulator.cs" />
     <Compile Include="AppModel\JapaneseDatabase.cs" />
+    <Compile Include="AppModel\lv_binding_hp_notifications.cs" />
     <Compile Include="AppModel\tbl_grammar.cs" />
     <Compile Include="AppModel\tbl_kana.cs" />
     <Compile Include="AppModel\tbl_user_card_data.cs" />

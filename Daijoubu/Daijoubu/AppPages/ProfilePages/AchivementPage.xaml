@@ -11,40 +11,38 @@
         <DataTemplate>
           <ViewCell>
             <ViewCell.View>
-              <StackLayout>
                 <StackLayout Orientation="Horizontal">
-                  <Label Text="Item ID: "/>
-                  <Label Text="{Binding ItemID}"/>
+                  <Label Text="{Binding Item}"
+                         FontSize="100"/>
+                  <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                      <Label Text="💳 : "/>
+                      <Label Text="{Binding ItemID}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                      <Label Text="✓ : "
+                             TextColor="Green"/>
+                      <Label Text="{Binding Correct}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                      <Label Text="✘ : "
+                             TextColor="Red"/>
+                      <Label Text="{Binding Mistake}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                      <Label Text="⌚ : "/>
+                      <Label Text="{Binding LastView}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                      <Label Text="⌛ : "/>
+                      <Label Text="{Binding NextQueue}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                      <Label Text="% : "/>
+                      <Label Text="{Binding Percent}"/>
+                    </StackLayout>
+                  </StackLayout>
                 </StackLayout>
-
-                <StackLayout Orientation="Horizontal">
-                  <Label Text="Item: "/>
-                  <Label Text="{Binding Item}"/>
-                  <Label Text=" / "/>
-                  <Label Text="{Binding Item2}"/>
-                </StackLayout>
-
-                <StackLayout Orientation="Horizontal">
-                  <Label Text="Correct: "/>
-                  <Label Text="{Binding Correct}"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                  <Label Text="Mistake: "/>
-                  <Label Text="{Binding Mistake}"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                  <Label Text="LastView: "/>
-                  <Label Text="{Binding LastView}"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                  <Label Text="Next Queuing: "/>
-                  <Label Text="{Binding NextQueue}"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                  <Label Text="Percent: "/>
-                  <Label Text="{Binding Percent}"/>
-                </StackLayout>
-              </StackLayout>
             </ViewCell.View>
           </ViewCell>
         </DataTemplate>

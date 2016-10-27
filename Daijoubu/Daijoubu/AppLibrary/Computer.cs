@@ -55,11 +55,14 @@ namespace Daijoubu.AppLibrary
         public static DateTime NextQueuing(DateTime LastView, int correct,int mistake)
         {
             DateTime TimeDiff;
+            
             double _Percent = ForPercentage( correct,  mistake);
             mistake = mistake <= 0 ? 1 : mistake;
             correct = correct <= 0 ? 1 : correct;
+            _Percent = _Percent <= 0 ? 1 : _Percent;
+
             double _multiplier = ((double)correct + (mistake * 3.0)) / (correct * 1.5);
-            double fixed_multiplier = 7.5;////////////////////////////////////////////////////////////////////////////
+            double fixed_multiplier = .2;////////////////////////////////////////////////////////////////////////////
             try
             {
                 double _minutes = _Percent * fixed_multiplier * _multiplier;
@@ -73,14 +76,16 @@ namespace Daijoubu.AppLibrary
         }
         public static TimeSpan NextQueingSpan(DateTime LastView, int correct, int mistake)
         {
-            TimeSpan span = (NextQueuing(LastView, correct, mistake) - DateTime.Now);
+            var nextq = NextQueuing(LastView, correct, mistake);
+            TimeSpan span = (nextq - DateTime.Now);
             return span;
         }
 
         public static string NextQueingSpanToString(TimeSpan span)
         {
-            return String.Format("{0}d, {1}hr/s, {2}min/s, {3}s",
+            var result = String.Format("{0}d, {1}hr/s, {2}min/s, {3}s",
                 span.Days, span.Hours, span.Minutes, span.Seconds);
+            return result;
         }
 
         public static bool ForQueuing(DateTime LastView, int correct, int mistake)
