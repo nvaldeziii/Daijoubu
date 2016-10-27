@@ -26,8 +26,7 @@
           <ViewCell>
             <ViewCell.View>
               
-              
-              <!-- mikko gawin mo nalang grid view to imbis na stacklayout ahaha pati ung achivements -->
+             
               <!--<StackLayout Orientation="Horizontal"
                            Margin="15">
                 <Label Text="{Binding MainLabel}"
