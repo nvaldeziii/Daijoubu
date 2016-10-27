@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.QuizPages.MCCatSelectPage"
              Padding="50">
+  
   <StackLayout>
     <Button x:Name="btn_hiragana_quiz"
             AutomationId="auto_btn_hiragana_quiz"
@@ -14,4 +15,28 @@
             AutomationId="auto_btn_katakana_quiz"
               Text="Vocabulary" />
   </StackLayout>
+
+  <!--<Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="1*"/>
+    </Grid.ColumnDefinitions>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="1*" />
+    </Grid.RowDefinitions>
+
+    <Button x:Name="btn_hiragana_quiz"
+            AutomationId="auto_btn_hiragana_quiz"
+            Text="Hiragana"
+            Grid.Row="0"/>
+    <Button x:Name="btn_katakana_quiz"
+            AutomationId="auto_btn_katakana_quiz"
+            Text="Katakana"
+            Grid.Row="1"/>
+    <Button x:Name="btn_vocabulary_quiz"
+            AutomationId="auto_btn_katakana_quiz"
+            Text="Vocabulary"
+            Grid.Row="2"/>
+    
+  </Grid>-->
 </ContentPage>

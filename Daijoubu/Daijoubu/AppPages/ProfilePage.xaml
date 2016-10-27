@@ -6,8 +6,7 @@
              BackgroundColor="#DFDFDF"
              Padding="50">
 
-  <StackLayout>
-
+  <!--<StackLayout>
     <Button x:Name="btn_hiragana_achivements"
             Text="View Hiragana Achivements" />
     <Button x:Name="btn_katakana_achivements"
@@ -16,6 +15,31 @@
             Text="View Vocabulary Achivements" />
     <Button x:Name="btn_delete_data"
             Text="Delete User Data" />
-  </StackLayout>
+  </StackLayout>-->
+
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="1*" />
+    </Grid.ColumnDefinitions>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="1*" />
+    </Grid.RowDefinitions>
+
+    <Button x:Name="btn_hiragana_achivements"
+            Text="View Hiragana Achievement"
+            Grid.Row="0"/>
+    <Button x:Name="btn_katakana_achivements"
+            Text="View Katakana Achievement"
+            Grid.Row="1"/>
+    <Button x:Name="btn_vocabulary_achivements"
+            Text="View Vocabulary Achievement"
+            Grid.Row="2"/>
+    <Button x:Name="btn_delete_data"
+            Text="Delete User Data"
+            Grid.Row="3"
+            />
+    
+  </Grid>
   
 </ContentPage>
