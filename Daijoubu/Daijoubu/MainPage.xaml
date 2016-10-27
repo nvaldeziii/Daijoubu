@@ -28,7 +28,7 @@
               
               
               <!-- mikko gawin mo nalang grid view to imbis na stacklayout ahaha pati ung achivements -->
-              <StackLayout Orientation="Horizontal"
+              <!--<StackLayout Orientation="Horizontal"
                            Margin="15">
                 <Label Text="{Binding MainLabel}"
                        FontSize="50"/>
@@ -45,7 +45,46 @@
                     <Label Text="{Binding Percent}"/>
                   </StackLayout>
                 </StackLayout>
-              </StackLayout>
+              </StackLayout>-->
+
+              <Grid Margin="15">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Text="{Binding MainLabel}"
+                      FontSize="50"
+                      Grid.Row="0"
+                      Grid.Column="0"/>
+                <Grid Grid.Column="1">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                  </Grid.ColumnDefinitions>
+
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                  </Grid.RowDefinitions>
+
+                  <Label Text="{Binding Title}"
+                         Grid.Row="0"
+                         />
+
+                  <Label Text="{Binding Clock, StringFormat='⌛: {0}'}"
+                         Grid.Row="1"
+                         Grid.Column="0"
+                         />
+
+                  <Label Text="{Binding Percent, StringFormat='% : {0}'}"
+                         Grid.Row="2"
+                         Grid.Column="0"
+                         />
+
+                </Grid>
+              </Grid>
             
           
             </ViewCell.View>
