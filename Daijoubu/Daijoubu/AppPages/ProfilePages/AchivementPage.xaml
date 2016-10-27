@@ -13,7 +13,7 @@
             <ViewCell.View>
                 <StackLayout Orientation="Horizontal">
                   <Label Text="{Binding Item}"
-                         FontSize="100"/>
+                         FontSize="50"/>
                   <StackLayout>
                     <StackLayout Orientation="Horizontal">
                       <Label Text="💳 : "/>

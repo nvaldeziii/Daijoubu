@@ -24,6 +24,10 @@ namespace Daijoubu.AppPages
                 Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Katakana));
             };
 
+            btn_vocabulary_achivements.Clicked += (o, e) => {
+                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary));
+            };
+
             btn_delete_data.Clicked += (o, e) =>
             {
                 btn_delete_data.IsEnabled = false;
