@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AISettings.cs" />
     <Compile Include="Tests.cs" />
     <Compile Include="AppInitializer.cs" />
   </ItemGroup>

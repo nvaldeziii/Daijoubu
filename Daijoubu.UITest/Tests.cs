@@ -13,10 +13,12 @@ namespace Daijoubu.UITest
     {
         IApp app;
         Platform platform;
+        AISettings ai_setting;
 
         public Tests(Platform platform)
         {
             this.platform = platform;
+            ai_setting = new AISettings();
         }
 
         [SetUp]
@@ -46,42 +48,29 @@ namespace Daijoubu.UITest
             {
                 string ans = app.Query("auto_lbl_debug_ans").First().Text.ToLower();
                 //app.Flash("auto_lbl_debug_ans");
-                bool IsCorrect = random.Next(0, 100) < 90 ? true : false;
+                bool IsCorrect = random.Next(0, 100) < ai_setting.Intellegence ? true : false;
+                Console.WriteLine("Correctness: " + IsCorrect);
                 if (IsCorrect)
                 {
-
-                    var c1 = app.Query("auto_btn_choice1").First().Text.ToLower();
-                    //app.Flash("auto_btn_choice1");
-                    var c2 = app.Query("auto_btn_choice2").First().Text.ToLower();
-                    //app.Flash("auto_btn_choice2");
-                    var c3 = app.Query("auto_btn_choice3").First().Text.ToLower();
-                    //app.Flash("auto_btn_choice3");
-                    var c4 = app.Query("auto_btn_choice4").First().Text.ToLower();
-                    //app.Flash("auto_btn_choice4");
-
-                    Console.WriteLine("answer: " + ans);
-                    Console.WriteLine(string.Format("choices: {0}, {1}, {2}, {3}", c1, c2, c3, c4));
-                    if (c1.Contains(ans) || ans.Contains(c1))
+                    if (app.Query("auto_btn_choice1").First().Text.ToLower() == ans)
                     {
                         app.Tap("auto_btn_choice1");
                     }
-                    else if (c2.Contains(ans) || ans.Contains(c2))
+                    else if (app.Query("auto_btn_choice2").First().Text.ToLower() == ans)
                     {
                         app.Tap("auto_btn_choice2");
                     }
-                    else if (c3.Contains(ans) || ans.Contains(c3))
+                    else if (app.Query("auto_btn_choice3").First().Text.ToLower() == ans)
                     {
                         app.Tap("auto_btn_choice3");
                     }
-                    else if (c4.Contains(ans) || ans.Contains(c4))
+                    else if (app.Query("auto_btn_choice4").First().Text.ToLower() == ans)
                     {
                         app.Tap("auto_btn_choice4");
                     }
                     else
                     {
                         app.Flash("auto_lbl_debug_ans");
-                        //System.Threading.Thread.Sleep(3);
-                        //app.Flash("auto_lbl_debug_ans");
                     }
                 }
                 else
@@ -95,6 +84,7 @@ namespace Daijoubu.UITest
                         app.Tap("auto_btn_choice2");
                     }
                 }
+                System.Threading.Thread.Sleep(ai_setting.Delay);
                 app.Flash("auto_lbl_debug_ans");
             }
 
@@ -112,50 +102,36 @@ namespace Daijoubu.UITest
             app.Tap("auto_SideMenuButton_Quiz");
             app.Tap("auto_btn_multiple");
             app.Tap("auto_btn_katakana_quiz");
-            //app.Flash();
             //act
             var random = new Random();
             for (int i = 0; i < 100; i++)
             {
                 string ans = app.Query("auto_lbl_debug_ans").First().Text.ToLower();
                 //app.Flash("auto_lbl_debug_ans");
-                bool IsCorrect = random.Next(0, 100) < 90 ? true : false;
+                bool IsCorrect = random.Next(0, 100) < ai_setting.Intellegence ? true : false;
+                Console.WriteLine("Correctness: " + IsCorrect);
                 if (IsCorrect)
                 {
-
-                    var c1 = app.Query("auto_btn_choice1").First().Text.ToLower();
-                    //app.Flash("auto_btn_choice1");
-                    var c2 = app.Query("auto_btn_choice2").First().Text.ToLower();
-                    //app.Flash("auto_btn_choice2");
-                    var c3 = app.Query("auto_btn_choice3").First().Text.ToLower();
-                    //app.Flash("auto_btn_choice3");
-                    var c4 = app.Query("auto_btn_choice4").First().Text.ToLower();
-                    //app.Flash("auto_btn_choice4");
-
-                    Console.WriteLine("answer: " + ans);
-                    Console.WriteLine(string.Format("choices: {0}, {1}, {2}, {3}",c1,c2,c3,c4));
-                    if (c1.Contains(ans) || ans.Contains(c1))
+                    if (app.Query("auto_btn_choice1").First().Text.ToLower() == ans)
                     {
                         app.Tap("auto_btn_choice1");
                     }
-                    else if (c2.Contains(ans) || ans.Contains(c2))
+                    else if (app.Query("auto_btn_choice2").First().Text.ToLower() == ans)
                     {
                         app.Tap("auto_btn_choice2");
                     }
-                    else if (c3.Contains(ans) || ans.Contains(c3))
+                    else if (app.Query("auto_btn_choice3").First().Text.ToLower() == ans)
                     {
                         app.Tap("auto_btn_choice3");
                     }
-                    else if (c4.Contains(ans) || ans.Contains(c4))
+                    else if (app.Query("auto_btn_choice4").First().Text.ToLower() == ans)
                     {
                         app.Tap("auto_btn_choice4");
-                    }else
+                    }
+                    else
                     {
                         app.Flash("auto_lbl_debug_ans");
-                        //System.Threading.Thread.Sleep(3);
-                        //app.Flash("auto_lbl_debug_ans");
                     }
-                    app.Flash("auto_lbl_debug_ans");
                 }
                 else
                 {
@@ -168,13 +144,14 @@ namespace Daijoubu.UITest
                         app.Tap("auto_btn_choice2");
                     }
                 }
+                System.Threading.Thread.Sleep(ai_setting.Delay);
+                app.Flash("auto_lbl_debug_ans");
 
             }
 
             var QuestionLabelText = app.Query().First().Text;
             var ShouldNotbe = "??";
             Assert.AreNotSame(ShouldNotbe, QuestionLabelText);
-
         }
     }
 }
