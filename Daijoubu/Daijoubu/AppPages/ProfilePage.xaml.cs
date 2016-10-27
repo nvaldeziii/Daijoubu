@@ -17,8 +17,15 @@ namespace Daijoubu.AppPages
         {
             InitializeComponent();
 
-            btn_achivements.Clicked += (o, e) => {
-                Navigation.PushAsync(new AchivementPage());
+            btn_hiragana_achivements.Clicked += (o, e) => {
+                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Hiragana));
+            };
+            btn_katakana_achivements.Clicked += (o, e) => {
+                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Katakana));
+            };
+
+            btn_vocabulary_achivements.Clicked += (o, e) => {
+                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary));
             };
 
             btn_delete_data.Clicked += (o, e) =>
@@ -26,7 +33,7 @@ namespace Daijoubu.AppPages
                 btn_delete_data.IsEnabled = false;
                 DependencyService.Get<INotifications>().ToastDependency("Deleting please wait...");
 
-                Device.StartTimer(new TimeSpan(0,0,2), () =>
+                Device.StartTimer(new TimeSpan(0,0,0,100), () =>
                 {
                     try
                     {

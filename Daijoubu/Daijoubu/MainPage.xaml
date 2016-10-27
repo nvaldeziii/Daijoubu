@@ -5,7 +5,7 @@
              x:Class="Daijoubu.MainPage"
              Title="Daijoubu"
              BackgroundColor="#DFDFDF"
-             Padding="0,0,0,0">
+             Padding="50,0,50,50">
 
   <StackLayout Orientation="Vertical" >
 
@@ -18,8 +18,45 @@
            HorizontalOptions="Center"
            TextColor="Red"
            BackgroundColor="Green"
-           FontSize="25"/>
+           FontSize="Large"/>
+
+    <ListView x:Name="listview_homepage_notifications" ItemsSource="{Binding ListViewNotifications}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.View>
+              
+              
+              <!-- mikko gawin mo nalang grid view to imbis na stacklayout ahaha pati ung achivements -->
+              <StackLayout Orientation="Horizontal"
+                           Margin="15">
+                <Label Text="{Binding MainLabel}"
+                       FontSize="50"/>
+                <StackLayout>
+                  <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Title}"/>
+                  </StackLayout>
+                  <StackLayout Orientation="Horizontal">
+                    <Label Text="⌛ : "/>
+                    <Label Text="{Binding Clock}"/>
+                  </StackLayout>
+                  <StackLayout Orientation="Horizontal">
+                    <Label Text="% : "/>
+                    <Label Text="{Binding Percent}"/>
+                  </StackLayout>
+                </StackLayout>
+              </StackLayout>
+            
+          
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
   </StackLayout>
+
+
 
 
 

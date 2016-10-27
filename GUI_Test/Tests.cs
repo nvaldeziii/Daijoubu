@@ -41,10 +41,27 @@ namespace GUI_Test
             app.Tap("auto_btn_multiple");
             app.Tap("auto_btn_hiragana_quiz");
             //act
-            app.Tap("auto_btn_choice1");
-            app.Tap("auto_btn_choice2");
-            app.Tap("auto_btn_choice3");
-            app.Tap("auto_btn_choice4");
+            var random = new Random();
+            for(int i = 0; i < 100; i++)
+            {
+                switch (random.Next(1, 4))
+                {
+                    case 1:
+                        app.Tap("auto_btn_choice1");
+                        break;
+                    case 2:
+                        app.Tap("auto_btn_choice2");
+                        break;
+                    case 3:
+                        app.Tap("auto_btn_choice3");
+                        break;
+                    case 4:
+                        app.Tap("auto_btn_choice4");
+                        break;
+                    default:
+                        throw new Exception();
+                }
+            }
 
             var QuestionLabelText = app.Query().First().Text;
             var ShouldNotbe = "??";
@@ -61,10 +78,27 @@ namespace GUI_Test
             app.Tap("auto_btn_multiple");
             app.Tap("auto_btn_katakana_quiz");
             //act
-            app.Tap("auto_btn_choice1");
-            app.Tap("auto_btn_choice2");
-            app.Tap("auto_btn_choice3");
-            app.Tap("auto_btn_choice4");
+            var random = new Random();
+            for (int i = 0; i < 100; i++)
+            {
+                switch (random.Next(1, 4))
+                {
+                    case 1:
+                        app.Tap("auto_btn_choice1");
+                        break;
+                    case 2:
+                        app.Tap("auto_btn_choice2");
+                        break;
+                    case 3:
+                        app.Tap("auto_btn_choice3");
+                        break;
+                    case 4:
+                        app.Tap("auto_btn_choice4");
+                        break;
+                    default:
+                        throw new Exception();
+                }
+            }
 
             var QuestionLabelText = app.Query().First().Text;
             var ShouldNotbe = "??";
