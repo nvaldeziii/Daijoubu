@@ -38,14 +38,15 @@ namespace Daijoubu.UITest
         {
             //arrange
             //app.DragCoordinates(10, 800, 650, 800);
-            app.TapCoordinates(50, 115);
+            app.TapCoordinates(ai_setting.DrawerLocationX, ai_setting.DrawerLocationY);
             app.Tap("auto_SideMenuButton_Quiz");
             app.Tap("auto_btn_multiple");
             app.Tap("auto_btn_hiragana_quiz");
             //act
             var random = new Random();
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < ai_setting.ItemsToTake; i++)
             {
+                Console.WriteLine(string.Format("Test Count: {0}/{1}", i, ai_setting.ItemsToTake));
                 string ans = app.Query("auto_lbl_debug_ans").First().Text.ToLower();
                 //app.Flash("auto_lbl_debug_ans");
                 bool IsCorrect = random.Next(0, 100) < ai_setting.Intellegence ? true : false;
@@ -70,7 +71,7 @@ namespace Daijoubu.UITest
                     }
                     else
                     {
-                        app.Flash("auto_lbl_debug_ans");
+                        //app.Flash("auto_lbl_debug_ans");
                     }
                 }
                 else
@@ -85,7 +86,7 @@ namespace Daijoubu.UITest
                     }
                 }
                 System.Threading.Thread.Sleep(ai_setting.Delay);
-                app.Flash("auto_lbl_debug_ans");
+                //app.Flash("auto_lbl_debug_ans");
             }
 
             var QuestionLabelText = app.Query().First().Text;
@@ -98,14 +99,15 @@ namespace Daijoubu.UITest
         {
             //arrange
             //app.DragCoordinates(10, 800, 650, 800);
-            app.TapCoordinates(50, 115);
+            app.TapCoordinates(ai_setting.DrawerLocationX, ai_setting.DrawerLocationY);
             app.Tap("auto_SideMenuButton_Quiz");
             app.Tap("auto_btn_multiple");
             app.Tap("auto_btn_katakana_quiz");
             //act
             var random = new Random();
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < ai_setting.ItemsToTake; i++)
             {
+                Console.WriteLine(string.Format("Test Count: {0}/{1}", i, ai_setting.ItemsToTake));
                 string ans = app.Query("auto_lbl_debug_ans").First().Text.ToLower();
                 //app.Flash("auto_lbl_debug_ans");
                 bool IsCorrect = random.Next(0, 100) < ai_setting.Intellegence ? true : false;
@@ -130,7 +132,7 @@ namespace Daijoubu.UITest
                     }
                     else
                     {
-                        app.Flash("auto_lbl_debug_ans");
+                        //app.Flash("auto_lbl_debug_ans");
                     }
                 }
                 else
@@ -145,7 +147,7 @@ namespace Daijoubu.UITest
                     }
                 }
                 System.Threading.Thread.Sleep(ai_setting.Delay);
-                app.Flash("auto_lbl_debug_ans");
+                //app.Flash("auto_lbl_debug_ans");
 
             }
 
