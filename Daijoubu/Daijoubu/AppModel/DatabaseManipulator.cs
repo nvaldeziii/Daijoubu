@@ -12,6 +12,11 @@ namespace Daijoubu.AppModel
 {
     public static class DatabaseManipulator
     {
+        public static int UpdateUserConfig(string name,string info)
+        {
+            return ExecuteNonQuery(string.Format("update tbl_user_settings set info=\"{0}\" where name=\"{1}\" "
+                ,info, name));
+        }
 
         public static int Update_User_KanaCard(MultipleChoiceCategory category, int count,int QuestionID,bool IsCorrect)
         {

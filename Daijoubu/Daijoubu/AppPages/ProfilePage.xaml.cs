@@ -68,7 +68,7 @@ namespace Daijoubu.AppPages
                     return false;
                 });
 
-                await progress_deletion.ProgressTo(1, 2000, Easing.Linear);
+                await progress_deletion.ProgressTo(1, 1000, Easing.Linear);
                 
                 Device.StartTimer(new TimeSpan(0, 0, 0, 3, 250),  () => {                                  
                     progress_deletion.IsVisible = false;
