@@ -19,8 +19,7 @@ namespace Daijoubu
 
         public MainPage()
         {
-            InitializeComponent();
-            setting = new Settings();
+            InitializeComponent();  
             //this.Padding = -50;
             
             ApplicationInitialization();
@@ -89,6 +88,9 @@ namespace Daijoubu
             UserDatabase.Table_UserKataKanaCardsN5 = userDBO.Table<tbl_us_cardktknN5Dt>().ToList();
             UserDatabase.Table_UserVocabCardsN5 = userDBO.Table<tbl_us_cardvbN5dt>().ToList();
             UserDatabase.Table_UserSettings = userDBO.Table<tbl_user_settings>().ToList();
+
+            //only init settings if db is loaded
+            setting = new Settings();
 
             UserDatabase.KanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>(), setting.MultipleChoice.QueueCount);
             UserDatabase.KataKanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>(), setting.MultipleChoice.QueueCount);
