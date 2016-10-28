@@ -18,6 +18,8 @@ namespace Daijoubu.AppLibrary
         {
             var queue = new Queue<Card>();
 
+            //List<AbstractCardTable> CardTable = TheCardTable.OrderBy(i => (Computer.));
+
             for (int i = 0; High != 0; i++)
             {
                 //UserDatabase.KanaCardQueueHigh = i;
@@ -51,22 +53,46 @@ namespace Daijoubu.AppLibrary
             }
             return percent*100.0;
         }
+        public static DateTime NextQueuing2(DateTime LastView, int correct, int mistake)
+        {
+            DateTime TimeDiff;
+            
+            mistake = mistake <= 0 ? 1 : mistake;
+            correct = correct <= 0 ? 1 : correct;
 
+
+            double number = (13.3333 * Math.Pow(correct, 2) * (correct + (3 * mistake)) / (correct + mistake));
+            double fixed_multiplier = .4;////////////////////////////////////////////////////////////////////////////
+            try
+            {
+                double _minutes = number * fixed_multiplier;
+                TimeDiff = LastView.AddMinutes(_minutes);
+            }
+            catch
+            {
+                TimeDiff = DateTime.Now;
+            }
+            return TimeDiff;
+        }
         public static DateTime NextQueuing(DateTime LastView, int correct,int mistake)
         {
             DateTime TimeDiff;
             
-            double _Percent = ForPercentage( correct,  mistake);
+            //double _Percent = ForPercentage( correct,  mistake);
             mistake = mistake <= 0 ? 1 : mistake;
             correct = correct <= 0 ? 1 : correct;
-            _Percent = _Percent <= 0 ? 1 : _Percent;
+            //_Percent = _Percent <= 0 ? 1 : _Percent;
 
-            double _multiplier = ((double)correct + (mistake * 3.0)) / (correct * 1.5);
-            double fixed_multiplier = .2;////////////////////////////////////////////////////////////////////////////
+            //double _multiplier = ((double)correct + (mistake * 3.0)) / (correct * 1.5);
+            //double fixed_multiplier = .4;////////////////////////////////////////////////////////////////////////////
             try
             {
-                double _minutes = _Percent * fixed_multiplier * _multiplier;
-                TimeDiff = LastView.AddMinutes(_minutes);
+                //double _minutes = _Percent * fixed_multiplier * _multiplier;
+                double number = ( SRSsettings.PercentageMultiplier * (correct + (3*mistake)) ) / (correct + mistake);
+                //TimeDiff = LastView.AddMinutes(_minutes);
+
+                number *= SRSsettings.Multiplier;
+                TimeDiff = LastView.AddMinutes(number);
             }
             catch
             {
@@ -84,23 +110,23 @@ namespace Daijoubu.AppLibrary
         public static string NextQueingSpanToString(TimeSpan span)
         {
             string result = "";
-            if (span.Days > 0)
+            if (Math.Abs(span.Days) > 0)
             {
                 result = String.Format("{0}d, {1}hr, {2}m, {3}s",
                     span.Days, span.Hours, span.Minutes, span.Seconds);
-            }else if (span.Hours > 0)
+            }else if (Math.Abs(span.Hours) > 0)
             {
                 result = String.Format("{0}h, {1}m, {2}s",
                     span.Hours, span.Minutes, span.Seconds);
             }
-            else if (span.Minutes > 0)
+            else if (Math.Abs(span.Minutes) > 0)
             {
                 result = String.Format("{0}m, {1}s",
                     span.Minutes, span.Seconds);
             }else
             {
                 result = String.Format("{0}s",
-                    span.TotalSeconds);
+                    span.Seconds);
             }
             return result;
         }
@@ -110,7 +136,7 @@ namespace Daijoubu.AppLibrary
             var TimeDiff = NextQueingSpan( LastView, correct, mistake);
 
             var timelapse = TimeDiff.TotalSeconds <= 0;
-            var percentdiff = (ForPercentage(correct, mistake) < 50);///////////////////////////////////////////////////////////////////////////
+            var percentdiff = (ForPercentage(correct, mistake) < SRSsettings.PercentageQuota);///////////////////////////////////////////////////////////////////////////
             return (percentdiff || timelapse);
         }
     }

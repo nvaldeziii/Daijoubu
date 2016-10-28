@@ -39,7 +39,7 @@
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
                       <Label Text="% : "/>
-                      <Label Text="{Binding Percent}"/>
+                      <Label Text="{Binding Percent, StringFormat='{0:0.00}'}"/>
                     </StackLayout>
                   </StackLayout>
                 </StackLayout>

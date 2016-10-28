@@ -30,23 +30,36 @@ namespace Daijoubu.AppPages
 
             btn_delete_data.Clicked += (o, e) =>
             {
+                progress_deletion.IsVisible = true;
+                progress_deletion.PropertyChanged += Progress_deletion_PropertyChanged;
+
                 btn_delete_data.IsEnabled = false;
                 DependencyService.Get<INotifications>().ToastDependency("Deleting please wait...");
 
-                Device.StartTimer(new TimeSpan(0,0,0,100), () =>
+                Device.StartTimer(new TimeSpan(0,0,0,0,100), () =>
                 {
                     try
                     {
-                        DatabaseManipulator.ResetUserData();
+                        DatabaseManipulator.ResetUserData(ref progress_deletion);
                         DependencyService.Get<INotifications>().ToastDependency("User data deleted!");
+                        progress_deletion.Progress = 1;
                     }
                     catch
                     {
                         DependencyService.Get<INotifications>().ToastDependency("An error has occured!");
                     }
+                    finally
+                    {
+                        progress_deletion.IsVisible = false;
+                    }
                     return false;
                 });         
             };
+        }
+
+        private void Progress_deletion_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            progress_deletion.ProgressTo(progress_deletion.Progress,900, Easing.Linear);
         }
     }
 }

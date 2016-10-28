@@ -52,7 +52,7 @@ namespace Daijoubu.AppPages.QuizPages
                 this.BackgroundColor = Color.Green;
                 IsCorrect = true;
 
-                CurrentQuestion.CorrectCount += 2; // add two to correcness on typing
+                CurrentQuestion.CorrectCount += Setting.MultipleChoice.TypingQuizCorrectnessAdder; // add two to correcness on typing
 
                 //save to sql
                 DatabaseManipulator.Update_User_KanaCard(QuizCategory, CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);
@@ -158,7 +158,7 @@ namespace Daijoubu.AppPages.QuizPages
 
             try
             {
-                QuestionFactory.GenerateKanaQuestion(CurrentQuestion.Id + 5, CurrentQuestion.Id, nextnum);
+                QuestionFactory.GenerateKanaQuestion(CurrentQuestion.Id + Setting.MultipleChoice.QuestionBufferCount, CurrentQuestion.Id, nextnum);
             }
             catch
             {

@@ -13,7 +13,7 @@ namespace Daijoubu.AppModel
         public string Title { get; set; }
         public string Subtitle { get; set; }
         public string Clock { get; set; }
-        public string Percent { get; set; }
+        public double Percent { get; set; }
 
         public Color ClockColor { get; set; }
 

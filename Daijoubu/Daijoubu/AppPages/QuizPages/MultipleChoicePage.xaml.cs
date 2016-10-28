@@ -137,7 +137,7 @@ namespace Daijoubu.AppPages.QuizPages
 
             lbl_debug_ans.Text = QuestionFactory.Answer;
             lbl_debug_txt.Text = string.Format("[DEBUG] Question Id: {0}", CurrentQuestion.Id);
-            lbl_percent.Text = string.Format("Learn ratio: {0}%", CurrentQuestion.LearnPercent);
+            lbl_percent.Text = string.Format("Learn ratio: {0:0.00}%", CurrentQuestion.LearnPercent);
             RefreshItemInfo();
 
             EnableInterfaces(true);

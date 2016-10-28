@@ -15,10 +15,12 @@ namespace Daijoubu
     public partial class MainPage : ContentPage
     {
         ObservableCollection<lv_binding_hp_notifications> ListViewNotifications;
+        Settings setting;
 
         public MainPage()
         {
             InitializeComponent();
+            setting = new Settings();
             //this.Padding = -50;
             
             ApplicationInitialization();
@@ -47,6 +49,8 @@ namespace Daijoubu
 
         void ApplicationInitialization()
         {
+            
+            
             //DependencyService.Get<ISQLite>().DeleteUserDB();
             var japaneseDBO = DependencyService.Get<ISQLite>().GetJapaneseDBconnection();
 
@@ -86,9 +90,9 @@ namespace Daijoubu
             UserDatabase.Table_UserVocabCardsN5 = userDBO.Table<tbl_us_cardvbN5dt>().ToList();
             UserDatabase.Table_UserSettings = userDBO.Table<tbl_user_settings>().ToList();
 
-            UserDatabase.KanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>(), 5);
-            UserDatabase.KataKanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>(), 5);
-            UserDatabase.VocabularyCardQueue = Computer.CreateQueue(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>(), 5);
+            UserDatabase.KanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>(), setting.MultipleChoice.QueueCount);
+            UserDatabase.KataKanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>(), setting.MultipleChoice.QueueCount);
+            UserDatabase.VocabularyCardQueue = Computer.CreateQueue(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>(), setting.MultipleChoice.QueueCount);
 
         }
 

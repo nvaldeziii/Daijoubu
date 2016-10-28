@@ -39,6 +39,10 @@
             Text="Delete User Data"
             Grid.Row="3"
             />
+    <ProgressBar x:Name="progress_deletion"
+                 IsVisible="False"
+                 Progress="0"
+                 Grid.Row="4"/>
     
   </Grid>
   

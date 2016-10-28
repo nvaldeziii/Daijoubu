@@ -33,7 +33,7 @@ namespace Daijoubu.AppLibrary
                     {
                         MainLabel = Card.hiragana,
                         Title = "Study this card",
-                        Percent = percentage.ToString(),
+                        Percent = percentage,
                         TableName = "Table_UserKanaCardsN5",
                         ItemID = item.Id,
                         Clock = Computer.NextQueingSpanToString(tspan),
@@ -62,7 +62,7 @@ namespace Daijoubu.AppLibrary
                     {
                         MainLabel = Card.katakana,
                         Title = "Study this card",
-                        Percent = percentage.ToString(),
+                        Percent = percentage,
                         TableName = "Table_UserKataKanaCardsN5",
                         ItemID = item.Id,
                         Clock = Computer.NextQueingSpanToString(tspan),
@@ -90,7 +90,7 @@ namespace Daijoubu.AppLibrary
                     {
                         MainLabel = Card.kanji,
                         Title = Card.meaning,
-                        Percent = percentage.ToString(),
+                        Percent = percentage,
                         TableName = "Table_UserVocabCardsN5",
                         ItemID = item.Id,
                         Clock = Computer.NextQueingSpanToString(tspan),
