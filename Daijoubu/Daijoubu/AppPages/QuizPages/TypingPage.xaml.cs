@@ -52,7 +52,7 @@ namespace Daijoubu.AppPages.QuizPages
                 this.BackgroundColor = Color.Green;
                 IsCorrect = true;
 
-                CurrentQuestion.CorrectCount++;
+                CurrentQuestion.CorrectCount += 2; // add two to correcness on typing
 
                 //save to sql
                 DatabaseManipulator.Update_User_KanaCard(QuizCategory, CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);

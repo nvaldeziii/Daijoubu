@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Daijoubu.AppLibrary
 {
@@ -25,6 +26,9 @@ namespace Daijoubu.AppLibrary
                 {
                     var Card = JapaneseDatabase.Table_Kana[i];
                     var tspan = Computer.NextQueingSpan(Convert.ToDateTime(item.LastView), item.CorrectCount, item.MistakeCount);
+
+                    Color clockcolor = tspan.TotalSeconds < 0 ? clockcolor = Color.Red : Color.Default;
+
                     _List.Add(new lv_binding_hp_notifications
                     {
                         MainLabel = Card.hiragana,
@@ -33,6 +37,7 @@ namespace Daijoubu.AppLibrary
                         TableName = "Table_UserKanaCardsN5",
                         ItemID = item.Id,
                         Clock = Computer.NextQueingSpanToString(tspan),
+                        ClockColor = clockcolor,
                         _tspan = tspan,
                         Subtitle = "Sample subs"
                     });
@@ -50,6 +55,9 @@ namespace Daijoubu.AppLibrary
                 {
                     var Card = JapaneseDatabase.Table_Kana[i];
                     var tspan = Computer.NextQueingSpan(Convert.ToDateTime(item.LastView), item.CorrectCount, item.MistakeCount);
+
+                    Color clockcolor = tspan.TotalSeconds < 0 ? clockcolor = Color.Red : Color.Default;
+
                     _List.Add(new lv_binding_hp_notifications
                     {
                         MainLabel = Card.katakana,
@@ -58,6 +66,7 @@ namespace Daijoubu.AppLibrary
                         TableName = "Table_UserKataKanaCardsN5",
                         ItemID = item.Id,
                         Clock = Computer.NextQueingSpanToString(tspan),
+                        ClockColor = clockcolor,
                         _tspan = tspan,
                         Subtitle = "Sample subs"
                     });
@@ -75,6 +84,8 @@ namespace Daijoubu.AppLibrary
                 {
                     var Card = JapaneseDatabase.Table_Vocabulary_N5[i];
                     var tspan = Computer.NextQueingSpan(Convert.ToDateTime(item.LastView), item.CorrectCount, item.MistakeCount);
+
+                    Color clockcolor = tspan.TotalSeconds < 0 ? clockcolor = Color.Red : Color.Default;
                     _List.Add(new lv_binding_hp_notifications
                     {
                         MainLabel = Card.kanji,
@@ -83,6 +94,7 @@ namespace Daijoubu.AppLibrary
                         TableName = "Table_UserVocabCardsN5",
                         ItemID = item.Id,
                         Clock = Computer.NextQueingSpanToString(tspan),
+                        ClockColor = clockcolor,
                         _tspan = tspan,
                         Subtitle = Card.furigana
                     });

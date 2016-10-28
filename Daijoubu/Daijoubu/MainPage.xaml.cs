@@ -25,7 +25,10 @@ namespace Daijoubu
 
             ListViewNotifications = ListBuilder.HomePageNotifications();
 
-
+            btn_refresh_notification.Clicked += (o, e) => {
+                ListViewNotifications = ListBuilder.HomePageNotifications();
+                listview_homepage_notifications.ItemsSource = ListViewNotifications;
+            };
 
             //ListViewNotifications.Add(new lv_binding_hp_notifications
             //{

@@ -199,7 +199,7 @@ namespace Daijoubu.AppPages.QuizPages
                 IsCorrect = true;
 
                 CurrentQuestion.CorrectCount++;
-
+                CurrentQuestion.LastView = DateTime.Now;
                 //save to sql
                 DatabaseManipulator.Update_User_KanaCard(QuizCategory, CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);
             }
@@ -234,7 +234,9 @@ namespace Daijoubu.AppPages.QuizPages
                 UserDatabase.Table_UserKataKanaCardsN5[cardIndex].LastView = CurrentQuestion.LastView.ToString();
             }else if (QuizCategory == MultipleChoiceCategory.Vocabulary)
             {
-
+                UserDatabase.Table_UserVocabCardsN5[cardIndex].CorrectCount = CurrentQuestion.CorrectCount;
+                UserDatabase.Table_UserVocabCardsN5[cardIndex].MistakeCount = CurrentQuestion.MistakeCount;
+                UserDatabase.Table_UserVocabCardsN5[cardIndex].LastView = CurrentQuestion.LastView.ToString();
             }
 
             //Show timespan
@@ -254,7 +256,7 @@ namespace Daijoubu.AppPages.QuizPages
         {
             TimeSpan span = Computer.NextQueingSpan(CurrentQuestion.LastView, CurrentQuestion.CorrectCount, CurrentQuestion.MistakeCount);
             lbl_nextview.Text = Computer.NextQueingSpanToString(span);
-            lbl_percent.Text = string.Format("Lear ratio: {0}%", CurrentQuestion.LearnPercent);
+            lbl_percent.Text = string.Format("Learn ratio: {0}%", CurrentQuestion.LearnPercent);
         }
 
         public void EnableInterfaces(bool value)

@@ -83,8 +83,25 @@ namespace Daijoubu.AppLibrary
 
         public static string NextQueingSpanToString(TimeSpan span)
         {
-            var result = String.Format("{0}d, {1}hr/s, {2}min/s, {3}s",
-                span.Days, span.Hours, span.Minutes, span.Seconds);
+            string result = "";
+            if (span.Days > 0)
+            {
+                result = String.Format("{0}d, {1}hr, {2}m, {3}s",
+                    span.Days, span.Hours, span.Minutes, span.Seconds);
+            }else if (span.Hours > 0)
+            {
+                result = String.Format("{0}h, {1}m, {2}s",
+                    span.Hours, span.Minutes, span.Seconds);
+            }
+            else if (span.Minutes > 0)
+            {
+                result = String.Format("{0}m, {1}s",
+                    span.Minutes, span.Seconds);
+            }else
+            {
+                result = String.Format("{1}s",
+                    span.TotalSeconds);
+            }
             return result;
         }
 
