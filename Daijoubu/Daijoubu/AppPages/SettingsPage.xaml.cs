@@ -60,6 +60,8 @@ namespace Daijoubu.AppPages
                     progress = 0;
                     
                     setting.HapticFeedback = switch_HapticFeedback.IsToggled;
+                    setting.SpeakWords = switch_TTS.IsToggled;
+
                     setting.MultipleChoice.AnswerFeedBackDelay = new TimeSpan(0,0,0,0, Convert.ToInt32(slider_AnswerFeedBackDelay.Value));
 
                     setting.SaveCurrentConfig(ref progress);
@@ -74,7 +76,7 @@ namespace Daijoubu.AppPages
         void InitializeValues()
         {
             switch_HapticFeedback.IsToggled = setting.HapticFeedback;
-        
+            switch_TTS.IsToggled = setting.SpeakWords;
             slider_AnswerFeedBackDelay.Value = setting.MultipleChoice.AnswerFeedBackDelay.TotalSeconds * 1000;
         }
     }

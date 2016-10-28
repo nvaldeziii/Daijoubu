@@ -14,20 +14,30 @@
         <Label Text="Haptic Feedback" />
         <Switch x:Name="switch_HapticFeedback"/>
       </StackLayout>
-      
+
+      <StackLayout Orientation="Horizontal">
+        <Label Text="Voice" />
+        <Switch x:Name="switch_TTS"/>
+      </StackLayout>
+
       <Label Text="Answer feedback delay" />
-      <Slider x:Name="slider_AnswerFeedBackDelay"
-              Maximum="10000"
-              Minimum="100"/>
-      <Label Text="{Binding Value,StringFormat='{0:0.0}', Source={x:Reference slider_AnswerFeedBackDelay}}" />
+      <StackLayout Orientation="Horizontal">
+        <Slider x:Name="slider_AnswerFeedBackDelay"
+              Maximum="5000"
+              Minimum="1000"/>
+        <Label Text="{Binding Value,StringFormat='{0:0.0}', Source={x:Reference slider_AnswerFeedBackDelay}}" />
+      </StackLayout>
 
       <ProgressBar x:Name="progress_saving"
-                 />
+                   IsVisible="False"/>
 
-      <Button x:Name="btn_save"
+      <StackLayout Orientation="Horizontal">
+        <Button x:Name="btn_save"
               Text="Save"/>
-      <Button x:Name="btn_Discard"
-              Text="Discard"/>
+        <Button x:Name="btn_Discard"
+                Text="Discard"/>
+      </StackLayout>
+
     </StackLayout>
   </ScrollView>
 
