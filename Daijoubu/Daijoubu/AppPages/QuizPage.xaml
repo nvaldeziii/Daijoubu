@@ -27,6 +27,7 @@
     <Button Grid.Column="1"
             x:Name="btn_listen"
             Text="Listening"
+            Image="@drawable/Listening_logo"
             Style="{StaticResource BigButtons}" />
 
     <Button Grid.Row="1"
