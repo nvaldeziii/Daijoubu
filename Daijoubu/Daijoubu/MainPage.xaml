@@ -52,6 +52,7 @@
                   </Grid.RowDefinitions>
 
                   <Label Text="{Binding Title}"
+                         TextColor="White"
                          Grid.Row="0"
                          />
 
@@ -62,6 +63,7 @@
                          />
 
                   <Label Text="{Binding Percent, StringFormat='% : {0:0.00}'}"
+                         TextColor="White"
                          Grid.Row="2"
                          Grid.Column="0"
                          />
