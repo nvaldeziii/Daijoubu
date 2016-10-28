@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
   <item>
-    <color android:color="#000000"/>
+    <color android:color="#273442"/>
   </item>
   <item>
     <bitmap
@@ -9,4 +9,4 @@
         android:tileMode="disabled"
         android:gravity="center"/>
   </item>
-</layer-list>
+</layer-list> 

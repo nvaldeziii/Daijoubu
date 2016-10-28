@@ -16,8 +16,9 @@
     <Label x:Name="label_homepage_header"
            Margin="0,-50,0,0"
            Text="Welcome to だいじょうぶ"
+           FontAttributes="Bold"
            HorizontalOptions="Center"
-           TextColor="#FFFFFF"
+           TextColor="#DFDFDF"
            FontSize="Large"/>
 
     <ListView x:Name="listview_homepage_notifications" ItemsSource="{Binding ListViewNotifications}"

@@ -16,6 +16,11 @@ namespace Daijoubu.AppPages.QuizPages
         private string Answer;
         private bool IsCorrect;
 
+        private static Color PageColorDefault = Color.FromHex("273442");
+        private static Color ButtonColorDefault = Color.FromHex("655338");
+        private static Color PageColorCorrect = Color.Green;
+        private static Color PageColorMistake = Color.Red;
+
         Settings Setting;
         MultipleChoiceQuestionFactory QuestionFactory;
         Random random;
@@ -43,19 +48,19 @@ namespace Daijoubu.AppPages.QuizPages
             {
                 if (btn_choice1.Text == QuestionFactory.Answer)
                 {
-                    btn_choice1.BackgroundColor = Color.Green;
+                    btn_choice1.BackgroundColor = PageColorCorrect;
                 }
                 else if (btn_choice2.Text == QuestionFactory.Answer)
                 {
-                    btn_choice2.BackgroundColor = Color.Green;
+                    btn_choice2.BackgroundColor = PageColorCorrect;
                 }
                 else if (btn_choice3.Text == QuestionFactory.Answer)
                 {
-                    btn_choice3.BackgroundColor = Color.Green;
+                    btn_choice3.BackgroundColor = PageColorCorrect;
                 }
                 else if (btn_choice4.Text == QuestionFactory.Answer)
                 {
-                    btn_choice4.BackgroundColor = Color.Green;
+                    btn_choice4.BackgroundColor = PageColorCorrect;
                 }
             }
 
@@ -111,7 +116,7 @@ namespace Daijoubu.AppPages.QuizPages
                 throw new Exception("MultipleChoicePage->GenerateQuestion->QuestionType");
             }
 
-            this.BackgroundColor = Color.Default;
+            this.BackgroundColor = PageColorDefault;
 
             if (!(TMPQueueHolder.Count > 0))
             {
@@ -195,7 +200,7 @@ namespace Daijoubu.AppPages.QuizPages
             if (user_ans == Answer)
             {
                 //correct answer
-                this.BackgroundColor = Color.Green;
+                this.BackgroundColor = PageColorDefault;
                 IsCorrect = true;
 
                 CurrentQuestion.CorrectCount++;
@@ -206,7 +211,7 @@ namespace Daijoubu.AppPages.QuizPages
             else
             {
                 //wrong answer
-                this.BackgroundColor = Color.Red;
+                this.BackgroundColor = PageColorMistake;
                 IsCorrect = false;
                 CurrentQuestion.MistakeCount++;
                 CurrentQuestion.LastView = DateTime.Now;
@@ -271,7 +276,7 @@ namespace Daijoubu.AppPages.QuizPages
                 btn_choice1.BackgroundColor =
                      btn_choice2.BackgroundColor =
                      btn_choice3.BackgroundColor =
-                     btn_choice4.BackgroundColor = Color.Default;
+                     btn_choice4.BackgroundColor = ButtonColorDefault;
             }
         }
     }

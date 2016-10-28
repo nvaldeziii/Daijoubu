@@ -41,7 +41,7 @@ namespace Daijoubu
                 HapticFeedback = _HapticFeedback;
                 SpeakWords = _SpeakWords;
             }
-            catch(Exception e)
+            catch
             {
                 SetDefault();
             }

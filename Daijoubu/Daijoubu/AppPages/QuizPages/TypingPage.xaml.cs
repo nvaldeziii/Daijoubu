@@ -22,6 +22,11 @@ namespace Daijoubu.AppPages.QuizPages
         Card CurrentQuestion;
         MultipleChoiceCategory QuizCategory;
 
+        private static Color PageColorDefault = Color.FromHex("273442");
+        private static Color ButtonColorDefault = Color.FromHex("655338");
+        private static Color PageColorCorrect = Color.Green;
+        private static Color PageColorMistake = Color.Red;
+
         public TypingPage()
         {
             InitializeComponent();
@@ -49,7 +54,7 @@ namespace Daijoubu.AppPages.QuizPages
             if (user_ans.Trim() == Answer.Trim())
             {
                 //correct answer
-                this.BackgroundColor = Color.Green;
+                this.BackgroundColor = PageColorCorrect;
                 IsCorrect = true;
 
                 CurrentQuestion.CorrectCount += Setting.MultipleChoice.TypingQuizCorrectnessAdder; // add two to correcness on typing
@@ -60,7 +65,7 @@ namespace Daijoubu.AppPages.QuizPages
             else
             {
                 //wrong answer
-                this.BackgroundColor = Color.Red;
+                this.BackgroundColor = PageColorMistake;
                 IsCorrect = false;
                 CurrentQuestion.MistakeCount++;
                 CurrentQuestion.LastView = DateTime.Now;
@@ -106,7 +111,7 @@ namespace Daijoubu.AppPages.QuizPages
             if (!IsCorrect)
             {
                 //what to do when incorrect answer
-                this.BackgroundColor = Color.Red;
+                this.BackgroundColor = PageColorMistake;
             }
 
             if (Setting.SpeakWords)
@@ -144,7 +149,7 @@ namespace Daijoubu.AppPages.QuizPages
                 throw new Exception("TypingPage->GenerateQuestion->QuestionType");
             }
 
-            this.BackgroundColor = Color.White;
+            this.BackgroundColor = PageColorDefault;
 
             if (!(TMPQueueHolder.Count > 0))
             {

@@ -52,7 +52,7 @@
         <Setter Property="BorderRadius" Value="50" />
         <Setter Property="BorderWidth" Value="10" />
         <Setter Property="BackgroundColor" Value="#19293B" />
-        <Setter Property="TextColor" Value="Red" />
+        <Setter Property="TextColor" Value="#FFFFFF" />
         <Setter Property="ContentLayout" Value="Top,0" />
       </Style>
 

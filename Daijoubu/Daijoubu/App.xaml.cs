@@ -15,7 +15,7 @@ namespace Daijoubu
 
             MainPage = new NavigationPage(new Daijoubu.SideMenuPage())
             {
-                BarBackgroundColor = Color.FromHex("#273442")
+                BarBackgroundColor = Color.FromHex("#19293B")
                
             };
             MainPage.Padding = -50;

@@ -2229,8 +2229,8 @@ namespace Daijoubu.Droid
 			// aapt resource value: 0x7f0200a9
 			public const int n5_logo = 2130837673;
 			
-			// aapt resource value: 0x7f0200b0
-			public const int notification_template_icon_bg = 2130837680;
+			// aapt resource value: 0x7f0200af
+			public const int notification_template_icon_bg = 2130837679;
 			
 			// aapt resource value: 0x7f0200aa
 			public const int profile_logo = 2130837674;
@@ -2245,10 +2245,7 @@ namespace Daijoubu.Droid
 			public const int speaker = 2130837677;
 			
 			// aapt resource value: 0x7f0200ae
-			public const int splash = 2130837678;
-			
-			// aapt resource value: 0x7f0200af
-			public const int splash_screen = 2130837679;
+			public const int splash_screen = 2130837678;
 			
 			static Drawable()
 			{

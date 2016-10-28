@@ -77,28 +77,6 @@ namespace Daijoubu.AppPages
                     return false;
                 });
                 
-                
-
-                //DependencyService.Get<INotifications>().ToastDependency("Done!");
-                //Device.StartTimer(new TimeSpan(0, 0, 0, 1, 100), () =>
-                //    {
-                //        try
-                //        {
-
-                //            DatabaseManipulator.ResetUserData(ref progress_deletion);
-                //            DependencyService.Get<INotifications>().ToastDependency("User data deleted!");
-                //        }
-                //        catch
-                //        {
-                //            DependencyService.Get<INotifications>().ToastDependency("An error has occured!");
-                //        }
-                //        finally
-                //        {
-                //            progress_deletion.IsVisible = false;
-                //            DependencyService.Get<INotifications>().ToastDependency("Done!");
-                //        }
-                //        return false;
-                //    });
             };
         }
     }

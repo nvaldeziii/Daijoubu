@@ -19,6 +19,12 @@ namespace Daijoubu.AppPages.QuizPages
         Settings Setting;
         Random random;
 
+
+        private static Color PageColorDefault = Color.FromHex("273442");
+        private static Color ButtonColorDefault = Color.FromHex("655338");
+        private static Color PageColorCorrect = Color.Green;
+        private static Color PageColorMistake = Color.Red;
+
         public ListeningPage()
         {
             InitializeComponent();
@@ -72,12 +78,12 @@ namespace Daijoubu.AppPages.QuizPages
             {
                 //correct answer
                 correct = true;
-                this.BackgroundColor = Color.Green;
+                this.BackgroundColor = PageColorCorrect;
             }
             else
             {
                 //wrong answer
-                this.BackgroundColor = Color.Red;
+                this.BackgroundColor = PageColorMistake;
                 if (Setting.HapticFeedback)
                 {
                     DependencyService.Get<Dependencies.INotifications>().Vibrate();
@@ -96,7 +102,7 @@ namespace Daijoubu.AppPages.QuizPages
         {
             correct = false;
             edittext_tts_input.Text = "";
-            this.BackgroundColor = Color.White;
+            this.BackgroundColor = PageColorDefault;
 
             QuestionFactory.GenerateQuestion(
                 random.Next(0, JapaneseDatabase.Table_Vocabulary_N5.Count),

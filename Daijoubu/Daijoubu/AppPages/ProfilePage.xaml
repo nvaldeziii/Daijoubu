@@ -34,23 +34,23 @@
     <Button x:Name="btn_vocabulary_achivements"
             Text="View Vocabulary Achievement"
             Grid.Row="2"/>
+    <Button x:Name="btn_assess"
+            Text="View Assesment"
+            Grid.Row="3"/>
     <Button x:Name="btn_delete_data"
             Text="Delete User Data"
-            Grid.Row="3"
-            />
-    <StackLayout Grid.Row="4">
+            Grid.Row="4"/>
+    <StackLayout Grid.Row="5">
     
       <ProgressBar x:Name="progress_deletion"
-                 IsVisible="False"
-                 Progress="0"
-                 />
+                   IsVisible="False"
+                   Progress="0"/>
       <Label x:Name="lbl_prog_percent"
-           Text="{Binding Progress, StringFormat='{0:0.00}', Source={x:Reference progress_deletion}}"
-           FontSize="25"
-           TextColor="Navy"
-           HorizontalOptions="Center"
-           VerticalOptions="End"
-           Grid.Row="5"/>
+             IsVisible="False"
+             Text="{Binding Progress, StringFormat='{0:0.00}%', Source={x:Reference progress_deletion}}"
+             HorizontalOptions="Center"
+             VerticalOptions="End"
+             Grid.Row="6"/>
     </StackLayout>
     
     
