@@ -5,7 +5,7 @@
              Title="Choice Module" 
              x:Name="MultipleChoicePage"
              AutomationId="auto_MultipleChoicePage"
-             Padding="50">
+             Style="{StaticResource TypicalContentPage}">
 
   <StackLayout>
 

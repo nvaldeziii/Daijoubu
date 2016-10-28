@@ -111,7 +111,7 @@ namespace Daijoubu.AppPages.QuizPages
                 throw new Exception("MultipleChoicePage->GenerateQuestion->QuestionType");
             }
 
-            this.BackgroundColor = Color.White;
+            this.BackgroundColor = Color.Default;
 
             if (!(TMPQueueHolder.Count > 0))
             {
@@ -271,7 +271,7 @@ namespace Daijoubu.AppPages.QuizPages
                 btn_choice1.BackgroundColor =
                      btn_choice2.BackgroundColor =
                      btn_choice3.BackgroundColor =
-                     btn_choice4.BackgroundColor = Color.Gray;
+                     btn_choice4.BackgroundColor = Color.Default;
             }
         }
     }

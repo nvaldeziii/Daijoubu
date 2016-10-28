@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.ProfilePage"
              Title="Profile"
-             BackgroundColor="#DFDFDF"
-             Padding="50">
+             Style="{StaticResource TypicalContentPage}">
 
   <!--<StackLayout>
     <Button x:Name="btn_hiragana_achivements"

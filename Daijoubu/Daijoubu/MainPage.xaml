@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Daijoubu"
              x:Class="Daijoubu.MainPage"
              Title="Daijoubu"
-             BackgroundColor="#DFDFDF"
+             BackgroundColor="#000000"
              Padding="50,0,50,50">
 
   <StackLayout Orientation="Vertical" >
@@ -14,40 +14,18 @@
            Aspect="AspectFill"/>
 
     <Label x:Name="label_homepage_header"
+           Margin="0,-50,0,0"
            Text="Welcome to だいじょうぶ"
            HorizontalOptions="Center"
-           TextColor="Red"
-           BackgroundColor="Green"
+           TextColor="#FFFFFF"
            FontSize="Large"/>
 
-    <Button x:Name="btn_refresh_notification"
-            Text="Refresh Notifications" />
-    
-    <ListView x:Name="listview_homepage_notifications" ItemsSource="{Binding ListViewNotifications}">
+    <ListView x:Name="listview_homepage_notifications" ItemsSource="{Binding ListViewNotifications}"
+              BackgroundColor="#273442">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
             <ViewCell.View>
-              
-             
-              <!--<StackLayout Orientation="Horizontal"
-                           Margin="15">
-                <Label Text="{Binding MainLabel}"
-                       FontSize="50"/>
-                <StackLayout>
-                  <StackLayout Orientation="Horizontal">
-                    <Label Text="{Binding Title}"/>
-                  </StackLayout>
-                  <StackLayout Orientation="Horizontal">
-                    <Label Text="⌛ : "/>
-                    <Label Text="{Binding Clock}"/>
-                  </StackLayout>
-                  <StackLayout Orientation="Horizontal">
-                    <Label Text="% : "/>
-                    <Label Text="{Binding Percent}"/>
-                  </StackLayout>
-                </StackLayout>
-              </StackLayout>-->
 
               <Grid Margin="15">
                 <Grid.ColumnDefinitions>
@@ -59,9 +37,11 @@
                 </Grid.RowDefinitions>
 
                 <Label Text="{Binding MainLabel}"
-                      FontSize="50"
-                      Grid.Row="0"
-                      Grid.Column="0"/>
+                       TextColor="#FFFFFF"
+                       FontSize="50"
+                       Grid.Row="0"
+                       Grid.Column="0"/>
+
                 <Grid Grid.Column="1">
                   <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -88,8 +68,6 @@
 
                 </Grid>
               </Grid>
-            
-          
             </ViewCell.View>
           </ViewCell>
         </DataTemplate>
@@ -97,9 +75,5 @@
     </ListView>
 
   </StackLayout>
-
-
-
-
 
 </ContentPage>

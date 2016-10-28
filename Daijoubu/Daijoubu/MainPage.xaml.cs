@@ -26,23 +26,15 @@ namespace Daijoubu
 
             ListViewNotifications = ListBuilder.HomePageNotifications();
 
-            btn_refresh_notification.Clicked += (o, e) => {
-                ListViewNotifications = ListBuilder.HomePageNotifications();
-                listview_homepage_notifications.ItemsSource = ListViewNotifications;
-            };
-
-            //ListViewNotifications.Add(new lv_binding_hp_notifications
-            //{
-            //    MainLabel = "あ",
-            //    Title = "Sample title",
-            //    Subtitle = "Sample Subtitle",
-            //    Clock = "1d,1h,1m,1s",
-            //    Percent = "70"
-            //});
-            
-
-            listview_homepage_notifications.BackgroundColor = Color.Gray;
             listview_homepage_notifications.HasUnevenRows = true;
+            listview_homepage_notifications.ItemsSource = ListViewNotifications;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            ListViewNotifications = ListBuilder.HomePageNotifications();
             listview_homepage_notifications.ItemsSource = ListViewNotifications;
         }
 

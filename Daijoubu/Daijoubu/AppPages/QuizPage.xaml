@@ -3,9 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.QuizPage"
              Title="Quiz"
-             BackgroundColor="#DFDFDF"
-             Padding="50"
-             >
+             Style="{StaticResource TypicalContentPage}">
 
   <Grid>
    
@@ -22,60 +20,27 @@
     <Button
             x:Name="btn_multiple"
             AutomationId="auto_btn_multiple"
-            TextColor="Red"
-            
-            BackgroundColor="#FFFFFF"
             Text="Multiple Choice"
             Image="@drawable/multiple_choice"
-            ContentLayout="Top,0"
-            />
-           
-
-  
-
-
+            Style="{StaticResource BigButtons}" />
+          
     <Button Grid.Column="1"
             x:Name="btn_listen"
-            TextColor="Red"
-            BackgroundColor="#FFFFFF"
             Text="Listening"
-            Image="@drawable/Listening_logo"
-            ContentLayout="Top,0"
-            />
-
- 
+            Style="{StaticResource BigButtons}" />
 
     <Button Grid.Row="1"
             x:Name="btn_typing"
-            TextColor="Red"
-            BackgroundColor="#FFFFFF"
             Text="Typing"
             Image="@drawable/FillBlank_logo"
-            ContentLayout="Top,0"/>
+            Style="{StaticResource BigButtons}" />
 
     <Button Grid.Column="1"
             Grid.Row="1"
-            TextColor="Red"
-            BackgroundColor="#FFFFFF"
             x:Name="btn_reading"
             Text="Reading"
             Image="@drawable/Reading_logo"
-            ContentLayout="Top,0"/>
+            Style="{StaticResource BigButtons}" />
   </Grid>
-  
-  <!--<StackLayout>
-    <Button x:Name="btn_multiple"
-            AutomationId="auto_btn_multiple"
-            Text="Multiple" />
-
-    <Button x:Name="btn_listen"
-            Text="Listening" />
-
-    <Button x:Name="btn_typing"
-            Text="Typing" />
-
-    <Button x:Name="btn_reading"
-            Text="Reading" />
-  </StackLayout>-->
   
 </ContentPage>
