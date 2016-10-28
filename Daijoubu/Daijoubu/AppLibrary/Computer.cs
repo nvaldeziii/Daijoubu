@@ -83,16 +83,17 @@ namespace Daijoubu.AppLibrary
             correct = correct <= 0 ? 1 : correct;
             _Percent = _Percent <= 0 ? 1 : _Percent;
 
-            double _multiplier = ((double)correct + (mistake * 3.0)) / (correct * 1.5);
-            double fixed_multiplier = .4;////////////////////////////////////////////////////////////////////////////
+            //double _multiplier = ((double)correct + (mistake * 3.0)) / (correct * 1.5);
+            //double fixed_multiplier = .4;////////////////////////////////////////////////////////////////////////////
             try
             {
-                double _minutes = _Percent * fixed_multiplier * _multiplier;
-                //double number = ( SRSsettings.PercentageMultiplier * (correct + (3*mistake)) ) / (correct + mistake);
-                TimeDiff = LastView.AddMinutes(_minutes);
-
-                _minutes *= SRSsettings.Multiplier;
-                TimeDiff = LastView.AddMinutes(_minutes);
+                //double _minutes = _Percent * fixed_multiplier * _multiplier;
+                double number = ( SRSsettings.PercentageMultiplier * (5*correct + (mistake)) ) / (correct + 10*mistake);
+ 
+                number *= SRSsettings.Multiplier;
+                number *= _Percent/100.0;
+                //_minutes *= SRSsettings.Multiplier;
+                TimeDiff = LastView.AddMinutes(number);
             }
             catch
             {
