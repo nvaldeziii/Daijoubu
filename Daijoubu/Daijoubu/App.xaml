@@ -16,6 +16,10 @@
         <Setter Property="TextColor" Value="White" />
       </Style>
 
+      <Style TargetType="Label">
+        <Setter Property="TextColor" Value="White" />
+      </Style>
+      
       <!-- Default Style For content page to counter the margin -->
       <Style x:Key="TypicalContentPage" TargetType="ContentPage">
         <Setter Property="Padding" Value="50" />
