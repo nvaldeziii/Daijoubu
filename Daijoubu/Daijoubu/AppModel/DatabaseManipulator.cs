@@ -49,24 +49,46 @@ namespace Daijoubu.AppModel
             return result;
         }
 
-        public static bool ResetUserData()
+        public static bool ResetUserData(ref double PBar)
         {
+
+            PBar = 0;
+            //Progress();
+
             DependencyService.Get<Dependencies.ISQLite>().DeleteUserDB();
             var userDBO = DependencyService.Get<ISQLite>().GetUserDBconnection();
+
+            //PBar.ProgressTo(.2, 900, Easing.Linear);
+            PBar = .2;
+            //Progress();
+
             userDBO.CreateTable<tbl_us_cardknN5Dt>();
             userDBO.CreateTable<tbl_us_cardktknN5Dt>();
             userDBO.CreateTable<tbl_us_cardvbN5dt>();
             userDBO.CreateTable<tbl_user_settings>();
+
+            //PBar.ProgressTo(.3, 900, Easing.Linear);
+            PBar = .3;
+            //Progress();
 
             var kana_count = JapaneseDatabase.Table_Kana.Count;
             while (userDBO.Table<tbl_us_cardknN5Dt>().Count() < kana_count)
             {
                 userDBO.Execute("insert into tbl_us_cardknN5Dt values (null,0,0,0);");
             }
+
+            //PBar.ProgressTo(.4, 900, Easing.Linear); ;
+            PBar = .4;
+            //Progress();
+
             while (userDBO.Table<tbl_us_cardktknN5Dt>().Count() < kana_count)
             {
                 userDBO.Execute("insert into tbl_us_cardktknN5Dt values (null,0,0,0);");
             }
+
+            //PBar.ProgressTo(.5, 900, Easing.Linear);
+            PBar = .5;
+            //Progress();
 
             var vocab_count = JapaneseDatabase.Table_Vocabulary_N5.Count;
             while (userDBO.Table<tbl_us_cardvbN5dt>().Count() < vocab_count)
@@ -74,13 +96,32 @@ namespace Daijoubu.AppModel
                 userDBO.Execute("insert into tbl_us_cardvbN5dt values (null,0,0,0);");
             }
 
+            //PBar.ProgressTo(.6, 900, Easing.Linear);
+            PBar = .6;
+            //Progress();
+
             UserDatabase.Table_UserVocabCardsN5 = DependencyService.Get<Dependencies.ISQLite>()
                                                 .GetUserDBconnection().Table<tbl_us_cardvbN5dt>().ToList();
+
+            //PBar.ProgressTo(.7, 900, Easing.Linear);
+            PBar = .7;
+            //Progress();
+
             UserDatabase.Table_UserKanaCardsN5 = DependencyService.Get<Dependencies.ISQLite>()
                                                 .GetUserDBconnection().Table<tbl_us_cardknN5Dt>().ToList();
+
+            //PBar.ProgressTo(.8, 900, Easing.Linear);
+            PBar = .8;
+            //Progress();
+
             UserDatabase.Table_UserKataKanaCardsN5 = DependencyService.Get<Dependencies.ISQLite>()
                                                 .GetUserDBconnection().Table<tbl_us_cardktknN5Dt>().ToList();
 
+            //PBar.ProgressTo(.9, 900, Easing.Linear);
+            PBar = .9;
+            //Progress();
+            PBar = 1;
+            //Progress();
             return true;
         }
     }

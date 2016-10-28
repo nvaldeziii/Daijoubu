@@ -46,13 +46,13 @@ namespace Daijoubu.AppPages.QuizPages
         public bool CheckAnswer(string user_ans)
         {
             EnableInterfaces(false);
-            if (user_ans == Answer)
+            if (user_ans.Trim() == Answer.Trim())
             {
                 //correct answer
                 this.BackgroundColor = Color.Green;
                 IsCorrect = true;
 
-                CurrentQuestion.CorrectCount++;
+                CurrentQuestion.CorrectCount += Setting.MultipleChoice.TypingQuizCorrectnessAdder; // add two to correcness on typing
 
                 //save to sql
                 DatabaseManipulator.Update_User_KanaCard(QuizCategory, CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);
@@ -89,7 +89,9 @@ namespace Daijoubu.AppPages.QuizPages
             }
             else if (QuizCategory == MultipleChoiceCategory.Vocabulary)
             {
-
+                UserDatabase.Table_UserVocabCardsN5[cardIndex].CorrectCount = CurrentQuestion.CorrectCount;
+                UserDatabase.Table_UserVocabCardsN5[cardIndex].MistakeCount = CurrentQuestion.MistakeCount;
+                UserDatabase.Table_UserVocabCardsN5[cardIndex].LastView = CurrentQuestion.LastView.ToString();
             }
 
             //Show timespan
@@ -134,7 +136,7 @@ namespace Daijoubu.AppPages.QuizPages
 
             if (category == MultipleChoiceCategory.Vocabulary)
             {
-                nextnum = ((MultipleChoiceQuestionFactory.QuestionType)random.Next(3, 9));
+                nextnum = ((MultipleChoiceQuestionFactory.QuestionType.VocabularyJPFU));
                 TMPQueueHolder = UserDatabase.VocabularyCardQueue;
             }
             else
@@ -156,7 +158,7 @@ namespace Daijoubu.AppPages.QuizPages
 
             try
             {
-                QuestionFactory.GenerateKanaQuestion(CurrentQuestion.Id + 5, CurrentQuestion.Id, nextnum);
+                QuestionFactory.GenerateKanaQuestion(CurrentQuestion.Id + Setting.MultipleChoice.QuestionBufferCount, CurrentQuestion.Id, nextnum);
             }
             catch
             {

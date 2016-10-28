@@ -20,6 +20,9 @@
            BackgroundColor="Green"
            FontSize="Large"/>
 
+    <Button x:Name="btn_refresh_notification"
+            Text="Refresh Notifications" />
+    
     <ListView x:Name="listview_homepage_notifications" ItemsSource="{Binding ListViewNotifications}">
       <ListView.ItemTemplate>
         <DataTemplate>
@@ -73,11 +76,12 @@
                          />
 
                   <Label Text="{Binding Clock, StringFormat='⌛: {0}'}"
+                         TextColor="{Binding ClockColor}"
                          Grid.Row="1"
                          Grid.Column="0"
                          />
 
-                  <Label Text="{Binding Percent, StringFormat='% : {0}'}"
+                  <Label Text="{Binding Percent, StringFormat='% : {0:0.00}'}"
                          Grid.Row="2"
                          Grid.Column="0"
                          />

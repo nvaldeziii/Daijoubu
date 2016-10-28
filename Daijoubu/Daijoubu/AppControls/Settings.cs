@@ -25,14 +25,30 @@ namespace Daijoubu
         public void SetDefault()
         {
             MultipleChoice.AnswerFeedBackDelay = new TimeSpan(0, 0, 0, 1, 500);
+            MultipleChoice.QuestionBufferCount = 5;
+            MultipleChoice.TypingQuizCorrectnessAdder = 2;
+            MultipleChoice.QueueCount = 5;
+
             HapticFeedback = true;
             SpeakWords = true;
         }
     }
 
+    public static class SRSsettings
+    {
+        public static double PercentageMultiplier = 26.6667;
+        public static double Multiplier = 1;
+
+        public static double PercentageQuota = 50;
+    }
+
     public class MultipleChoiceSettings
     {
         public TimeSpan AnswerFeedBackDelay;
+        public int QuestionBufferCount { get; set; }
+        public int QueueCount { get; set; }
+
+        public int TypingQuizCorrectnessAdder { get; set; }
     }
 
 }
