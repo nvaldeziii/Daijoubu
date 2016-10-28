@@ -99,7 +99,7 @@ namespace Daijoubu.AppLibrary
                     span.Minutes, span.Seconds);
             }else
             {
-                result = String.Format("{1}s",
+                result = String.Format("{0}s",
                     span.TotalSeconds);
             }
             return result;
