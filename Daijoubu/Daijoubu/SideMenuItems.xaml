@@ -22,7 +22,7 @@
             BackgroundColor="#273442"
             Grid.Row="0"
             Grid.Column="0"
-            Image="@drawable_hdpi/profile_logo"/>
+            Image="@drawable/profile_logo"/>
     <Button Text="Quiz N5"
             x:Name="SideMenuButton_Quiz"
             TextColor="White"
@@ -30,7 +30,7 @@
             BackgroundColor="#273442"
             Grid.Row="1"
             Grid.Column="0"
-            Image="@drawable_hdpi/n5_logo"/>
+            Image="@drawable/n5_logo"/>
     <Button Text="Quiz N4"
             x:Name="SideMenuButton_QuizN4"
             TextColor="White"
@@ -38,20 +38,20 @@
             BackgroundColor="#273442"
             Grid.Row="2"
             Grid.Column="0"
-            Image="@drawable_hdpi/n4_logo"/>
+            Image="@drawable/n4_logo"/>
     <Button Text="Settings"
             TextColor="White"
             x:Name="SideMenuButton_Settings"
             BackgroundColor="#273442"
             Grid.Row="3"
-            Image="@drawable_hdpi/settings_logo"/>
+            Image="@drawable/settings_logo"/>
     <Button Text="About"
             TextColor="White"
             x:Name="SideMenuButton_About"
             BackgroundColor="#273442"
             Grid.Row="4"
             Grid.Column="0"
-            Image="@drawable_hdpi/about_logo"/>
+            Image="@drawable/about_logo"/>
   </Grid>
   
   
