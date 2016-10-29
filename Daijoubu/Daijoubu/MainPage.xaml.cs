@@ -24,8 +24,7 @@ namespace Daijoubu
             
             ApplicationInitialization();
 
-            ListViewNotifications = ListBuilder.HomePageNotifications();
-
+            ListViewNotifications = new ObservableCollection<lv_binding_hp_notifications>( ListBuilder.HomePageNotifications());
             listview_homepage_notifications.HasUnevenRows = true;
             listview_homepage_notifications.ItemsSource = ListViewNotifications;
 
@@ -33,7 +32,7 @@ namespace Daijoubu
 
         protected override void OnAppearing()
         {
-            ListViewNotifications = ListBuilder.HomePageNotifications();
+            ListViewNotifications = new ObservableCollection<lv_binding_hp_notifications>(ListBuilder.HomePageNotifications());
             listview_homepage_notifications.ItemsSource = ListViewNotifications;
             base.OnAppearing();       
         }

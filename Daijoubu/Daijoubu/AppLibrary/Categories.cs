@@ -8,7 +8,7 @@ namespace Daijoubu.AppLibrary
 {
     public class Categories
     {
-        public enum MultipleChoiceCategory { Hiragana, Katakana, Vocabulary }
+        public enum MultipleChoiceCategory { Hiragana, Katakana, Vocabulary, Meaning }
         public enum GeneralType { Hiragana, Katakana, Kanji, Vocabulary, Grammar}
     }
 }
