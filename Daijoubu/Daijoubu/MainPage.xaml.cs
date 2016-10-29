@@ -28,15 +28,16 @@ namespace Daijoubu
 
             listview_homepage_notifications.HasUnevenRows = true;
             listview_homepage_notifications.ItemsSource = ListViewNotifications;
+
         }
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-
             ListViewNotifications = ListBuilder.HomePageNotifications();
             listview_homepage_notifications.ItemsSource = ListViewNotifications;
+            base.OnAppearing();       
         }
+
 
         void ApplicationInitialization()
         {
