@@ -22,6 +22,7 @@ namespace Daijoubu.AppPages.ProfilePages
         {
             InitializeComponent();
 
+            _WordType = WordType;
             if (_WordType == GeneralType.Hiragana)
             {
                 GeneralTable = UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>();
@@ -30,7 +31,7 @@ namespace Daijoubu.AppPages.ProfilePages
             {
                 GeneralTable = UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>();
             }
-            else if (_WordType == GeneralType.Katakana)
+            else if (_WordType == GeneralType.Vocabulary)
             {
                 GeneralTable = UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>();
             }
@@ -39,7 +40,7 @@ namespace Daijoubu.AppPages.ProfilePages
                 throw new Exception("achivement page.cs");
             }
 
-            _WordType = WordType;
+            
             UserCard_Kana = new ObservableCollection<UserAchivements>();
 
             bool checkCount = (GeneralTable.Count == JapaneseDatabase.Table_Kana.Count);
