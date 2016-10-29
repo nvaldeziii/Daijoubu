@@ -11,7 +11,7 @@ namespace Daijoubu.AppLibrary
 {
     public static class ListBuilder
     {
-        public static ObservableCollection<AppModel.lv_binding_hp_notifications> HomePageNotifications()
+        public static List<AppModel.lv_binding_hp_notifications> HomePageNotifications()
         {
             List<AppModel.lv_binding_hp_notifications> _List = new List<AppModel.lv_binding_hp_notifications>();
 
@@ -101,7 +101,7 @@ namespace Daijoubu.AppLibrary
                 }
             }
 
-            return new ObservableCollection<AppModel.lv_binding_hp_notifications>(_List.OrderBy(item => item._tspan));
+            return new List<AppModel.lv_binding_hp_notifications>(_List.OrderBy(item => item._tspan));
         }
 
 

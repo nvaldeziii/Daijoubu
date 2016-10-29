@@ -33,6 +33,9 @@ namespace Daijoubu.AppModel
                 case MultipleChoiceCategory.Vocabulary:
                     tablename = "tbl_us_cardvbN5dt";
                     break;
+                case MultipleChoiceCategory.Meaning:
+                    tablename = "tbl_us_cardvbN5dt";
+                    break;
             }
 
             var query = string.Format("UPDATE {0} SET {1}={2},LastView=\"{3}\" WHERE Id=\"{4}\""

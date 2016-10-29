@@ -111,6 +111,11 @@ namespace Daijoubu.AppPages.QuizPages
                 nextnum = ((MultipleChoiceQuestionFactory.QuestionType)random.Next(5, 6));
                 TMPQueueHolder = UserDatabase.VocabularyCardQueue;
             }
+            else if (category == MultipleChoiceCategory.Meaning)
+            {
+                nextnum = ((MultipleChoiceQuestionFactory.QuestionType)random.Next(3, 4));
+                TMPQueueHolder = UserDatabase.VocabularyCardQueue;
+            }
             else
             {
                 throw new Exception("MultipleChoicePage->GenerateQuestion->QuestionType");
@@ -148,9 +153,9 @@ namespace Daijoubu.AppPages.QuizPages
             EnableInterfaces(true);
             SaveQueue(TMPQueueHolder);
             //prepare for next queue
-            
 
-            
+
+
             return Threshold;
         }
 
@@ -164,7 +169,7 @@ namespace Daijoubu.AppPages.QuizPages
             {
                 return UserDatabase.KataKanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>());
             }
-            else if (QuizCategory == MultipleChoiceCategory.Vocabulary)
+            else if (QuizCategory == MultipleChoiceCategory.Vocabulary || QuizCategory == MultipleChoiceCategory.Meaning)
             {
                 return UserDatabase.VocabularyCardQueue = Computer.CreateQueue(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
             }
@@ -184,7 +189,7 @@ namespace Daijoubu.AppPages.QuizPages
             {
                 UserDatabase.KataKanaCardQueue = tmpqueue;
             }
-            else if (QuizCategory == MultipleChoiceCategory.Vocabulary)
+            else if (QuizCategory == MultipleChoiceCategory.Vocabulary || QuizCategory == MultipleChoiceCategory.Meaning)
             {
                 UserDatabase.VocabularyCardQueue = tmpqueue;
             }
@@ -200,7 +205,7 @@ namespace Daijoubu.AppPages.QuizPages
             if (user_ans == Answer)
             {
                 //correct answer
-                this.BackgroundColor = PageColorDefault;
+                this.BackgroundColor = PageColorCorrect;
                 IsCorrect = true;
 
                 CurrentQuestion.CorrectCount++;
@@ -237,7 +242,7 @@ namespace Daijoubu.AppPages.QuizPages
                 UserDatabase.Table_UserKataKanaCardsN5[cardIndex].CorrectCount = CurrentQuestion.CorrectCount;
                 UserDatabase.Table_UserKataKanaCardsN5[cardIndex].MistakeCount = CurrentQuestion.MistakeCount;
                 UserDatabase.Table_UserKataKanaCardsN5[cardIndex].LastView = CurrentQuestion.LastView.ToString();
-            }else if (QuizCategory == MultipleChoiceCategory.Vocabulary)
+            } else if (QuizCategory == MultipleChoiceCategory.Vocabulary || QuizCategory == MultipleChoiceCategory.Meaning)
             {
                 UserDatabase.Table_UserVocabCardsN5[cardIndex].CorrectCount = CurrentQuestion.CorrectCount;
                 UserDatabase.Table_UserVocabCardsN5[cardIndex].MistakeCount = CurrentQuestion.MistakeCount;

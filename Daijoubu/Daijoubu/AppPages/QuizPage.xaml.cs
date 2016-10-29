@@ -33,7 +33,8 @@ namespace Daijoubu.AppPages
 
             btn_reading.Clicked += (o, e) =>
             {
-                var page = new QuizPages.ReadingPage();
+                //var page = new QuizPages.ReadingPage();
+                var page = new QuizPages.MultipleChoicePage(Categories.MultipleChoiceCategory.Meaning);
                 Navigation.PushAsync(page);
             };
 
