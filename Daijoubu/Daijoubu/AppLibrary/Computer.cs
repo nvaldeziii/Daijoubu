@@ -140,5 +140,34 @@ namespace Daijoubu.AppLibrary
             var percentdiff = (ForPercentage(correct, mistake) < SRSsettings.PercentageQuota);///////////////////////////////////////////////////////////////////////////
             return (percentdiff || timelapse);
         }
+
+        public static CardAssesment totalcardproficiency(List<AbstractCardTable> CardTable)
+        {
+            CardAssesment assesment = new CardAssesment();
+            assesment.TotalItems = CardTable.Count;
+            double total_percent = 0;
+            foreach(var item in CardTable)
+            {
+                var percent = ForPercentage(item.CorrectCount, item.MistakeCount);
+
+                if(item.CorrectCount>0 || item.MistakeCount > 0)
+                {
+                    assesment.TotalReviewed++;
+                    if (percent < 70)
+                    {
+                        //failed
+                        assesment.TotalFailed++;
+                    }
+                    else
+                    {
+                        assesment.TotalPassed++;
+                    }
+                }              
+                total_percent += percent;
+            }
+            assesment.TotalProficiency = total_percent / assesment.TotalItems;
+
+            return assesment;
+        }
     }
 }

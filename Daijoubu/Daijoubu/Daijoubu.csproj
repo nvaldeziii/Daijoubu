@@ -40,6 +40,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppLibrary\Card.cs" />
+    <Compile Include="AppLibrary\CardAssesment.cs" />
     <Compile Include="AppLibrary\Categories.cs" />
     <Compile Include="AppLibrary\Computer.cs" />
     <Compile Include="AppLibrary\IQuiz.cs" />
@@ -64,6 +65,9 @@
     </Compile>
     <Compile Include="AppPages\ProfilePages\AchivementPage.xaml.cs">
       <DependentUpon>AchivementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\ProfilePages\AssesmentPage.xaml.cs">
+      <DependentUpon>AssesmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppPages\QuizPage.xaml.cs">
       <DependentUpon>QuizPage.xaml</DependentUpon>
@@ -254,6 +258,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AppPages\QuizPages\MCCatSelectPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppPages\ProfilePages\AssesmentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

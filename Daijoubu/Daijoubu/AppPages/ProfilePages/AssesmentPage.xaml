@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daijoubu.AppPages.ProfilePages.AssesmentPage"
+  Title="Assesment"
+             Style="{StaticResource TypicalContentPage}">
+
+
+  <StackLayout>
+      <Label Text="JLPT N4 Assesment"/>
+      <Label Text="Kana Proficiency" />
+
+      <Label Text="" />
+      <Label Text="Hiragana" />
+      <Label x:Name="hiragana_learn_percent" />
+      <Label x:Name="hiragana_total_reviewed" />
+      <Label x:Name="hiragana_total_passed" />
+      <Label x:Name="hiragana_total_failed" />
+      <Label x:Name="hiragana_total_itemcount" />
+      <Label Text="" />
+      <Label Text="" />
+      <Label Text="Katakana" />
+      <Label x:Name="katakana_learn_percent" />
+      <Label x:Name="katakana_total_reviewed" />
+      <Label x:Name="katakana_total_passed" />
+      <Label x:Name="katakana_total_failed" />
+      <Label x:Name="katakana_total_itemcount" />
+      <Label Text="" />
+      <Label Text="" />
+      <Label Text="Vocabulary" />
+      <Label x:Name="vocabulary_learn_percent" />
+      <Label x:Name="vocabulary_total_reviewed" />
+      <Label x:Name="vocabulary_total_passed" />
+      <Label x:Name="vocabulary_total_failed" />
+      <Label x:Name="vocabulary_total_itemcount" />
+
+  </StackLayout>
+
+</ContentPage>
