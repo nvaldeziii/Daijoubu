@@ -29,21 +29,21 @@ namespace Daijoubu.AppPages.ProfilePages
 
         void Bind()
         {
-            hiragana_learn_percent.Text = string.Format("Total Proficiency: {0:0.00}%", JLPTN5KanaAssesment.TotalProficiency);
-            hiragana_total_passed.Text = string.Format("Total Passed: {0}", JLPTN5KanaAssesment.TotalPassed);
-            hiragana_total_failed.Text = string.Format("Total Failed Items: {0}", JLPTN5KanaAssesment.TotalFailed);
+            hiragana_learn_percent.Text = string.Format("Total Score: {0:0.00}%", JLPTN5KanaAssesment.TotalProficiency);
+            hiragana_total_passed.Text = string.Format("Passed Items: {0}", JLPTN5KanaAssesment.TotalPassed);
+            hiragana_total_failed.Text = string.Format("Failed Items: {0}", JLPTN5KanaAssesment.TotalFailed);
             hiragana_total_reviewed.Text = string.Format("Total reviewed: {0} of {1}", JLPTN5KanaAssesment.TotalReviewed, JLPTN5KanaAssesment.TotalItems);
             
 
-            katakana_learn_percent.Text = string.Format("Total Proficiency: {0:0.00}%", JLPTN5KatakanaAssesment.TotalProficiency);
-            katakana_total_passed.Text = string.Format("Total Passed: {0}", JLPTN5KatakanaAssesment.TotalPassed);
-            katakana_total_failed.Text = string.Format("Total Failed Items: {0}", JLPTN5KatakanaAssesment.TotalFailed);
+            katakana_learn_percent.Text = string.Format("Total Score: {0:0.00}%", JLPTN5KatakanaAssesment.TotalProficiency);
+            katakana_total_passed.Text = string.Format("Passed Items: {0}", JLPTN5KatakanaAssesment.TotalPassed);
+            katakana_total_failed.Text = string.Format("Failed Items: {0}", JLPTN5KatakanaAssesment.TotalFailed);
             katakana_total_reviewed.Text = string.Format("Total reviewed: {0} of {1}", JLPTN5KatakanaAssesment.TotalReviewed, JLPTN5KatakanaAssesment.TotalItems);
             
 
-            vocabulary_learn_percent.Text = string.Format("Total Proficiency: {0:0.00}%", JLPTN5VocabularyAssesment.TotalProficiency);
-            vocabulary_total_passed.Text = string.Format("Total Passed: {0}", JLPTN5VocabularyAssesment.TotalPassed);
-            vocabulary_total_failed.Text = string.Format("Total Failed Items: {0}", JLPTN5VocabularyAssesment.TotalFailed);
+            vocabulary_learn_percent.Text = string.Format("Total Score: {0:0.00}%", JLPTN5VocabularyAssesment.TotalProficiency);
+            vocabulary_total_passed.Text = string.Format("Passed Items: {0}", JLPTN5VocabularyAssesment.TotalPassed);
+            vocabulary_total_failed.Text = string.Format("Failed Items: {0}", JLPTN5VocabularyAssesment.TotalFailed);
             vocabulary_total_reviewed.Text = string.Format("Total reviewed: {0} of {1}", JLPTN5VocabularyAssesment.TotalReviewed, JLPTN5VocabularyAssesment.TotalItems);
 
             double jlptn5percent = (JLPTN5KanaAssesment.TotalProficiency + JLPTN5KatakanaAssesment.TotalProficiency + JLPTN5VocabularyAssesment.TotalProficiency) / 3.0;

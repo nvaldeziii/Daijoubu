@@ -6,8 +6,8 @@
              Style="{StaticResource TypicalContentPage}">
 
   <ScrollView>
-    <StackLayout>
-      <Label Text="JLPT N4 Assesment"/>
+    <StackLayout Padding="10">
+      <Label Text="JLPT Assesment"/>
       <Label x:Name="jlptn5_learn_percent" />
       
       <Label Text="" />
