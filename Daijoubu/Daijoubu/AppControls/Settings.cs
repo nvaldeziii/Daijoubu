@@ -21,6 +21,9 @@ namespace Daijoubu
         public bool SpeakWords { get; set; }
         public MultipleChoiceSettings MultipleChoice { get; set; }
 
+        public bool EnableN4 { get; set; }
+        public bool ForceEnableN4 { get; set; }
+
         public void GetUserPreferences()
         {
             try
@@ -32,6 +35,9 @@ namespace Daijoubu
 
                 var _HapticFeedback = Convert.ToBoolean(UserDatabase.Table_UserSettings.Find(i => i.name == "HapticFeedback").info);
                 var _SpeakWords = Convert.ToBoolean(UserDatabase.Table_UserSettings.Find(i => i.name == "SpeakWords").info);
+
+                EnableN4 = Convert.ToBoolean(UserDatabase.Table_UserSettings.Find(i => i.name == "EnableN4").info);
+                ForceEnableN4 = Convert.ToBoolean(UserDatabase.Table_UserSettings.Find(i => i.name == "ForceEnableN4").info);
 
                 MultipleChoice.AnswerFeedBackDelay = new TimeSpan(0, 0, 0, 0, _AnswerFeedBackDelay);
                 MultipleChoice.QuestionBufferCount = _QuestionBufferCount;
@@ -82,6 +88,8 @@ namespace Daijoubu
             DatabaseManipulator.UpdateUserConfig("HapticFeedback", HapticFeedback.ToString());
             progress = ++current / total;
             DatabaseManipulator.UpdateUserConfig("SpeakWords", SpeakWords.ToString());
+            progress = ++current / total;
+            DatabaseManipulator.UpdateUserConfig("ForceEnableN4", ForceEnableN4.ToString());
             progress = ++current / total;
 
             return true;

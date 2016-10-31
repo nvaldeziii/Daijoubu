@@ -6,7 +6,8 @@
              Style="{StaticResource TypicalContentPage}">
 
 
-  <StackLayout Padding="10">
+  <StackLayout Padding="20"
+               BackgroundColor="Red">
 
     <StackLayout Orientation="Horizontal">
       <Switch x:Name="switch_HapticFeedback"/>
@@ -16,6 +17,11 @@
     <StackLayout Orientation="Horizontal">
       <Switch x:Name="switch_TTS"/>
       <Label Text="Voice" />
+    </StackLayout>
+
+    <StackLayout Orientation="Horizontal">
+      <Switch x:Name="switch_enablen4"/>
+      <Label Text="Enable N4" />
     </StackLayout>
 
     <Label Text="Answer feedback delay" />

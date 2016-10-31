@@ -30,6 +30,11 @@ namespace Daijoubu.AppPages
                 Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary));
             };
 
+            btn_assess.Clicked += (o, e) =>
+            {
+                Navigation.PushAsync(new AssesmentPage());
+            };
+
             btn_delete_data.Clicked += async (o, e) =>
             {
                 progress_deletion.IsVisible = true;

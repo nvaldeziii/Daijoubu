@@ -10,12 +10,18 @@ namespace Daijoubu
 {
     public partial class SideMenuItems : ContentView
     {
+        Settings setting;
         public SideMenuItems()
         {
             InitializeComponent();
 
             //this.Padding = 100;
             //this.BackgroundColor = Color.Yellow;
+            setting = new Settings();
+
+            var enableN4 = (setting.EnableN4 || setting.ForceEnableN4);
+                SideMenuButton_QuizN4.IsEnabled = enableN4;
+            
 
             InitializeClickEvents();
         }
@@ -45,6 +51,10 @@ namespace Daijoubu
             {
                 AppPages.QuizPage page = new AppPages.QuizPage();
                 Navigation.PushAsync(page);
+            };
+
+            SideMenuButton_QuizN4.Clicked += (o, e) => {
+                //n4 logic goes here
             };
 
         }

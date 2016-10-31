@@ -18,6 +18,7 @@
 
       <Style TargetType="Label">
         <Setter Property="TextColor" Value="White" />
+        <Setter Property="FontSize" Value="Medium" />
       </Style>
       
       <!-- Default Style For content page to counter the margin -->
