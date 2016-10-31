@@ -22,31 +22,38 @@ namespace Daijoubu.AppPages
             InitializeValues();
 
             btn_save.Clicked += async (o, e) => {
-                progress_saving.IsVisible = true;
-                btn_Discard.IsEnabled = false;
-                btn_save.IsEnabled = false;
+                var confirm_save = await DisplayAlert("Confirm", "Are you sure you want to save?", "Yes", "No");
+                if (confirm_save)
+                {
+                    progress_saving.IsVisible = true;
+                    btn_Discard.IsEnabled = false;
+                    btn_save.IsEnabled = false;
 
-                DependencyService.Get<INotifications>().ToastDependency("Saving Please wait...!");
+                    DependencyService.Get<INotifications>().ToastDependency("Saving Please wait...!");
 
-                Device.StartTimer(new TimeSpan(0, 0, 0, 0, 250), () => {
-                    Task.Run(() => {
-                      
-                        progress_saving.ProgressTo(progress, 2000, Easing.Linear);
+                    Device.StartTimer(new TimeSpan(0, 0, 0, 0, 250), () =>
+                    {
+                        Task.Run(() =>
+                        {
+
+                            progress_saving.ProgressTo(progress, 2000, Easing.Linear);
+                        });
+                        return progress_saving.IsVisible;
                     });
-                    return progress_saving.IsVisible;
-                });
 
-                Saving();
+                    Saving();
 
-                await progress_saving.ProgressTo(1, 1000, Easing.Linear);
+                    await progress_saving.ProgressTo(1, 1000, Easing.Linear);
 
-                Thread.Sleep(2000);
-                Device.StartTimer(new TimeSpan(0, 0, 0, 3, 250), () => {
-                    progress_saving.IsVisible = false;
-                    //lbl_prog_percent.IsVisible = false;
-                    DependencyService.Get<INotifications>().ToastDependency("Saved!");
-                    return false;
-                });
+                    Thread.Sleep(2000);
+                    Device.StartTimer(new TimeSpan(0, 0, 0, 3, 250), () =>
+                    {
+                        progress_saving.IsVisible = false;
+                        //lbl_prog_percent.IsVisible = false;
+                        DisplayAlert("Saved!", "Some changes will take efect after app restart", "OK");
+                        return false;
+                    });
+                }
 
             };
         }
@@ -70,6 +77,7 @@ namespace Daijoubu.AppPages
                 }
                 finally
                 {
+                    
                 }
                 return false;
             });           

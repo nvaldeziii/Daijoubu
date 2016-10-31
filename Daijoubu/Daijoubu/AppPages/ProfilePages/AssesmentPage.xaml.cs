@@ -48,6 +48,16 @@ namespace Daijoubu.AppPages.ProfilePages
 
             double jlptn5percent = (JLPTN5KanaAssesment.TotalProficiency + JLPTN5KatakanaAssesment.TotalProficiency + JLPTN5VocabularyAssesment.TotalProficiency) / 3.0;
             jlptn5_learn_percent.Text = string.Format("JLPT N5 preparedness: {0:0.00}%", jlptn5percent);
+
+
+            if(jlptn5percent > 70)
+            {
+                UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "EnableN4")] 
+                    = new tbl_user_settings { info= "EnableN4", name= "EnableN4" };
+                DatabaseManipulator.UpdateUserConfig("EnableN4", "True");
+
+                DisplayAlert("Alert", "JLPT N4 quizzes are now enabled", "OK");
+            }
         }
     }
 }
