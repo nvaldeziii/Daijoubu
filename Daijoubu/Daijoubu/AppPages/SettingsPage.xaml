@@ -19,6 +19,11 @@
       <Label Text="Voice" />
     </StackLayout>
 
+    <StackLayout Orientation="Horizontal">
+      <Switch x:Name="switch_enablen4"/>
+      <Label Text="Enable N4" />
+    </StackLayout>
+
     <Label Text="Answer feedback delay" />
     <StackLayout Orientation="Horizontal">
       <Label Text="{Binding Value,StringFormat='{0:0.0}', Source={x:Reference slider_AnswerFeedBackDelay}}" />

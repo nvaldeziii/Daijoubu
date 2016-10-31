@@ -63,6 +63,8 @@ namespace Daijoubu.AppPages
                     setting.SpeakWords = switch_TTS.IsToggled;
 
                     setting.MultipleChoice.AnswerFeedBackDelay = new TimeSpan(0,0,0,0, Convert.ToInt32(slider_AnswerFeedBackDelay.Value));
+                    setting.ForceEnableN4 = switch_enablen4.IsToggled;
+
 
                     setting.SaveCurrentConfig(ref progress);
                 }
@@ -78,6 +80,7 @@ namespace Daijoubu.AppPages
             switch_HapticFeedback.IsToggled = setting.HapticFeedback;
             switch_TTS.IsToggled = setting.SpeakWords;
             slider_AnswerFeedBackDelay.Value = setting.MultipleChoice.AnswerFeedBackDelay.TotalSeconds * 1000;
+            switch_enablen4.IsToggled = setting.ForceEnableN4;
         }
     }
 }
