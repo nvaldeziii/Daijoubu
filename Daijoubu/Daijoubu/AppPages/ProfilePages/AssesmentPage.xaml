@@ -5,18 +5,18 @@
   Title="Assesment"
              Style="{StaticResource TypicalContentPage}">
 
-
-  <StackLayout>
+  <ScrollView>
+    <StackLayout>
       <Label Text="JLPT N4 Assesment"/>
-      <Label Text="Kana Proficiency" />
-
+      <Label x:Name="jlptn5_learn_percent" />
+      
+      <Label Text="" />
       <Label Text="" />
       <Label Text="Hiragana" />
       <Label x:Name="hiragana_learn_percent" />
       <Label x:Name="hiragana_total_reviewed" />
       <Label x:Name="hiragana_total_passed" />
       <Label x:Name="hiragana_total_failed" />
-      <Label x:Name="hiragana_total_itemcount" />
       <Label Text="" />
       <Label Text="" />
       <Label Text="Katakana" />
@@ -24,7 +24,6 @@
       <Label x:Name="katakana_total_reviewed" />
       <Label x:Name="katakana_total_passed" />
       <Label x:Name="katakana_total_failed" />
-      <Label x:Name="katakana_total_itemcount" />
       <Label Text="" />
       <Label Text="" />
       <Label Text="Vocabulary" />
@@ -32,8 +31,7 @@
       <Label x:Name="vocabulary_total_reviewed" />
       <Label x:Name="vocabulary_total_passed" />
       <Label x:Name="vocabulary_total_failed" />
-      <Label x:Name="vocabulary_total_itemcount" />
 
-  </StackLayout>
-
+    </StackLayout>
+  </ScrollView>
 </ContentPage>

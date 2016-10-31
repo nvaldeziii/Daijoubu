@@ -6,7 +6,8 @@
              Style="{StaticResource TypicalContentPage}">
 
 
-  <StackLayout Padding="10">
+  <StackLayout Padding="20"
+               BackgroundColor="Red">
 
     <StackLayout Orientation="Horizontal">
       <Switch x:Name="switch_HapticFeedback"/>

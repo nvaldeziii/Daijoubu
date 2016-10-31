@@ -8,6 +8,9 @@ insert into tbl_user_settings values ("QuestionBufferCount","5");
 insert into tbl_user_settings values ("TypingQuizCorrectnessAdder","2");
 insert into tbl_user_settings values ("QueueCount","5");
 
+insert into tbl_user_settings values ("ForceEnableN4","False");
+insert into tbl_user_settings values ("EnableN4","False");
+
 insert into tbl_user_settings values ("HapticFeedback","True");
 insert into tbl_user_settings values ("SpeakWords","True");
 
