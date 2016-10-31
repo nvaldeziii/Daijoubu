@@ -24,4 +24,14 @@ namespace Daijoubu.AppModel
     {
  
     }
+
+    public class tbl_us_cardvbN4dt : AbstractCardTable
+    {
+
+    }
+
+    public class tbl_us_cardgrN4dt : AbstractCardTable
+    {
+
+    }
 }
