@@ -7,7 +7,7 @@
 
 
   <StackLayout Padding="20"
-               BackgroundColor="Red">
+               BackgroundColor="#273442">
 
     <StackLayout Orientation="Horizontal">
       <Switch x:Name="switch_HapticFeedback"/>

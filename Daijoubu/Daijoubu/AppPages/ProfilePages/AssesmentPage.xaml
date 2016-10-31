@@ -7,7 +7,7 @@
 
   <ScrollView>
     <StackLayout Padding="10">
-      <Label Text="JLPT Assesment"/>
+      <Label Text="JLPT Assessment"/>
       <Label x:Name="jlptn5_learn_percent" />
       
       <Label Text="" />
@@ -15,22 +15,28 @@
       <Label Text="Hiragana" />
       <Label x:Name="hiragana_learn_percent" />
       <Label x:Name="hiragana_total_reviewed" />
-      <Label x:Name="hiragana_total_passed" />
-      <Label x:Name="hiragana_total_failed" />
+      <Label x:Name="hiragana_total_passed"
+             TextColor="Green"/>
+      <Label x:Name="hiragana_total_failed" 
+             TextColor="Red"/>
       <Label Text="" />
       <Label Text="" />
       <Label Text="Katakana" />
       <Label x:Name="katakana_learn_percent" />
       <Label x:Name="katakana_total_reviewed" />
-      <Label x:Name="katakana_total_passed" />
-      <Label x:Name="katakana_total_failed" />
+      <Label x:Name="katakana_total_passed" 
+             TextColor="Green"/>
+      <Label x:Name="katakana_total_failed" 
+             TextColor="Red"/>
       <Label Text="" />
       <Label Text="" />
       <Label Text="Vocabulary" />
       <Label x:Name="vocabulary_learn_percent" />
       <Label x:Name="vocabulary_total_reviewed" />
-      <Label x:Name="vocabulary_total_passed" />
-      <Label x:Name="vocabulary_total_failed" />
+      <Label x:Name="vocabulary_total_passed" 
+             TextColor="Green"/>
+      <Label x:Name="vocabulary_total_failed" 
+             TextColor="Red"/>
 
     </StackLayout>
   </ScrollView>

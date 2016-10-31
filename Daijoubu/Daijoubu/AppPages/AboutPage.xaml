@@ -7,8 +7,7 @@
   <StackLayout
     Padding="10">
 
-    <Label Text=" " />
-    <Label Text=" " />
+ 
            
     <Label Text="Daijoubu app © 2016"
            TextColor="White"/>
