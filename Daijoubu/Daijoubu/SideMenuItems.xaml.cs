@@ -20,8 +20,8 @@ namespace Daijoubu
             setting = new Settings();
 
             var enableN4 = (setting.EnableN4 || setting.ForceEnableN4);
-                SideMenuButton_QuizN4.IsVisible = enableN4;
                 SideMenuButton_QuizN4.IsEnabled = enableN4;
+            
 
             InitializeClickEvents();
         }
