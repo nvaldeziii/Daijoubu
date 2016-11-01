@@ -18,6 +18,7 @@ namespace Daijoubu.AppModel
         public Color ClockColor { get; set; }
 
         public TimeSpan _tspan { get; set; }
+        public string _lastview { get; set; }
         public string TableName { get; set; }
         public int ItemID { get; set; }
     }

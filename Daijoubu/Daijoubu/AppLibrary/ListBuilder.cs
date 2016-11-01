@@ -39,7 +39,8 @@ namespace Daijoubu.AppLibrary
                         Clock = Computer.NextQueingSpanToString(tspan),
                         ClockColor = clockcolor,
                         _tspan = tspan,
-                        Subtitle = "Sample subs"
+                        Subtitle = "Sample subs",
+                        _lastview = Computer.SemanticTimespan(Convert.ToDateTime(item.LastView))
                     });
                 }
             }

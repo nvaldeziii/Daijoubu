@@ -169,5 +169,44 @@ namespace Daijoubu.AppLibrary
 
             return assesment;
         }
+
+        public static string SemanticTimespan(DateTime dt)
+        {
+            TimeSpan ts = (DateTime.Now - dt);
+            if(ts.Days % 30 > 0)
+            {
+                var x = ts.Days % 30;
+                return string.Format("{0} month{1} ago", x, x > 1 ? "s" : "" );
+            }else if (ts.Days % 7 > 0)
+            {
+                var x = ts.Days % 7;
+                return string.Format("{0} week{1} ago", x, x > 1 ? "s" : "");
+            }
+            else if (ts.Days > 0)
+            {
+                var x = ts.Days;
+                return string.Format("{0} day{1} ago", x, x > 1 ? "s" : "");
+            }
+            else if (ts.Hours > 0)
+            {
+                var x = ts.Hours;
+                return string.Format("{0} hour{1} ago", x, x > 1 ? "s" : "");
+            }
+            else if (ts.Hours > 0)
+            {
+                var x = ts.Hours;
+                return string.Format("{0} hour{1} ago", x, x > 1 ? "s" : "");
+            }
+            else if (ts.Minutes > 0)
+            {
+                var x = ts.Minutes;
+                return string.Format("{0} minute{1} ago", x, x > 1 ? "s" : "");
+            }
+            else
+            {
+                var x = ts.Seconds;
+                return string.Format("{0} Second{1} ago", x, x > 1 ? "s" : "");
+            }
+        }
     }
 }

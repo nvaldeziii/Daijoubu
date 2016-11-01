@@ -56,30 +56,35 @@ namespace Daijoubu.AppPages.ProfilePages
                 if (GeneralTable[i].CorrectCount != 0 || GeneralTable[i].MistakeCount != 0)
                 {
                     string _item;
+                    int id = -1;
                     if(_WordType == GeneralType.Hiragana)
                     {
                         _item = JapaneseDatabase.Table_Kana[i].hiragana;
+                        id = JapaneseDatabase.Table_Kana[i].Id;
                     }
                     else if (_WordType == GeneralType.Katakana)
                     {
                         _item = JapaneseDatabase.Table_Kana[i].katakana;
+                        id = JapaneseDatabase.Table_Kana[i].Id;
                     }
                     else if (_WordType == GeneralType.Vocabulary)
                     {
                         _item = JapaneseDatabase.Table_Vocabulary_N5[i].kanji;
+                        id = JapaneseDatabase.Table_Vocabulary_N5[i].Id;
                     }
                     else
                     {
                         throw new Exception("achivement page.cs");
                     }
+
                     UserCard_Kana.Add(new UserAchivements
                     {
-                        ItemID = JapaneseDatabase.Table_Kana[i].Id,
+                        ItemID = id,
                         Item = _item,
                         Item2 = "null",
                         Correct = GeneralTable[i].CorrectCount,
                         Mistake = GeneralTable[i].MistakeCount,
-                        LastView = GeneralTable[i].LastView,
+                        LastView = Computer.SemanticTimespan(Convert.ToDateTime(GeneralTable[i].LastView)),
                         Percent = Computer.ForPercentage(GeneralTable[i].CorrectCount, GeneralTable[i].MistakeCount),
                         NextQueue = Computer.NextQueingSpanToString(Computer.NextQueingSpan(_LastView, GeneralTable[i].CorrectCount, GeneralTable[i].MistakeCount))
                     });
