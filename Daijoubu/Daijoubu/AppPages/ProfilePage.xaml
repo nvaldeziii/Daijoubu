@@ -35,7 +35,7 @@
             Text="View Vocabulary Achievement"
             Grid.Row="2"/>
     <Button x:Name="btn_assess"
-            Text="View Assesment"
+            Text="View Assessment"
             Grid.Row="3"/>
     <Button x:Name="btn_delete_data"
             Text="Delete User Data"
