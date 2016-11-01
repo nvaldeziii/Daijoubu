@@ -28,7 +28,7 @@
              TextColor="Green"/>
       <Label x:Name="katakana_total_failed" 
              TextColor="Red"/>
-      <Label Text="" />u
+      <Label Text="" />
       <Label Text="" />
       <Label Text="Vocabulary" />
       <Label x:Name="vocabulary_learn_percent" />
