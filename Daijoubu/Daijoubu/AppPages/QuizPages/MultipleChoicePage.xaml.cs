@@ -284,6 +284,17 @@ namespace Daijoubu.AppPages.QuizPages
                      btn_choice4.BackgroundColor = ButtonColorDefault;
             }
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            //Navigation.PopAsync();
+            //Navigation.PushAsync(new ProfilePages.AssesmentPage());
+            Navigation.PushModalAsync(new ProfilePages.AssesmentPage
+            {
+                Padding = 0
+            });
+            return false;
+        }
     }
 
 }

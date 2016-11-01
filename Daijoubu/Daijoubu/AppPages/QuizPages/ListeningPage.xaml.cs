@@ -119,5 +119,15 @@ namespace Daijoubu.AppPages.QuizPages
             edittext_tts_input.IsEnabled = value;
             lbl_correct_ans.IsVisible = !value;
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            //Navigation.PopAsync();
+            //Navigation.PushAsync(new ProfilePages.AssesmentPage());
+            Navigation.PushModalAsync(new ProfilePages.AssesmentPage {
+                Padding = 0
+            });
+            return false;
+        }
     }
 }
