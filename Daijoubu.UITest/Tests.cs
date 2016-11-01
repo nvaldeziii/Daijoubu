@@ -71,6 +71,20 @@ namespace Daijoubu.UITest
             //act
             MultipleChoiceTest();
         }
+        [Test]
+        public void MultipleChoice_vocabulary_UITest()
+        {
+            //arrange
+            //app.DragCoordinates(10, 800, 650, 800);
+            app.TapCoordinates(ai_setting.DrawerLocationX, ai_setting.DrawerLocationY);
+            app.Tap("auto_SideMenuButton_Quiz");
+            app.Tap("auto_btn_multiple");
+            app.Tap("auto_btn_vocabulary_quiz");
+
+            //act
+            MultipleChoiceTest();
+        }
+
 
         void MultipleChoiceTest()
         {

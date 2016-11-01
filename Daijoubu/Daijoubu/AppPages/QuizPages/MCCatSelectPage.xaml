@@ -12,7 +12,7 @@
             AutomationId="auto_btn_katakana_quiz"
             Text="Katakana" />
     <Button x:Name="btn_vocabulary_quiz"
-            AutomationId="auto_btn_katakana_quiz"
+            AutomationId="auto_btn_vocabulary_quiz"
               Text="Vocabulary" />
   </StackLayout>
 
