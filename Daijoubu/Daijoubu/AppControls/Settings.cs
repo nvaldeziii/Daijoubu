@@ -17,6 +17,8 @@ namespace Daijoubu
             GetUserPreferences();
         }
 
+        public static readonly double FontSizeMultiplier = 3.5;
+
         public bool HapticFeedback { get; set; }
         public bool SpeakWords { get; set; }
         public MultipleChoiceSettings MultipleChoice { get; set; }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Daijoubu.AppLibrary
 {
@@ -207,6 +208,14 @@ namespace Daijoubu.AppLibrary
                 var x = ts.Seconds;
                 return string.Format("{0} Second{1} ago", x, x > 1 ? "s" : "");
             }
+        }
+
+        public static double AnswerButtonFontSize(int strlen,double multiplier)
+        {
+            var button_size_large = Device.GetNamedSize(NamedSize.Small, typeof(Button)) * multiplier;
+            var button_size_med = Device.GetNamedSize(NamedSize.Small, typeof(Button)) * (multiplier / 2);
+            var button_size_small = Device.GetNamedSize(NamedSize.Large, typeof(Button));
+            return strlen > 3 ? button_size_small : strlen > 2 ? button_size_med : button_size_large;
         }
     }
 }

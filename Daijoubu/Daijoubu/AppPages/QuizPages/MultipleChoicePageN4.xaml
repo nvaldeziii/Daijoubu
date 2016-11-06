@@ -14,19 +14,22 @@
     <Label Text=" " />
     <Label Text=" " />
 
-   
+
+    <Frame>
       <Label x:Name="label_question"
-             Text="*val*" />
+             Text="*val*"
+             Style="{StaticResource SingleQuestionLabel}" />
+    </Frame>
    
 
 
     <Label Text=" " />
     <Label Text=" " />
     <Label x:Name="lbl_debug_txt"
-           Text=" " />
+           Style="{StaticResource DebugLabels}" />
     <Label x:Name="lbl_debug_ans"
            AutomationId="auto_lbl_debug_ans"
-           Text=" " />
+           Style="{StaticResource DebugLabels}" />
     <Label x:Name="lbl_nextview"
            Text=" " />
     <Label x:Name="lbl_percent"

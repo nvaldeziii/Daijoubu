@@ -29,6 +29,13 @@ namespace Daijoubu.AppPages.QuizPages
         public MultipleChoicePage(MultipleChoiceCategory category)
         {
             InitializeComponent();
+
+            FontChanger();
+            btn_choice1.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
+            btn_choice2.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
+            btn_choice3.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
+            btn_choice4.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
+
             random = new Random();
             QuizCategory = category;
             QuestionFactory = new MultipleChoiceQuestionFactory();
@@ -38,7 +45,14 @@ namespace Daijoubu.AppPages.QuizPages
             btn_choice4.Clicked += CheckAnswer;
 
             Setting = new Settings();
-            GenerateQuestion(QuizCategory);
+
+            EnableInterfaces(false);
+
+            Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () =>
+            {
+                GenerateQuestion(QuizCategory);
+                return false;
+            });
         }
 
         private void CheckAnswer(object sender, EventArgs e)
@@ -142,6 +156,7 @@ namespace Daijoubu.AppPages.QuizPages
                 QuestionFactory.GenerateKanaQuestion(CurrentQuestion.Id, CurrentQuestion.Id, nextnum);
             }
             label_question.Text = QuestionFactory.Question;
+
             Answer = QuestionFactory.Answer;
             GenerateChoices(QuestionFactory.Choices);
 
@@ -154,7 +169,8 @@ namespace Daijoubu.AppPages.QuizPages
             SaveQueue(TMPQueueHolder);
             //prepare for next queue
 
-
+            //font change
+            this.FontChanger();
 
             return Threshold;
         }
@@ -242,7 +258,8 @@ namespace Daijoubu.AppPages.QuizPages
                 UserDatabase.Table_UserKataKanaCardsN5[cardIndex].CorrectCount = CurrentQuestion.CorrectCount;
                 UserDatabase.Table_UserKataKanaCardsN5[cardIndex].MistakeCount = CurrentQuestion.MistakeCount;
                 UserDatabase.Table_UserKataKanaCardsN5[cardIndex].LastView = CurrentQuestion.LastView.ToString();
-            } else if (QuizCategory == MultipleChoiceCategory.Vocabulary || QuizCategory == MultipleChoiceCategory.Meaning)
+            }
+            else if (QuizCategory == MultipleChoiceCategory.Vocabulary || QuizCategory == MultipleChoiceCategory.Meaning)
             {
                 UserDatabase.Table_UserVocabCardsN5[cardIndex].CorrectCount = CurrentQuestion.CorrectCount;
                 UserDatabase.Table_UserVocabCardsN5[cardIndex].MistakeCount = CurrentQuestion.MistakeCount;
@@ -300,6 +317,25 @@ namespace Daijoubu.AppPages.QuizPages
             });
             return false;
         }
+
+        void FontChanger()
+        {
+            if (label_question.Text.Length > 3)
+            {
+                label_question.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)) * Settings.FontSizeMultiplier;
+            }
+            else
+            {
+                label_question.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)) * Settings.FontSizeMultiplier;
+            }
+
+            
+            btn_choice1.FontSize = Computer.AnswerButtonFontSize(btn_choice1.Text.Length, Settings.FontSizeMultiplier);
+            btn_choice2.FontSize = Computer.AnswerButtonFontSize(btn_choice2.Text.Length, Settings.FontSizeMultiplier);
+            btn_choice3.FontSize = Computer.AnswerButtonFontSize(btn_choice3.Text.Length, Settings.FontSizeMultiplier);
+            btn_choice4.FontSize = Computer.AnswerButtonFontSize(btn_choice4.Text.Length, Settings.FontSizeMultiplier);
+        }
+
     }
 
 }
