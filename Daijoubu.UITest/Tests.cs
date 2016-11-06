@@ -154,6 +154,9 @@ namespace Daijoubu.UITest
             Back(4);
             //back at homepage
             MultipleChoice_katakana_UITest();
+            Back(4);
+            MultipleChoice_vocabulary_UITest();
+            Back(3);
         }
 
         void Back(int count)

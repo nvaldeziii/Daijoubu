@@ -47,6 +47,7 @@
     <Compile Include="AppLibrary\JapaneseCharacter.cs" />
     <Compile Include="AppLibrary\ListBuilder.cs" />
     <Compile Include="AppLibrary\MultipleChoiceQuestionFactory.cs" />
+    <Compile Include="AppLibrary\MultipleChoiceQuestionFactoryN4.cs" />
     <Compile Include="AppLibrary\TypingQuestionFactory.cs" />
     <Compile Include="AppModel\DatabaseManipulator.cs" />
     <Compile Include="AppModel\JapaneseDatabase.cs" />
@@ -72,6 +73,9 @@
     <Compile Include="AppPages\QuizPage.xaml.cs">
       <DependentUpon>QuizPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppPages\QuizPageN4.xaml.cs">
+      <DependentUpon>QuizPageN4.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppPages\QuizPages\ListeningPage.xaml.cs">
       <DependentUpon>ListeningPage.xaml</DependentUpon>
     </Compile>
@@ -80,6 +84,9 @@
     </Compile>
     <Compile Include="AppPages\QuizPages\MultipleChoicePage.xaml.cs">
       <DependentUpon>MultipleChoicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\QuizPages\MultipleChoicePageN4.xaml.cs">
+      <DependentUpon>MultipleChoicePageN4.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppPages\QuizPages\ReadingPage.xaml.cs">
       <DependentUpon>ReadingPage.xaml</DependentUpon>
@@ -264,6 +271,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AppPages\ProfilePages\AssesmentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppPages\QuizPageN4.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppPages\QuizPages\MultipleChoicePageN4.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

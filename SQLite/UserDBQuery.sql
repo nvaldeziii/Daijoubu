@@ -44,6 +44,13 @@ create table tbl_us_cardvbN4dt(
         LastView varchar(254)
 );
 
+create table tbl_us_cardgrN4dt(
+		Id INTEGER PRIMARY KEY AUTOINCREMENT,
+        CorrectCount int,
+        MistakeCount int,
+        LastView varchar(254)
+);
+
 create table tbl_us_cardknN4Dt(
 		Id INTEGER PRIMARY KEY AUTOINCREMENT,
         CorrectCount int,

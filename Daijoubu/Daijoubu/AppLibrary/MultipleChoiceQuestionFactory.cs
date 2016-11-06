@@ -12,7 +12,7 @@ namespace Daijoubu.AppLibrary
     {
         public enum QuestionType
         {
-            Hiragana, Katakana, Romaji, VocabularyJP, VocabularyEN, VocabularyFUJP, VocabularyJPFU, VocabularyENFU, VocabularyFUEN
+            Hiragana, Katakana, Romaji, VocabularyJP, VocabularyEN, VocabularyFUJP, VocabularyJPFU, VocabularyENFU, VocabularyFUEN, Grammar
         };
 
         public int QuestionID { get; private set; }
@@ -29,7 +29,7 @@ namespace Daijoubu.AppLibrary
         {
             GenerateKanaQuestion(JapaneseDatabase.Table_Kana.Count, random.Next(0, JapaneseDatabase.Table_Kana.Count), type);
         }
-        public void GenerateKanaQuestion(int high, int CardId, QuestionType type, int low = 0)
+        public virtual void GenerateKanaQuestion(int high, int CardId, QuestionType type, int low = 0)
         {
             //if (high > JapaneseDatabase.Table_Kana.Count)
             //{
@@ -98,6 +98,8 @@ namespace Daijoubu.AppLibrary
                         Answer = vocabulary.furigana;
                         GenerateChoices(() => { return JapaneseDatabase.Table_Vocabulary_N5[random.Next(low, high)].furigana; });
                         break;
+                    case QuestionType.Grammar:
+                        throw new NotImplementedException("Multiple Choice Factory : 102");
                     default:
                         throw new Exception("MultipleChoiceQuestionFactory->GenerateHiraganaQuestion(){switch_default} error");
                 }
