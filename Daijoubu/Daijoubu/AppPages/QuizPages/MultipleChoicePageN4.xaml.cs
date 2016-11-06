@@ -48,7 +48,12 @@ namespace Daijoubu.AppPages.QuizPages
             btn_choice4.Clicked += CheckAnswer;
             _english = en;
             Setting = new Settings();
-            GenerateQuestion(QuizCategory);
+
+            Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () =>
+            {
+                GenerateQuestion(QuizCategory);
+                return false;
+            });
         }
 
 
@@ -84,7 +89,7 @@ namespace Daijoubu.AppPages.QuizPages
                     ToSpeak = QuestionFactory.Question;
                     if (QuizCategory == MultipleChoiceCategory.Meaning)
                     {
-                        ToSpeak = ToSpeak.Replace("_", QuestionFactory.Answer);
+                        ToSpeak = ToSpeak.Replace("＿", QuestionFactory.Answer);
                     }
                     DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
                 }else if (!JapaneseCharacter.ContainsAlphabet(QuestionFactory.Answer))
@@ -313,7 +318,7 @@ namespace Daijoubu.AppPages.QuizPages
         {
             if (label_question.Text.Length > 3)
             {
-                label_question.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)) * Settings.FontSizeMultiplier;
+                label_question.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)) * Settings.FontSizeMultiplier;
             }
             else
             {

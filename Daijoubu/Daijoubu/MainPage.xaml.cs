@@ -11,35 +11,35 @@ using Xamarin.Forms;
 
 namespace Daijoubu
 {
-    
+
     public partial class MainPage : ContentPage
     {
         ObservableCollection<lv_binding_hp_notifications> ListViewNotifications;
         Settings setting;
-
+        DateTime LastGreeting { get; set; }
         public MainPage()
         {
-            InitializeComponent();  
+            InitializeComponent();
             //this.Padding = -50;
-            
+
             ApplicationInitialization();
 
-            ListViewNotifications = new ObservableCollection<lv_binding_hp_notifications>( ListBuilder.HomePageNotifications());
+            ListViewNotifications = new ObservableCollection<lv_binding_hp_notifications>(ListBuilder.HomePageNotifications());
             listview_homepage_notifications.HasUnevenRows = true;
             listview_homepage_notifications.ItemsSource = ListViewNotifications;
 
             DependencyService.Get<ITextToSpeech>().Speak("大丈夫");
+            LastGreeting = DateTime.Now.Subtract(new TimeSpan(0,3,0));
+            Device.StartTimer(new TimeSpan(0, 0, 2), () =>
+              {
+                  if (setting.SpeakWords)
+                  {
+                      DependencyService.Get<ITextToSpeech>().Speak(Computer.ApplicationInitialGreeting());
+                  }
+                  return false;
+              });
 
-            Device.StartTimer(new TimeSpan(0,0,2), () =>
-            {
-                if (setting.SpeakWords)
-                {
-                    DependencyService.Get<ITextToSpeech>().Speak(Computer.ApplicationInitialGreeting());
-                }
-                return false;
-            });
-            
-            
+
         }
 
         protected override void OnAppearing()
@@ -47,18 +47,19 @@ namespace Daijoubu
             ListViewNotifications = new ObservableCollection<lv_binding_hp_notifications>(ListBuilder.HomePageNotifications());
             listview_homepage_notifications.ItemsSource = ListViewNotifications;
 
-            if (setting.SpeakWords)
+            if (setting.SpeakWords & (DateTime.Now - LastGreeting).TotalMinutes > 3)
             {
                 DependencyService.Get<ITextToSpeech>().Speak(Computer.RandomJapaneseProverbs());
+                LastGreeting = DateTime.Now;
             }
 
-            base.OnAppearing();       
+            base.OnAppearing();
         }
 
 
         void ApplicationInitialization()
         {
-            
+
             //DB Initialization
 
             //DependencyService.Get<ISQLite>().DeleteUserDB();
