@@ -28,6 +28,24 @@ namespace Daijoubu
             listview_homepage_notifications.HasUnevenRows = true;
             listview_homepage_notifications.ItemsSource = ListViewNotifications;
 
+            listview_homepage_notifications.ItemTapped += (object sender, ItemTappedEventArgs e) => {
+                try
+                {
+                    // don't do anything if we just de-selected the row
+                    if (e.Item == null) return;
+                    // do something with e.SelectedItem
+                
+                    ListViewNotifications.Remove(((ListView)sender).SelectedItem as lv_binding_hp_notifications);
+                
+                    if(ListViewNotifications.Count <= 0)
+                    {
+                        ListViewNotifications.Add(lv_binding_hp_notifications.Empty(3.5));
+                    }
+                    ((ListView)sender).SelectedItem = null; // de-select the row
+                }
+                catch { }
+            };
+
             DependencyService.Get<ITextToSpeech>().Speak("大丈夫");
             LastGreeting = DateTime.Now.Subtract(new TimeSpan(0,3,0));
             Device.StartTimer(new TimeSpan(0, 0, 2), () =>

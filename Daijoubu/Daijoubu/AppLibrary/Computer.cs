@@ -171,6 +171,47 @@ namespace Daijoubu.AppLibrary
             return assesment;
         }
 
+        public static string SemanticTimespan(TimeSpan tspan)
+        {
+            var ts = tspan.Duration();
+            string due = tspan.TotalSeconds < 0 ? "Overdue" : "To go";
+            if (ts.Days % 30 > 0)
+            {
+                var x = ts.Days % 30;
+                return string.Format("{0} month{1} {2}", x, x > 1 ? "s" : "", due);
+            }
+            else if (ts.Days % 7 > 0)
+            {
+                var x = ts.Days % 7;
+                return string.Format("{0} week{1} {2}", x, x > 1 ? "s" : "", due);
+            }
+            else if (ts.Days > 0)
+            {
+                var x = ts.Days;
+                return string.Format("{0} day{1} {2}", x, x > 1 ? "s" : "", due);
+            }
+            else if (ts.Hours > 0)
+            {
+                var x = ts.Hours;
+                return string.Format("{0} hour{1} {2}", x, x > 1 ? "s" : "", due);
+            }
+            else if (ts.Hours > 0)
+            {
+                var x = ts.Hours;
+                return string.Format("{0} hour{1} {2}", x, x > 1 ? "s" : "", due);
+            }
+            else if (ts.Minutes > 0)
+            {
+                var x = ts.Minutes;
+                return string.Format("{0} minute{1} {2}", x, x > 1 ? "s" : "", due);
+            }
+            else
+            {
+                var x = ts.Seconds;
+                return string.Format("{0} Second{1} {2}", x, x > 1 ? "s" : "", due);
+            }
+        }
+
         public static string SemanticTimespan(DateTime dt)
         {
             TimeSpan ts = (DateTime.Now - dt);
@@ -216,6 +257,14 @@ namespace Daijoubu.AppLibrary
             var button_size_med = Device.GetNamedSize(NamedSize.Small, typeof(Button)) * (multiplier / 2);
             var button_size_small = Device.GetNamedSize(NamedSize.Large, typeof(Button));
             return strlen > 3 ? button_size_small : strlen > 2 ? button_size_med : button_size_large;
+        }
+
+        public static double LabelFontSize(int strlen, double multiplier)
+        {
+            var size_large = Device.GetNamedSize(NamedSize.Small, typeof(Button)) * multiplier;
+            //var size_med = Device.GetNamedSize(NamedSize.Small, typeof(Button)) * (multiplier / 2);
+            var size_small = Device.GetNamedSize(NamedSize.Large, typeof(Button));
+            return strlen > 4 ? size_small : size_large;
         }
 
         public static string RandomJapaneseProverbs()

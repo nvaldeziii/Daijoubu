@@ -13,6 +13,7 @@ namespace Daijoubu.AppLibrary
     {
         public static List<AppModel.lv_binding_hp_notifications> HomePageNotifications()
         {
+            double fontsize_multiplier = 3.5;
             List<AppModel.lv_binding_hp_notifications> _List = new List<AppModel.lv_binding_hp_notifications>();
 
             /*
@@ -32,15 +33,16 @@ namespace Daijoubu.AppLibrary
                     _List.Add(new lv_binding_hp_notifications
                     {
                         MainLabel = Card.hiragana,
-                        Title = "Study this card",
+                        Title = string.Format("💬: \"{0}\"", Card.romaji.ToUpper()),
                         Percent = percentage,
                         TableName = "Table_UserKanaCardsN5",
                         ItemID = item.Id,
-                        Clock = Computer.NextQueingSpanToString(tspan),
+                        Clock = Computer.SemanticTimespan(tspan),
                         ClockColor = clockcolor,
                         _tspan = tspan,
-                        Subtitle = "Sample subs",
-                        _lastview = Computer.SemanticTimespan(Convert.ToDateTime(item.LastView))
+                        Subtitle = "",
+                        _lastview = Computer.SemanticTimespan(Convert.ToDateTime(item.LastView)),
+                        MainLabelFontSize = Computer.LabelFontSize(Card.hiragana.Length, fontsize_multiplier)
                     });
                 }
             }
@@ -62,20 +64,22 @@ namespace Daijoubu.AppLibrary
                     _List.Add(new lv_binding_hp_notifications
                     {
                         MainLabel = Card.katakana,
-                        Title = "Study this card",
+                        Title = string.Format("💬: \"{0}\"", Card.romaji.ToUpper()),
                         Percent = percentage,
                         TableName = "Table_UserKataKanaCardsN5",
                         ItemID = item.Id,
-                        Clock = Computer.NextQueingSpanToString(tspan),
+                        Clock = Computer.SemanticTimespan(tspan),
                         ClockColor = clockcolor,
                         _tspan = tspan,
-                        Subtitle = "Sample subs"
+                        Subtitle = "",
+                        _lastview = Computer.SemanticTimespan(Convert.ToDateTime(item.LastView)),
+                        MainLabelFontSize = Computer.LabelFontSize(Card.katakana.Length, fontsize_multiplier)
                     });
                 }
             }
 
             /*
-             * Vocabulary
+             * Vocabulary N5
              */
             for (int i = 0; i < UserDatabase.Table_UserVocabCardsN5.Count; i++)
             {
@@ -90,16 +94,53 @@ namespace Daijoubu.AppLibrary
                     _List.Add(new lv_binding_hp_notifications
                     {
                         MainLabel = Card.kanji,
-                        Title = Card.meaning,
+                        Title = string.Format("📖: \"{0}\"", Card.meaning),
                         Percent = percentage,
                         TableName = "Table_UserVocabCardsN5",
                         ItemID = item.Id,
-                        Clock = Computer.NextQueingSpanToString(tspan),
+                        Clock = Computer.SemanticTimespan(tspan),
                         ClockColor = clockcolor,
                         _tspan = tspan,
-                        Subtitle = Card.furigana
+                        Subtitle = string.Format("💬: \"{0}\"", Card.furigana),
+                        _lastview = Computer.SemanticTimespan(Convert.ToDateTime(item.LastView)),
+                        MainLabelFontSize = Computer.LabelFontSize(Card.kanji.Length, fontsize_multiplier)
                     });
                 }
+            }
+
+            /*
+             * Vocabulary N4
+             */
+            for (int i = 0; i < UserDatabase.Table_UserVocabCardsN4.Count; i++)
+            {
+                var item = UserDatabase.Table_UserVocabCardsN4[i];
+                var percentage = Computer.ForPercentage(item.CorrectCount, item.MistakeCount);
+                if (percentage < 70 && (item.CorrectCount != 0 || item.MistakeCount != 0))
+                {
+                    var Card = JapaneseDatabase.Table_Vocabulary_N4[i];
+                    var tspan = Computer.NextQueingSpan(Convert.ToDateTime(item.LastView), item.CorrectCount, item.MistakeCount);
+
+                    Color clockcolor = tspan.TotalSeconds < 0 ? clockcolor = Color.Red : Color.Default;
+                    _List.Add(new lv_binding_hp_notifications
+                    {
+                        MainLabel = Card.kanji,
+                        Title = string.Format("📖: \"{0}\"", Card.meaning),
+                        Percent = percentage,
+                        TableName = "Table_UserVocabCardsN5",
+                        ItemID = item.Id,
+                        Clock = Computer.SemanticTimespan(tspan),
+                        ClockColor = clockcolor,
+                        _tspan = tspan,
+                        Subtitle = string.Format("💬: \"{0}\"", Card.furigana),
+                        _lastview = Computer.SemanticTimespan(Convert.ToDateTime(item.LastView)),
+                        MainLabelFontSize = Computer.LabelFontSize(Card.kanji.Length, fontsize_multiplier)
+                    });
+                }
+            }
+
+            if(_List.Count == 0)
+            {
+                _List.Add(lv_binding_hp_notifications.Empty(fontsize_multiplier));
             }
 
             return new List<AppModel.lv_binding_hp_notifications>(_List.OrderBy(item => item._tspan));
