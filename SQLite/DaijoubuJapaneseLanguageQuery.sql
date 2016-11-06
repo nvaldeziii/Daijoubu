@@ -1502,8 +1502,8 @@ insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_I don_t know him very well; we do no more than exchange ⌐greetings  morning and evening.","_ 彼をそんなによく 知っているわけではありません.朝夕の 挨拶を 交わす 程度ですから。","あいさつ");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_write close;〔行と行との〕leave less space between the lines.","_ 間を 詰めて 書く。","あいだ");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_Our eyes met  and I bowed slightly.","_ 視線が 合ったので(私は 彼に)会釈した。","あう");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_If you ever want to see me, come down here to the beach. Providing the weather is good enough I_m always down here surfing.","_ 僕に 会いたくなったらこの 浜辺においで.僕は 天気さえよければいつもここでサーフィンやってるから。","あう");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_look ⌐pale ; have a pale face.","_ 顔が 青い 青い 顔をしている。","あおい");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_If you ever want to see me, come down here to the beach.","_ 僕に 会いたくなったらこの 浜辺においで。","あう");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_have a pale face.","青い 顔をしている。","あおい");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_In old ⌐*apartments  the tapwater is sometimes reddish brown, the effect of iron rust.","_ 古いマンションの 水道では 鉄さびのせいで 赤い 水が 出ることがある。","あかい");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_a baby whale; a (whale) calf; a whale_s calf.","_クジラの 赤ちゃん。","あかちゃん");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_A firework ⌐went up  (into the sky).","_ 花火が 上がった。","あがる");
