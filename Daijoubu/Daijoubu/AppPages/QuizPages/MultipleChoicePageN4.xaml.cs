@@ -71,15 +71,18 @@ namespace Daijoubu.AppPages.QuizPages
             if (Setting.SpeakWords)
             {
                 string ToSpeak = "";
-
-                if (!JapaneseCharacter.ContainsAlphabet(QuestionFactory.Answer))
-                {
-                    ToSpeak = QuestionFactory.Answer;
-                    DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
-                }
-                else if (!JapaneseCharacter.ContainsAlphabet(QuestionFactory.Question))
+                
+                if (!JapaneseCharacter.ContainsAlphabet(QuestionFactory.Question))
                 {
                     ToSpeak = QuestionFactory.Question;
+                    if (QuizCategory == MultipleChoiceCategory.Meaning)
+                    {
+                        ToSpeak = ToSpeak.Replace("_", QuestionFactory.Answer);
+                    }
+                    DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
+                }else if (!JapaneseCharacter.ContainsAlphabet(QuestionFactory.Answer))
+                {
+                    ToSpeak = QuestionFactory.Answer;
                     DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
                 }
             }
@@ -248,10 +251,15 @@ namespace Daijoubu.AppPages.QuizPages
                 //Show timespan
             RefreshItemInfo();
 
+            var delay = Setting.MultipleChoice.AnswerFeedBackDelay;
+            if (QuizCategory == MultipleChoiceCategory.Meaning)
+            {
+                int time = QuestionFactory.Question.Length % 5;
+                //add 3 secs to delay since this is a sentence
+                delay = delay.Add(new TimeSpan(0,0,0, time, 0));
+            }
 
-
-
-            Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () =>
+                Device.StartTimer(delay, () =>
             {
                 GenerateQuestion(QuizCategory);
                 return false;
