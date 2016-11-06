@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Daijoubu.AppPages.QuizPages.MultipleChoicePage"
-             Title="Choice Module" 
-             x:Name="MultipleChoicePage"
-             AutomationId="auto_MultipleChoicePage"
+             x:Class="Daijoubu.AppPages.QuizPages.MultipleChoicePageN4"
+             Title="Choice Module N4"
+             x:Name="MultipleChoicePageN4"
+             AutomationId="auto_MultipleChoicePageN4"
              Style="{StaticResource TypicalContentPage}">
+
 
   <StackLayout>
 
@@ -13,12 +14,11 @@
     <Label Text=" " />
     <Label Text=" " />
 
-    <Frame>
+   
       <Label x:Name="label_question"
-             Text="*val*"
-             Style="{StaticResource SingleQuestionLabel}" />
-    </Frame>
-    
+             Text="*val*" />
+   
+
 
     <Label Text=" " />
     <Label Text=" " />
@@ -64,5 +64,5 @@
     </Grid>
 
   </StackLayout>
-  
+
 </ContentPage>

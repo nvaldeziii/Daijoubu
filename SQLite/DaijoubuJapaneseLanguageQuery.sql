@@ -1497,7 +1497,6 @@ insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"政治",
 -- tbl_grammar_N4
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_My beard grows quickly.","_ 私はひげの 伸びが 速い。","ひげ");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_a 10-story building; a building of ten stories; a building 10-stories high.","_10階建てのビル。","〜かい");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_〔ボクシングなどの〕a ⌐bout  of ten rounds; a ten-rounder.","_10回戦{試合}。","〜かい");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_the intention of the managerial side; the management_s intention.","_ 経営者側の 意向。","〜がわ");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_Oh, really?｜Really?｜Oh, is that so?","_ああそうですか。","ああ");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_I don_t know him very well; we do no more than exchange ⌐greetings  morning and evening.","_ 彼をそんなによく 知っているわけではありません.朝夕の 挨拶を 交わす 程度ですから。","あいさつ");

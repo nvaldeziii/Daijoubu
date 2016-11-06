@@ -125,6 +125,7 @@ namespace Daijoubu
 
             //queing for N4
             UserDatabase.VocabularyCardN4Queue = Computer.CreateQueue(UserDatabase.Table_UserVocabCardsN4.ToList<AbstractCardTable>(), setting.MultipleChoice.QueueCount);
+            UserDatabase.GrammarCardN4Queue = Computer.CreateQueue(UserDatabase.Table_UserGrammCardsN4.ToList<AbstractCardTable>(), setting.MultipleChoice.QueueCount);
             //N4 grammar to follow
         }
 

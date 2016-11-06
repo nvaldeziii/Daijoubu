@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daijoubu.AppPages.QuizPageN4"
+             Title="Quiz N4"
+             Style="{StaticResource TypicalContentPage}">
+
+
+  <Grid>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="1*" />
+      <ColumnDefinition Width="1*" />
+    </Grid.ColumnDefinitions>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="1*" />
+      <RowDefinition Height="1*" />
+    </Grid.RowDefinitions>
+
+    <Button x:Name="btn_multiple"
+            AutomationId="auto_btn_multiple"
+            Text="Multiple Choice"
+            Image="@drawable/multiple_choice"
+            Style="{StaticResource BigButtons}" />
+
+    <Button Grid.Column="1"
+            x:Name="btn_listen"
+            Text="Reading"
+            Image="@drawable/Listening_logo"
+            Style="{StaticResource BigButtons}" />
+
+    <Button Grid.Column="1"
+            Grid.Row="1"
+            x:Name="btn_reading"
+            Text="Grammar"
+            Image="@drawable/Reading_logo"
+            Style="{StaticResource BigButtons}" />
+  </Grid>
+</ContentPage>

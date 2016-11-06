@@ -1,17 +1,18 @@
-﻿
-using Daijoubu.AppLibrary;
+﻿using Daijoubu.AppLibrary;
 using Daijoubu.AppModel;
-using Daijoubu.Dependencies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using static Daijoubu.AppLibrary.Categories;
 
 namespace Daijoubu.AppPages.QuizPages
 {
-    public partial class MultipleChoicePage : ContentPage, IQuiz
+
+    public partial class MultipleChoicePageN4 : ContentPage
     {
         private string Answer;
         private bool IsCorrect;
@@ -22,24 +23,27 @@ namespace Daijoubu.AppPages.QuizPages
         private static Color PageColorMistake = Color.Red;
 
         Settings Setting;
-        MultipleChoiceQuestionFactory QuestionFactory;
+        MultipleChoiceQuestionFactoryN4 QuestionFactory;
         Random random;
         Card CurrentQuestion;
         MultipleChoiceCategory QuizCategory;
-        public MultipleChoicePage(MultipleChoiceCategory category)
+
+        private bool _english;
+        public MultipleChoicePageN4(MultipleChoiceCategory category,bool en = false)
         {
             InitializeComponent();
             random = new Random();
             QuizCategory = category;
-            QuestionFactory = new MultipleChoiceQuestionFactory();
+            QuestionFactory = new MultipleChoiceQuestionFactoryN4();
             btn_choice1.Clicked += CheckAnswer;
             btn_choice2.Clicked += CheckAnswer;
             btn_choice3.Clicked += CheckAnswer;
             btn_choice4.Clicked += CheckAnswer;
-
+            _english = en;
             Setting = new Settings();
             GenerateQuestion(QuizCategory);
         }
+
 
         private void CheckAnswer(object sender, EventArgs e)
         {
@@ -83,7 +87,7 @@ namespace Daijoubu.AppPages.QuizPages
 
         public void GenerateChoices(string[] choices)
         {
-            choices = choices.OrderBy(x => random.Next()).ToArray();
+            choices = choices.OrderBy(x => new Random().Next()).ToArray();
 
             btn_choice1.Text = choices[0];
             btn_choice2.Text = choices[1];
@@ -94,31 +98,31 @@ namespace Daijoubu.AppPages.QuizPages
         public bool GenerateQuestion(MultipleChoiceCategory category)
         {
             bool Threshold = false;
-            MultipleChoiceQuestionFactory.QuestionType nextnum;
+            MultipleChoiceQuestionFactoryN4.QuestionType nextnum;
             Queue<Card> TMPQueueHolder;
-            if (category == MultipleChoiceCategory.Hiragana)
+     
+            if (category == MultipleChoiceCategory.Vocabulary)
             {
-                nextnum = MultipleChoiceQuestionFactory.QuestionType.Hiragana;
-                TMPQueueHolder = UserDatabase.KanaCardQueue;
-            }
-            else if (category == MultipleChoiceCategory.Katakana)
-            {
-                nextnum = MultipleChoiceQuestionFactory.QuestionType.Katakana;
-                TMPQueueHolder = UserDatabase.KataKanaCardQueue;
-            }
-            else if (category == MultipleChoiceCategory.Vocabulary)
-            {
-                nextnum = ((MultipleChoiceQuestionFactory.QuestionType)random.Next(5, 7));
-                TMPQueueHolder = UserDatabase.VocabularyCardQueue;
+                if (_english)
+                {
+                    nextnum = ((MultipleChoiceQuestionFactoryN4.QuestionType)random.Next(7, 9));
+                    TMPQueueHolder = UserDatabase.VocabularyCardN4Queue;
+                }
+                else
+                {
+                    nextnum = ((MultipleChoiceQuestionFactoryN4.QuestionType)random.Next(5, 7));
+                    TMPQueueHolder = UserDatabase.VocabularyCardN4Queue;
+                }
+                
             }
             else if (category == MultipleChoiceCategory.Meaning)
             {
-                nextnum = ((MultipleChoiceQuestionFactory.QuestionType)random.Next(3, 4));
-                TMPQueueHolder = UserDatabase.VocabularyCardQueue;
+                nextnum = MultipleChoiceQuestionFactoryN4.QuestionType.Grammar;
+                TMPQueueHolder = UserDatabase.GrammarCardN4Queue;
             }
             else
             {
-                throw new Exception("MultipleChoicePage->GenerateQuestion->QuestionType");
+                throw new Exception("MultipleChoicePageN4->GenerateQuestion->QuestionType");
             }
 
             this.BackgroundColor = PageColorDefault;
@@ -141,11 +145,17 @@ namespace Daijoubu.AppPages.QuizPages
             {
                 QuestionFactory.GenerateKanaQuestion(CurrentQuestion.Id, CurrentQuestion.Id, nextnum);
             }
+
+
             label_question.Text = QuestionFactory.Question;
+            if(label_question.Text.Length > 3)
+            {
+                label_question.FontSize = 25;
+            }
             Answer = QuestionFactory.Answer;
             GenerateChoices(QuestionFactory.Choices);
 
-            lbl_debug_ans.Text = QuestionFactory.Answer;
+            lbl_debug_ans.Text = QuestionFactory.Answer.ToString();
             lbl_debug_txt.Text = string.Format("[DEBUG] Question Id: {0}", CurrentQuestion.Id);
             lbl_percent.Text = string.Format("Learn ratio: {0:0.00}%", CurrentQuestion.LearnPercent);
             RefreshItemInfo();
@@ -154,48 +164,39 @@ namespace Daijoubu.AppPages.QuizPages
             SaveQueue(TMPQueueHolder);
             //prepare for next queue
 
-
-
             return Threshold;
         }
 
         private Queue<Card> ReplenishQueue()
         {
-            if (QuizCategory == MultipleChoiceCategory.Hiragana)
+
+            if (QuizCategory == MultipleChoiceCategory.Vocabulary)
             {
-                return UserDatabase.KanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>());
+                return UserDatabase.VocabularyCardQueue = Computer.CreateQueue(UserDatabase.Table_UserVocabCardsN4.ToList<AbstractCardTable>());
             }
-            else if (QuizCategory == MultipleChoiceCategory.Katakana)
+            else if(QuizCategory == MultipleChoiceCategory.Meaning)
             {
-                return UserDatabase.KataKanaCardQueue = Computer.CreateQueue(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>());
-            }
-            else if (QuizCategory == MultipleChoiceCategory.Vocabulary || QuizCategory == MultipleChoiceCategory.Meaning)
-            {
-                return UserDatabase.VocabularyCardQueue = Computer.CreateQueue(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
+                return UserDatabase.GrammarCardN4Queue = Computer.CreateQueue(UserDatabase.Table_UserGrammCardsN4.ToList<AbstractCardTable>());
             }
             else
             {
-                throw new Exception("MultipleChoicePage->GenerateQuestion->replenish");
+                throw new Exception("MultipleChoicePageN4->GenerateQuestion->replenish");
             }
         }
 
         private void SaveQueue(Queue<Card> tmpqueue)
         {
-            if (QuizCategory == MultipleChoiceCategory.Hiragana)
-            {
-                UserDatabase.KanaCardQueue = tmpqueue;
-            }
-            else if (QuizCategory == MultipleChoiceCategory.Katakana)
-            {
-                UserDatabase.KataKanaCardQueue = tmpqueue;
-            }
-            else if (QuizCategory == MultipleChoiceCategory.Vocabulary || QuizCategory == MultipleChoiceCategory.Meaning)
+            if (QuizCategory == MultipleChoiceCategory.Vocabulary)
             {
                 UserDatabase.VocabularyCardQueue = tmpqueue;
             }
+            else if (QuizCategory == MultipleChoiceCategory.Meaning)
+            {
+                UserDatabase.GrammarCardN4Queue = tmpqueue;
+            }
             else
             {
-                throw new Exception("MultipleChoicePage->GenerateQuestion->savequeue");
+                throw new Exception("MultipleChoicePageN4->GenerateQuestion->savequeue");
             }
         }
 
@@ -211,7 +212,7 @@ namespace Daijoubu.AppPages.QuizPages
                 CurrentQuestion.CorrectCount++;
                 CurrentQuestion.LastView = DateTime.Now;
                 //save to sql
-                DatabaseManipulator.Update_User_KanaCardN5(QuizCategory, CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);
+                DatabaseManipulator.Update_User_KanaCardN4(QuizCategory, CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);
             }
             else
             {
@@ -222,7 +223,7 @@ namespace Daijoubu.AppPages.QuizPages
                 CurrentQuestion.LastView = DateTime.Now;
 
                 //save to sql
-                DatabaseManipulator.Update_User_KanaCardN5(QuizCategory, CurrentQuestion.MistakeCount, CurrentQuestion.Id, IsCorrect);
+                DatabaseManipulator.Update_User_KanaCardN4(QuizCategory, CurrentQuestion.MistakeCount, CurrentQuestion.Id, IsCorrect);
 
                 if (Setting.HapticFeedback)
                 {
@@ -231,25 +232,20 @@ namespace Daijoubu.AppPages.QuizPages
             }
 
             var cardIndex = CurrentQuestion.Id - 1;
-            if (QuizCategory == MultipleChoiceCategory.Hiragana)
+
+            if (QuizCategory == MultipleChoiceCategory.Vocabulary) 
             {
-                UserDatabase.Table_UserKanaCardsN5[cardIndex].CorrectCount = CurrentQuestion.CorrectCount;
-                UserDatabase.Table_UserKanaCardsN5[cardIndex].MistakeCount = CurrentQuestion.MistakeCount;
-                UserDatabase.Table_UserKanaCardsN5[cardIndex].LastView = CurrentQuestion.LastView.ToString();
-            }
-            else if (QuizCategory == MultipleChoiceCategory.Katakana)
+                UserDatabase.Table_UserVocabCardsN4[cardIndex].CorrectCount = CurrentQuestion.CorrectCount;
+                UserDatabase.Table_UserVocabCardsN4[cardIndex].MistakeCount = CurrentQuestion.MistakeCount;
+                UserDatabase.Table_UserVocabCardsN4[cardIndex].LastView = CurrentQuestion.LastView.ToString();
+            }else if(QuizCategory == MultipleChoiceCategory.Meaning)
             {
-                UserDatabase.Table_UserKataKanaCardsN5[cardIndex].CorrectCount = CurrentQuestion.CorrectCount;
-                UserDatabase.Table_UserKataKanaCardsN5[cardIndex].MistakeCount = CurrentQuestion.MistakeCount;
-                UserDatabase.Table_UserKataKanaCardsN5[cardIndex].LastView = CurrentQuestion.LastView.ToString();
-            } else if (QuizCategory == MultipleChoiceCategory.Vocabulary || QuizCategory == MultipleChoiceCategory.Meaning)
-            {
-                UserDatabase.Table_UserVocabCardsN5[cardIndex].CorrectCount = CurrentQuestion.CorrectCount;
-                UserDatabase.Table_UserVocabCardsN5[cardIndex].MistakeCount = CurrentQuestion.MistakeCount;
-                UserDatabase.Table_UserVocabCardsN5[cardIndex].LastView = CurrentQuestion.LastView.ToString();
+                UserDatabase.Table_UserGrammCardsN4[cardIndex].CorrectCount = CurrentQuestion.CorrectCount;
+                UserDatabase.Table_UserGrammCardsN4[cardIndex].MistakeCount = CurrentQuestion.MistakeCount;
+                UserDatabase.Table_UserGrammCardsN4[cardIndex].LastView = CurrentQuestion.LastView.ToString();
             }
 
-            //Show timespan
+                //Show timespan
             RefreshItemInfo();
 
 
@@ -301,5 +297,4 @@ namespace Daijoubu.AppPages.QuizPages
             return false;
         }
     }
-
 }

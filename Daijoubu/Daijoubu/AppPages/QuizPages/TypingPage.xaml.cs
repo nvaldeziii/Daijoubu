@@ -60,7 +60,7 @@ namespace Daijoubu.AppPages.QuizPages
                 CurrentQuestion.CorrectCount += Setting.MultipleChoice.TypingQuizCorrectnessAdder; // add two to correcness on typing
 
                 //save to sql
-                DatabaseManipulator.Update_User_KanaCard(QuizCategory, CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);
+                DatabaseManipulator.Update_User_KanaCardN5(QuizCategory, CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);
             }
             else
             {
@@ -71,7 +71,7 @@ namespace Daijoubu.AppPages.QuizPages
                 CurrentQuestion.LastView = DateTime.Now;
 
                 //save to sql
-                DatabaseManipulator.Update_User_KanaCard(QuizCategory, CurrentQuestion.MistakeCount, CurrentQuestion.Id, IsCorrect);
+                DatabaseManipulator.Update_User_KanaCardN5(QuizCategory, CurrentQuestion.MistakeCount, CurrentQuestion.Id, IsCorrect);
 
                 if (Setting.HapticFeedback)
                 {

@@ -18,7 +18,7 @@ namespace Daijoubu.AppModel
                 ,info, name));
         }
 
-        public static int Update_User_KanaCard(MultipleChoiceCategory category, int count,int QuestionID,bool IsCorrect)
+        public static int Update_User_KanaCardN5(MultipleChoiceCategory category, int count,int QuestionID,bool IsCorrect)
         {
             string FieldIfCorrect = IsCorrect ? "CorrectCount" : "MistakeCount";
             string tablename = "";
@@ -35,6 +35,30 @@ namespace Daijoubu.AppModel
                     break;
                 case MultipleChoiceCategory.Meaning:
                     tablename = "tbl_us_cardvbN5dt";
+                    break;
+            }
+
+            var query = string.Format("UPDATE {0} SET {1}={2},LastView=\"{3}\" WHERE Id=\"{4}\""
+                , tablename
+                , FieldIfCorrect
+                , count
+                , DateTime.Now.ToString()
+                , QuestionID);
+
+            return ExecuteNonQuery(query);
+        }
+
+        public static int Update_User_KanaCardN4(MultipleChoiceCategory category, int count, int QuestionID, bool IsCorrect)
+        {
+            string FieldIfCorrect = IsCorrect ? "CorrectCount" : "MistakeCount";
+            string tablename = "";
+            switch (category)
+            {
+                case MultipleChoiceCategory.Vocabulary:
+                    tablename = "tbl_us_cardvbN4dt";
+                    break;
+                case MultipleChoiceCategory.Meaning:
+                    tablename = "tbl_us_cardgrN4dt";
                     break;
             }
 
