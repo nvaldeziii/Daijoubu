@@ -218,6 +218,20 @@ namespace Daijoubu.AppLibrary
             return strlen > 3 ? button_size_small : strlen > 2 ? button_size_med : button_size_large;
         }
 
+        public static string RandomJapaneseProverbs()
+        {
+            string greeting = "";
+            List<string> possible_greetings = new List<string>();
+            possible_greetings.Add("進み続けてさえいれば、遅くとも関係ない。");
+            possible_greetings.Add("この世界の内に望む変化に、あなた自身が成ってみせなさい。");
+            possible_greetings.Add("きっと成功してみせる、と決心する事が何よりも重要だ。");
+
+            int rand = new Random().Next(0, possible_greetings.Count);
+            greeting += possible_greetings[rand];
+
+            return greeting;
+        }
+
         public static string ApplicationInitialGreeting()
         {
             string greeting = "";

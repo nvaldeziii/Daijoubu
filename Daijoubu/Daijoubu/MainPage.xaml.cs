@@ -29,10 +29,16 @@ namespace Daijoubu
             listview_homepage_notifications.ItemsSource = ListViewNotifications;
 
             DependencyService.Get<ITextToSpeech>().Speak("大丈夫");
-            if (setting.SpeakWords)
+
+            Device.StartTimer(new TimeSpan(0,0,2), () =>
             {
-                DependencyService.Get<ITextToSpeech>().Speak(Computer.ApplicationInitialGreeting());
-            }
+                if (setting.SpeakWords)
+                {
+                    DependencyService.Get<ITextToSpeech>().Speak(Computer.ApplicationInitialGreeting());
+                }
+                return false;
+            });
+            
             
         }
 
@@ -40,6 +46,12 @@ namespace Daijoubu
         {
             ListViewNotifications = new ObservableCollection<lv_binding_hp_notifications>(ListBuilder.HomePageNotifications());
             listview_homepage_notifications.ItemsSource = ListViewNotifications;
+
+            if (setting.SpeakWords)
+            {
+                DependencyService.Get<ITextToSpeech>().Speak(Computer.RandomJapaneseProverbs());
+            }
+
             base.OnAppearing();       
         }
 
