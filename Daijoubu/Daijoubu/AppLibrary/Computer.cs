@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Daijoubu.AppLibrary
 {
@@ -207,6 +208,56 @@ namespace Daijoubu.AppLibrary
                 var x = ts.Seconds;
                 return string.Format("{0} Second{1} ago", x, x > 1 ? "s" : "");
             }
+        }
+
+        public static double AnswerButtonFontSize(int strlen,double multiplier)
+        {
+            var button_size_large = Device.GetNamedSize(NamedSize.Small, typeof(Button)) * multiplier;
+            var button_size_med = Device.GetNamedSize(NamedSize.Small, typeof(Button)) * (multiplier / 2);
+            var button_size_small = Device.GetNamedSize(NamedSize.Large, typeof(Button));
+            return strlen > 3 ? button_size_small : strlen > 2 ? button_size_med : button_size_large;
+        }
+
+        public static string RandomJapaneseProverbs()
+        {
+            string greeting = "";
+            List<string> possible_greetings = new List<string>();
+            possible_greetings.Add("進み続けてさえいれば、遅くとも関係ない。");
+            possible_greetings.Add("この世界の内に望む変化に、あなた自身が成ってみせなさい。");
+            possible_greetings.Add("きっと成功してみせる、と決心する事が何よりも重要だ。");
+
+            int rand = new Random().Next(0, possible_greetings.Count);
+            greeting += possible_greetings[rand];
+
+            return greeting;
+        }
+
+        public static string ApplicationInitialGreeting()
+        {
+            string greeting = "";
+            var hours = DateTime.Now.Hour;
+            if (hours > 16)
+            {
+                greeting += "こんばんは、";
+            }
+            else if (hours > 11)
+            {
+                greeting += "こんにちは、";
+            }
+            else
+            {
+                greeting += "お早うございます、";
+            }
+
+            List<string> possible_greetings = new List<string>();
+            possible_greetings.Add("べんきょうしましょう！");
+            possible_greetings.Add("お元気ですか？");
+            possible_greetings.Add("がんばってね！");
+
+            int rand = new Random().Next(0, possible_greetings.Count);
+            greeting += possible_greetings[rand];
+
+            return greeting;
         }
     }
 }

@@ -32,6 +32,13 @@ namespace Daijoubu.AppPages.QuizPages
         public MultipleChoicePageN4(MultipleChoiceCategory category,bool en = false)
         {
             InitializeComponent();
+
+            FontChanger();
+            btn_choice1.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
+            btn_choice2.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
+            btn_choice3.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
+            btn_choice4.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
+
             random = new Random();
             QuizCategory = category;
             QuestionFactory = new MultipleChoiceQuestionFactoryN4();
@@ -41,7 +48,12 @@ namespace Daijoubu.AppPages.QuizPages
             btn_choice4.Clicked += CheckAnswer;
             _english = en;
             Setting = new Settings();
-            GenerateQuestion(QuizCategory);
+
+            Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () =>
+            {
+                GenerateQuestion(QuizCategory);
+                return false;
+            });
         }
 
 
@@ -77,7 +89,7 @@ namespace Daijoubu.AppPages.QuizPages
                     ToSpeak = QuestionFactory.Question;
                     if (QuizCategory == MultipleChoiceCategory.Meaning)
                     {
-                        ToSpeak = ToSpeak.Replace("_", QuestionFactory.Answer);
+                        ToSpeak = ToSpeak.Replace("＿", QuestionFactory.Answer);
                     }
                     DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
                 }else if (!JapaneseCharacter.ContainsAlphabet(QuestionFactory.Answer))
@@ -151,10 +163,6 @@ namespace Daijoubu.AppPages.QuizPages
 
 
             label_question.Text = QuestionFactory.Question;
-            if(label_question.Text.Length > 3)
-            {
-                label_question.FontSize = 25;
-            }
             Answer = QuestionFactory.Answer;
             GenerateChoices(QuestionFactory.Choices);
 
@@ -167,6 +175,7 @@ namespace Daijoubu.AppPages.QuizPages
             SaveQueue(TMPQueueHolder);
             //prepare for next queue
 
+            FontChanger();
             return Threshold;
         }
 
@@ -298,11 +307,29 @@ namespace Daijoubu.AppPages.QuizPages
         {
             //Navigation.PopAsync();
             //Navigation.PushAsync(new ProfilePages.AssesmentPage());
-            Navigation.PushModalAsync(new ProfilePages.AssesmentPage
+            Navigation.PushModalAsync(new ProfilePages.AssesmentPageN4
             {
                 Padding = 0
             });
             return false;
+        }
+
+        void FontChanger()
+        {
+            if (label_question.Text.Length > 3)
+            {
+                label_question.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)) * Settings.FontSizeMultiplier;
+            }
+            else
+            {
+                label_question.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)) * Settings.FontSizeMultiplier;
+            }
+
+
+            btn_choice1.FontSize = Computer.AnswerButtonFontSize(btn_choice1.Text.Length, Settings.FontSizeMultiplier);
+            btn_choice2.FontSize = Computer.AnswerButtonFontSize(btn_choice2.Text.Length, Settings.FontSizeMultiplier);
+            btn_choice3.FontSize = Computer.AnswerButtonFontSize(btn_choice3.Text.Length, Settings.FontSizeMultiplier);
+            btn_choice4.FontSize = Computer.AnswerButtonFontSize(btn_choice4.Text.Length, Settings.FontSizeMultiplier);
         }
     }
 }

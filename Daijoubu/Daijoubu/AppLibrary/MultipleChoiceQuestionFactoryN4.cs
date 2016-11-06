@@ -108,7 +108,7 @@ namespace Daijoubu.AppLibrary
 
             int result_index = new Random().Next(0, hiragana.Count);
             var result_sen = jpsen.ToCharArray();
-            result_sen[index[result_index]] = '_';
+            result_sen[index[result_index]] = '＿';
             result[0] = "";
             foreach (var i in result_sen)
             {

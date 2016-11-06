@@ -28,23 +28,38 @@
       </Style>
       
       <Style x:Key="MultipleChoiceButtonStyle" TargetType="Button">
-        <Setter Property="BorderColor" Value="Blue" />
-        <Setter Property="BorderRadius" Value="50" />
-        <Setter Property="BorderWidth" Value="10" />
-        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Margin" Value="-18" />
         <Setter Property="BackgroundColor" Value="#655338" />
         <Setter Property="TextColor" Value="White" />
       </Style>
 
+      <Style x:Key="QuestionCardOuterFrame" TargetType="Frame">
+        <Setter Property="Margin" Value="15,40,15,15" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BackgroundColor" Value="#422E0F" />
+      </Style>
+      <Style x:Key="QuestionCardInnerFrame" TargetType="Frame">
+        <Setter Property="Margin" Value="-10" />
+        <Setter Property="BackgroundColor" Value="Black" />
+      </Style>
+
+      <Style x:Key="AnswerButtonFrame" TargetType="Frame">
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BackgroundColor" Value="#422E0F" />
+      </Style>
 
 
-      
+      <Style x:Key="DebugLabels" TargetType="Label">
+        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="FontSize" Value="1" />
+      </Style>
 
 
       <Style x:Key="SingleQuestionLabel" TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="FontSize" Value="80" />
-        <Setter Property="TextColor" Value="Teal" />
+        <Setter Property="TextColor" Value="White" />
       </Style>
 
       <Style x:Key="BigButtons" TargetType="Button">

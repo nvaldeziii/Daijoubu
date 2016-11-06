@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daijoubu.AppPages.ProfilePages.AssesmentPageN4"
+             Title="Assesment"
+             Style="{StaticResource TypicalContentPage}">
+
+
+  <ScrollView>
+    <StackLayout Padding="10">
+      <Label Text="JLPT Assessment"/>
+      <Label x:Name="jlptn4_learn_percent" />
+
+     
+      <Label Text="" />
+      <Label Text="" />
+      <Label Text="Vocabulary" />
+      <Label x:Name="vocabulary_learn_percent" />
+      <Label x:Name="vocabulary_total_reviewed" />
+      <Label x:Name="vocabulary_total_passed"
+             TextColor="Green"/>
+      <Label x:Name="vocabulary_total_failed"
+             TextColor="Red"/>
+      <Label Text="" />
+      <Label Text="" />
+      <Label Text="Grammar" />
+      <Label x:Name="grammar_learn_percent" />
+      <Label x:Name="grammar_total_reviewed" />
+      <Label x:Name="grammar_total_passed"
+             TextColor="Green"/>
+      <Label x:Name="grammar_total_failed"
+             TextColor="Red"/>
+
+    </StackLayout>
+  </ScrollView>
+  
+</ContentPage>
