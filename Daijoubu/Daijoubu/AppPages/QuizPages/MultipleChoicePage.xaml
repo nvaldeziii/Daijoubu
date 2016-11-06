@@ -15,7 +15,6 @@
              Text="Getting Ready ..."
              Style="{StaticResource SingleQuestionLabel}" />
       </Frame>
-
     </Frame>
 
     <Grid x:Name="grid_multiple_choice">

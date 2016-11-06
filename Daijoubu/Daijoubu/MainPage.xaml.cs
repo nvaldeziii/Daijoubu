@@ -28,6 +28,12 @@ namespace Daijoubu
             listview_homepage_notifications.HasUnevenRows = true;
             listview_homepage_notifications.ItemsSource = ListViewNotifications;
 
+            DependencyService.Get<ITextToSpeech>().Speak("大丈夫");
+            if (setting.SpeakWords)
+            {
+                DependencyService.Get<ITextToSpeech>().Speak(Computer.ApplicationInitialGreeting());
+            }
+            
         }
 
         protected override void OnAppearing()

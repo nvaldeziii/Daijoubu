@@ -217,5 +217,33 @@ namespace Daijoubu.AppLibrary
             var button_size_small = Device.GetNamedSize(NamedSize.Large, typeof(Button));
             return strlen > 3 ? button_size_small : strlen > 2 ? button_size_med : button_size_large;
         }
+
+        public static string ApplicationInitialGreeting()
+        {
+            string greeting = "";
+            var hours = DateTime.Now.Hour;
+            if (hours > 16)
+            {
+                greeting += "こんばんは、";
+            }
+            else if (hours > 11)
+            {
+                greeting += "こんにちは、";
+            }
+            else
+            {
+                greeting += "お早うございます、";
+            }
+
+            List<string> possible_greetings = new List<string>();
+            possible_greetings.Add("べんきょうしましょう！");
+            possible_greetings.Add("お元気ですか？");
+            possible_greetings.Add("がんばってね！");
+
+            int rand = new Random().Next(0, possible_greetings.Count);
+            greeting += possible_greetings[rand];
+
+            return greeting;
+        }
     }
 }
