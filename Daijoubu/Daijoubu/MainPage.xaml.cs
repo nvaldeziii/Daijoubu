@@ -34,10 +34,12 @@ namespace Daijoubu
                     // don't do anything if we just de-selected the row
                     if (e.Item == null) return;
                     // do something with e.SelectedItem
-                
-                    ListViewNotifications.Remove(((ListView)sender).SelectedItem as lv_binding_hp_notifications);
-                
-                    if(ListViewNotifications.Count <= 0)
+                    
+                    var index = ListViewNotifications.IndexOf(e.Item as lv_binding_hp_notifications);
+                    ListViewNotifications.RemoveAt(index);
+                    //ListViewNotifications.Remove(((ListView)sender).SelectedItem as lv_binding_hp_notifications);
+
+                    if (ListViewNotifications.Count <= 0)
                     {
                         ListViewNotifications.Add(lv_binding_hp_notifications.Empty(3.5));
                     }
