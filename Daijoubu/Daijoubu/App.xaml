@@ -17,7 +17,7 @@
       </Style>
 
       <Style TargetType="Label">
-        <Setter Property="TextColor" Value="#FF9A4F" />
+        <Setter Property="TextColor" Value="#F66D4D" />
         <Setter Property="FontSize" Value="Medium" />
       </Style>
       

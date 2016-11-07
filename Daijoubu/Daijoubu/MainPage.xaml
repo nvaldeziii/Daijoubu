@@ -5,12 +5,13 @@
              x:Class="Daijoubu.MainPage"
              Title="Daijoubu"
              BackgroundColor="Black"
-             Padding="50,0,50,50">
+             Padding="50,0,0,50">
 
-  <StackLayout Orientation="Vertical" >
+  <StackLayout Orientation="Vertical" 
+               Padding="0,0,50,0">
 
     <Image x:Name="image_homepage_header"
-           Source="homepage_header"
+           Source="homepage_header2"
            Aspect="AspectFill"/>
 
     <Grid Margin="0,-70,0,0">
@@ -24,7 +25,7 @@
       </StackLayout>
       <StackLayout>
         <Label x:Name="label_homepage_header"
-               Text="Welcome to だいじょうぶ"
+               Text="だいじょうぶ"
                FontAttributes="Bold"
                HorizontalOptions="Center"
                FontSize="Large" />
@@ -72,11 +73,13 @@
                       <Label Text="{Binding Clock, StringFormat='⌛: {0}'}"
                              FontSize="Small"
                              TextColor="{Binding ClockColor}"
+                             HorizontalOptions="End"
                              Grid.Row="2" Grid.Column="1"/>
-
+                      <!--
                       <Label Text="{Binding Percent, StringFormat='％ : {0:0.00}'}"
                              FontSize="Small"
                              Grid.Row="3" Grid.Column="0"/>
+                             -->
 
 
                     </Grid>
