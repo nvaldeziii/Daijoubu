@@ -5,7 +5,7 @@
              Title="Quiz N4"
              Style="{StaticResource TypicalContentPage}">
 
-
+  <StackLayout>
   <Grid>
 
     <Grid.ColumnDefinitions>
@@ -14,27 +14,55 @@
     </Grid.ColumnDefinitions>
 
     <Grid.RowDefinitions>
-      <RowDefinition Height="1*" />
-      <RowDefinition Height="1*" />
+      <RowDefinition Height="2*" />
     </Grid.RowDefinitions>
 
     <Button x:Name="btn_multiple"
             AutomationId="auto_btn_multiple"
             Text="Multiple Choice"
-            Image="@drawable/multiple_choice"
-            Style="{StaticResource BigButtons}" />
+            Image="@drawable/multiple_choice_N4"
+            Style="{StaticResource BigButtons}" 
+            FontAttributes="Bold"/>
 
     <Button Grid.Column="1"
             x:Name="btn_listen"
             Text="Reading"
-            Image="@drawable/Listening_logo"
-            Style="{StaticResource BigButtons}" />
+            Image="@drawable/Listening_logo_N4"
+            Style="{StaticResource BigButtons}" 
+            FontAttributes="Bold"/>
 
-    <Button Grid.Column="1"
-            Grid.Row="1"
+    
+   
+  </Grid>
+  <Button 
             x:Name="btn_reading"
             Text="Grammar"
-            Image="@drawable/Reading_logo"
-            Style="{StaticResource BigButtons}" />
-  </Grid>
+            Image="@drawable/Reading_logo_N4"
+            Style="{StaticResource BigButtons}" 
+            FontAttributes="Bold"/>
+
+    <Image x:Name="image_homepage_header"
+           Source="homepage_header2"
+           Aspect="AspectFill"/>
+
+    <Grid Margin="0,-70,0,0">
+      <StackLayout>
+        <Frame Padding="0"
+               BackgroundColor="#85E7E0"
+               Opacity="0.5">
+          <Label Text=" "
+                 FontSize="Large" />
+        </Frame >
+      </StackLayout>
+      <StackLayout>
+        <Label x:Name="label_homepage_header"
+               Text="N4 QUIZ"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               FontSize="Large" />
+      </StackLayout>
+    </Grid>
+  
+  </StackLayout>
+  
 </ContentPage>
