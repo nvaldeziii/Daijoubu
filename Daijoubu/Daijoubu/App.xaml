@@ -39,11 +39,11 @@
       <Style x:Key="QuestionCardOuterFrame" TargetType="Frame">
         <Setter Property="Margin" Value="15,40,15,15" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="#FFFFFF" />
+        <Setter Property="BackgroundColor" Value="#B6F6F1" />
       </Style>
       <Style x:Key="QuestionCardInnerFrame" TargetType="Frame">
         <Setter Property="Margin" Value="-12" />
-        <Setter Property="BackgroundColor" Value="#FFFFFF" />
+        <Setter Property="BackgroundColor" Value="#B6F6F1" />
       </Style>
 
       
@@ -63,17 +63,14 @@
 
       <Style x:Key="BigButtons" TargetType="Button">
         <Setter Property="Margin" Value="5" />
-        <Setter Property="BorderColor" Value="Blue" />
-        <Setter Property="BorderRadius" Value="50" />
-        <Setter Property="BorderWidth" Value="10" />
-        <Setter Property="BackgroundColor" Value="#19293B" />
-        <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+        <Setter Property="TextColor" Value="#FD6E75" />
         <Setter Property="ContentLayout" Value="Top,0" />
       </Style>
 
       <Style x:Key="SideMenuButtons" TargetType="Button">
-        <Setter Property="BackgroundColor" Value="#273442" />
-        <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+        <Setter Property="TextColor" Value="#FD6E75" />
       </Style>
     </ResourceDictionary>
 
