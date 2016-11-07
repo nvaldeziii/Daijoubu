@@ -13,11 +13,11 @@
         <Setter Property="BorderRadius" Value="50" />
         <Setter Property="BorderWidth" Value="10" />
         <Setter Property="BackgroundColor" Value="#655338" />
-        <Setter Property="TextColor" Value="#5BD1C8" />
+        <Setter Property="TextColor" Value="#FD6E75" />
       </Style>
 
       <Style TargetType="Label">
-        <Setter Property="TextColor" Value="#F66D4D" />
+        <Setter Property="TextColor" Value="#FD6E75" />
         <Setter Property="FontSize" Value="Medium" />
       </Style>
       
@@ -29,10 +29,16 @@
       
       <Style x:Key="MultipleChoiceButtonStyle" TargetType="Button">
         <Setter Property="Margin" Value="-18" />
-        <Setter Property="BackgroundColor" Value="#655338" />
-        <Setter Property="TextColor" Value="#5BD1C8" />
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+      <Setter Property="TextColor" Value="#FD6E75" />
       </Style>
-
+      <Style x:Key="AnswerButtonFrame" TargetType="Frame">
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+        
+      </Style>
+      
       <Style x:Key="QuestionCardOuterFrame" TargetType="Frame">
         <Setter Property="Margin" Value="15,40,15,15" />
         <Setter Property="Padding" Value="0" />
@@ -43,11 +49,7 @@
         <Setter Property="BackgroundColor" Value="#FFFFFF" />
       </Style>
 
-      <Style x:Key="AnswerButtonFrame" TargetType="Frame">
-        <Setter Property="Margin" Value="5" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="#422E0F" />
-      </Style>
+      
 
 
       <Style x:Key="DebugLabels" TargetType="Label">
@@ -59,7 +61,7 @@
       <Style x:Key="SingleQuestionLabel" TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="FontSize" Value="80" />
-        <Setter Property="TextColor" Value="White" />
+        <Setter Property="TextColor" Value="#FD6E75" />
       </Style>
 
       <Style x:Key="BigButtons" TargetType="Button">

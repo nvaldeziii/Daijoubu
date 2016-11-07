@@ -17,10 +17,10 @@ namespace Daijoubu.AppPages.QuizPages
         private string Answer;
         private bool IsCorrect;
 
-        private static Color PageColorDefault = Color.FromHex("273442");
-        private static Color ButtonColorDefault = Color.FromHex("655338");
-        private static Color PageColorCorrect = Color.Green;
-        private static Color PageColorMistake = Color.Red;
+        private static Color PageColorDefault = Settings.PageColorDefault;
+        private static Color ButtonColorDefault = Settings.ButtonColorDefault;
+        private static Color PageColorCorrect = Settings.PageColorCorrect;
+        private static Color PageColorMistake = Settings.PageColorMistake;
 
         Settings Setting;
         MultipleChoiceQuestionFactoryN4 QuestionFactory;
