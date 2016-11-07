@@ -5,7 +5,92 @@
              Title="JLPT N5 Assesment"
              Style="{StaticResource TypicalContentPage}">
 
-  <StackLayout>
+  <ScrollView>
+
+
+    <StackLayout>
+
+      <!-- Button 1 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_hiragana_achivements"
+                   AutomationId="auto_btn_hiragana_achivements">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="homepage_header2"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Hiragana Achivements"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
+
+      <!-- Button 1 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_katakana_achivements"
+                   AutomationId="auto_btn_katakana_achivements">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="homepage_header2"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Katakana Achievements"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
+
+      <!-- Button 1 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_vocabulary_achivements"
+                   AutomationId="auto_btn_vocabulary_achivements">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="homepage_header2"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Vocabulary Achievements"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
+
+      <!-- Button 1 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_assess"
+                   AutomationId="auto_btn_assess">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="homepage_header2"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="View Assessment"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
+
+      <!--
     <Grid>
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="1*" />
@@ -29,9 +114,10 @@
               Grid.Row="1" Grid.Column="1"/>
       
     </Grid>
-    
+    -->
 
-    
-    
-  </StackLayout>
+
+
+    </StackLayout>
+  </ScrollView>
 </ContentPage>

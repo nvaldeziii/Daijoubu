@@ -6,6 +6,67 @@
              Style="{StaticResource TypicalContentPage}">
 
   <StackLayout>
+
+    <!-- Button 1 -->
+    <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                 x:Name="btn_multiple"
+                 AutomationId="auto_btn_multiple">
+      <!--  <============== Edit the button x:name -->
+      <Image Style="{StaticResource CustomButtonImage}"
+             Source="homepage_header2"/>
+      <!--  <============== Edit the source image -->
+      <Grid Style="{StaticResource CustomButtonGrid}">
+        <StackLayout>
+          <Frame Style="{StaticResource CustomButtonFrame}" />
+        </StackLayout>
+        <StackLayout>
+          <Label  Style="{StaticResource CustomButtonLabel}"
+                  Text="Multiple Choice"/>
+          <!--  <===== Edit the label -->
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+
+    <!-- Button 1 -->
+    <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                 x:Name="btn_listen"
+                 AutomationId="auto_btn_listen">
+      <!--  <============== Edit the button x:name -->
+      <Image Style="{StaticResource CustomButtonImage}"
+             Source="homepage_header2"/>
+      <!--  <============== Edit the source image -->
+      <Grid Style="{StaticResource CustomButtonGrid}">
+        <StackLayout>
+          <Frame Style="{StaticResource CustomButtonFrame}" />
+        </StackLayout>
+        <StackLayout>
+          <Label  Style="{StaticResource CustomButtonLabel}"
+                  Text="Listening"/>
+          <!--  <===== Edit the label -->
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+
+    <!-- Button 1 -->
+    <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                 x:Name="btn_reading"
+                 AutomationId="auto_btn_reading">
+      <!--  <============== Edit the button x:name -->
+      <Image Style="{StaticResource CustomButtonImage}"
+             Source="homepage_header2"/>
+      <!--  <============== Edit the source image -->
+      <Grid Style="{StaticResource CustomButtonGrid}">
+        <StackLayout>
+          <Frame Style="{StaticResource CustomButtonFrame}" />
+        </StackLayout>
+        <StackLayout>
+          <Label  Style="{StaticResource CustomButtonLabel}"
+                  Text="Grammar"/>
+          <!--  <===== Edit the label -->
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+    <!--
   <Grid>
 
     <Grid.ColumnDefinitions>
@@ -40,12 +101,13 @@
             Image="@drawable/Reading_logo_N4"
             Style="{StaticResource BigButtons}" 
             FontAttributes="Bold"/>
-
+    
+   
     <Image x:Name="image_homepage_header"
            Source="homepage_header2"
            Aspect="AspectFill"/>
 
-    <!--
+    
     <Grid Margin="0,-70,0,0">
       <StackLayout>
         <Frame Padding="0"

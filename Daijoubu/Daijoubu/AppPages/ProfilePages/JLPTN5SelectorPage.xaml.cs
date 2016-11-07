@@ -14,24 +14,37 @@ namespace Daijoubu.AppPages.ProfilePages
         {
             InitializeComponent();
 
-            btn_hiragana_achivements.Clicked += (o, e) =>
+            btn_hiragana_achivements.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Hiragana));
-            };
-            btn_katakana_achivements.Clicked += (o, e) =>
-            {
-                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Katakana));
-            };
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Hiragana));
+                })
+            });
 
-            btn_vocabulary_achivements.Clicked += (o, e) =>
+            btn_katakana_achivements.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary));
-            };
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Katakana));
+                })
+            });
 
-            btn_assess.Clicked += (o, e) =>
+            btn_vocabulary_achivements.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                Navigation.PushAsync(new AssesmentPage());
-            };
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary));
+                })
+            });
+
+            btn_assess.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new AssesmentPage());
+                })
+            });
         }
     }
 }

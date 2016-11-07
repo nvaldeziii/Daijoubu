@@ -15,24 +15,30 @@ namespace Daijoubu.AppPages
         {
             InitializeComponent();
 
-            btn_multiple.Clicked += (o, e) =>
+            btn_multiple.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                var page = new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Vocabulary);
-                Navigation.PushAsync(page);
-            };
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Vocabulary));
+                })
+            });
+                
 
-            btn_listen.Clicked += (o, e) =>
+            btn_listen.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                var page = new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Vocabulary,true);
-                Navigation.PushAsync(page);
-            };
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Vocabulary,true));
+                })
+            });
 
-            btn_reading.Clicked += (o, e) =>
+            btn_reading.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                //var page = new QuizPages.ReadingPage();
-                var page = new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Meaning);
-                Navigation.PushAsync(page);
-            };
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Meaning));
+                })
+            });
         }
     }
 }

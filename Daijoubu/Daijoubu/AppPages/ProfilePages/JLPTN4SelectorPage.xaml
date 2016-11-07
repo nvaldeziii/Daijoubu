@@ -6,6 +6,68 @@
              Style="{StaticResource TypicalContentPage}">
 
   <StackLayout>
+
+    <!-- Button 1 -->
+    <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                 x:Name="btn_vocabulary"
+                 AutomationId="auto_btn_vocabulary">
+      <!--  <============== Edit the button x:name -->
+      <Image Style="{StaticResource CustomButtonImage}"
+             Source="homepage_header2"/>
+      <!--  <============== Edit the source image -->
+      <Grid Style="{StaticResource CustomButtonGrid}">
+        <StackLayout>
+          <Frame Style="{StaticResource CustomButtonFrame}" />
+        </StackLayout>
+        <StackLayout>
+          <Label  Style="{StaticResource CustomButtonLabel}"
+                  Text="Vocabulary Achievement"/>
+          <!--  <===== Edit the label -->
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+
+    <!-- Button 1 -->
+    <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                 x:Name="btn_grammar"
+                 AutomationId="auto_btn_grammar">
+      <!--  <============== Edit the button x:name -->
+      <Image Style="{StaticResource CustomButtonImage}"
+             Source="homepage_header2"/>
+      <!--  <============== Edit the source image -->
+      <Grid Style="{StaticResource CustomButtonGrid}">
+        <StackLayout>
+          <Frame Style="{StaticResource CustomButtonFrame}" />
+        </StackLayout>
+        <StackLayout>
+          <Label  Style="{StaticResource CustomButtonLabel}"
+                  Text="Gramatical Achievement"/>
+          <!--  <===== Edit the label -->
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+
+    <!-- Button 1 -->
+    <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                 x:Name="btn_assess"
+                 AutomationId="auto_btn_assess">
+      <!--  <============== Edit the button x:name -->
+      <Image Style="{StaticResource CustomButtonImage}"
+             Source="homepage_header2"/>
+      <!--  <============== Edit the source image -->
+      <Grid Style="{StaticResource CustomButtonGrid}">
+        <StackLayout>
+          <Frame Style="{StaticResource CustomButtonFrame}" />
+        </StackLayout>
+        <StackLayout>
+          <Label  Style="{StaticResource CustomButtonLabel}"
+                  Text="View Assessment"/>
+          <!--  <===== Edit the label -->
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+    
+    <!--
     <Grid>
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="1*" />
@@ -26,6 +88,7 @@
               Grid.Row="1" Grid.Column="1"/>
 
     </Grid>
+    -->
 
 
   </StackLayout>
