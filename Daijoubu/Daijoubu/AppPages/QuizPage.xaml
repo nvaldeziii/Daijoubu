@@ -4,76 +4,85 @@
              x:Class="Daijoubu.AppPages.QuizPage"
              Title="Quiz N5"
              Style="{StaticResource TypicalContentPage}">
-  <StackLayout>
-    
-    <Grid VerticalOptions="StartAndExpand">
+  <ScrollView>
+    <StackLayout Orientation="Vertical">
 
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="1*" />
-        <ColumnDefinition Width="1*" />
-      </Grid.ColumnDefinitions>
+      <!-- Button 1 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_multiple">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="homepage_header2"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Multiple Choice"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
 
-      <Grid.RowDefinitions>
-        <RowDefinition Height="1*" />
-        <RowDefinition Height="1*" />
-      </Grid.RowDefinitions>
+      <!-- Button 2 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_listen">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="homepage_header2"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Listen"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
 
-      <Button Grid.Row="0" Grid.Column="0"
-              x:Name="btn_multiple"
-              AutomationId="auto_btn_multiple"
-              Text="Multiple Choice"
-              Image="@drawable/multiple_choice"
-              Style="{StaticResource BigButtons}"
-              FontAttributes="Bold"/>
+      <!-- Button 3 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_typing">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="homepage_header2"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Typing"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
 
-      <Button Grid.Row="0" Grid.Column="1"
-              x:Name="btn_listen"
-              Text="Listening"
-              Image="@drawable/Listening_logo"
-              Style="{StaticResource BigButtons}"
-              FontAttributes="Bold"/>
-
-      <Button Grid.Row="1" Grid.Column="0"
-              x:Name="btn_typing"
-              Text="Typing"
-              Image="@drawable/FillBlank_logo"
-              Style="{StaticResource BigButtons}"
-              FontAttributes="Bold"/>
-
-      <Button Grid.Row="1" Grid.Column="1"
-              x:Name="btn_reading"
-              Text="Reading"
-              Image="@drawable/Reading_logo"
-              Style="{StaticResource BigButtons}"
-              FontAttributes="Bold"/>
-    </Grid>
-
-    <StackLayout VerticalOptions="End"
-                 x:Name="btn_n5quizimage">
-
-      <Image x:Name="image_homepage_header"
-             Source="homepage_header2"
-             Aspect="AspectFill"/>
-
-      <Grid Margin="0,-70,0,0">
-        <StackLayout>
-          <Frame Padding="0"
-                 BackgroundColor="#85E7E0"
-                 Opacity="0.5">
-            <Label Text=" "
-                   FontSize="Large" />
-          </Frame >
-        </StackLayout>
-        <StackLayout>
-          <Label x:Name="label_homepage_header"
-                 Text="N5 QUIZ"
-                 FontAttributes="Bold"
-                 HorizontalOptions="Center"
-                 FontSize="Large" />
-        </StackLayout>
-      </Grid>
-    </StackLayout>
-
-  </StackLayout>
+      <!-- Button 4 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_reading">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="homepage_header2"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Reading"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
+</StackLayout>
+  </ScrollView>
 
 </ContentPage>

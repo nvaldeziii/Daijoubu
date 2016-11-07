@@ -40,28 +40,19 @@
                Grid.Row="6"/>
       </StackLayout>
     </Grid>
-    
-  
-    <StackLayout VerticalOptions="End"
-                 Margin="0,0,0,20">
-      <Image x:Name="image_homepage_header"
-               Source="homepage_header2"
-               Aspect="AspectFill"/>
-      <Grid Margin="0,-70,0,0">
+
+
+    <StackLayout Style="{StaticResource BottomBannerStackLayout}"
+                 VerticalOptions="End">
+      <Image Style="{StaticResource CustomButtonImage}"
+             Source="homepage_header2"/><!--  <============== Edit the source image -->
+      <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>
-          <Frame Padding="0"
-                 BackgroundColor="#85E7E0"
-                 Opacity="0.5">
-            <Label Text=" "
-                   FontSize="Large" />
-          </Frame >
+          <Frame Style="{StaticResource CustomButtonFrame}" />
         </StackLayout>
         <StackLayout>
-          <Label x:Name="label_homepage_header"
-                 Text="Profile Page"
-                 FontAttributes="Bold"
-                 HorizontalOptions="Center"
-                 FontSize="Large" />
+          <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Profile Page"/> <!--  <===== Edit the label -->
         </StackLayout>
       </Grid>
     </StackLayout>

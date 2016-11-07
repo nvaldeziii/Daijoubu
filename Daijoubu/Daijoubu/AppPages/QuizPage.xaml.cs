@@ -19,37 +19,40 @@ namespace Daijoubu.AppPages
 
         void InitializeEvents()
         {
-            btn_multiple.Clicked += (o, e) =>
+            btn_multiple.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                var page = new QuizPages.MCCatSelectPage();
-                Navigation.PushAsync(page);
-            };
-
-            btn_listen.Clicked += (o, e) =>
-            {
-                var page = new QuizPages.ListeningPage();
-                Navigation.PushAsync(page);
-            };
-
-            btn_reading.Clicked += (o, e) =>
-            {
-                //var page = new QuizPages.ReadingPage();
-                var page = new QuizPages.MultipleChoicePage(Categories.MultipleChoiceCategory.Meaning);
-                Navigation.PushAsync(page);
-            };
-
-            btn_typing.Clicked += (o, e) =>
-            {
-                var page = new QuizPages.TypingPage();
-                Navigation.PushAsync(page);
-            };
-
-            btn_n5quizimage.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() => {
-                    DisplayAlert("Alert", "You Cliked the image", "K fine!");
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.MCCatSelectPage());
                 })
             });
+
+
+            btn_listen.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.ListeningPage());
+                })
+            });
+
+
+            btn_reading.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.MultipleChoicePage(Categories.MultipleChoiceCategory.Meaning));
+                })
+            });
+
+            btn_typing.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.TypingPage());
+                })
+            });
+
 
         }
     }
