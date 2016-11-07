@@ -39,7 +39,7 @@
         <Setter Property="BackgroundColor" Value="#422E0F" />
       </Style>
       <Style x:Key="QuestionCardInnerFrame" TargetType="Frame">
-        <Setter Property="Margin" Value="-10" />
+        <Setter Property="Margin" Value="-12" />
         <Setter Property="BackgroundColor" Value="Black" />
       </Style>
 
