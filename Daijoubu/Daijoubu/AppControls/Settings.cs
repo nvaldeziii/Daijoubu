@@ -23,6 +23,7 @@ namespace Daijoubu
         public static readonly Color PageColorCorrect = Color.FromHex("72EA65");
         public static readonly Color PageColorMistake = Color.FromHex("FD6E75");
 
+        public static bool Greeted = false;
 
         public bool HapticFeedback { get; set; }
         public bool SpeakWords { get; set; }

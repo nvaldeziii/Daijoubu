@@ -50,14 +50,19 @@ namespace Daijoubu
 
             DependencyService.Get<ITextToSpeech>().Speak("大丈夫");
             LastGreeting = DateTime.Now.Subtract(new TimeSpan(0,3,0));
-            Device.StartTimer(new TimeSpan(0, 0, 2), () =>
-              {
-                  if (setting.SpeakWords)
+
+            if (!Settings.Greeted)
+            {
+                Device.StartTimer(new TimeSpan(0, 0, 2), () =>
                   {
-                      DependencyService.Get<ITextToSpeech>().Speak(Computer.ApplicationInitialGreeting());
-                  }
-                  return false;
-              });
+                      if (setting.SpeakWords)
+                      {
+                          DependencyService.Get<ITextToSpeech>().Speak(Computer.ApplicationInitialGreeting());
+                      }
+                      return false;
+                  });
+                Settings.Greeted = true;
+            }
 
 
         }
