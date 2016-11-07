@@ -24,7 +24,7 @@ namespace Daijoubu.AppPages
             });
                 
 
-            btn_listen.GestureRecognizers.Add(new TapGestureRecognizer
+            btn_reading.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = new Command(() =>
                 {
@@ -32,7 +32,7 @@ namespace Daijoubu.AppPages
                 })
             });
 
-            btn_reading.GestureRecognizers.Add(new TapGestureRecognizer
+            btn_grammar.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = new Command(() =>
                 {

@@ -21,7 +21,7 @@
         </StackLayout>
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
-                  Text="Multiple Choice"/>
+                  Text="Kanji"/>
           <!--  <===== Edit the label -->
         </StackLayout>
       </Grid>
@@ -29,8 +29,8 @@
 
     <!-- Button 1 -->
     <StackLayout Style="{StaticResource CustomButtonStackLayout}"
-                 x:Name="btn_listen"
-                 AutomationId="auto_btn_listen">
+                 x:Name="btn_reading"
+                 AutomationId="auto_btn_reading">
       <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
              Source="homepage_header2"/>
@@ -41,7 +41,7 @@
         </StackLayout>
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
-                  Text="Listening"/>
+                  Text="Meaning"/>
           <!--  <===== Edit the label -->
         </StackLayout>
       </Grid>
@@ -49,8 +49,8 @@
 
     <!-- Button 1 -->
     <StackLayout Style="{StaticResource CustomButtonStackLayout}"
-                 x:Name="btn_reading"
-                 AutomationId="auto_btn_reading">
+                 x:Name="btn_grammar"
+                 AutomationId="auto_btn_grammar">
       <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
              Source="homepage_header2"/>
