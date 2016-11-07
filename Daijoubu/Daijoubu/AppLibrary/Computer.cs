@@ -287,21 +287,21 @@ namespace Daijoubu.AppLibrary
             var hours = DateTime.Now.Hour;
             if (hours > 16)
             {
-                greeting += "こんばんは、";
+                greeting += "こんばんは、"; //konbanwa
             }
             else if (hours > 11)
             {
-                greeting += "こんにちは、";
+                greeting += "こんにちは、"; //konichiwa
             }
             else
             {
-                greeting += "お早うございます、";
+                greeting += "お早うございます、"; // ohayou
             }
 
             List<string> possible_greetings = new List<string>();
-            possible_greetings.Add("べんきょうしましょう！");
-            possible_greetings.Add("お元気ですか？");
-            possible_greetings.Add("がんばってね！");
+            possible_greetings.Add("べんきょうしましょう！"); //benkyou shimashou
+            possible_greetings.Add("お元気ですか？"); //ogenki desu ka
+            possible_greetings.Add("がんばってね！"); //ganbatte ne
 
             int rand = new Random().Next(0, possible_greetings.Count);
             greeting += possible_greetings[rand];

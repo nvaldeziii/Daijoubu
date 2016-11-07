@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Daijoubu.AppPages.ProfilePage"
-             Title="Profile"
+             x:Class="Daijoubu.AppPages.ProfilePages.JLPTN4SelectorPage"
+             Title="JLPT N4 Assessment"
              Style="{StaticResource TypicalContentPage}">
 
   <StackLayout>
 
     <!-- Button 1 -->
     <StackLayout Style="{StaticResource CustomButtonStackLayout}"
-                 x:Name="btn_n5">
+                 x:Name="btn_vocabulary"
+                 AutomationId="auto_btn_vocabulary">
       <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
              Source="homepage_header2"/>
@@ -20,15 +21,16 @@
         </StackLayout>
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
-                  Text="JLPT N5 Assessment"/>
+                  Text="Vocabulary Achievement"/>
           <!--  <===== Edit the label -->
         </StackLayout>
       </Grid>
     </StackLayout>
 
-    <!-- Button 2 -->
+    <!-- Button 1 -->
     <StackLayout Style="{StaticResource CustomButtonStackLayout}"
-                 x:Name="btn_n4">
+                 x:Name="btn_grammar"
+                 AutomationId="auto_btn_grammar">
       <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
              Source="homepage_header2"/>
@@ -39,15 +41,16 @@
         </StackLayout>
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
-                  Text="JLPT N4 Assessment"/>
+                  Text="Gramatical Achievement"/>
           <!--  <===== Edit the label -->
         </StackLayout>
       </Grid>
     </StackLayout>
 
-    <!-- Button 3 -->
+    <!-- Button 1 -->
     <StackLayout Style="{StaticResource CustomButtonStackLayout}"
-                 x:Name="btn_delete_data">
+                 x:Name="btn_assess"
+                 AutomationId="auto_btn_assess">
       <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
              Source="homepage_header2"/>
@@ -58,27 +61,37 @@
         </StackLayout>
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
-                  Text="Delete User Data"/>
+                  Text="View Assessment"/>
           <!--  <===== Edit the label -->
         </StackLayout>
       </Grid>
     </StackLayout>
+    
+    <!--
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*" />
+      </Grid.ColumnDefinitions>
 
-    <StackLayout >
+      <Grid.RowDefinitions>
+        <RowDefinition Height="1*" />
+      </Grid.RowDefinitions>
 
-      <ProgressBar x:Name="progress_deletion"
-                   IsVisible="False"
-                   Progress="0"/>
-      <Label x:Name="lbl_prog_percent"
-             IsVisible="False"
-             Text="{Binding Progress, StringFormat='{0:0.00}%', Source={x:Reference progress_deletion}}"
-             HorizontalOptions="Center"
-             VerticalOptions="End"
-             Grid.Row="6"/>
-    </StackLayout>
+      <Button x:Name="btn_vocabulary"
+            Text="View Vocabulary Achievement"
+            Grid.Row="0" Grid.Column="0"/>
+      <Button x:Name="btn_grammar"
+              Text="View Grammatical Achievement"
+              Grid.Row="0" Grid.Column="1"/>
+      <Button x:Name="btn_assess"
+              Text="View Assessment"
+              Grid.Row="1" Grid.Column="1"/>
 
-
+    </Grid>
+    -->
 
 
   </StackLayout>
+  
+  
 </ContentPage>

@@ -7,7 +7,7 @@
 
   <Grid>
     <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="3*"/>
+      <ColumnDefinition Width="2*"/>
     </Grid.ColumnDefinitions>
 
     <Grid.RowDefinitions>
@@ -22,14 +22,14 @@
             Grid.Row="0"
             Grid.Column="0"
             Image="@drawable/profile_logo"/>
-    <Button Text="Quiz N5"
+    <Button Text="JLPT N5 Module"
             x:Name="SideMenuButton_Quiz"
             AutomationId="auto_SideMenuButton_Quiz"
             Style="{StaticResource SideMenuButtons}"
             Grid.Row="1"
             Grid.Column="0"
             Image="@drawable/n5_logo"/>
-    <Button Text="Quiz N4"
+    <Button Text="JLPT N4 Module"
             x:Name="SideMenuButton_QuizN4"
             AutomationId="auto_SideMenuButton_Quiz"
             Style="{StaticResource SideMenuButtons}"
