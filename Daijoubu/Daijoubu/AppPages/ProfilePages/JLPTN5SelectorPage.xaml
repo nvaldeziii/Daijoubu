@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daijoubu.AppPages.ProfilePages.JLPTN5SelectorPage"
+             Title="JLPT N5 Assesment"
+             Style="{StaticResource TypicalContentPage}">
+
+  <StackLayout>
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*" />
+      </Grid.ColumnDefinitions>
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="1*" />
+      </Grid.RowDefinitions>
+
+      <Button x:Name="btn_hiragana_achivements"
+            Text="View Hiragana Achievement"
+            Grid.Row="0" Grid.Column="0"/>
+      <Button x:Name="btn_katakana_achivements"
+              Text="View Katakana Achievement"
+              Grid.Row="0" Grid.Column="1"/>
+      <Button x:Name="btn_vocabulary_achivements"
+              Text="View Vocabulary Achievement"
+              Grid.Row="1" Grid.Column="0"/>
+      <Button x:Name="btn_assess"
+              Text="View Assessment"
+              Grid.Row="1" Grid.Column="1"/>
+      
+    </Grid>
+    
+    
+    <Image x:Name="image_homepage_header"
+             Source="homepage_header2"
+             Aspect="AspectFill"/>
+    <Grid Margin="0,-70,0,0">
+      <StackLayout>
+        <Frame Padding="0"
+               BackgroundColor="#85E7E0"
+               Opacity="0.5">
+          <Label Text=" "
+                 FontSize="Large" />
+        </Frame >
+      </StackLayout>
+      <StackLayout>
+        <Label x:Name="label_homepage_header"
+               Text="JLPT N5 Assessment"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               FontSize="Large" />
+      </StackLayout>
+    </Grid>
+    
+    
+  </StackLayout>
+</ContentPage>

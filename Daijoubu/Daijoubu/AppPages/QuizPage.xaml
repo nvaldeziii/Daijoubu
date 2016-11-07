@@ -5,68 +5,75 @@
              Title="Quiz N5"
              Style="{StaticResource TypicalContentPage}">
   <StackLayout>
-  <Grid>
+    
+    <Grid VerticalOptions="StartAndExpand">
 
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="1*" />
-      <ColumnDefinition Width="1*" />
-    </Grid.ColumnDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="1*" />
+        <ColumnDefinition Width="1*" />
+      </Grid.ColumnDefinitions>
 
-    <Grid.RowDefinitions>
-      <RowDefinition Height="1*" />
-      <RowDefinition Height="1*" />
-    </Grid.RowDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="1*" />
+        <RowDefinition Height="1*" />
+      </Grid.RowDefinitions>
 
-    <Button Grid.Row="0" Grid.Column="0"
-            x:Name="btn_multiple"
-            AutomationId="auto_btn_multiple"
-            Text="Multiple Choice"
-            Image="@drawable/multiple_choice"
-            Style="{StaticResource BigButtons}"
-            FontAttributes="Bold"/>
+      <Button Grid.Row="0" Grid.Column="0"
+              x:Name="btn_multiple"
+              AutomationId="auto_btn_multiple"
+              Text="Multiple Choice"
+              Image="@drawable/multiple_choice"
+              Style="{StaticResource BigButtons}"
+              FontAttributes="Bold"/>
 
-    <Button Grid.Row="0" Grid.Column="1"
-            x:Name="btn_listen"
-            Text="Listening"
-            Image="@drawable/Listening_logo"
-            Style="{StaticResource BigButtons}"
-            FontAttributes="Bold"/>
+      <Button Grid.Row="0" Grid.Column="1"
+              x:Name="btn_listen"
+              Text="Listening"
+              Image="@drawable/Listening_logo"
+              Style="{StaticResource BigButtons}"
+              FontAttributes="Bold"/>
 
-    <Button Grid.Row="1" Grid.Column="0"
-            x:Name="btn_typing"
-            Text="Typing"
-            Image="@drawable/FillBlank_logo"
-            Style="{StaticResource BigButtons}"
-            FontAttributes="Bold"/>
+      <Button Grid.Row="1" Grid.Column="0"
+              x:Name="btn_typing"
+              Text="Typing"
+              Image="@drawable/FillBlank_logo"
+              Style="{StaticResource BigButtons}"
+              FontAttributes="Bold"/>
 
-    <Button Grid.Row="1" Grid.Column="1"
-            x:Name="btn_reading"
-            Text="Reading"
-            Image="@drawable/Reading_logo"
-            Style="{StaticResource BigButtons}"
-            FontAttributes="Bold"/>
-  </Grid>
-    <Image x:Name="image_homepage_header"
-           Source="homepage_header2"
-           Aspect="AspectFill"/>
-
-    <Grid Margin="0,-70,0,0">
-      <StackLayout>
-        <Frame Padding="0"
-               BackgroundColor="#85E7E0"
-               Opacity="0.5">
-          <Label Text=" "
-                 FontSize="Large" />
-        </Frame >
-      </StackLayout>
-      <StackLayout>
-        <Label x:Name="label_homepage_header"
-               Text="N5 QUIZ"
-               FontAttributes="Bold"
-               HorizontalOptions="Center"
-               FontSize="Large" />
-      </StackLayout>
+      <Button Grid.Row="1" Grid.Column="1"
+              x:Name="btn_reading"
+              Text="Reading"
+              Image="@drawable/Reading_logo"
+              Style="{StaticResource BigButtons}"
+              FontAttributes="Bold"/>
     </Grid>
+
+    <StackLayout VerticalOptions="End"
+                 x:Name="btn_n5quizimage">
+
+      <Image x:Name="image_homepage_header"
+             Source="homepage_header2"
+             Aspect="AspectFill"/>
+
+      <Grid Margin="0,-70,0,0">
+        <StackLayout>
+          <Frame Padding="0"
+                 BackgroundColor="#85E7E0"
+                 Opacity="0.5">
+            <Label Text=" "
+                   FontSize="Large" />
+          </Frame >
+        </StackLayout>
+        <StackLayout>
+          <Label x:Name="label_homepage_header"
+                 Text="N5 QUIZ"
+                 FontAttributes="Bold"
+                 HorizontalOptions="Center"
+                 FontSize="Large" />
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+
   </StackLayout>
 
 </ContentPage>

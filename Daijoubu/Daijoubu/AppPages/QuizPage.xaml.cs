@@ -44,6 +44,12 @@ namespace Daijoubu.AppPages
                 Navigation.PushAsync(page);
             };
 
+            btn_n5quizimage.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() => {
+                    DisplayAlert("Alert", "You Cliked the image", "K fine!");
+                })
+            });
 
         }
     }

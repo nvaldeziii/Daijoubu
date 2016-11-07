@@ -10,29 +10,20 @@ namespace Daijoubu.AppPages
     public partial class ProfilePage : ContentPage
     {
         double _progress;
-        double progress { get { return _progress*100; } set { _progress = value; } }
+        double progress { get { return _progress * 100; } set { _progress = value; } }
         public ProfilePage()
         {
             InitializeComponent();
             progress = 0;
 
-            btn_hiragana_achivements.Clicked += (o, e) =>
+            btn_n5.Clicked += (o, e) =>
             {
-                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Hiragana));
-            };
-            btn_katakana_achivements.Clicked += (o, e) =>
-            {
-                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Katakana));
+                Navigation.PushAsync(new JLPTN5SelectorPage());
             };
 
-            btn_vocabulary_achivements.Clicked += (o, e) =>
+            btn_n4.Clicked += (o, e) =>
             {
-                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary));
-            };
-
-            btn_assess.Clicked += (o, e) =>
-            {
-                Navigation.PushAsync(new AssesmentPage());
+                Navigation.PushAsync(new JLPTN4SelectorPage());
             };
 
             btn_delete_data.Clicked += async (o, e) =>
@@ -64,18 +55,18 @@ namespace Daijoubu.AppPages
                         {
 
                             DatabaseManipulator.ResetUserData(ref _progress);
-                        //DependencyService.Get<INotifications>().ToastDependency("User data deleted!");
-                    }
+                            //DependencyService.Get<INotifications>().ToastDependency("User data deleted!");
+                        }
                         catch
                         {
-                        //DependencyService.Get<INotifications>().ToastDependency("An error has occured!");
-                    }
+                            //DependencyService.Get<INotifications>().ToastDependency("An error has occured!");
+                        }
                         finally
                         {
-                            
-                        //progress_deletion.IsVisible = false;
-                        //DependencyService.Get<INotifications>().ToastDependency("Done!");
-                    }
+
+                            //progress_deletion.IsVisible = false;
+                            //DependencyService.Get<INotifications>().ToastDependency("Done!");
+                        }
                         return false;
                     });
 
@@ -89,7 +80,7 @@ namespace Daijoubu.AppPages
                         return false;
                     });
                 }
-                
+
             };
         }
     }
