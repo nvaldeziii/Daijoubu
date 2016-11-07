@@ -50,7 +50,7 @@
 
 
       <Style x:Key="DebugLabels" TargetType="Label">
-        <Setter Property="TextColor" Value="Black" />
+        <Setter Property="TextColor" Value="#85E7E0" />
         <Setter Property="FontSize" Value="1" />
       </Style>
 
