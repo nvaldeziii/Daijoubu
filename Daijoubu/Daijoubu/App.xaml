@@ -9,10 +9,7 @@
 
       <!-- Default Style For buttons -->
       <Style TargetType="Button">
-        <Setter Property="BorderColor" Value="#422E0F" />
-        <Setter Property="BorderRadius" Value="50" />
-        <Setter Property="BorderWidth" Value="10" />
-        <Setter Property="BackgroundColor" Value="#655338" />
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
         <Setter Property="TextColor" Value="#FD6E75" />
       </Style>
 

@@ -316,7 +316,15 @@ namespace Daijoubu.AppPages.QuizPages
 
         void FontChanger()
         {
-            if (label_question.Text.Length > 3)
+            if (label_question.Text.Length > 20)
+            {
+                label_question.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label));
+            }
+            else if (label_question.Text.Length > 10)
+            {
+                label_question.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)) * 1.5;
+            }
+            else if (label_question.Text.Length > 3)
             {
                 label_question.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)) * Settings.FontSizeMultiplier;
             }
