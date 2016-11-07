@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.QuizPageN4"
-             Title="Quiz N4"
+             Title="JLPT N4 Module"
              Style="{StaticResource TypicalContentPage}">
 
   <StackLayout>
@@ -45,6 +45,7 @@
            Source="homepage_header2"
            Aspect="AspectFill"/>
 
+    <!--
     <Grid Margin="0,-70,0,0">
       <StackLayout>
         <Frame Padding="0"
@@ -62,6 +63,7 @@
                FontSize="Large" />
       </StackLayout>
     </Grid>
+    -->
   
   </StackLayout>
   

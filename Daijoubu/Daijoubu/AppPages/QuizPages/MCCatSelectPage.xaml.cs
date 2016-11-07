@@ -19,20 +19,33 @@ namespace Daijoubu.AppPages.QuizPages
 
         void InitializeClickEvents()
         {
-            btn_hiragana_quiz.Clicked += (o, e) => {
-                var page = new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Hiragana);
-                Navigation.PushAsync(page);
-            };
+            btn_hiragana_quiz.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Hiragana));
+                })
+            });
 
-            btn_katakana_quiz.Clicked += (o, e) => {
-                var page = new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Katakana);
-                Navigation.PushAsync(page);
-            };
 
-            btn_vocabulary_quiz.Clicked += (o, e) => {
-                var page = new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Vocabulary);
-                Navigation.PushAsync(page);
-            };
+
+            btn_katakana_quiz.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Katakana));
+                })
+            });
+
+
+            btn_vocabulary_quiz.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Vocabulary));
+                })
+            });
+
         }
     }
 }

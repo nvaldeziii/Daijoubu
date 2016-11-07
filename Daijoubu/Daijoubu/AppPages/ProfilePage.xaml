@@ -7,55 +7,77 @@
 
   <StackLayout>
 
-    <Grid VerticalOptions="StartAndExpand">
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-      </Grid.ColumnDefinitions>
-
-      <Grid.RowDefinitions>
-        <RowDefinition Height="*" />
-      </Grid.RowDefinitions>
-
-      <Button x:Name="btn_n5"
-                Text="JLPT N5"
-                Grid.Row="0" />
-      <Button x:Name="btn_n4"
-              Text="JLPT N4"
-              Grid.Row="1"/>
-
-      <Button x:Name="btn_delete_data"
-              Text="Delete User Data"
-              Grid.Row="2" />
-
-      <StackLayout Grid.Row="3">
-
-        <ProgressBar x:Name="progress_deletion"
-                     IsVisible="False"
-                     Progress="0"/>
-        <Label x:Name="lbl_prog_percent"
-               IsVisible="False"
-               Text="{Binding Progress, StringFormat='{0:0.00}%', Source={x:Reference progress_deletion}}"
-               HorizontalOptions="Center"
-               VerticalOptions="End"
-               Grid.Row="6"/>
-      </StackLayout>
-    </Grid>
-
-
-    <StackLayout Style="{StaticResource BottomBannerStackLayout}"
-                 VerticalOptions="End">
+    <!-- Button 1 -->
+    <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                 x:Name="btn_n5">
+      <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
-             Source="homepage_header2"/><!--  <============== Edit the source image -->
+             Source="homepage_header2"/>
+      <!--  <============== Edit the source image -->
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>
           <Frame Style="{StaticResource CustomButtonFrame}" />
         </StackLayout>
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
-                    Text="Profile Page"/> <!--  <===== Edit the label -->
+                  Text="JLPT N5 Assessment"/>
+          <!--  <===== Edit the label -->
         </StackLayout>
       </Grid>
     </StackLayout>
+
+    <!-- Button 2 -->
+    <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                 x:Name="btn_n4">
+      <!--  <============== Edit the button x:name -->
+      <Image Style="{StaticResource CustomButtonImage}"
+             Source="homepage_header2"/>
+      <!--  <============== Edit the source image -->
+      <Grid Style="{StaticResource CustomButtonGrid}">
+        <StackLayout>
+          <Frame Style="{StaticResource CustomButtonFrame}" />
+        </StackLayout>
+        <StackLayout>
+          <Label  Style="{StaticResource CustomButtonLabel}"
+                  Text="JLPT N4 Assessment"/>
+          <!--  <===== Edit the label -->
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+
+    <!-- Button 3 -->
+    <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                 x:Name="btn_delete_data">
+      <!--  <============== Edit the button x:name -->
+      <Image Style="{StaticResource CustomButtonImage}"
+             Source="homepage_header2"/>
+      <!--  <============== Edit the source image -->
+      <Grid Style="{StaticResource CustomButtonGrid}">
+        <StackLayout>
+          <Frame Style="{StaticResource CustomButtonFrame}" />
+        </StackLayout>
+        <StackLayout>
+          <Label  Style="{StaticResource CustomButtonLabel}"
+                  Text="Delete User Data"/>
+          <!--  <===== Edit the label -->
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+
+    <StackLayout >
+
+      <ProgressBar x:Name="progress_deletion"
+                   IsVisible="False"
+                   Progress="0"/>
+      <Label x:Name="lbl_prog_percent"
+             IsVisible="False"
+             Text="{Binding Progress, StringFormat='{0:0.00}%', Source={x:Reference progress_deletion}}"
+             HorizontalOptions="Center"
+             VerticalOptions="End"
+             Grid.Row="6"/>
+    </StackLayout>
+
+
 
 
   </StackLayout>

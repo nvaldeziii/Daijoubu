@@ -28,28 +28,6 @@
     </Grid>
 
 
-    <Image x:Name="image_homepage_header"
-             Source="homepage_header2"
-             Aspect="AspectFill"/>
-    <Grid Margin="0,-70,0,0">
-      <StackLayout>
-        <Frame Padding="0"
-               BackgroundColor="#85E7E0"
-               Opacity="0.5">
-          <Label Text=" "
-                 FontSize="Large" />
-        </Frame >
-      </StackLayout>
-      <StackLayout>
-        <Label x:Name="label_homepage_header"
-               Text="JLPT N4 Assessment"
-               FontAttributes="Bold"
-               HorizontalOptions="Center"
-               FontSize="Large" />
-      </StackLayout>
-    </Grid>
-
-
   </StackLayout>
   
   

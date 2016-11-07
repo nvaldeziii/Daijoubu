@@ -2,14 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.QuizPage"
-             Title="Quiz N5"
+             Title="JLPT N5 Module"
              Style="{StaticResource TypicalContentPage}">
   <ScrollView>
     <StackLayout Orientation="Vertical">
 
       <!-- Button 1 -->
       <StackLayout Style="{StaticResource CustomButtonStackLayout}"
-                   x:Name="btn_multiple">
+                   x:Name="btn_multiple"
+                   AutomationId="auto_btn_multiple">
         <!--  <============== Edit the button x:name -->
         <Image Style="{StaticResource CustomButtonImage}"
                Source="homepage_header2"/>
@@ -28,7 +29,8 @@
 
       <!-- Button 2 -->
       <StackLayout Style="{StaticResource CustomButtonStackLayout}"
-                   x:Name="btn_listen">
+                   x:Name="btn_listen"
+                   AutomationId="auto_btn_listen">
         <!--  <============== Edit the button x:name -->
         <Image Style="{StaticResource CustomButtonImage}"
                Source="homepage_header2"/>
@@ -47,7 +49,8 @@
 
       <!-- Button 3 -->
       <StackLayout Style="{StaticResource CustomButtonStackLayout}"
-                   x:Name="btn_typing">
+                   x:Name="btn_typing"
+                   AutomationId="auto_btn_typing">
         <!--  <============== Edit the button x:name -->
         <Image Style="{StaticResource CustomButtonImage}"
                Source="homepage_header2"/>
@@ -66,7 +69,8 @@
 
       <!-- Button 4 -->
       <StackLayout Style="{StaticResource CustomButtonStackLayout}"
-                   x:Name="btn_reading">
+                   x:Name="btn_reading"
+                   AutomationId="auto_btn_reading">
         <!--  <============== Edit the button x:name -->
         <Image Style="{StaticResource CustomButtonImage}"
                Source="homepage_header2"/>
@@ -82,7 +86,7 @@
           </StackLayout>
         </Grid>
       </StackLayout>
-</StackLayout>
+    </StackLayout>
   </ScrollView>
 
 </ContentPage>
