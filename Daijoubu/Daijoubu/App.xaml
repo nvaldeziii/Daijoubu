@@ -9,45 +9,44 @@
 
       <!-- Default Style For buttons -->
       <Style TargetType="Button">
-        <Setter Property="BorderColor" Value="#422E0F" />
-        <Setter Property="BorderRadius" Value="50" />
-        <Setter Property="BorderWidth" Value="10" />
-        <Setter Property="BackgroundColor" Value="#655338" />
-        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+        <Setter Property="TextColor" Value="#FD6E75" />
       </Style>
 
       <Style TargetType="Label">
-        <Setter Property="TextColor" Value="White" />
+        <Setter Property="TextColor" Value="#FD6E75" />
         <Setter Property="FontSize" Value="Medium" />
       </Style>
       
       <!-- Default Style For content page to counter the margin -->
       <Style x:Key="TypicalContentPage" TargetType="ContentPage">
         <Setter Property="Padding" Value="50" />
-        <Setter Property="BackgroundColor" Value="#273442" />
+        <Setter Property="BackgroundColor" Value="#85E7E0" />
       </Style>
       
       <Style x:Key="MultipleChoiceButtonStyle" TargetType="Button">
         <Setter Property="Margin" Value="-18" />
-        <Setter Property="BackgroundColor" Value="#655338" />
-        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+      <Setter Property="TextColor" Value="#FD6E75" />
       </Style>
-
-      <Style x:Key="QuestionCardOuterFrame" TargetType="Frame">
-        <Setter Property="Margin" Value="15,40,15,15" />
-        <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="#422E0F" />
-      </Style>
-      <Style x:Key="QuestionCardInnerFrame" TargetType="Frame">
-        <Setter Property="Margin" Value="-12" />
-        <Setter Property="BackgroundColor" Value="Black" />
-      </Style>
-
       <Style x:Key="AnswerButtonFrame" TargetType="Frame">
         <Setter Property="Margin" Value="5" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="#422E0F" />
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+        
       </Style>
+      
+      <Style x:Key="QuestionCardOuterFrame" TargetType="Frame">
+        <Setter Property="Margin" Value="15,40,15,15" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BackgroundColor" Value="#B6F6F1" />
+      </Style>
+      <Style x:Key="QuestionCardInnerFrame" TargetType="Frame">
+        <Setter Property="Margin" Value="-12" />
+        <Setter Property="BackgroundColor" Value="#B6F6F1" />
+      </Style>
+
+      
 
 
       <Style x:Key="DebugLabels" TargetType="Label">
@@ -59,19 +58,20 @@
       <Style x:Key="SingleQuestionLabel" TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="FontSize" Value="80" />
-        <Setter Property="TextColor" Value="White" />
+        <Setter Property="TextColor" Value="#FD6E75" />
       </Style>
 
       <Style x:Key="BigButtons" TargetType="Button">
         <Setter Property="Margin" Value="5" />
-        <Setter Property="BorderColor" Value="Blue" />
-        <Setter Property="BorderRadius" Value="50" />
-        <Setter Property="BorderWidth" Value="10" />
-        <Setter Property="BackgroundColor" Value="#19293B" />
-        <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+        <Setter Property="TextColor" Value="#FD6E75" />
         <Setter Property="ContentLayout" Value="Top,0" />
       </Style>
 
+      <Style x:Key="SideMenuButtons" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+        <Setter Property="TextColor" Value="#FD6E75" />
+      </Style>
     </ResourceDictionary>
 
   </Application.Resources>

@@ -6,36 +6,46 @@
              Style="{StaticResource TypicalContentPage}">
 
 
-  <StackLayout Padding="20"
-               BackgroundColor="#273442">
-
-    <StackLayout Orientation="Horizontal">
+  <StackLayout Padding="20">
+    <StackLayout Orientation="Horizontal"
+                 HorizontalOptions="StartAndExpand">
+      <Label Text="Sample"
+             HorizontalOptions="EndAndExpand" />
+    </StackLayout>
+    <StackLayout Orientation="Horizontal"
+                 HorizontalOptions="StartAndExpand">
       <Switch x:Name="switch_HapticFeedback"/>
       <Label Text="Haptic Feedback" />
     </StackLayout>
 
-    <StackLayout Orientation="Horizontal">
+    <StackLayout Orientation="Horizontal"
+                 HorizontalOptions="StartAndExpand">
       <Switch x:Name="switch_TTS"/>
       <Label Text="Voice" />
     </StackLayout>
 
-    <StackLayout Orientation="Horizontal">
+    <StackLayout Orientation="Horizontal"
+                 HorizontalOptions="StartAndExpand">
       <Switch x:Name="switch_enablen4"/>
       <Label Text="Enable N4" />
     </StackLayout>
 
     <Label Text="Answer feedback delay" />
-    <StackLayout Orientation="Horizontal">
+    
+    <StackLayout Orientation="Horizontal"
+                 HorizontalOptions="StartAndExpand">
       <Label Text="{Binding Value,StringFormat='{0:0.0}', Source={x:Reference slider_AnswerFeedBackDelay}}" />
       <Slider x:Name="slider_AnswerFeedBackDelay"
             Maximum="5000"
-            Minimum="1000"/>
+            Minimum="1000"
+              HorizontalOptions="StartAndExpand"/>
     </StackLayout>
 
     <ProgressBar x:Name="progress_saving"
                  IsVisible="False"/>
 
-    <StackLayout Orientation="Horizontal">
+    <StackLayout Orientation="Horizontal"
+                 HorizontalOptions="StartAndExpand">
       <Button x:Name="btn_save"
             Text="Save"/>
       <Button x:Name="btn_Discard"

@@ -22,6 +22,15 @@ namespace Daijoubu.AppPages.ProfilePages
         {
             InitializeComponent();
 
+            listview_achivements.ItemTapped += (s, e) =>
+            {
+                // don't do anything if we just de-selected the row
+                if (e.Item == null) return;
+                // do something with e.SelectedItem
+
+                ((ListView)s).SelectedItem = null; // de-select the row
+            };
+
             _WordType = WordType;
             if (_WordType == GeneralType.Hiragana)
             {
@@ -40,7 +49,7 @@ namespace Daijoubu.AppPages.ProfilePages
                 throw new Exception("achivement page.cs");
             }
 
-            
+
             UserCard_Kana = new ObservableCollection<UserAchivements>();
 
             bool checkCount = (GeneralTable.Count == JapaneseDatabase.Table_Kana.Count);
@@ -57,20 +66,28 @@ namespace Daijoubu.AppPages.ProfilePages
                 {
                     string _item;
                     int id = -1;
-                    if(_WordType == GeneralType.Hiragana)
+                    string _subtitle;
+                    string _reading;
+                    if (_WordType == GeneralType.Hiragana)
                     {
                         _item = JapaneseDatabase.Table_Kana[i].hiragana;
                         id = JapaneseDatabase.Table_Kana[i].Id;
+                        _reading = string.Format("\"{0}\"", JapaneseDatabase.Table_Kana[i].romaji.ToUpper());
+                        _subtitle = "";
                     }
                     else if (_WordType == GeneralType.Katakana)
                     {
                         _item = JapaneseDatabase.Table_Kana[i].katakana;
                         id = JapaneseDatabase.Table_Kana[i].Id;
+                        _reading = string.Format("\"{0}\"", JapaneseDatabase.Table_Kana[i].romaji.ToUpper());
+                        _subtitle = "";
                     }
                     else if (_WordType == GeneralType.Vocabulary)
                     {
                         _item = JapaneseDatabase.Table_Vocabulary_N5[i].kanji;
                         id = JapaneseDatabase.Table_Vocabulary_N5[i].Id;
+                        _reading = JapaneseDatabase.Table_Vocabulary_N5[i].furigana;
+                        _subtitle = JapaneseDatabase.Table_Vocabulary_N5[i].meaning;
                     }
                     else
                     {
@@ -81,7 +98,8 @@ namespace Daijoubu.AppPages.ProfilePages
                     {
                         ItemID = id,
                         Item = _item,
-                        Item2 = "null",
+                        SubTitle = _subtitle,
+                        Reading = _reading,
                         Correct = GeneralTable[i].CorrectCount,
                         Mistake = GeneralTable[i].MistakeCount,
                         LastView = Computer.SemanticTimespan(Convert.ToDateTime(GeneralTable[i].LastView)),
@@ -92,13 +110,14 @@ namespace Daijoubu.AppPages.ProfilePages
 
 
             }
-            if(UserCard_Kana.Count == 0)
+            if (UserCard_Kana.Count == 0)
             {
                 UserCard_Kana.Add(new UserAchivements
                 {
                     ItemID = 0,
-                    Item = "Empty",
-                    Item2 = null,
+                    Item = "There are no achievements... yet!",
+                    SubTitle = "Why don't you take the quiz",
+                    Reading = "It's never too late",
                     Correct = 0,
                     Mistake = 0,
                     LastView = null,
@@ -107,14 +126,15 @@ namespace Daijoubu.AppPages.ProfilePages
                 });
             }
             listview_achivements.HasUnevenRows = true;
-            listview_achivements.ItemsSource = UserCard_Kana;
+            listview_achivements.ItemsSource = UserCard_Kana.Reverse();
         }
 
         public class UserAchivements
         {
             public int ItemID { get; set; }
             public string Item { get; set; }
-            public string Item2 { get; set; }
+            public string SubTitle { get; set; }
+            public string Reading { get; set; }
             public int Correct { get; set; }
             public int Mistake { get; set; }
             public string LastView { get; set; }

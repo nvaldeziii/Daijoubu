@@ -16,11 +16,6 @@ namespace Daijoubu.AppPages.QuizPages
         private string Answer;
         private bool IsCorrect;
 
-        private static Color PageColorDefault = Color.FromHex("273442");
-        private static Color ButtonColorDefault = Color.FromHex("655338");
-        private static Color PageColorCorrect = Color.Green;
-        private static Color PageColorMistake = Color.Red;
-
         Settings Setting;
         MultipleChoiceQuestionFactory QuestionFactory;
         Random random;
@@ -62,19 +57,19 @@ namespace Daijoubu.AppPages.QuizPages
             {
                 if (btn_choice1.Text == QuestionFactory.Answer)
                 {
-                    btn_choice1.BackgroundColor = PageColorCorrect;
+                    btn_choice1.BackgroundColor = Settings.PageColorCorrect;
                 }
                 else if (btn_choice2.Text == QuestionFactory.Answer)
                 {
-                    btn_choice2.BackgroundColor = PageColorCorrect;
+                    btn_choice2.BackgroundColor = Settings.PageColorCorrect;
                 }
                 else if (btn_choice3.Text == QuestionFactory.Answer)
                 {
-                    btn_choice3.BackgroundColor = PageColorCorrect;
+                    btn_choice3.BackgroundColor = Settings.PageColorCorrect;
                 }
                 else if (btn_choice4.Text == QuestionFactory.Answer)
                 {
-                    btn_choice4.BackgroundColor = PageColorCorrect;
+                    btn_choice4.BackgroundColor = Settings.PageColorCorrect;
                 }
             }
 
@@ -135,7 +130,7 @@ namespace Daijoubu.AppPages.QuizPages
                 throw new Exception("MultipleChoicePage->GenerateQuestion->QuestionType");
             }
 
-            this.BackgroundColor = PageColorDefault;
+            this.BackgroundColor = Settings.PageColorDefault;
 
             if (!(TMPQueueHolder.Count > 0))
             {
@@ -221,7 +216,7 @@ namespace Daijoubu.AppPages.QuizPages
             if (user_ans == Answer)
             {
                 //correct answer
-                this.BackgroundColor = PageColorCorrect;
+                this.BackgroundColor = Settings.PageColorCorrect;
                 IsCorrect = true;
 
                 CurrentQuestion.CorrectCount++;
@@ -232,7 +227,7 @@ namespace Daijoubu.AppPages.QuizPages
             else
             {
                 //wrong answer
-                this.BackgroundColor = PageColorMistake;
+                this.BackgroundColor = Settings.PageColorMistake;
                 IsCorrect = false;
                 CurrentQuestion.MistakeCount++;
                 CurrentQuestion.LastView = DateTime.Now;
@@ -298,7 +293,7 @@ namespace Daijoubu.AppPages.QuizPages
                 btn_choice1.BackgroundColor =
                      btn_choice2.BackgroundColor =
                      btn_choice3.BackgroundColor =
-                     btn_choice4.BackgroundColor = ButtonColorDefault;
+                     btn_choice4.BackgroundColor = Settings.ButtonColorDefault;
             }
         }
 
@@ -320,16 +315,24 @@ namespace Daijoubu.AppPages.QuizPages
 
         void FontChanger()
         {
-            if (label_question.Text.Length > 3)
+            if (label_question.Text.Length > 20)
             {
-                label_question.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)) * Settings.FontSizeMultiplier;
+                label_question.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label));
+            }
+            else if (label_question.Text.Length > 10)
+            {
+                label_question.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)) * 1.5;
+            }
+            else if (label_question.Text.Length > 3)
+            {
+                label_question.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label)) * Settings.FontSizeMultiplier;
             }
             else
             {
                 label_question.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label)) * Settings.FontSizeMultiplier;
             }
 
-            
+
             btn_choice1.FontSize = Computer.AnswerButtonFontSize(btn_choice1.Text.Length, Settings.FontSizeMultiplier);
             btn_choice2.FontSize = Computer.AnswerButtonFontSize(btn_choice2.Text.Length, Settings.FontSizeMultiplier);
             btn_choice3.FontSize = Computer.AnswerButtonFontSize(btn_choice3.Text.Length, Settings.FontSizeMultiplier);
