@@ -13,34 +13,34 @@
         <Setter Property="BorderRadius" Value="50" />
         <Setter Property="BorderWidth" Value="10" />
         <Setter Property="BackgroundColor" Value="#655338" />
-        <Setter Property="TextColor" Value="White" />
+        <Setter Property="TextColor" Value="#5BD1C8" />
       </Style>
 
       <Style TargetType="Label">
-        <Setter Property="TextColor" Value="White" />
+        <Setter Property="TextColor" Value="#FF9A4F" />
         <Setter Property="FontSize" Value="Medium" />
       </Style>
       
       <!-- Default Style For content page to counter the margin -->
       <Style x:Key="TypicalContentPage" TargetType="ContentPage">
         <Setter Property="Padding" Value="50" />
-        <Setter Property="BackgroundColor" Value="#273442" />
+        <Setter Property="BackgroundColor" Value="#85E7E0" />
       </Style>
       
       <Style x:Key="MultipleChoiceButtonStyle" TargetType="Button">
         <Setter Property="Margin" Value="-18" />
         <Setter Property="BackgroundColor" Value="#655338" />
-        <Setter Property="TextColor" Value="White" />
+        <Setter Property="TextColor" Value="#5BD1C8" />
       </Style>
 
       <Style x:Key="QuestionCardOuterFrame" TargetType="Frame">
         <Setter Property="Margin" Value="15,40,15,15" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="#422E0F" />
+        <Setter Property="BackgroundColor" Value="#FFFFFF" />
       </Style>
       <Style x:Key="QuestionCardInnerFrame" TargetType="Frame">
         <Setter Property="Margin" Value="-12" />
-        <Setter Property="BackgroundColor" Value="Black" />
+        <Setter Property="BackgroundColor" Value="#FFFFFF" />
       </Style>
 
       <Style x:Key="AnswerButtonFrame" TargetType="Frame">
@@ -72,6 +72,10 @@
         <Setter Property="ContentLayout" Value="Top,0" />
       </Style>
 
+      <Style x:Key="SideMenuButtons" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#273442" />
+        <Setter Property="TextColor" Value="#FFFFFF" />
+      </Style>
     </ResourceDictionary>
 
   </Application.Resources>

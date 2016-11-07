@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Daijoubu"
              x:Class="Daijoubu.MainPage"
              Title="Daijoubu"
-             BackgroundColor="#000000"
+             BackgroundColor="Black"
              Padding="50,0,50,50">
 
   <StackLayout Orientation="Vertical" >
@@ -13,28 +13,40 @@
            Source="homepage_header"
            Aspect="AspectFill"/>
 
-    <Label x:Name="label_homepage_header"
-           Margin="0,-50,0,0"
-           Text="Welcome to だいじょうぶ"
-           FontAttributes="Bold"
-           HorizontalOptions="Center"
-           TextColor="#DFDFDF"
-           FontSize="Large"/>
+    <Grid Margin="0,-70,0,0">
+      <StackLayout>
+        <Frame Padding="0"
+               BackgroundColor="#85E7E0"
+               Opacity="0.5">
+          <Label Text=" "
+                 FontSize="Large" />
+        </Frame >
+      </StackLayout>
+      <StackLayout>
+        <Label x:Name="label_homepage_header"
+               Text="Welcome to だいじょうぶ"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               FontSize="Large" />
+      </StackLayout>
+    </Grid>
+
+
 
     <ListView x:Name="listview_homepage_notifications" ItemsSource="{Binding ListViewNotifications}"
-              BackgroundColor="#273442">
+              BackgroundColor="#85E7E0">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
             <ViewCell.View>
               <Frame Style="{StaticResource QuestionCardOuterFrame}"
-                     Margin="15,15,15,0">
+                     Margin="15,6,15,6">
                 <Frame Style="{StaticResource QuestionCardInnerFrame}">
-                  <StackLayout>
+                  <StackLayout Padding="-10">
                     <Label Text="{Binding MainLabel}"
-                           TextColor="#FFFFFF"
                            FontSize="{Binding MainLabelFontSize}"
-                           HorizontalOptions="Center"/>
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"/>
 
                     <Grid Margin="0">
                       <Grid.ColumnDefinitions>
@@ -46,12 +58,10 @@
                       </Grid.RowDefinitions>
 
                       <Label Text="{Binding Title}"
-                             TextColor="White"
                              FontSize="Small"
                              Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
 
                       <Label Text="{Binding Subtitle}"
-                             TextColor="White"
                              FontSize="Small"
                              Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
 
@@ -66,7 +76,6 @@
 
                       <Label Text="{Binding Percent, StringFormat='％ : {0:0.00}'}"
                              FontSize="Small"
-                             TextColor="White"
                              Grid.Row="3" Grid.Column="0"/>
 
 
