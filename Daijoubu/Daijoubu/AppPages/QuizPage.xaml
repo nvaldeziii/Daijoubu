@@ -13,7 +13,7 @@
                    AutomationId="auto_btn_multiple">
         <!--  <============== Edit the button x:name -->
         <Image Style="{StaticResource CustomButtonImage}"
-               Source="homepage_header2"/>
+               Source="Multiple_choice_banner"/>
         <!--  <============== Edit the source image -->
         <Grid Style="{StaticResource CustomButtonGrid}">
           <StackLayout>
@@ -33,7 +33,7 @@
                    AutomationId="auto_btn_listen">
         <!--  <============== Edit the button x:name -->
         <Image Style="{StaticResource CustomButtonImage}"
-               Source="homepage_header2"/>
+               Source="Listening_Banner"/>
         <!--  <============== Edit the source image -->
         <Grid Style="{StaticResource CustomButtonGrid}">
           <StackLayout>
@@ -41,7 +41,7 @@
           </StackLayout>
           <StackLayout>
             <Label  Style="{StaticResource CustomButtonLabel}"
-                    Text="Listen"/>
+                    Text="Listening"/>
             <!--  <===== Edit the label -->
           </StackLayout>
         </Grid>
@@ -53,7 +53,7 @@
                    AutomationId="auto_btn_typing">
         <!--  <============== Edit the button x:name -->
         <Image Style="{StaticResource CustomButtonImage}"
-               Source="homepage_header2"/>
+               Source="Typing_banner"/>
         <!--  <============== Edit the source image -->
         <Grid Style="{StaticResource CustomButtonGrid}">
           <StackLayout>
@@ -73,7 +73,7 @@
                    AutomationId="auto_btn_reading">
         <!--  <============== Edit the button x:name -->
         <Image Style="{StaticResource CustomButtonImage}"
-               Source="homepage_header2"/>
+               Source="Reading_banner"/>
         <!--  <============== Edit the source image -->
         <Grid Style="{StaticResource CustomButtonGrid}">
           <StackLayout>

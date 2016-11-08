@@ -13,7 +13,7 @@
                  AutomationId="auto_btn_multiple">
       <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
-             Source="homepage_header2"/>
+             Source="Multiple_choice_banner"/>
       <!--  <============== Edit the source image -->
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>
@@ -33,7 +33,7 @@
                  AutomationId="auto_btn_reading">
       <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
-             Source="homepage_header2"/>
+             Source="Reading_banner"/>
       <!--  <============== Edit the source image -->
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>
