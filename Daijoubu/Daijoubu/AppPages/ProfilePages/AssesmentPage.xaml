@@ -4,39 +4,90 @@
              x:Class="Daijoubu.AppPages.ProfilePages.AssesmentPage"
              Title="Assesment"
              Style="{StaticResource TypicalContentPage}">
-
+            <ContentPage.Resources>
+                    <ResourceDictionary>
+                        <Style x:Key="AssessmentCardInnerFrame"
+                               BasedOn="{StaticResource QuestionCardInnerFrame}" TargetType="Frame">
+                            <Setter Property="Margin" Value="-12,5,-12,5" />
+                            <Setter Property="Padding" Value="0" />
+                        </Style>
+                        
+                    </ResourceDictionary>
+                </ContentPage.Resources>
   <ScrollView>
     <StackLayout Padding="10">
-      <Label Text="JLPT Assessment"/>
-      <Label x:Name="jlptn5_learn_percent" />
-      
-      <Label Text="" />
-      <Label Text="" />
-      <Label Text="Hiragana" />
-      <Label x:Name="hiragana_learn_percent" />
-      <Label x:Name="hiragana_total_reviewed" />
-      <Label x:Name="hiragana_total_passed"
-             TextColor="Green"/>
-      <Label x:Name="hiragana_total_failed" 
-             TextColor="Red"/>
-      <Label Text="" />
-      <Label Text="" />
-      <Label Text="Katakana" />
-      <Label x:Name="katakana_learn_percent" />
-      <Label x:Name="katakana_total_reviewed" />
-      <Label x:Name="katakana_total_passed" 
-             TextColor="Green"/>
-      <Label x:Name="katakana_total_failed" 
-             TextColor="Red"/>
-      <Label Text="" />
-      <Label Text="" />
-      <Label Text="Vocabulary" />
-      <Label x:Name="vocabulary_learn_percent" />
-      <Label x:Name="vocabulary_total_reviewed" />
-      <Label x:Name="vocabulary_total_passed" 
-             TextColor="Green"/>
-      <Label x:Name="vocabulary_total_failed" 
-             TextColor="Red"/>
+    
+      <Frame Style="{StaticResource QuestionCardOuterFrame}"
+                         Margin="15,6,15,6">
+        <Frame Style="{StaticResource QuestionCardInnerFrame}">
+          <StackLayout>
+            <Label Text="JLPT Assessment"/>
+            <Label x:Name="jlptn5_learn_percent" />
+          </StackLayout>
+        </Frame>
+      </Frame>
+     
+
+      <ListView x:Name="listview_assesments" ItemsSource="{Binding Assessments}"
+             BackgroundColor="#cccccc">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.View>
+                <StackLayout>
+                  <Frame Style="{StaticResource QuestionCardOuterFrame}"
+                         Margin="15,6,15,6">
+                    <StackLayout>
+                      <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+                        <StackLayout>
+                          <Label Text="{Binding Name}" />
+                        </StackLayout>
+                      </Frame>
+<!-- Total Proficiency-->
+                      <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+
+                        <Grid>
+                          <Label Text="Total Proficiency"
+                                 HorizontalOptions="Start"
+                                 Grid.ColumnSpan="2"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="0">
+                            <Label Text="{Binding Old.TotalProficiency, StringFormat='{0:0.00}%' }" />
+                          </StackLayout>
+                          <Label Text="--->"
+                                 Grid.Row="1" Grid.Column="1"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="2">
+                            <Label Text="{Binding New.TotalProficiency, StringFormat='{0:0.00}%' }" />
+                          </StackLayout>
+                        </Grid>
+                      </Frame>
+<!-- Total Reviewed-->
+                      <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+                        <Grid>
+                          <Label Text="Total Reviewed"
+                                 HorizontalOptions="Start"
+                                 Grid.ColumnSpan="2"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="0">
+                            <Label Text="{Binding Old.TotalReviewed, StringFormat='{0}' }" />
+                          </StackLayout>
+                          <Label Text="--->"
+                                 Grid.Row="1" Grid.Column="1"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="2">
+                            <Label Text="{Binding New.TotalReviewed, StringFormat='{0}' }" />
+                          </StackLayout>
+                        </Grid>
+                      </Frame>
+                    </StackLayout>
+                  </Frame>
+                </StackLayout>
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
 
     </StackLayout>
   </ScrollView>

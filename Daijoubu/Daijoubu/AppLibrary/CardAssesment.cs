@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Daijoubu.AppControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,5 +31,21 @@ namespace Daijoubu.AppLibrary
                 return Computer.ForPercentage(TotalPassed, TotalFailed);
             }
         }
+
+  
+    }
+
+    public class CardAssessmentComparission
+    {
+        public CardAssessmentComparission(CardAssesment ca,string key)
+        {
+            New = ca;
+            Old = ThisApp.Assessments[key];
+
+            //ThisApp.Assessments[key] = New;
+        }
+        public string Name { get; set; }
+        public CardAssesment Old { get; set; }
+        public CardAssesment New { get; set; }
     }
 }

@@ -123,7 +123,7 @@ namespace Daijoubu.AppLibrary
                     }
                 }
 
-                Choices[i] = _Choice;
+                Choices[i] = Computer.MakeConsistentHiraganaEnding(_Choice, Answer,Question);
             }
         }
 

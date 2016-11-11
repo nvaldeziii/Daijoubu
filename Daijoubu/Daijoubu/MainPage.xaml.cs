@@ -1,4 +1,5 @@
-﻿using Daijoubu.AppLibrary;
+﻿using Daijoubu.AppControls;
+using Daijoubu.AppLibrary;
 using Daijoubu.AppModel;
 using Daijoubu.Dependencies;
 using System;
@@ -106,6 +107,7 @@ namespace Daijoubu
 
         protected override bool OnBackButtonPressed()
         {
+            ThisApp.MasterDetail.IsPresented = !ThisApp.MasterDetail.IsPresented;
             return true;
             //return base.OnBackButtonPressed();
         }
@@ -198,7 +200,15 @@ namespace Daijoubu
             //queing for N4
             UserDatabase.VocabularyCardN4Queue = Computer.CreateQueue(UserDatabase.Table_UserVocabCardsN4.ToList<AbstractCardTable>(), setting.MultipleChoice.QueueCount);
             UserDatabase.GrammarCardN4Queue = Computer.CreateQueue(UserDatabase.Table_UserGrammCardsN4.ToList<AbstractCardTable>(), setting.MultipleChoice.QueueCount);
-            //N4 grammar to follow
+
+
+            //save assesment
+            ThisApp.Assessments = new Dictionary<string, CardAssesment>();
+            ThisApp.Assessments.Add("JLPTN5KanaAssesment", Computer.totalcardproficiency(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>()));
+            ThisApp.Assessments.Add("JLPTN5KatakanaAssesment", Computer.totalcardproficiency(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>()));
+            ThisApp.Assessments.Add("JLPTN5VocabularyAssesment", Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>()));
+
+            ThisApp.TotalJLPTN5 = (ThisApp.Assessments["JLPTN5KanaAssesment"].TotalProficiency + ThisApp.Assessments["JLPTN5KatakanaAssesment"].TotalProficiency + ThisApp.Assessments["JLPTN5VocabularyAssesment"].TotalProficiency) / 3.0;
         }
 
 

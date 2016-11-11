@@ -30,12 +30,13 @@
         <Setter Property="Margin" Value="-18" />
         <Setter Property="BackgroundColor" Value="#38B4AB" />
         <Setter Property="TextColor" Value="#FD6E75" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
       </Style>
       <Style x:Key="AnswerButtonFrame" TargetType="Frame">
         <Setter Property="Margin" Value="5" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="BackgroundColor" Value="#38B4AB" />
-
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
       </Style>
 
       <Style x:Key="QuestionCardOuterFrame" TargetType="Frame">

@@ -5,6 +5,7 @@
              xmlns:local="clr-namespace:Daijoubu;assembly=Daijoubu"
              Title="Daijoubu"
              BackgroundColor="#cccccc"
+             x:Name="App_MasterDetail"
              >
 
   <MasterDetailPage.Master>

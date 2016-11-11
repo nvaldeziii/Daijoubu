@@ -31,7 +31,7 @@
             Image="@drawable/n5_logo"/>
     <Button Text="JLPT N4 Module"
             x:Name="SideMenuButton_QuizN4"
-            AutomationId="auto_SideMenuButton_Quiz"
+            AutomationId="auto_SideMenuButton_QuizN4"
             Style="{StaticResource SideMenuButtons}"
             Grid.Row="2"
             Grid.Column="0"

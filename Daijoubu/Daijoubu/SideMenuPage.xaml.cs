@@ -26,7 +26,7 @@ namespace Daijoubu
 
         private void InitilizeClickEvents()
         {
-            
+
         }
     }
 }
