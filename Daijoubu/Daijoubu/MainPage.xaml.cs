@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using static Daijoubu.AppLibrary.Categories;
 
 namespace Daijoubu
 {
@@ -34,31 +35,53 @@ namespace Daijoubu
                     // don't do anything if we just de-selected the row
                     if (e.Item == null) return;
                     // do something with e.SelectedItem
-                    
-                    var index = ListViewNotifications.IndexOf(e.Item as lv_binding_hp_notifications);
-                    ListViewNotifications.RemoveAt(index);
-                    //ListViewNotifications.Remove(((ListView)sender).SelectedItem as lv_binding_hp_notifications);
-
-                    if (ListViewNotifications.Count <= 0)
+                    var item = (e.Item as lv_binding_hp_notifications);
+                    switch(item.TableName)
                     {
-                        ListViewNotifications.Add(lv_binding_hp_notifications.Empty(3.5));
+                        case "Table_UserKanaCardsN5":
+                             Navigation.PushAsync(new AppPages.QuizPages.MultipleChoicePage(MultipleChoiceCategory.Hiragana));
+                            break;
+                        case "Table_UserKataKanaCardsN5":
+                             Navigation.PushAsync(new AppPages.QuizPages.MultipleChoicePage(MultipleChoiceCategory.Katakana));
+                            break;
+                        case "Table_UserVocabCardsN5":
+                             Navigation.PushAsync(new AppPages.QuizPages.MultipleChoicePage(MultipleChoiceCategory.Vocabulary));
+                            break;
+                        case "Table_UserVocabCardsN4":
+                             Navigation.PushAsync(new AppPages.QuizPages.MultipleChoicePageN4(MultipleChoiceCategory.Vocabulary));
+                            break;
+                        default:
+                            if (!setting.EnableN4)
+                            {
+                                 Navigation.PushAsync(new AppPages.QuizPage());
+                            }
+                            else
+                            {
+                                 Navigation.PushAsync(new AppPages.QuizPageN4());
+                            }
+                            break;
                     }
+
+                    //var index = ListViewNotifications.IndexOf(item);
+                    // ListViewNotifications.RemoveAt(index);
+
+                    //if (ListViewNotifications.Count <= 0)
+                    //{
+                    //    ListViewNotifications.Add(lv_binding_hp_notifications.Empty(3.5));
+                    //}
                     ((ListView)sender).SelectedItem = null; // de-select the row
                 }
                 catch { }
             };
 
-            DependencyService.Get<ITextToSpeech>().Speak("大丈夫");
+            DependencyService.Get<ITextToSpeech>().Speak(" ");
             LastGreeting = DateTime.Now.Subtract(new TimeSpan(0,3,0));
 
-            if (!Settings.Greeted)
+            if (!Settings.Greeted && setting.SpeakWords)
             {
                 Device.StartTimer(new TimeSpan(0, 0, 2), () =>
                   {
-                      if (setting.SpeakWords)
-                      {
-                          DependencyService.Get<ITextToSpeech>().Speak(Computer.ApplicationInitialGreeting());
-                      }
+                      DependencyService.Get<ITextToSpeech>().Speak(Computer.ApplicationInitialGreeting());
                       return false;
                   });
                 Settings.Greeted = true;
@@ -81,6 +104,11 @@ namespace Daijoubu
             base.OnAppearing();
         }
 
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+            //return base.OnBackButtonPressed();
+        }
 
         void ApplicationInitialization()
         {

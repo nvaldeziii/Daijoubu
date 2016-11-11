@@ -126,7 +126,7 @@ namespace Daijoubu.AppLibrary
                         MainLabel = Card.kanji,
                         Title = string.Format("📖: \"{0}\"", Card.meaning),
                         Percent = percentage,
-                        TableName = "Table_UserVocabCardsN5",
+                        TableName = "Table_UserVocabCardsN4",
                         ItemID = item.Id,
                         Clock = Computer.SemanticTimespan(tspan),
                         ClockColor = clockcolor,
