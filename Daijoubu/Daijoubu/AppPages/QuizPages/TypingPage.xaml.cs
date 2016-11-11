@@ -208,5 +208,19 @@ namespace Daijoubu.AppPages.QuizPages
         {
             btn_submit.IsEnabled = value;
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            var JLPTN5VocabularyAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
+            Navigation.PushModalAsync(new ProfilePages.AssesmentPage(
+                JLPTN5VocabularyAssesment
+                , "JLPTN5VocabularyAssesment"
+                , "Vocabulary"
+                , "JLPT N5 Assessment")
+            {
+                Padding = 0
+            });
+            return false;
+        }
     }
 }

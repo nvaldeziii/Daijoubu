@@ -121,9 +121,12 @@ namespace Daijoubu.AppPages.QuizPages
 
         protected override bool OnBackButtonPressed()
         {
-            //Navigation.PopAsync();
-            //Navigation.PushAsync(new ProfilePages.AssesmentPage());
-            Navigation.PushModalAsync(new ProfilePages.AssesmentPage {
+            var JLPTN5VocabularyAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
+            Navigation.PushModalAsync(new ProfilePages.AssesmentPage(
+                JLPTN5VocabularyAssesment
+                , "JLPTN5VocabularyAssesment"
+                , "Vocabulary"
+                , "JLPT N5 Assessment") {
                 Padding = 0
             });
             return false;

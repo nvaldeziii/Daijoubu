@@ -20,10 +20,35 @@ namespace Daijoubu.AppPages.ProfilePages
 
         ObservableCollection<CardAssessmentComparission> Assessments;
 
+        public AssesmentPage(CardAssesment CA, string CA_string,string CA_title,string title)
+        {
+            InitializeComponent();
+            Assessments = new ObservableCollection<CardAssessmentComparission>();
+
+            listview_title.Text = title;
+
+            JLPTN5KanaAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>());
+            JLPTN5KatakanaAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>());
+            JLPTN5VocabularyAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
+
+            Assessments.Add(new CardAssessmentComparission(CA, CA_string)
+            {
+                Name = CA_title
+            });
+
+            listview_assesments.HasUnevenRows = true;
+            listview_assesments.ItemsSource = Assessments;
+
+            Bind();
+        }
+
         public AssesmentPage()
         {
             InitializeComponent();
             Assessments = new ObservableCollection<CardAssessmentComparission>();
+
+            listview_title.Text = "JLPT N5 Assessment";
+            
 
             JLPTN5KanaAssesment       = Computer.totalcardproficiency(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>());
             JLPTN5KatakanaAssesment   = Computer.totalcardproficiency(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>());
@@ -50,14 +75,20 @@ namespace Daijoubu.AppPages.ProfilePages
         {
 
             double jlptn5percent = (JLPTN5KanaAssesment.TotalProficiency + JLPTN5KatakanaAssesment.TotalProficiency + JLPTN5VocabularyAssesment.TotalProficiency) / 3.0;
-            if (jlptn5percent != ThisApp.TotalJLPTN5)
+            if (jlptn5percent > ThisApp.TotalJLPTN5)
             {
-                //jlptn5_learn_percent.Text = string.Format("JLPT N5 preparedness: From {0:0.00}% to {1:0.00}%", ThisApp.TotalJLPTN5, jlptn5percent);
-            }else
-            {
-                //jlptn5_learn_percent.Text = string.Format("JLPT N5 preparedness: {0:0.00}%", jlptn5percent);
+                listview_title_New.TextColor = Color.Green;
             }
-
+            else if (jlptn5percent == ThisApp.TotalJLPTN5)
+            {
+                listview_title_New.TextColor = Color.Gray;
+            }
+            else
+            {
+                listview_title_New.TextColor = Color.Red;
+            }
+            listview_title_New.Text = string.Format("{0:0.00}%", jlptn5percent);
+            listview_title_Old.Text = string.Format("{0:0.00}%", ThisApp.TotalJLPTN5 );
             //save value
             //ThisApp.TotalJLPTN5 = jlptn5percent;
 

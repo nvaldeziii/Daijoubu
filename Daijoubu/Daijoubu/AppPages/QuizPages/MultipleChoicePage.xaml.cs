@@ -304,12 +304,44 @@ namespace Daijoubu.AppPages.QuizPages
 
         protected override bool OnBackButtonPressed()
         {
-            //Navigation.PopAsync();
-            //Navigation.PushAsync(new ProfilePages.AssesmentPage());
-            Navigation.PushModalAsync(new ProfilePages.AssesmentPage
+            if(QuizCategory == MultipleChoiceCategory.Hiragana)
             {
-                Padding = 0
-            });
+                var JLPTN5KanaAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>());
+                Navigation.PushModalAsync(new ProfilePages.AssesmentPage(
+                    JLPTN5KanaAssesment
+                    , "JLPTN5KanaAssesment"
+                    , "Hiragana"
+                    , "JLPT N5 Assessment")
+                {
+                    Padding = 0
+                });
+            }
+            else if (QuizCategory == MultipleChoiceCategory.Katakana)
+            {               
+                var JLPTN5KatakanaAssesment 
+                    = Computer.totalcardproficiency(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>());
+                Navigation.PushModalAsync(new ProfilePages.AssesmentPage(
+                    JLPTN5KatakanaAssesment
+                    , "JLPTN5KatakanaAssesment"
+                    , "Katakana"
+                    , "JLPT N5 Assessment")
+                {
+                    Padding = 0
+                });
+            }
+            else if (QuizCategory == MultipleChoiceCategory.Vocabulary)
+            {
+                var JLPTN5VocabularyAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
+                Navigation.PushModalAsync(new ProfilePages.AssesmentPage(
+                    JLPTN5VocabularyAssesment
+                    , "JLPTN5VocabularyAssesment"
+                    , "Vocabulary"
+                    , "JLPT N5 Assessment")
+                {
+                    Padding = 0
+                });
+            }
+
             return false;
         }
 
