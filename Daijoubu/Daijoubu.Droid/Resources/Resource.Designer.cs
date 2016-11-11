@@ -2242,28 +2242,28 @@ namespace Daijoubu.Droid
 			public const int Multiple_choice_banner = 2130837677;
 			
 			// aapt resource value: 0x7f0200ae
-			public const int Multiple_choice_blue = 2130837678;
+			public const int multiple_choice_N4 = 2130837678;
 			
 			// aapt resource value: 0x7f0200af
-			public const int multiple_choice_N4 = 2130837679;
+			public const int n4_assessment_banner = 2130837679;
 			
 			// aapt resource value: 0x7f0200b0
 			public const int n4_logo = 2130837680;
 			
 			// aapt resource value: 0x7f0200b1
-			public const int n5_logo = 2130837681;
-			
-			// aapt resource value: 0x7f0200bc
-			public const int notification_template_icon_bg = 2130837692;
+			public const int n5_assessment_banner = 2130837681;
 			
 			// aapt resource value: 0x7f0200b2
-			public const int profile_logo = 2130837682;
+			public const int n5_logo = 2130837682;
+			
+			// aapt resource value: 0x7f0200bb
+			public const int notification_template_icon_bg = 2130837691;
 			
 			// aapt resource value: 0x7f0200b3
-			public const int Reading_banner = 2130837683;
+			public const int profile_logo = 2130837683;
 			
 			// aapt resource value: 0x7f0200b4
-			public const int Reading_banner_blue = 2130837684;
+			public const int Reading_banner = 2130837684;
 			
 			// aapt resource value: 0x7f0200b5
 			public const int Reading_logo = 2130837685;
@@ -2282,9 +2282,6 @@ namespace Daijoubu.Droid
 			
 			// aapt resource value: 0x7f0200ba
 			public const int Typing_banner = 2130837690;
-			
-			// aapt resource value: 0x7f0200bb
-			public const int Typing_banner_blue = 2130837691;
 			
 			static Drawable()
 			{
