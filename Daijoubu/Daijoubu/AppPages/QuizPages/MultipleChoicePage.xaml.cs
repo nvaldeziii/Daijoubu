@@ -107,12 +107,12 @@ namespace Daijoubu.AppPages.QuizPages
             Queue<Card> TMPQueueHolder;
             if (category == MultipleChoiceCategory.Hiragana)
             {
-                nextnum = MultipleChoiceQuestionFactory.QuestionType.Hiragana;
+                nextnum = new Random().Next(0, 2) == 0 ? MultipleChoiceQuestionFactory.QuestionType.Hiragana : MultipleChoiceQuestionFactory.QuestionType.Romaji;
                 TMPQueueHolder = UserDatabase.KanaCardQueue;
             }
             else if (category == MultipleChoiceCategory.Katakana)
             {
-                nextnum = MultipleChoiceQuestionFactory.QuestionType.Katakana;
+                nextnum = new Random().Next(0, 2) == 0 ? MultipleChoiceQuestionFactory.QuestionType.Katakana : MultipleChoiceQuestionFactory.QuestionType.Romaji;
                 TMPQueueHolder = UserDatabase.KataKanaCardQueue;
             }
             else if (category == MultipleChoiceCategory.Vocabulary)

@@ -7,8 +7,8 @@
              AutomationId="auto_MultipleChoicePage"
              Style="{StaticResource TypicalContentPage}">
 
-  <StackLayout>      
-    
+  <StackLayout>
+
     <Frame Style="{StaticResource QuestionCardOuterFrame}">
       <Frame Style="{StaticResource QuestionCardInnerFrame}">
         <Label x:Name="label_question"
@@ -17,64 +17,62 @@
       </Frame>
     </Frame>
 
-    <Grid x:Name="grid_multiple_choice">
-      <Grid.RowDefinitions>
-        <RowDefinition Height="*" />
-        <RowDefinition Height="*" />
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="*" />
-      </Grid.ColumnDefinitions>
 
 
-
+    <Grid VerticalOptions="FillAndExpand">
       <Frame Style="{StaticResource AnswerButtonFrame}"
-             Grid.Row="0" Grid.Column="0">
+             Grid.Column="0">
         <Button x:Name="btn_choice1"
                 AutomationId="auto_btn_choice1"
                 Text="*"
                 Style="{StaticResource MultipleChoiceButtonStyle}"/>
       </Frame>
-
-
       <Frame Style="{StaticResource AnswerButtonFrame}"
-             Grid.Row="0" Grid.Column="1">
+             Grid.Column="1">
         <Button x:Name="btn_choice2"
                 AutomationId="auto_btn_choice2"
                 Text="*"
                 Style="{StaticResource MultipleChoiceButtonStyle}"/>
       </Frame>
+    </Grid>
+
+
+    <Grid VerticalOptions="FillAndExpand">
 
       <Frame Style="{StaticResource AnswerButtonFrame}"
-             Grid.Row="1" Grid.Column="0">
+              Grid.Column="0">
         <Button x:Name="btn_choice3"
                 AutomationId="auto_btn_choice3"
                 Text="*"
                 Style="{StaticResource MultipleChoiceButtonStyle}"/>
       </Frame>
 
-
       <Frame Style="{StaticResource AnswerButtonFrame}"
-             Grid.Row="1" Grid.Column="1">
+              Grid.Column="1">
         <Button x:Name="btn_choice4"
                 AutomationId="auto_btn_choice4"
                 Text="*"
                 Style="{StaticResource MultipleChoiceButtonStyle}"/>
       </Frame>
-
     </Grid>
 
 
-    <Label x:Name="lbl_debug_txt"
-           Style="{StaticResource DebugLabels}" />
-    <Label x:Name="lbl_debug_ans"
-           AutomationId="auto_lbl_debug_ans"
-           Style="{StaticResource DebugLabels}" />
-    <Label x:Name="lbl_nextview"
-           Style="{StaticResource DebugLabels}" />
-    <Label x:Name="lbl_percent"
-           Style="{StaticResource DebugLabels}" />
+
+
+
+
+
+
+
+  <Label x:Name="lbl_debug_txt"
+         Style="{StaticResource DebugLabels}" />
+  <Label x:Name="lbl_debug_ans"
+         AutomationId="auto_lbl_debug_ans"
+         Style="{StaticResource DebugLabels}" />
+  <Label x:Name="lbl_nextview"
+         Style="{StaticResource DebugLabels}" />
+  <Label x:Name="lbl_percent"
+         Style="{StaticResource DebugLabels}" />
   </StackLayout>
 
 </ContentPage>

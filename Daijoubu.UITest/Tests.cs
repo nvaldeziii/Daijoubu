@@ -19,7 +19,7 @@ namespace Daijoubu.UITest
         {
             this.platform = platform;
             ai_setting = new AISettings();
-            ai_setting.ItemsToTake = 108;
+            //ai_setting.ItemsToTake = 108;
             ai_setting.Intellegence = 85;
         }
 
@@ -49,7 +49,7 @@ namespace Daijoubu.UITest
         {
             //arrange
             //app.DragCoordinates(10, 800, 650, 800);
-            app.TapCoordinates(ai_setting.DrawerLocationX, ai_setting.DrawerLocationY);
+            app.Back();
             app.Tap("auto_SideMenuButton_Quiz");
             app.Tap("auto_btn_multiple");
             app.Tap("auto_btn_hiragana_quiz");
@@ -63,7 +63,7 @@ namespace Daijoubu.UITest
         {
             //arrange
             //app.DragCoordinates(10, 800, 650, 800);
-            app.TapCoordinates(ai_setting.DrawerLocationX, ai_setting.DrawerLocationY);
+            app.Back();
             app.Tap("auto_SideMenuButton_Quiz");
             app.Tap("auto_btn_multiple");
             app.Tap("auto_btn_katakana_quiz");
@@ -76,7 +76,7 @@ namespace Daijoubu.UITest
         {
             //arrange
             //app.DragCoordinates(10, 800, 650, 800);
-            app.TapCoordinates(ai_setting.DrawerLocationX, ai_setting.DrawerLocationY);
+            app.Back();
             app.Tap("auto_SideMenuButton_Quiz");
             app.Tap("auto_btn_multiple");
             app.Tap("auto_btn_vocabulary_quiz");
@@ -147,19 +147,20 @@ namespace Daijoubu.UITest
 
         [Test]
         public void Stress_UITest()
-        {
+        { 
+            ai_setting.ItemsToTake = 200;
             MultipleChoice_hiragana_UITest();
 
             //go back to homepage
-            Back(4);
+            app.Back(); app.Back(); app.Back(); app.Back();
             //back at homepage
             MultipleChoice_katakana_UITest();
-            Back(4);
+            app.Back(); app.Back(); app.Back(); app.Back();
             MultipleChoice_vocabulary_UITest();
-            Back(3);
+            app.Back(); app.Back(); app.Back();
         }
 
-        void Back(int count)
+        void ManualTapNavigationBack(int count)
         {
             for(int i =0; i < count; i++)
             {

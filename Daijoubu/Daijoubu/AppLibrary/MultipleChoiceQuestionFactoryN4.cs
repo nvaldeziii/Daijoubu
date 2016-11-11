@@ -84,8 +84,6 @@ namespace Daijoubu.AppLibrary
         string[] GetGrammarSentence(string jpsen)
         {
             jpsen = jpsen.Replace("_", "");
-            int min = 0x3040;
-            int max = 0x309F;
             string[] result = new string[2];
 
             List<char> hiragana = new List<char>();
@@ -93,7 +91,7 @@ namespace Daijoubu.AppLibrary
 
             for (int i = 0; i < jpsen.Length; i++)
             {
-                    if(jpsen[i] >= min && jpsen[i] <= max)
+                    if(Computer.IsHiragana(jpsen[i]))
                     {
                         hiragana.Add(jpsen[i]);
                         index.Add(i);
@@ -137,7 +135,7 @@ namespace Daijoubu.AppLibrary
                     }
                 }
 
-                Choices[i] = _Choice;
+                Choices[i] = Computer.MakeConsistentHiraganaEnding(_Choice, Answer, Question);
             }
         }
     }

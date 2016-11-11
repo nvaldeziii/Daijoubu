@@ -18,7 +18,7 @@ namespace Daijoubu.UITest
 
         public AISettings()
         {
-            this.ItemsToTake = 50;
+            this.ItemsToTake = 10;
             this.Intellegence = 95;
             this.Delay = 1500;
 

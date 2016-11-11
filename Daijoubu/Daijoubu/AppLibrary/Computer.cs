@@ -308,5 +308,37 @@ namespace Daijoubu.AppLibrary
 
             return greeting;
         }
+
+        public static bool IsHiragana(char x)
+        {
+            return (x >= 0x3040 && x <= 0x309F);
+        }
+
+        public static string MakeConsistentHiraganaEnding(string h,string a, string q)
+        {
+            char ans = a[a.Length - 1];
+
+            if (a.Length > 1 && IsHiragana(ans) && IsHiragana(q[q.Length - 1]) )
+            {
+                if (h.Length > 1 && IsHiragana(h[h.Length - 1]))
+                {
+                    string r = "";
+
+                    for (int i = 0; i < h.Length; i++)
+                    {
+                        if (i != h.Length - 1)
+                        {
+                            r += h[i];
+                        }
+                        else
+                        {
+                            r += ans;
+                        }
+                    }
+                    return r;
+                }
+            }
+            return h;
+        }
     }
 }

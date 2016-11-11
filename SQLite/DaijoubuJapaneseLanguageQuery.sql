@@ -822,13 +822,8 @@ insert into tbl_kana (Id,romaji,hiragana,katakana) values (null,"ju","ぢゅ","�
 
 -- tbl_vocabulary_N4
 insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"ひげ","髭","a mustache, a beard");
-insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"〜かい","階","floor");
-insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"〜かい","回","times");
-insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"〜がわ"," 側","side");
-insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"ああ","ああ","Ah!");
 insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あいさつ","挨拶","greeting");
 insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あいだ","間","between");
-insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あう","合う"," fit, suit");
 insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あう","会う","to meet");
 insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あおい","青い","blue");
 insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あかい","赤い","red");
@@ -837,7 +832,6 @@ insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あが�
 insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あかるい"," 明るい","light, bright");
 insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あかんぼう","赤ん坊","baby, newborn");
 insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あき","秋","autumn, fall");
-insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あく","空く","empty, has space");
 insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あく","開く","open");
 insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あける","開ける","to open");
 insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"あげる","上げる","to rise");
