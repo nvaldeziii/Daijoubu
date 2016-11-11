@@ -3,5 +3,7 @@
 	<uses-sdk android:minSdkVersion="16" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.VIBRATE" />
-	<application android:label="Daijoubu Droid"></application>
+	<application android:label="Daijoubu Droid"
+               android:hardwareAccelerated="false"
+               android:largeHeap="true"></application>
 </manifest>

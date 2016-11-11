@@ -12,7 +12,7 @@
                  x:Name="btn_n5">
       <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
-             Source="homepage_header2"/>
+             Source="n5_assessment_banner"/>
       <!--  <============== Edit the source image -->
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>
@@ -31,7 +31,7 @@
                  x:Name="btn_n4">
       <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
-             Source="homepage_header2"/>
+             Source="n4_assessment_banner"/>
       <!--  <============== Edit the source image -->
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>

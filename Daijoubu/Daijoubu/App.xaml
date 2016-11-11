@@ -72,8 +72,8 @@
       </Style>
 
       <Style x:Key="SideMenuButtons" TargetType="Button">
-        <Setter Property="BackgroundColor" Value="#38B4AB" />
-        <Setter Property="TextColor" Value="#FD6E75" />
+        <Setter Property="BackgroundColor" Value="#3B5998" />
+        <Setter Property="TextColor" Value="#FFFFFF" />
       </Style>
 
 
