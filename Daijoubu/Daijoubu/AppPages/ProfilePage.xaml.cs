@@ -37,13 +37,14 @@ namespace Daijoubu.AppPages
             {
                 Command = new Command( async () =>
                 {
-                    progress_deletion.IsVisible = true;
-                    lbl_prog_percent.IsVisible = true;
-                    progress = 0;
-
+                   
                     var confirm_delete = await DisplayAlert("Confirm", "Are you sure you want to delete your data?", "Yes", "No");
                     if (confirm_delete)
                     {
+                        progress_deletion.IsVisible = true;
+                        lbl_prog_percent.IsVisible = true;
+                        progress = 0;
+
                         btn_delete_data.IsEnabled = false;
                         DependencyService.Get<INotifications>().ToastDependency("Deleting please wait...");
 

@@ -17,7 +17,7 @@
     <Grid Margin="0,-70,0,0">
       <StackLayout>
         <Frame Padding="0"
-               BackgroundColor="#85E7E0"
+               BackgroundColor="#3B5998"
                Opacity="0.5">
           <Label Text=" "
                  FontSize="Large" />
@@ -26,6 +26,7 @@
       <StackLayout>
         <Label x:Name="label_homepage_header"
                Text="だいじょうぶ"
+               TextColor="#dfdfdf"
                FontAttributes="Bold"
                HorizontalOptions="Center"
                FontSize="Large" />
@@ -35,7 +36,7 @@
 
 
     <ListView x:Name="listview_homepage_notifications" ItemsSource="{Binding ListViewNotifications}"
-              BackgroundColor="#85E7E0">
+              BackgroundColor="#cccccc">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
@@ -47,7 +48,8 @@
                     <Label Text="{Binding MainLabel}"
                            FontSize="{Binding MainLabelFontSize}"
                            HorizontalOptions="Center"
-                           FontAttributes="Bold"/>
+                           FontAttributes="Bold"
+                           TextColor="#595959"/>
 
                     <Grid Margin="0">
                       <Grid.ColumnDefinitions>

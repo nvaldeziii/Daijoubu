@@ -10,18 +10,20 @@
       <!-- Default Style For buttons -->
       <Style TargetType="Button">
         <Setter Property="BackgroundColor" Value="#38B4AB" />
-        <Setter Property="TextColor" Value="#FD6E75" />
+        <Setter Property="TextColor" Value="#000000" />
       </Style>
 
       <Style TargetType="Label">
-        <Setter Property="TextColor" Value="#FD6E75" />
+        <!-- <Setter Property="TextColor" Value="#FD6E75" /> -->
+        <Setter Property="TextColor" Value="#000000" />
         <Setter Property="FontSize" Value="Medium" />
       </Style>
 
       <!-- Default Style For content page to counter the margin -->
       <Style x:Key="TypicalContentPage" TargetType="ContentPage">
         <Setter Property="Padding" Value="50" />
-        <Setter Property="BackgroundColor" Value="#85E7E0" />
+        <Setter Property="BackgroundColor" Value="#cccccc" />
+        <!-- <Setter Property="BackgroundColor" Value="#85E7E0" /> -->
       </Style>
 
       <Style x:Key="MultipleChoiceButtonStyle" TargetType="Button">
@@ -39,11 +41,12 @@
       <Style x:Key="QuestionCardOuterFrame" TargetType="Frame">
         <Setter Property="Margin" Value="15,40,15,15" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="#B6F6F1" />
+        <!-- <Setter Property="BackgroundColor" Value="#B6F6F1" /> -->
+        <Setter Property="BackgroundColor" Value="#FFFFFF" />
       </Style>
       <Style x:Key="QuestionCardInnerFrame" TargetType="Frame">
         <Setter Property="Margin" Value="-12" />
-        <Setter Property="BackgroundColor" Value="#B6F6F1" />
+        <Setter Property="BackgroundColor" Value="#FFFFFF" />
       </Style>
 
 
@@ -78,19 +81,19 @@
       <!-- Custom Button with image-->
       <Style x:Key="CustomButtonStackLayout" TargetType="StackLayout">
         <Setter Property="Padding" Value="0" />
-        <Setter Property="Margin" Value="0,8,0,8" />
+        <Setter Property="Margin" Value="8,8,8,8" />
       </Style>
       <Style x:Key="CustomButtonFrame" TargetType="Frame">
         <Setter Property="Opacity" Value="0.5" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Margin" Value="0" />
-        <Setter Property="BackgroundColor" Value="#85E7E0" />
+        <Setter Property="BackgroundColor" Value="#3B5998" />
       </Style>
       <Style x:Key="CustomButtonImage" TargetType="Image">
         <Setter Property="Aspect" Value="AspectFill" />
       </Style>
       <Style x:Key="CustomButtonLabel" TargetType="Label">
-        <Setter Property="TextColor" Value="#FD6E75" />
+        <Setter Property="TextColor" Value="#dfdfdf" />
         <Setter Property="FontSize" Value="Large" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="FontAttributes" Value="Bold" />

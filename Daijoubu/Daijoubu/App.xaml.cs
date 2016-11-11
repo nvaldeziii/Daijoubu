@@ -13,9 +13,10 @@ namespace Daijoubu
         {
             InitializeComponent();
 
+            //BarBackgroundColor = Color.FromHex("#38B4AB"),
             MainPage = new NavigationPage(new Daijoubu.SideMenuPage())
-            {
-                BarBackgroundColor = Color.FromHex("#38B4AB"),
+            {              
+                BarBackgroundColor = Color.FromHex("#3B5998"),
                 AutomationId = "auto_navigation"
                
             };
