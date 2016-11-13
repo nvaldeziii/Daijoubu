@@ -248,3 +248,6 @@ ModelManifest.xml
 #SQLite/*.sqlite3
 #*.sqlite3
 #*.sqlite3*
+
+#apk files
+*.apk
