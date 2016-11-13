@@ -48,7 +48,7 @@ namespace Daijoubu.Droid.Dependencies
             string filtered = text.Replace("～", "");
          
 
-            //TextToSpeechInstance.Speak(filtered);
+            TextToSpeechInstance.Speak(filtered);
         }
     }
 }
