@@ -17,7 +17,7 @@ namespace Daijoubu
             GetUserPreferences();
         }
 
-        public static readonly double FontSizeMultiplier = 3.5;
+        public static readonly double FontSizeMultiplier = 2.5;
         //public static readonly Color PageColorDefault = Color.FromHex("85E7E0");
         public static readonly Color PageColorDefault = Color.FromHex("cccccc");
         public static readonly Color ButtonColorDefault = Color.FromHex("595959");
