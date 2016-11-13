@@ -61,7 +61,6 @@
 
       <Style x:Key="SingleQuestionLabel" TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="FontSize" Value="80" />
         <Setter Property="TextColor" Value="#3B5998" />
       </Style>
 
