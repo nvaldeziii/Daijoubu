@@ -53,7 +53,7 @@
                  AutomationId="auto_btn_grammar">
       <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
-             Source="homepage_header2"/>
+             Source="grammar_banner"/>
       <!--  <============== Edit the source image -->
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>

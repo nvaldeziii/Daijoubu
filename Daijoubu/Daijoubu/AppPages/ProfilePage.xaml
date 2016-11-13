@@ -50,7 +50,7 @@
                  x:Name="btn_delete_data">
       <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
-             Source="homepage_header2"/>
+             Source="delete_data_banner"/>
       <!--  <============== Edit the source image -->
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>
