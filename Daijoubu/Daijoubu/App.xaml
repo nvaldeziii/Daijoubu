@@ -29,13 +29,13 @@
       <Style x:Key="MultipleChoiceButtonStyle" TargetType="Button">
         <Setter Property="Margin" Value="-18" />
         <Setter Property="BackgroundColor" Value="#38B4AB" />
-        <Setter Property="TextColor" Value="#FD6E75" />
+        <Setter Property="TextColor" Value="#3B5998" />
         <Setter Property="VerticalOptions" Value="FillAndExpand" />
       </Style>
       <Style x:Key="AnswerButtonFrame" TargetType="Frame">
         <Setter Property="Margin" Value="5" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="#38B4AB" />
+        <Setter Property="BackgroundColor" Value="#3B5998" />
         <Setter Property="VerticalOptions" Value="FillAndExpand" />
       </Style>
 
@@ -61,7 +61,8 @@
 
       <Style x:Key="SingleQuestionLabel" TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="TextColor" Value="#FD6E75" />
+        <Setter Property="FontSize" Value="80" />
+        <Setter Property="TextColor" Value="#3B5998" />
       </Style>
 
       <Style x:Key="BigButtons" TargetType="Button">
