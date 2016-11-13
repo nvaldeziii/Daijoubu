@@ -4,47 +4,70 @@
              x:Class="Daijoubu.AppPages.AboutPage"
              Title="About"
              Style="{StaticResource TypicalContentPage}">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="AssessmentCardInnerFrame"
+             BasedOn="{StaticResource QuestionCardInnerFrame}" TargetType="Frame">
+        <Setter Property="Margin" Value="-12,2,-12,2" />
+        <Setter Property="Padding" Value="-10" />
+      </Style>
+      <Style x:Key="AssessmentCardGrid" TargetType="Grid">
+        <Setter Property="Margin" Value="-5" />
+        <Setter Property="Padding" Value="-10" />
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
   <ScrollView>
     <StackLayout
     Padding="10">
 
       <Frame Style="{StaticResource QuestionCardOuterFrame}"
                            Margin="15,6,15,6">
-        <Frame Style="{StaticResource QuestionCardInnerFrame}">
-          <Label Text="Daijoubu app © 2016" />
-        </Frame>
+        <StackLayout>
+          <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+            <Label Text="Daijoubu app © 2016" />
+          </Frame>
 
-        <Frame Style="{StaticResource QuestionCardInnerFrame}">
-          <Label Text="Version: " />
-          <Label x:Name="label_version_info"
-             Text=" " />
-        </Frame>
+          <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+            <Label x:Name="label_version_info"
+               Text=" " />
+          </Frame>
 
-        <Frame Style="{StaticResource QuestionCardInnerFrame}">
-          <Label Text="Created By:" />
-          <Label Text="     Noli Valdez III"
-                 TextColor="Blue"/>
-          <Label Text="     Mikko Villanueva"
-                 TextColor="Red"/>
-        </Frame>
+          <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+            <StackLayout>
+              <Label Text="Created By:" />
+              <Label Text="     Noli Valdez III"
+                     TextColor="Blue"/>
+              <Label Text="     Mikko Villanueva"
+                     TextColor="Red"/>
+            </StackLayout>
 
-        <Frame Style="{StaticResource QuestionCardInnerFrame}">
-          <Label Text="Special Thanks:" />
-          <Label Text="     Mary Jane Samonte"  />
-          <Label Text="     Mika Kawasaki"  />
-          <Label Text="     Nida Maramara" />
-          <Label Text="     Gonzalo Gumogda" />
-        </Frame>
+          </Frame>
 
-        <Frame Style="{StaticResource QuestionCardInnerFrame}">
-          <Label Text="Credits To:" />
-          <Label Text="     nihongoshark.com"  />
-        </Frame>
-        
+          <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+            <StackLayout>
+              <Label Text="Special Thanks:" />
+              <Label Text="     Mary Jane Samonte"  />
+              <Label Text="     Mika Kawasaki"  />
+              <Label Text="     Nida Maramara" />
+              <Label Text="     Gonzalo Gumogda" />
+            </StackLayout>
+          </Frame>
+
+          <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+            <StackLayout>
+              <Label Text="Credits To:" />
+              <Label Text="     nihongoshark.com"  />
+            </StackLayout>
+          </Frame>
+
+        </StackLayout>
       </Frame>
     </StackLayout>
   </ScrollView>
-  
+
 
 
 </ContentPage>
