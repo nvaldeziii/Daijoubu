@@ -60,7 +60,7 @@
             <StackLayout>
               <Label Text="Credits To:" />
               <Label Text="     [JLPT N4 resources]"  />
-              <Label Text="     nihongoshark.com"  />
+              <Label Text="     Caleb (nihongoshark team)"  />
               <Label Text="     "  />
               <Label Text="     [Images]"  />
               <Label Text="     lalesh aldarwish"  />
