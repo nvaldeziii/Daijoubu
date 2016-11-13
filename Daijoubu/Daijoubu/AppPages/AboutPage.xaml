@@ -59,7 +59,17 @@
           <Frame Style="{StaticResource AssessmentCardInnerFrame}">
             <StackLayout>
               <Label Text="Credits To:" />
+              <Label Text="     [JLPT N4 resources]"  />
               <Label Text="     nihongoshark.com"  />
+              <Label Text="     "  />
+              <Label Text="     [Images]"  />
+              <Label Text="     lalesh aldarwish"  />
+              <Label Text="     Fancycrave"  />
+              <Label Text="     Jeshots"  />
+              <Label Text="     Negative Space"  />
+              <Label Text="     Unsplash"  />
+              <Label Text="     Kaboompics"  />
+              <Label Text="     jenpollockmichel"  />
             </StackLayout>
           </Frame>
 
