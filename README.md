@@ -1,5 +1,6 @@
 # Daijoubu
 
-Japanese Learning app
+Japanese Learning Mobile Application For JLPT
 
-info and credits to be added.  :)
+
+info and credits in the app itself.
