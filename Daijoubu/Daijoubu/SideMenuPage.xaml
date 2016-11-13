@@ -3,14 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.SideMenuPage"
              xmlns:local="clr-namespace:Daijoubu;assembly=Daijoubu"
-             Title="Daijoubu">
+             Title="Daijoubu"
+             BackgroundColor="#cccccc"
+             x:Name="App_MasterDetail"
+             >
 
   <MasterDetailPage.Master>
     <local:MainPage x:Name="SideMenuInstance" />
   </MasterDetailPage.Master>
 
   <MasterDetailPage.Detail>
-    <local:MainPage />
+      <local:MainPage />
   </MasterDetailPage.Detail>
   
 </MasterDetailPage>

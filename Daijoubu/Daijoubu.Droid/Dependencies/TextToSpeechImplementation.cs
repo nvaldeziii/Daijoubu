@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,7 +44,11 @@ namespace Daijoubu.Droid.Dependencies
 
         public void Speak(string text)
         {
-            TextToSpeechInstance.Speak(text);
+            //filter the chars
+            string filtered = text.Replace("～", "");
+         
+
+            TextToSpeechInstance.Speak(filtered);
         }
     }
 }

@@ -6,20 +6,115 @@
 
     <!-- Application resource dictionary -->
     <ResourceDictionary>
-      <Style x:Key="MultipleChoiceButtonStyle" TargetType="Button">
-        <Setter Property="BorderColor" Value="Blue" />
-        <Setter Property="BorderRadius" Value="15" />
-        <Setter Property="BorderWidth" Value="5" />
-        <Setter Property="FontSize" Value="20" />
-        <Setter Property="TextColor" Value="Teal" />
+
+      <!-- Default Style For buttons -->
+      <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+        <Setter Property="TextColor" Value="#000000" />
       </Style>
+
+      <Style TargetType="Label">
+        <!-- <Setter Property="TextColor" Value="#FD6E75" /> -->
+        <Setter Property="TextColor" Value="#000000" />
+        <Setter Property="FontSize" Value="Medium" />
+      </Style>
+
+      <!-- Default Style For content page to counter the margin -->
+      <Style x:Key="TypicalContentPage" TargetType="ContentPage">
+        <Setter Property="Padding" Value="50" />
+        <Setter Property="BackgroundColor" Value="#cccccc" />
+        <!-- <Setter Property="BackgroundColor" Value="#85E7E0" /> -->
+      </Style>
+
+      <Style x:Key="MultipleChoiceButtonStyle" TargetType="Button">
+        <Setter Property="Margin" Value="-18" />
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+        <Setter Property="TextColor" Value="#FD6E75" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+      </Style>
+      <Style x:Key="AnswerButtonFrame" TargetType="Frame">
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+      </Style>
+
+      <Style x:Key="QuestionCardOuterFrame" TargetType="Frame">
+        <Setter Property="Margin" Value="15,40,15,15" />
+        <Setter Property="Padding" Value="0" />
+        <!-- <Setter Property="BackgroundColor" Value="#B6F6F1" /> -->
+        <Setter Property="BackgroundColor" Value="#FFFFFF" />
+      </Style>
+      <Style x:Key="QuestionCardInnerFrame" TargetType="Frame">
+        <Setter Property="Margin" Value="-12" />
+        <Setter Property="BackgroundColor" Value="#FFFFFF" />
+      </Style>
+
+
+
+
+      <Style x:Key="DebugLabels" TargetType="Label">
+        <Setter Property="TextColor" Value="#85E7E0" />
+        <Setter Property="FontSize" Value="1" />
+      </Style>
+
 
       <Style x:Key="SingleQuestionLabel" TargetType="Label">
         <Setter Property="HorizontalOptions" Value="Center" />
-        <Setter Property="FontSize" Value="60" />
-        <Setter Property="TextColor" Value="Teal" />
+        <Setter Property="FontSize" Value="80" />
+        <Setter Property="TextColor" Value="#FD6E75" />
       </Style>
+
+      <Style x:Key="BigButtons" TargetType="Button">
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="BackgroundColor" Value="#38B4AB" />
+        <Setter Property="TextColor" Value="#FD6E75" />
+        <Setter Property="ContentLayout" Value="Top,0" />
+      </Style>
+
+      <Style x:Key="SideMenuButtons" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#3B5998" />
+        <Setter Property="TextColor" Value="#FFFFFF" />
+      </Style>
+
+
+
+      <!-- Custom Button with image-->
+      <Style x:Key="CustomButtonStackLayout" TargetType="StackLayout">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="8,8,8,8" />
+      </Style>
+      <Style x:Key="CustomButtonFrame" TargetType="Frame">
+        <Setter Property="Opacity" Value="0.5" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="BackgroundColor" Value="#3B5998" />
+      </Style>
+      <Style x:Key="CustomButtonImage" TargetType="Image">
+        <Setter Property="Aspect" Value="AspectFill" />
+      </Style>
+      <Style x:Key="CustomButtonLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="#dfdfdf" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="FontAttributes" Value="Bold" />
+      </Style>
+      <Style x:Key="CustomButtonGrid" TargetType="Grid">
+        <Setter Property="Margin" Value="0,-55,0,0" />
+      </Style>
+      <!--
+      <Style x:Key="CounterMargin2R" TargetType="StackLayout">
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="Margin" Value="10,40,10,-10" />
+      </Style>
+      -->
+
+      <Style x:Key="BottomBannerStackLayout" TargetType="StackLayout">
+        <Setter Property="Margin" Value="0,0,0,15" />
+      </Style>
+
     </ResourceDictionary>
-    
+
   </Application.Resources>
 </Application>

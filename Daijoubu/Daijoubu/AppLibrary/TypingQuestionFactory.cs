@@ -14,6 +14,7 @@ namespace Daijoubu.AppLibrary
              Sentence, VoicedKanji, Kanji, Meaning
         };
 
+        public int QuestionId { get; private set; }
         public string Question { get; private set; }
         public string Answer { get; private set; }
         public string Answer2 { get; private set; }
@@ -27,24 +28,26 @@ namespace Daijoubu.AppLibrary
         public void GenerateQuestion(int CardId, QuestionType type)
         {
             tbl_vocabulary_N5 vocabulary;
+            QuestionId = CardId;
+            int CardIndex = CardId - 1;
             switch (type)
             {
                 case QuestionType.Sentence:
                     throw new NotImplementedException();
                     //break;
                 case QuestionType.VoicedKanji:
-                    vocabulary = JapaneseDatabase.Table_Vocabulary_N5[CardId];
+                    vocabulary = JapaneseDatabase.Table_Vocabulary_N5[CardIndex];
                     Question = vocabulary.kanji;
                     Answer = vocabulary.kanji;
                     Answer2 = vocabulary.furigana;
                     break;
                 case QuestionType.Kanji:
-                    vocabulary = JapaneseDatabase.Table_Vocabulary_N5[CardId];
+                    vocabulary = JapaneseDatabase.Table_Vocabulary_N5[CardIndex];
                     Question = vocabulary.kanji;
                     Answer = Answer2 = vocabulary.furigana;
                     break;
                 case QuestionType.Meaning:
-                    vocabulary = JapaneseDatabase.Table_Vocabulary_N5[CardId];
+                    vocabulary = JapaneseDatabase.Table_Vocabulary_N5[CardIndex];
                     Question = vocabulary.meaning;
                     Answer = vocabulary.kanji;
                     Answer2 = vocabulary.furigana;

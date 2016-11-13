@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Daijoubu.AppLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,29 +19,39 @@ namespace Daijoubu.AppPages
 
         void InitializeEvents()
         {
-            btn_multiple.Clicked += (o, e) =>
+            btn_multiple.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                AppPages.QuizPages.MultipleChoicePage page = new AppPages.QuizPages.MultipleChoicePage();
-                Navigation.PushAsync(page);
-            };
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.MCCatSelectPage());
+                })
+            });
 
-            btn_listen.Clicked += (o, e) =>
-            {
-                AppPages.QuizPages.ListeningPage page = new AppPages.QuizPages.ListeningPage();
-                Navigation.PushAsync(page);
-            };
 
-            btn_reading.Clicked += (o, e) =>
+            btn_listen.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                AppPages.QuizPages.ReadingPage page = new AppPages.QuizPages.ReadingPage();
-                Navigation.PushAsync(page);
-            };
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.ListeningPage());
+                })
+            });
 
-            btn_typing.Clicked += (o, e) =>
+
+            btn_reading.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                AppPages.QuizPages.TypingPage page = new AppPages.QuizPages.TypingPage();
-                Navigation.PushAsync(page);
-            };
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.MultipleChoicePage(Categories.MultipleChoiceCategory.Meaning));
+                })
+            });
+
+            btn_typing.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new QuizPages.TypingPage());
+                })
+            });
 
 
         }

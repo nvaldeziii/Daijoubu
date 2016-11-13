@@ -1,21 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Daijoubu.SideMenuItems">
+             x:Class="Daijoubu.SideMenuItems"
+             BackgroundColor="#cccccc"
+             Padding="0,50,0,0">
 
-  <StackLayout Orientation="Vertical">
-    <!-- <Button Text="Home" 
-                 x:Name="SideMenuButton_Home"/> -->
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="2*"/>
+    </Grid.ColumnDefinitions>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="1*" />
+    </Grid.RowDefinitions>
+
+    <!--<Button Text="Home" 
+                 x:Name="SideMenuButton_Home"/>-->
     <Button Text="Profile"
-            x:Name="SideMenuButton_Profile"/>
-    <Button Text="Quiz"
+            x:Name="SideMenuButton_Profile"
+            Style="{StaticResource SideMenuButtons}"
+            Grid.Row="0"
+            Grid.Column="0"
+            Image="@drawable/profile_logo"/>
+    <Button Text="JLPT N5 Module"
             x:Name="SideMenuButton_Quiz"
-            AutomationId="auto_SideMenuButton_Quiz"/>
+            AutomationId="auto_SideMenuButton_Quiz"
+            Style="{StaticResource SideMenuButtons}"
+            Grid.Row="1"
+            Grid.Column="0"
+            Image="@drawable/n5_logo"/>
+    <Button Text="JLPT N4 Module"
+            x:Name="SideMenuButton_QuizN4"
+            AutomationId="auto_SideMenuButton_QuizN4"
+            Style="{StaticResource SideMenuButtons}"
+            Grid.Row="2"
+            Grid.Column="0"
+            Image="@drawable/n4_logo"/>
     <Button Text="Settings"
-            x:Name="SideMenuButton_Settings"/>
+            x:Name="SideMenuButton_Settings"
+            Style="{StaticResource SideMenuButtons}"
+            Grid.Row="3"
+            Image="@drawable/settings_logo"/>
     <Button Text="About"
-            x:Name="SideMenuButton_About"/>
-
-  </StackLayout>
+            x:Name="SideMenuButton_About"
+            Style="{StaticResource SideMenuButtons}"
+            Grid.Row="4"
+            Grid.Column="0"
+            Image="@drawable/about_logo"/>
+  </Grid>
+  
+  
 
 </ContentView>

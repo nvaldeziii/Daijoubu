@@ -245,6 +245,9 @@ ModelManifest.xml
 .fake/
 
 # SQLite
-SQLite/*.sqlite3
-*.sqlite3
-*.sqlite3*
+#SQLite/*.sqlite3
+#*.sqlite3
+#*.sqlite3*
+
+#apk files
+*.apk

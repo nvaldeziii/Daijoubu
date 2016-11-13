@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Select Category"
+             x:Class="Daijoubu.AppPages.QuizPages.MCCatSelectPage"
+             Style="{StaticResource TypicalContentPage}">
+  <ScrollView>
+    <StackLayout>
+      <!-- Button 1 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_hiragana_quiz"
+                   AutomationId="auto_btn_hiragana_quiz">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="homepage_header2"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Hiragana"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
+
+      <!-- Button 2 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_katakana_quiz"
+                   AutomationId="auto_btn_katakana_quiz">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="homepage_header2"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Katakana"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
+
+      <!-- Button 3 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_vocabulary_quiz"
+                   AutomationId="auto_btn_vocabulary_quiz">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="homepage_header2"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Vocabulary"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+  <!--
+  <StackLayout>
+    <Button x:Name="btn_hiragana_quiz"
+            AutomationId="auto_btn_hiragana_quiz"
+            Text="Hiragana" />
+    <Button x:Name="btn_katakana_quiz"
+            AutomationId="auto_btn_katakana_quiz"
+            Text="Katakana" />
+    <Button x:Name="btn_vocabulary_quiz"
+            AutomationId="auto_btn_vocabulary_quiz"
+              Text="Vocabulary" />
+  </StackLayout>
+  -->
+</ContentPage>

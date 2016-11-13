@@ -2,14 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.QuizPages.ListeningPage"
-             Title="Listening Module">
+             Title="Listening Module"
+             Style="{StaticResource TypicalContentPage}">
 
   <StackLayout>
-    <Label Text=" " />
-    <Image x:Name="img_speaker"
+    <Frame Style="{StaticResource QuestionCardOuterFrame}">
+      <Frame Style="{StaticResource QuestionCardInnerFrame}">
+        <Image x:Name="img_speaker"
            Source="speaker"
            Aspect="AspectFit"
            Scale=".5"/>
+      </Frame>
+    </Frame>
+
+    
     <Label Text=" " />
     <Label x:Name="lbl_correct_ans"
            Text=" "

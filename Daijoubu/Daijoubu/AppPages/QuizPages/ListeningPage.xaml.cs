@@ -14,9 +14,15 @@ namespace Daijoubu.AppPages.QuizPages
     public partial class ListeningPage : ContentPage, IQuiz
     {
         private string ToSpeak;
+        bool correct;
         TypingQuestionFactory QuestionFactory;
         Settings Setting;
         Random random;
+
+        private static Color PageColorDefault = Settings.PageColorDefault;
+        private static Color ButtonColorDefault = Settings.ButtonColorDefault;
+        private static Color PageColorCorrect = Settings.PageColorCorrect;
+        private static Color PageColorMistake = Settings.PageColorMistake;
 
         public ListeningPage()
         {
@@ -54,19 +60,29 @@ namespace Daijoubu.AppPages.QuizPages
 
         }
 
+
+        public void CheckAnswer(int id)
+        {
+            if (correct)
+            {
+                //change data in id
+            }
+        }
+
         public void CheckAnswer(string user_answer)
         {
             EnableInterfaces(false);
 
-            if (user_answer == QuestionFactory.Answer || user_answer == QuestionFactory.Answer2)
+            if (user_answer == QuestionFactory.Answer)
             {
                 //correct answer
-                this.BackgroundColor = Color.Green;
+                correct = true;
+                this.BackgroundColor = PageColorCorrect;
             }
             else
             {
                 //wrong answer
-                this.BackgroundColor = Color.Red;
+                this.BackgroundColor = PageColorMistake;
                 if (Setting.HapticFeedback)
                 {
                     DependencyService.Get<Dependencies.INotifications>().Vibrate();
@@ -83,8 +99,9 @@ namespace Daijoubu.AppPages.QuizPages
 
         public void GenerateQuestion()
         {
+            correct = false;
             edittext_tts_input.Text = "";
-            this.BackgroundColor = Color.White;
+            this.BackgroundColor = PageColorDefault;
 
             QuestionFactory.GenerateQuestion(
                 random.Next(0, JapaneseDatabase.Table_Vocabulary_N5.Count),
@@ -100,6 +117,19 @@ namespace Daijoubu.AppPages.QuizPages
             btn_submit.IsEnabled = value;
             edittext_tts_input.IsEnabled = value;
             lbl_correct_ans.IsVisible = !value;
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            var JLPTN5VocabularyAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
+            Navigation.PushModalAsync(new ProfilePages.AssesmentPage(
+                JLPTN5VocabularyAssesment
+                , "JLPTN5VocabularyAssesment"
+                , "Vocabulary"
+                , "JLPT N5 Assessment") {
+                Padding = 0
+            });
+            return false;
         }
     }
 }

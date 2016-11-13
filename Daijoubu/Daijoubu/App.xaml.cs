@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Daijoubu.AppControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,15 @@ namespace Daijoubu
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage( new Daijoubu.SideMenuPage() );
-            //MainPage.Padding = -50;
+            ThisApp.MasterDetail = new SideMenuPage();
+            //BarBackgroundColor = Color.FromHex("#38B4AB"),
+            MainPage = new NavigationPage(ThisApp.MasterDetail)
+            {              
+                BarBackgroundColor = Color.FromHex("#3B5998"),
+                AutomationId = "auto_navigation"
+               
+            };
+            MainPage.Padding = -50;
         }
 
         protected override void OnStart()
@@ -31,6 +39,7 @@ namespace Daijoubu
         {
             // Handle when your app resumes
         }
-        
+
+
     }
 }

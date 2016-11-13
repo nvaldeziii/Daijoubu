@@ -2,21 +2,91 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.QuizPage"
-             Title="Quiz">
+             Title="JLPT N5 Module"
+             Style="{StaticResource TypicalContentPage}">
+  <ScrollView>
+    <StackLayout Orientation="Vertical">
 
-  <StackLayout>
-    <Button x:Name="btn_multiple"
-            AutomationId="auto_btn_multiple"
-            Text="Multiple" />
+      <!-- Button 1 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_multiple"
+                   AutomationId="auto_btn_multiple">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="Multiple_choice_banner"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Multiple Choice"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
 
-    <Button x:Name="btn_listen"
-            Text="Listening" />
+      <!-- Button 2 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_listen"
+                   AutomationId="auto_btn_listen">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="Listening_Banner"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Listening"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
 
-    <Button x:Name="btn_typing"
-            Text="Typing" />
+      <!-- Button 3 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_typing"
+                   AutomationId="auto_btn_typing">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="Typing_banner"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Typing"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
 
-    <Button x:Name="btn_reading"
-            Text="Reading" />
-  </StackLayout>
-  
+      <!-- Button 4 -->
+      <StackLayout Style="{StaticResource CustomButtonStackLayout}"
+                   x:Name="btn_reading"
+                   AutomationId="auto_btn_reading">
+        <!--  <============== Edit the button x:name -->
+        <Image Style="{StaticResource CustomButtonImage}"
+               Source="Reading_banner"/>
+        <!--  <============== Edit the source image -->
+        <Grid Style="{StaticResource CustomButtonGrid}">
+          <StackLayout>
+            <Frame Style="{StaticResource CustomButtonFrame}" />
+          </StackLayout>
+          <StackLayout>
+            <Label  Style="{StaticResource CustomButtonLabel}"
+                    Text="Reading"/>
+            <!--  <===== Edit the label -->
+          </StackLayout>
+        </Grid>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+
 </ContentPage>

@@ -8,8 +8,8 @@ namespace Daijoubu.AppLibrary
 {
     interface IQuiz
     {
-        void CheckAnswer(string user_answer);
-        void GenerateQuestion();
+        //void CheckAnswer(int user_answer);
+        //void GenerateQuestion();
         void EnableInterfaces(bool value);
     }
 }

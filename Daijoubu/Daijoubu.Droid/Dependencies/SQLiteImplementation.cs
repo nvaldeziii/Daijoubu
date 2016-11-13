@@ -3,6 +3,7 @@ using Daijoubu.Droid.Dependencies;
 using System;
 using System.IO;
 using Xamarin.Forms;
+using SQLite;
 
 [assembly: Xamarin.Forms.Dependency(typeof(SQLiteImplementation))]
 namespace Daijoubu.Droid.Dependencies
@@ -15,13 +16,13 @@ namespace Daijoubu.Droid.Dependencies
         }
 
         #region ISQLite implementation
-        public SQLite.SQLiteConnection GetConnection()
+        public SQLite.SQLiteConnection GetJapaneseDBconnection()
         {
             return this.GetConnection("master.db3", Resource.Raw.DaijoubuJapaneseLanguage);
         }
-        public SQLite.SQLiteConnection GetConnection(string DatabaseName)
+        public SQLite.SQLiteConnection GetUserDBconnection()
         {
-           return GetConnection(DatabaseName, -1);
+           return GetConnection("user.db3", Resource.Raw.userDB);
         }
         string GetPath(string DatabaseName)
         {
@@ -29,9 +30,13 @@ namespace Daijoubu.Droid.Dependencies
             string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
             return Path.Combine(documentsPath, sqliteFilename);
         }
-        public void DeleteDatabase()
+        public void DeleteJapaneseDB()
         {
             DeleteDatabase("master.db3");
+        }
+        public void DeleteUserDB()
+        {
+            DeleteDatabase("user.db3");
         }
         public void DeleteDatabase(string DatabaseName)
         {
@@ -84,7 +89,5 @@ namespace Daijoubu.Droid.Dependencies
             readStream.Close();
             writeStream.Close();
         }
-
-
     }
 }

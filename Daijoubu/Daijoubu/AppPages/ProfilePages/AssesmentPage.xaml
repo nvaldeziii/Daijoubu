@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daijoubu.AppPages.ProfilePages.AssesmentPage"
+             Title="Assesment"
+             Style="{StaticResource TypicalContentPage}">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="AssessmentCardInnerFrame"
+             BasedOn="{StaticResource QuestionCardInnerFrame}" TargetType="Frame">
+        <Setter Property="Margin" Value="-12,2,-12,2" />
+        <Setter Property="Padding" Value="-10" />
+      </Style>
+      <Style x:Key="AssessmentCardGrid" TargetType="Grid">
+        <Setter Property="Margin" Value="-5" />
+        <Setter Property="Padding" Value="-10" />
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ScrollView>
+    <StackLayout Padding="10">
+
+      <Frame Style="{StaticResource QuestionCardOuterFrame}"
+                         Margin="15,6,15,6">
+        <Frame Style="{StaticResource QuestionCardInnerFrame}">
+          <StackLayout>
+            <Label x:Name="listview_title"/>
+            <Grid Style="{StaticResource AssessmentCardGrid}">
+              <StackLayout Orientation="Horizontal"
+                           Grid.Row="1" Grid.Column="0">
+                <Label x:Name="listview_title_Old" />
+              </StackLayout>
+              <Label Text="--->"
+                     Grid.Row="1" Grid.Column="1"/>
+              <StackLayout Orientation="Horizontal"
+                           Grid.Row="1" Grid.Column="2">
+                <Label x:Name="listview_title_New"/>
+              </StackLayout>
+            </Grid>
+          </StackLayout>
+        </Frame>
+      </Frame>
+
+
+      <ListView x:Name="listview_assesments" ItemsSource="{Binding Assessments}"
+             BackgroundColor="#cccccc">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.View>
+                <StackLayout>
+                  <Frame Style="{StaticResource QuestionCardOuterFrame}"
+                         Margin="15,6,15,6">
+                    <StackLayout >
+                      <Frame Style="{StaticResource AssessmentCardInnerFrame}"
+                             BackgroundColor="#EFEFEF">
+                        <StackLayout>
+                          <Label Text="{Binding Name}" />
+                        </StackLayout>
+                      </Frame>
+                      <!-- Total Proficiency-->
+                      <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+
+                        <Grid Style="{StaticResource AssessmentCardGrid}">
+                          <Label Text="Total Proficiency"
+                                 HorizontalOptions="Start"
+                                 Grid.ColumnSpan="2"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="0">
+                            <Label Text="{Binding Old.TotalProficiency, StringFormat='{0:0.00}%' }" />
+                          </StackLayout>
+                          <Label Text="--->"
+                                 Grid.Row="1" Grid.Column="1"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="2">
+                            <Label Text="{Binding New.TotalProficiency, StringFormat='{0:0.00}%' }"
+                                   TextColor="{Binding TotalProficiencyColor}"/>
+                          </StackLayout>
+                        </Grid>
+                      </Frame>
+                      <!-- Total Reviewed-->
+                      <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+                        <Grid Style="{StaticResource AssessmentCardGrid}">
+                          <Label Text="Total Reviewed"
+                                 HorizontalOptions="Start"
+                                 Grid.ColumnSpan="2"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="0">
+                            <Label Text="{Binding Old.TotalReviewed, StringFormat='{0}' }" />
+                          </StackLayout>
+                          <Label Text="--->"
+                                 Grid.Row="1" Grid.Column="1"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="2">
+                            <Label Text="{Binding New.TotalReviewed, StringFormat='{0}' }"
+                                   TextColor="{Binding TotalReviewedColor}"/>
+                          </StackLayout>
+                        </Grid>
+                      </Frame>
+                      <!-- Total Passed-->
+                      <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+                        <Grid Style="{StaticResource AssessmentCardGrid}">
+                          <Label Text="Total Passed"
+                                 HorizontalOptions="Start"
+                                 Grid.ColumnSpan="2"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="0">
+                            <Label Text="{Binding Old.TotalPassed, StringFormat='{0}' }" />
+                          </StackLayout>
+                          <Label Text="--->"
+                                 Grid.Row="1" Grid.Column="1"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="2">
+                            <Label Text="{Binding New.TotalPassed, StringFormat='{0}' }"
+                                   TextColor="{Binding TotalPassedColor}"/>
+                          </StackLayout>
+                        </Grid>
+                      </Frame>
+                      <!-- Total Failed-->
+                      <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+                        <Grid Style="{StaticResource AssessmentCardGrid}">
+                          <Label Text="Total Failed"
+                                 HorizontalOptions="Start"
+                                 Grid.ColumnSpan="2"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="0">
+                            <Label Text="{Binding Old.TotalFailed, StringFormat='{0}' }" />
+                          </StackLayout>
+                          <Label Text="--->"
+                                 Grid.Row="1" Grid.Column="1"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="2">
+                            <Label Text="{Binding New.TotalFailed, StringFormat='{0}' }"
+                                   TextColor="{Binding TotalFailedColor}"/>
+                          </StackLayout>
+                        </Grid>
+                      </Frame>
+                      <!-- Total Items-->
+                      <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+                        <Grid Style="{StaticResource AssessmentCardGrid}">
+                          <Label Text="Total Items"
+                                 HorizontalOptions="Start"
+                                 Grid.ColumnSpan="2"/>
+                          <StackLayout Orientation="Horizontal"
+                                       Grid.Row="1" Grid.Column="0">
+                            <Label Text="{Binding Old.TotalItems, StringFormat='{0}' }" />
+                          </StackLayout>
+                        </Grid>
+                      </Frame>
+                    </StackLayout>
+                  </Frame>
+                </StackLayout>
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

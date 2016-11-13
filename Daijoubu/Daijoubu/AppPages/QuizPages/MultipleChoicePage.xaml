@@ -2,56 +2,77 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.QuizPages.MultipleChoicePage"
-             Title="Choice Module" 
+             Title="Multiple Choice Module"
              x:Name="MultipleChoicePage"
-             AutomationId="auto_MultipleChoicePage">
+             AutomationId="auto_MultipleChoicePage"
+             Style="{StaticResource TypicalContentPage}">
 
   <StackLayout>
 
-    <Label Text=" " />
-    <Label Text=" " />
-    <Label Text=" " />
-
-    <Label x:Name="label_question"
-             Text="*val*"
+    <Frame Style="{StaticResource QuestionCardOuterFrame}">
+      <Frame Style="{StaticResource QuestionCardInnerFrame}">
+        <Label x:Name="label_question"
+             Text="Getting Ready ..."
              Style="{StaticResource SingleQuestionLabel}" />
+      </Frame>
+    </Frame>
 
-    <Label Text=" " />
-    <Label Text=" " />
-    <Label Text=" " />
-    <Label Text=" " />
 
-    <Grid x:Name="grid_multiple_choice">
-      <Grid.RowDefinitions>
-        <RowDefinition Height="*" />
-        <RowDefinition Height="*" />
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="*" />
-      </Grid.ColumnDefinitions>
-      <Button x:Name="btn_choice1"
-              AutomationId="auto_btn_choice1"
-              Grid.Row="0" Grid.Column="0"
-              Text="*ans1*"
-              Style="{StaticResource MultipleChoiceButtonStyle}"/>
-      <Button x:Name="btn_choice2"
-              AutomationId="auto_btn_choice2"
-              Grid.Row="0" Grid.Column="1"
-              Text="*ans2*"
-              Style="{StaticResource MultipleChoiceButtonStyle}"/>
-      <Button x:Name="btn_choice3"
-              AutomationId="auto_btn_choice3"
-              Grid.Row="1" Grid.Column="0"
-              Text="*ans3*"
-              Style="{StaticResource MultipleChoiceButtonStyle}"/>
-      <Button x:Name="btn_choice4"
-              AutomationId="auto_btn_choice4"
-              Grid.Row="1" Grid.Column="1"
-              Text="*ans4*"
-              Style="{StaticResource MultipleChoiceButtonStyle}"/>
+
+    <Grid VerticalOptions="FillAndExpand">
+      <Frame Style="{StaticResource AnswerButtonFrame}"
+             Grid.Column="0">
+        <Button x:Name="btn_choice1"
+                AutomationId="auto_btn_choice1"
+                Text="*"
+                Style="{StaticResource MultipleChoiceButtonStyle}"/>
+      </Frame>
+      <Frame Style="{StaticResource AnswerButtonFrame}"
+             Grid.Column="1">
+        <Button x:Name="btn_choice2"
+                AutomationId="auto_btn_choice2"
+                Text="*"
+                Style="{StaticResource MultipleChoiceButtonStyle}"/>
+      </Frame>
     </Grid>
 
+
+    <Grid VerticalOptions="FillAndExpand">
+
+      <Frame Style="{StaticResource AnswerButtonFrame}"
+              Grid.Column="0">
+        <Button x:Name="btn_choice3"
+                AutomationId="auto_btn_choice3"
+                Text="*"
+                Style="{StaticResource MultipleChoiceButtonStyle}"/>
+      </Frame>
+
+      <Frame Style="{StaticResource AnswerButtonFrame}"
+              Grid.Column="1">
+        <Button x:Name="btn_choice4"
+                AutomationId="auto_btn_choice4"
+                Text="*"
+                Style="{StaticResource MultipleChoiceButtonStyle}"/>
+      </Frame>
+    </Grid>
+
+
+
+
+
+
+
+
+
+  <Label x:Name="lbl_debug_txt"
+         Style="{StaticResource DebugLabels}" />
+  <Label x:Name="lbl_debug_ans"
+         AutomationId="auto_lbl_debug_ans"
+         Style="{StaticResource DebugLabels}" />
+  <Label x:Name="lbl_nextview"
+         Style="{StaticResource DebugLabels}" />
+  <Label x:Name="lbl_percent"
+         Style="{StaticResource DebugLabels}" />
   </StackLayout>
-  
+
 </ContentPage>

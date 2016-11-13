@@ -10,7 +10,10 @@ namespace Daijoubu.Dependencies
 { 
     public interface ISQLite
     {
-        SQLiteConnection GetConnection();
-        SQLiteConnection GetConnection(string DatabaseName);
+        SQLiteConnection GetJapaneseDBconnection();
+        SQLiteConnection GetUserDBconnection();
+
+        void DeleteJapaneseDB();
+        void DeleteUserDB();
     }
 }

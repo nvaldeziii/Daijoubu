@@ -21,5 +21,10 @@ namespace Daijoubu.Droid.Dependencies
         {
             Notifications.Instance.Vibrate(miliseconds);
         }
+
+        public void ToastDependency(string message)
+        {
+            Toast.MakeText(Application.Context, message, ToastLength.Short).Show();
+        }
     }
 }

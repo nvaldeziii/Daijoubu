@@ -10,9 +10,19 @@ namespace Daijoubu
 {
     public partial class SideMenuItems : ContentView
     {
+        Settings setting;
         public SideMenuItems()
         {
             InitializeComponent();
+
+            //this.Padding = 100;
+            //this.BackgroundColor = Color.Yellow;
+            setting = new Settings();
+
+            var enableN4 = (setting.EnableN4 || setting.ForceEnableN4);
+                SideMenuButton_QuizN4.IsEnabled = enableN4;
+            
+
             InitializeClickEvents();
         }
 
@@ -21,25 +31,30 @@ namespace Daijoubu
             
             SideMenuButton_Profile.Clicked += (o, e) =>
             {
-                AppPages.ProfilePage page = new AppPages.ProfilePage();
+                var page = new AppPages.ProfilePage();
                 Navigation.PushAsync(page);
             };
 
             SideMenuButton_Settings.Clicked += (o, e) =>
             {
-                AppPages.SettingsPage page = new AppPages.SettingsPage();
+                var page = new AppPages.SettingsPage();
                 Navigation.PushAsync(page);
             };
 
             SideMenuButton_About.Clicked += (o, e) =>
             {
-                AppPages.AboutPage page = new AppPages.AboutPage();
+                var page = new AppPages.AboutPage();
                 Navigation.PushAsync(page);
             };
 
             SideMenuButton_Quiz.Clicked += (o, e) =>
             {
-                AppPages.QuizPage page = new AppPages.QuizPage();
+                var page = new AppPages.QuizPage();
+                Navigation.PushAsync(page);
+            };
+
+            SideMenuButton_QuizN4.Clicked += (o, e) => {
+                var page = new AppPages.QuizPageN4();
                 Navigation.PushAsync(page);
             };
 

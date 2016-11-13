@@ -4,34 +4,100 @@
              xmlns:local="clr-namespace:Daijoubu"
              x:Class="Daijoubu.MainPage"
              Title="Daijoubu"
-             BackgroundColor="Aqua">
-  
-  <StackLayout 
-    Padding="0,-50,0,0">
-    <RelativeLayout>
-      <!-- header image with text -->
+             BackgroundColor="Black"
+             Padding="50,0,0,50">
 
-      <Image x:Name="image_homepage_header"
-             Source="homepage_header"
-             Aspect="AspectFill" />
+  <StackLayout Orientation="Vertical" 
+               Padding="0,0,50,0">
 
-      <Label x:Name="label_homepage_header"
-             Text="Welcome to だいじょうぶ"
-             
-             HorizontalOptions="Center"
-             TextColor="Red"
-             BackgroundColor="Green"
-             FontSize="25"
-             
-             RelativeLayout.YConstraint =
-             "{ConstraintExpression Type=RelativeToParent,
-                             Property=Height,
-                             Factor=0,
-                             Constant=-50}" />
-    </RelativeLayout>
-  
-    <ListView x:Name="listview_homepage" />
+    <Image x:Name="image_homepage_header"
+           Source="homepage_header2"
+           Aspect="AspectFill"/>
+
+    <Grid Margin="0,-70,0,0">
+      <StackLayout>
+        <Frame Padding="0"
+               BackgroundColor="#3B5998"
+               Opacity="0.5">
+          <Label Text=" "
+                 FontSize="Large" />
+        </Frame >
+      </StackLayout>
+      <StackLayout>
+        <Label x:Name="label_homepage_header"
+               Text="だいじょうぶ"
+               TextColor="#dfdfdf"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               FontSize="Large" />
+      </StackLayout>
+    </Grid>
+
+
+
+    <ListView x:Name="listview_homepage_notifications" ItemsSource="{Binding ListViewNotifications}"
+              BackgroundColor="#cccccc">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.View>
+              <Frame Style="{StaticResource QuestionCardOuterFrame}"
+                     Margin="15,6,15,6">
+                <Frame Style="{StaticResource QuestionCardInnerFrame}">
+                  <StackLayout Padding="-10">
+                    <Label Text="{Binding MainLabel}"
+                           FontSize="{Binding MainLabelFontSize}"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"
+                           TextColor="#595959"/>
+
+                    <Grid Margin="0">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                      </Grid.ColumnDefinitions>
+
+                      <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                      </Grid.RowDefinitions>
+
+                      <Label Text="{Binding _lastview, StringFormat='⌚: {0}'}"
+                             FontSize="Small"
+                             Grid.Row="0" Grid.Column="0"/>
+
+                      <Label Text="{Binding Clock, StringFormat='⌛: {0}'}"
+                             FontSize="Small"
+                             TextColor="{Binding ClockColor}"
+                             HorizontalOptions="End"
+                             Grid.Row="0" Grid.Column="1"/>
+                      
+                      <Label Text="{Binding Title}"
+                             FontSize="Small"
+                             Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+                      <Label Text="{Binding Subtitle}"
+                             FontSize="Small"
+                             Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                      
+                      <!--
+                      <Label Text="{Binding Percent, StringFormat='％ : {0:0.00}'}"
+                             FontSize="Small"
+                             Grid.Row="3" Grid.Column="0"/>
+                             -->
+
+
+                    </Grid>
+                  </StackLayout>
+
+                </Frame>
+              </Frame>
+
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
   </StackLayout>
-
 
 </ContentPage>

@@ -14,15 +14,19 @@ namespace Daijoubu
         {
             InitializeComponent();
             InitilizeClickEvents();
-
             //Set the side menu items
+
+            //this.Padding = 50;
+            //this.BackgroundColor = Color.Yellow;
+
             SideMenuItems MenuItems = new SideMenuItems();
             SideMenuInstance.Content = MenuItems;
+            
         } 
 
         private void InitilizeClickEvents()
         {
-            
+
         }
     }
 }

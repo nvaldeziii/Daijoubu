@@ -2,37 +2,39 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.AboutPage"
-             Title="About">
+             Title="About"
+             Style="{StaticResource TypicalContentPage}">
   <StackLayout
     Padding="10">
 
-    <Label Text=" " />
-    <Label Text=" " />
-           
+
+
     <Label Text="Daijoubu app © 2016" />
     <Label Text=" " />
-    
+
     <Label x:Name="label_version_info"
            Text=" " />
-    
+
     <Label Text=" " />
     <Label Text="Created By:" />
-    <Label Text="     Noli Valdez III" />
-    <Label Text="     Mikko Villanueva" />
+    <Label Text="     Noli Valdez III"
+           TextColor="Blue"/>
+    <Label Text="     Mikko Villanueva"
+           TextColor="Red"/>
 
     <Label Text=" " />
     <Label Text=" " />
-    
+
     <Label Text="Special Thanks:" />
-    <Label Text="     Mary Jane Samonte" />
-    <Label Text="     Mika Kawasaki" />
+    <Label Text="     Mary Jane Samonte"  />
+    <Label Text="     Mika Kawasaki"  />
     <Label Text="     Nida Maramara" />
     <Label Text="     Gonzalo Gumogda" />
 
     <Label Text=" " />
     <Label Text=" " />
-    
-    
+
+
   </StackLayout>
 
 

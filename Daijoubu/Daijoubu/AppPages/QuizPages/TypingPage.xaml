@@ -2,27 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Daijoubu.AppPages.QuizPages.TypingPage"
-             Title="Typing Module" >
+             Title="Typing Module"
+             Style="{StaticResource TypicalContentPage}">
   <StackLayout>
 
-    <Label Text=" " />
-    <Label Text=" " />
-    <Label Text=" " />
-    
-    <Label x:Name="label_question" 
-           Text="*value*" 
-           FontSize="30"
-           HorizontalOptions="Center" />
-
-    <Label Text=" " />
-    <Label Text=" " />
-    <Label Text=" " />
-    <Label Text=" " />
-    
+    <Frame Style="{StaticResource QuestionCardOuterFrame}">
+      <Frame Style="{StaticResource QuestionCardInnerFrame}">
+        <Label x:Name="label_question"
+             Text="Getting Ready ..."
+             Style="{StaticResource SingleQuestionLabel}" />
+      </Frame>
+    </Frame>
+      
     <Entry x:Name="textentry_answer"
            Placeholder="Type your answer"/>
 
-    <Label Text=" " />
     <Label Text=" " />
     
     <Button x:Name="btn_submit"
