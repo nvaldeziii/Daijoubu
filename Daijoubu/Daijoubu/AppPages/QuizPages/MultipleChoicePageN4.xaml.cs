@@ -305,12 +305,32 @@ namespace Daijoubu.AppPages.QuizPages
 
         protected override bool OnBackButtonPressed()
         {
-            //Navigation.PopAsync();
-            //Navigation.PushAsync(new ProfilePages.AssesmentPage());
-            Navigation.PushModalAsync(new ProfilePages.AssesmentPageN4
+            if (QuizCategory == MultipleChoiceCategory.Vocabulary)
             {
-                Padding = 0
-            });
+                var JLPTN4VocabularyAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN4.ToList<AbstractCardTable>());
+                Navigation.PushModalAsync(new ProfilePages.AssesmentPage(
+                    JLPTN4VocabularyAssesment
+                    , "JLPTN4VocabularyAssesment"
+                    , "Vocabulary"
+                    , "JLPT N4 Assessment")
+                {
+                    Padding = 0
+                });
+            }else if (QuizCategory == MultipleChoiceCategory.Meaning)
+            {
+                var JLPTN4GrammarAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN4.ToList<AbstractCardTable>());
+                Navigation.PushModalAsync(new ProfilePages.AssesmentPage(
+                    JLPTN4GrammarAssesment
+                    , "JLPTN4GrammarAssesment"
+                    , "Grammar"
+                    , "JLPT N4 Assessment")
+                {
+                    Padding = 0
+                });
+            }else
+            {
+                throw new Exception("Sorry 'bout that");
+            }
             return false;
         }
 

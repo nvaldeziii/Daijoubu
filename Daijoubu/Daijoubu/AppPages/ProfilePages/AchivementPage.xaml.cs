@@ -18,7 +18,7 @@ namespace Daijoubu.AppPages.ProfilePages
         List<AbstractCardTable> GeneralTable;
         GeneralType _WordType;
 
-        public AchivementPage(GeneralType WordType)
+        public AchivementPage(GeneralType WordType, bool n5 = true)
         {
             InitializeComponent();
 
@@ -30,29 +30,47 @@ namespace Daijoubu.AppPages.ProfilePages
 
                 ((ListView)s).SelectedItem = null; // de-select the row
             };
-
             _WordType = WordType;
-            if (_WordType == GeneralType.Hiragana)
+            if (n5)
             {
-                GeneralTable = UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>();
-            }
-            else if (_WordType == GeneralType.Katakana)
-            {
-                GeneralTable = UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>();
-            }
-            else if (_WordType == GeneralType.Vocabulary)
-            {
-                GeneralTable = UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>();
+                
+                if (_WordType == GeneralType.Hiragana)
+                {
+                    GeneralTable = UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>();
+                }
+                else if (_WordType == GeneralType.Katakana)
+                {
+                    GeneralTable = UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>();
+                }
+                else if (_WordType == GeneralType.Vocabulary)
+                {
+                    GeneralTable = UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>();
+                }
+                else
+                {
+                    throw new Exception("achivement page.cs");
+                }
             }
             else
             {
-                throw new Exception("achivement page.cs");
+                //n4
+                if (_WordType == GeneralType.Vocabulary)
+                {
+                    GeneralTable = UserDatabase.Table_UserVocabCardsN4.ToList<AbstractCardTable>();
+                }
+                else if (_WordType == GeneralType.Grammar)
+                {
+                    GeneralTable = UserDatabase.Table_UserGrammCardsN4.ToList<AbstractCardTable>();
+                }
+                else
+                {
+                    throw new Exception("achivement page.cs");
+                }
             }
-
 
             UserCard_Kana = new ObservableCollection<UserAchivements>();
 
-            bool checkCount = (GeneralTable.Count == JapaneseDatabase.Table_Kana.Count);
+            //bool checkCount = (GeneralTable.Count == JapaneseDatabase.Table_Kana.Count);
 
             for (int i = 0; i < GeneralTable.Count; i++)
             {
@@ -68,30 +86,53 @@ namespace Daijoubu.AppPages.ProfilePages
                     int id = -1;
                     string _subtitle;
                     string _reading;
-                    if (_WordType == GeneralType.Hiragana)
+                    if (n5)
                     {
-                        _item = JapaneseDatabase.Table_Kana[i].hiragana;
-                        id = JapaneseDatabase.Table_Kana[i].Id;
-                        _reading = string.Format("\"{0}\"", JapaneseDatabase.Table_Kana[i].romaji.ToUpper());
-                        _subtitle = "";
-                    }
-                    else if (_WordType == GeneralType.Katakana)
+                        if (_WordType == GeneralType.Hiragana)
+                        {
+                            _item = JapaneseDatabase.Table_Kana[i].hiragana;
+                            id = JapaneseDatabase.Table_Kana[i].Id;
+                            _reading = string.Format("\"{0}\"", JapaneseDatabase.Table_Kana[i].romaji.ToUpper());
+                            _subtitle = "";
+                        }
+                        else if (_WordType == GeneralType.Katakana)
+                        {
+                            _item = JapaneseDatabase.Table_Kana[i].katakana;
+                            id = JapaneseDatabase.Table_Kana[i].Id;
+                            _reading = string.Format("\"{0}\"", JapaneseDatabase.Table_Kana[i].romaji.ToUpper());
+                            _subtitle = "";
+                        }
+                        else if (_WordType == GeneralType.Vocabulary)
+                        {
+                            _item = JapaneseDatabase.Table_Vocabulary_N5[i].kanji;
+                            id = JapaneseDatabase.Table_Vocabulary_N5[i].Id;
+                            _reading = JapaneseDatabase.Table_Vocabulary_N5[i].furigana;
+                            _subtitle = JapaneseDatabase.Table_Vocabulary_N5[i].meaning;
+                        }
+                        else
+                        {
+                            throw new Exception("achivement page.cs");
+                        }
+                    }else
                     {
-                        _item = JapaneseDatabase.Table_Kana[i].katakana;
-                        id = JapaneseDatabase.Table_Kana[i].Id;
-                        _reading = string.Format("\"{0}\"", JapaneseDatabase.Table_Kana[i].romaji.ToUpper());
-                        _subtitle = "";
-                    }
-                    else if (_WordType == GeneralType.Vocabulary)
-                    {
-                        _item = JapaneseDatabase.Table_Vocabulary_N5[i].kanji;
-                        id = JapaneseDatabase.Table_Vocabulary_N5[i].Id;
-                        _reading = JapaneseDatabase.Table_Vocabulary_N5[i].furigana;
-                        _subtitle = JapaneseDatabase.Table_Vocabulary_N5[i].meaning;
-                    }
-                    else
-                    {
-                        throw new Exception("achivement page.cs");
+                        if (_WordType == GeneralType.Vocabulary)
+                        {
+                            _item = JapaneseDatabase.Table_Vocabulary_N4[i].kanji;
+                            id = JapaneseDatabase.Table_Vocabulary_N4[i].Id;
+                            _reading = JapaneseDatabase.Table_Vocabulary_N4[i].furigana;
+                            _subtitle = JapaneseDatabase.Table_Vocabulary_N4[i].meaning;
+                        }
+                        else if (_WordType == GeneralType.Grammar)
+                        {
+                            _item = JapaneseDatabase.Table_Grammar_N4[i].sentence_jp;
+                            id = JapaneseDatabase.Table_Grammar_N4[i].Id;
+                            _reading = JapaneseDatabase.Table_Grammar_N4[i].sentence_en;
+                            _subtitle = "";
+                        }
+                        else
+                        {
+                            throw new Exception("achivement page.cs");
+                        }
                     }
 
                     UserCard_Kana.Add(new UserAchivements
@@ -125,6 +166,7 @@ namespace Daijoubu.AppPages.ProfilePages
                     NextQueue = null
                 });
             }
+
             listview_achivements.HasUnevenRows = true;
             listview_achivements.ItemsSource = UserCard_Kana.Reverse();
         }

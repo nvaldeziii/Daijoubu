@@ -13,6 +13,30 @@ namespace Daijoubu.AppPages.ProfilePages
         public JLPTN4SelectorPage()
         {
             InitializeComponent();
+
+            btn_vocabulary.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary,false));
+                })
+            });
+
+            btn_grammar.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Grammar, false));
+                })
+            });
+
+            btn_assess.GestureRecognizers.Add(new TapGestureRecognizer
+            {
+                Command = new Command(() =>
+                {
+                    Navigation.PushAsync(new AssesmentPage(false));
+                })
+            });
         }
     }
 }

@@ -208,7 +208,13 @@ namespace Daijoubu
             ThisApp.Assessments.Add("JLPTN5KatakanaAssesment", Computer.totalcardproficiency(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>()));
             ThisApp.Assessments.Add("JLPTN5VocabularyAssesment", Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>()));
 
+            ThisApp.Assessments.Add("JLPTN4VocabularyAssesment", Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN4.ToList<AbstractCardTable>()));
+            ThisApp.Assessments.Add("JLPTN4GrammarAssesment", Computer.totalcardproficiency(UserDatabase.Table_UserGrammCardsN4.ToList<AbstractCardTable>()));
+
+
             ThisApp.TotalJLPTN5 = (ThisApp.Assessments["JLPTN5KanaAssesment"].TotalProficiency + ThisApp.Assessments["JLPTN5KatakanaAssesment"].TotalProficiency + ThisApp.Assessments["JLPTN5VocabularyAssesment"].TotalProficiency) / 3.0;
+
+            ThisApp.TotalJLPTN4 = (ThisApp.Assessments["JLPTN4VocabularyAssesment"].TotalProficiency + ThisApp.Assessments["JLPTN4GrammarAssesment"].TotalProficiency ) / 2.0;
         }
 
 
