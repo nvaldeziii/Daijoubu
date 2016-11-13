@@ -113,7 +113,7 @@ namespace Daijoubu.AppPages.ProfilePages
             {
                 listview_title_New.TextColor = Color.Green;
             }
-            else if (percent == ThisApp.TotalJLPTN5)
+            else if (n5 ? percent == ThisApp.TotalJLPTN5 : percent == ThisApp.TotalJLPTN4)
             {
                 listview_title_New.TextColor = Color.Gray;
             }
@@ -122,7 +122,7 @@ namespace Daijoubu.AppPages.ProfilePages
                 listview_title_New.TextColor = Color.Red;
             }
             listview_title_New.Text = string.Format("{0:0.00}%", percent);
-            listview_title_Old.Text = string.Format("{0:0.00}%", ThisApp.TotalJLPTN5 );
+            listview_title_Old.Text = string.Format("{0:0.00}%", n5? ThisApp.TotalJLPTN5 : ThisApp.TotalJLPTN4);
             //save value
             //ThisApp.TotalJLPTN5 = jlptn5percent;
 
