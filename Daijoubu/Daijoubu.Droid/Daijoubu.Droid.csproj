@@ -230,9 +230,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\homepage_header.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\splash_screen.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -240,21 +237,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\logo2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\multiple_choice.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\FillBlank_logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Listening_logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Reading_logo.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\about_logo.png" />
@@ -276,21 +258,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\homepage_header2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\FillBlank_logo_N4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Listening_logo_N4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\multiple_choice_N4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Reading_logo_N4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\btn_img.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Reading_banner.jpg" />
