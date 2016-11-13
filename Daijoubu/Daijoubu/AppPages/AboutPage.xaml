@@ -4,38 +4,80 @@
              x:Class="Daijoubu.AppPages.AboutPage"
              Title="About"
              Style="{StaticResource TypicalContentPage}">
-  <StackLayout
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="AssessmentCardInnerFrame"
+             BasedOn="{StaticResource QuestionCardInnerFrame}" TargetType="Frame">
+        <Setter Property="Margin" Value="-12,2,-12,2" />
+        <Setter Property="Padding" Value="-10" />
+      </Style>
+      <Style x:Key="AssessmentCardGrid" TargetType="Grid">
+        <Setter Property="Margin" Value="-5" />
+        <Setter Property="Padding" Value="-10" />
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <ScrollView>
+    <StackLayout
     Padding="10">
 
+      <Frame Style="{StaticResource QuestionCardOuterFrame}"
+                           Margin="15,6,15,6">
+        <StackLayout>
+          <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+            <Label Text="Daijoubu app © 2016" />
+          </Frame>
 
+          <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+            <Label x:Name="label_version_info"
+               Text=" " />
+          </Frame>
 
-    <Label Text="Daijoubu app © 2016" />
-    <Label Text=" " />
+          <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+            <StackLayout>
+              <Label Text="Created By:" />
+              <Label Text="     Noli Valdez III"
+                     TextColor="Blue"/>
+              <Label Text="     Mikko Villanueva"
+                     TextColor="Red"/>
+            </StackLayout>
 
-    <Label x:Name="label_version_info"
-           Text=" " />
+          </Frame>
 
-    <Label Text=" " />
-    <Label Text="Created By:" />
-    <Label Text="     Noli Valdez III"
-           TextColor="Blue"/>
-    <Label Text="     Mikko Villanueva"
-           TextColor="Red"/>
+          <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+            <StackLayout>
+              <Label Text="Special Thanks:" />
+              <Label Text="     Mary Jane Samonte"  />
+              <Label Text="     Mika Kawasaki"  />
+              <Label Text="     Nida Maramara" />
+              <Label Text="     Gonzalo Gumogda" />
+            </StackLayout>
+          </Frame>
 
-    <Label Text=" " />
-    <Label Text=" " />
+          <Frame Style="{StaticResource AssessmentCardInnerFrame}">
+            <StackLayout>
+              <Label Text="Credits To:" />
+              <Label Text="     [JLPT N4 resources]"  />
+              <Label Text="     Caleb (nihongoshark team)"  />
+              <Label Text="     "  />
+              <Label Text="     [Images]"  />
+              <Label Text="     lalesh aldarwish"  />
+              <Label Text="     Fancycrave"  />
+              <Label Text="     Jeshots"  />
+              <Label Text="     Negative Space"  />
+              <Label Text="     Unsplash"  />
+              <Label Text="     Kaboompics"  />
+              <Label Text="     jenpollockmichel"  />
+            </StackLayout>
+          </Frame>
 
-    <Label Text="Special Thanks:" />
-    <Label Text="     Mary Jane Samonte"  />
-    <Label Text="     Mika Kawasaki"  />
-    <Label Text="     Nida Maramara" />
-    <Label Text="     Gonzalo Gumogda" />
+        </StackLayout>
+      </Frame>
+    </StackLayout>
+  </ScrollView>
 
-    <Label Text=" " />
-    <Label Text=" " />
-
-
-  </StackLayout>
 
 
 </ContentPage>
