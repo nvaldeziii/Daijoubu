@@ -4,38 +4,47 @@
              x:Class="Daijoubu.AppPages.AboutPage"
              Title="About"
              Style="{StaticResource TypicalContentPage}">
-  <StackLayout
+  <ScrollView>
+    <StackLayout
     Padding="10">
 
+      <Frame Style="{StaticResource QuestionCardOuterFrame}"
+                           Margin="15,6,15,6">
+        <Frame Style="{StaticResource QuestionCardInnerFrame}">
+          <Label Text="Daijoubu app © 2016" />
+        </Frame>
 
+        <Frame Style="{StaticResource QuestionCardInnerFrame}">
+          <Label Text="Version: " />
+          <Label x:Name="label_version_info"
+             Text=" " />
+        </Frame>
 
-    <Label Text="Daijoubu app © 2016" />
-    <Label Text=" " />
+        <Frame Style="{StaticResource QuestionCardInnerFrame}">
+          <Label Text="Created By:" />
+          <Label Text="     Noli Valdez III"
+                 TextColor="Blue"/>
+          <Label Text="     Mikko Villanueva"
+                 TextColor="Red"/>
+        </Frame>
 
-    <Label x:Name="label_version_info"
-           Text=" " />
+        <Frame Style="{StaticResource QuestionCardInnerFrame}">
+          <Label Text="Special Thanks:" />
+          <Label Text="     Mary Jane Samonte"  />
+          <Label Text="     Mika Kawasaki"  />
+          <Label Text="     Nida Maramara" />
+          <Label Text="     Gonzalo Gumogda" />
+        </Frame>
 
-    <Label Text=" " />
-    <Label Text="Created By:" />
-    <Label Text="     Noli Valdez III"
-           TextColor="Blue"/>
-    <Label Text="     Mikko Villanueva"
-           TextColor="Red"/>
-
-    <Label Text=" " />
-    <Label Text=" " />
-
-    <Label Text="Special Thanks:" />
-    <Label Text="     Mary Jane Samonte"  />
-    <Label Text="     Mika Kawasaki"  />
-    <Label Text="     Nida Maramara" />
-    <Label Text="     Gonzalo Gumogda" />
-
-    <Label Text=" " />
-    <Label Text=" " />
-
-
-  </StackLayout>
+        <Frame Style="{StaticResource QuestionCardInnerFrame}">
+          <Label Text="Credits To:" />
+          <Label Text="     nihongoshark.com"  />
+        </Frame>
+        
+      </Frame>
+    </StackLayout>
+  </ScrollView>
+  
 
 
 </ContentPage>
