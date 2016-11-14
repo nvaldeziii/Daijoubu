@@ -329,7 +329,7 @@ namespace Daijoubu.AppPages.QuizPages
                 });
             }else
             {
-                throw new Exception("Sorry 'bout that");
+                Navigation.PushModalAsync(new ProfilePages.AssesmentPage(false));
             }
             return false;
         }
