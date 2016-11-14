@@ -4,23 +4,27 @@
              x:Class="Daijoubu.AppPages.QuizPages.TypingPage"
              Title="Typing Module"
              Style="{StaticResource TypicalContentPage}">
-  <StackLayout>
+  <ScrollView>
+    <StackLayout>
 
-    <Frame Style="{StaticResource QuestionCardOuterFrame}">
-      <Frame Style="{StaticResource QuestionCardInnerFrame}">
-        <Label x:Name="label_question"
-             Text="Getting Ready ..."
-             Style="{StaticResource SingleQuestionLabel}" />
+      <Frame Style="{StaticResource QuestionCardOuterFrame}">
+        <StackLayout>
+          <Frame Style="{StaticResource QuestionCardInnerFrame}">
+            <Label x:Name="label_question"
+                 Text="Getting Ready ..."
+                 Style="{StaticResource SingleQuestionLabel}" />
+          </Frame>
+        </StackLayout>
       </Frame>
-    </Frame>
-      
-    <Entry x:Name="textentry_answer"
-           Placeholder="Type your answer"/>
 
-    <Label Text=" " />
-    
-    <Button x:Name="btn_submit"
-            Text="Submit" />
-    
-  </StackLayout>
+      <Entry x:Name="textentry_answer"
+             Placeholder="Type your answer"/>
+
+      <Label Text="(Type in hiragana)" />
+
+      <Button x:Name="btn_submit"
+              Text="Submit" />
+
+    </StackLayout>
+  </ScrollView>
 </ContentPage>
