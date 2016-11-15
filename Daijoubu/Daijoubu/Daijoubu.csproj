@@ -95,9 +95,6 @@
     <Compile Include="AppPages\QuizPages\MultipleChoicePageN4.xaml.cs">
       <DependentUpon>MultipleChoicePageN4.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppPages\QuizPages\ReadingPage.xaml.cs">
-      <DependentUpon>ReadingPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AppPages\QuizPages\TypingPage.xaml.cs">
       <DependentUpon>TypingPage.xaml</DependentUpon>
     </Compile>
@@ -187,12 +184,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AppPages\QuizPages\TypingPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="AppPages\QuizPages\ReadingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
