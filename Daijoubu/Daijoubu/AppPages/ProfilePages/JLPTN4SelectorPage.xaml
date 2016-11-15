@@ -41,7 +41,7 @@
         </StackLayout>
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
-                  Text="Gramatical Achievement"/>
+                  Text="Grammatical Achievement"/>
           <!--  <===== Edit the label -->
         </StackLayout>
       </Grid>
