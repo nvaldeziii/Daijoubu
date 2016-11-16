@@ -340,6 +340,9 @@ namespace Daijoubu.AppPages.QuizPages
                 {
                     Padding = 0
                 });
+            }else
+            {
+                Navigation.PushModalAsync(new ProfilePages.AssesmentPage() { Padding = 0 });
             }
 
             return false;

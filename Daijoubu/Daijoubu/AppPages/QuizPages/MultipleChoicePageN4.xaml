@@ -34,8 +34,8 @@
                 Style="{StaticResource MultipleChoiceButtonStyle}"/>
       </Frame>
     </Grid>
-
-
+    <Label x:Name="lbl_furigana" />
+    <Label x:Name="lbl_meaning" />
     <Grid VerticalOptions="FillAndExpand">
 
       <Frame Style="{StaticResource AnswerButtonFrame}"
