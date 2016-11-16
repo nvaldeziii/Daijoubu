@@ -19,7 +19,8 @@ namespace Daijoubu
             MainPage = new NavigationPage(ThisApp.MasterDetail)
             {
                 //BarBackgroundColor = Color.FromHex("#3B5998"),
-                AutomationId = "auto_navigation"
+                AutomationId = "auto_navigation",
+                BackgroundColor = Color.Silver
                
             };
             //MainPage.BackgroundColor = Color.Gray;
