@@ -51,7 +51,9 @@ namespace Daijoubu.AppPages.QuizPages
 
             Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () =>
             {
+                EnableInterfaces(false);
                 GenerateQuestion(QuizCategory);
+                EnableInterfaces(true);
                 return false;
             });
         }
@@ -323,7 +325,7 @@ namespace Daijoubu.AppPages.QuizPages
                     JLPTN4VocabularyAssesment
                     , "JLPTN4VocabularyAssesment"
                     , "Vocabulary"
-                    , "JLPT N4 Assessment")
+                    , "JLPT N4 Assessment",false)
                 {
                     Padding = 0
                 });
@@ -334,7 +336,7 @@ namespace Daijoubu.AppPages.QuizPages
                     JLPTN4GrammarAssesment
                     , "JLPTN4GrammarAssesment"
                     , "Grammar"
-                    , "JLPT N4 Assessment")
+                    , "JLPT N4 Assessment", false)
                 {
                     Padding = 0
                 });

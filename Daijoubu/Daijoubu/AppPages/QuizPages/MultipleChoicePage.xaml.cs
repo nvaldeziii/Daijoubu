@@ -45,7 +45,9 @@ namespace Daijoubu.AppPages.QuizPages
 
             Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () =>
             {
+                EnableInterfaces(false);
                 GenerateQuestion(QuizCategory);
+                EnableInterfaces(true);
                 return false;
             });
         }
