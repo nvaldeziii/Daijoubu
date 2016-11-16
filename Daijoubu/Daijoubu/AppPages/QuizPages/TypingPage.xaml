@@ -12,7 +12,7 @@
           <Frame Style="{StaticResource QuestionCardInnerFrame}">
             <Label x:Name="label_question"
                  Text="Getting Ready ..."
-                 Style="{StaticResource SingleQuestionLabel}" />
+                 Style="{StaticResource SingleQuestionLabel}"/>
           </Frame>
         </StackLayout>
       </Frame>

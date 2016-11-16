@@ -135,6 +135,7 @@ namespace Daijoubu.AppPages.QuizPages
 
         public bool GenerateQuestion(MultipleChoiceCategory category)
         {
+            
             bool Threshold = false;
             MultipleChoiceQuestionFactory.QuestionType nextnum;
             Queue<Card> TMPQueueHolder;
@@ -182,7 +183,7 @@ namespace Daijoubu.AppPages.QuizPages
             SaveQueue(TMPQueueHolder);
             //prepare for next queue
 
-
+            this.label_question.FontSize = Computer.LabelFontSize(label_question.Text.Length, Settings.FontSizeMultiplier);
 
             return Threshold;
         }
