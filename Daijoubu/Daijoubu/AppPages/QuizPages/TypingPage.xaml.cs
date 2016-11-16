@@ -53,37 +53,38 @@ namespace Daijoubu.AppPages.QuizPages
             EnableInterfaces(false);
             if (user_ans == null || user_ans.Length <= 0)
             {
-                return false;
-            }
-            
-            if (user_ans.Trim() == Answer.Trim())
-            {
-                //correct answer
-                this.BackgroundColor = PageColorCorrect;
-                IsCorrect = true;
-
-                CurrentQuestion.CorrectCount += Setting.MultipleChoice.TypingQuizCorrectnessAdder; // add two to correcness on typing
-
-                //save to sql
-                DatabaseManipulator.Update_User_KanaCardN5(QuizCategory, CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);
-            }
-            else
-            {
-                //wrong answer
-                this.BackgroundColor = PageColorMistake;
                 IsCorrect = false;
-                CurrentQuestion.MistakeCount++;
-                CurrentQuestion.LastView = DateTime.Now;
-
-                //save to sql
-                DatabaseManipulator.Update_User_KanaCardN5(QuizCategory, CurrentQuestion.MistakeCount, CurrentQuestion.Id, IsCorrect);
-
-                if (Setting.HapticFeedback)
+            }else
+            {
+                if (user_ans.Trim() == Answer.Trim())
                 {
-                    DependencyService.Get<Dependencies.INotifications>().Vibrate();
+                    //correct answer
+                    this.BackgroundColor = PageColorCorrect;
+                    IsCorrect = true;
+
+                    CurrentQuestion.CorrectCount += Setting.MultipleChoice.TypingQuizCorrectnessAdder; // add two to correcness on typing
+
+                    //save to sql
+                    DatabaseManipulator.Update_User_KanaCardN5(QuizCategory, CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);
+                }
+                else
+                {
+                    //wrong answer
+                    this.BackgroundColor = PageColorMistake;
+                    IsCorrect = false;
+                    CurrentQuestion.MistakeCount++;
+                    CurrentQuestion.LastView = DateTime.Now;
+
+                    //save to sql
+                    DatabaseManipulator.Update_User_KanaCardN5(QuizCategory, CurrentQuestion.MistakeCount, CurrentQuestion.Id, IsCorrect);
+
+                    if (Setting.HapticFeedback)
+                    {
+                        DependencyService.Get<Dependencies.INotifications>().Vibrate();
+                    }
                 }
             }
-
+                      
             var cardIndex = CurrentQuestion.Id - 1;
             if (QuizCategory == MultipleChoiceCategory.Hiragana)
             {
