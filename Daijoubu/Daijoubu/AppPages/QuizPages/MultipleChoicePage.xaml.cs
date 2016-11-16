@@ -38,14 +38,16 @@ namespace Daijoubu.AppPages.QuizPages
             btn_choice2.Clicked += CheckAnswer;
             btn_choice3.Clicked += CheckAnswer;
             btn_choice4.Clicked += CheckAnswer;
-
+            EnableInterfaces(false);
             Setting = new Settings();
 
             EnableInterfaces(false);
 
             Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () =>
             {
+                EnableInterfaces(false);
                 GenerateQuestion(QuizCategory);
+                EnableInterfaces(true);
                 return false;
             });
         }
@@ -340,6 +342,9 @@ namespace Daijoubu.AppPages.QuizPages
                 {
                     Padding = 0
                 });
+            }else
+            {
+                Navigation.PushModalAsync(new ProfilePages.AssesmentPage() { Padding = 0 });
             }
 
             return false;

@@ -51,34 +51,40 @@ namespace Daijoubu.AppPages.QuizPages
         public bool CheckAnswer(string user_ans)
         {
             EnableInterfaces(false);
-            if (user_ans.Trim() == Answer.Trim())
+            if (user_ans == null || user_ans.Length <= 0)
             {
-                //correct answer
-                this.BackgroundColor = PageColorCorrect;
-                IsCorrect = true;
-
-                CurrentQuestion.CorrectCount += Setting.MultipleChoice.TypingQuizCorrectnessAdder; // add two to correcness on typing
-
-                //save to sql
-                DatabaseManipulator.Update_User_KanaCardN5(QuizCategory, CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);
-            }
-            else
-            {
-                //wrong answer
-                this.BackgroundColor = PageColorMistake;
                 IsCorrect = false;
-                CurrentQuestion.MistakeCount++;
-                CurrentQuestion.LastView = DateTime.Now;
-
-                //save to sql
-                DatabaseManipulator.Update_User_KanaCardN5(QuizCategory, CurrentQuestion.MistakeCount, CurrentQuestion.Id, IsCorrect);
-
-                if (Setting.HapticFeedback)
+            }else
+            {
+                if (user_ans.Trim() == Answer.Trim())
                 {
-                    DependencyService.Get<Dependencies.INotifications>().Vibrate();
+                    //correct answer
+                    this.BackgroundColor = PageColorCorrect;
+                    IsCorrect = true;
+
+                    CurrentQuestion.CorrectCount += Setting.MultipleChoice.TypingQuizCorrectnessAdder; // add two to correcness on typing
+
+                    //save to sql
+                    DatabaseManipulator.Update_User_KanaCardN5(QuizCategory, CurrentQuestion.CorrectCount, CurrentQuestion.Id, IsCorrect);
+                }
+                else
+                {
+                    //wrong answer
+                    this.BackgroundColor = PageColorMistake;
+                    IsCorrect = false;
+                    CurrentQuestion.MistakeCount++;
+                    CurrentQuestion.LastView = DateTime.Now;
+
+                    //save to sql
+                    DatabaseManipulator.Update_User_KanaCardN5(QuizCategory, CurrentQuestion.MistakeCount, CurrentQuestion.Id, IsCorrect);
+
+                    if (Setting.HapticFeedback)
+                    {
+                        DependencyService.Get<Dependencies.INotifications>().Vibrate();
+                    }
                 }
             }
-
+                      
             var cardIndex = CurrentQuestion.Id - 1;
             if (QuizCategory == MultipleChoiceCategory.Hiragana)
             {
@@ -135,6 +141,7 @@ namespace Daijoubu.AppPages.QuizPages
 
         public bool GenerateQuestion(MultipleChoiceCategory category)
         {
+            
             bool Threshold = false;
             MultipleChoiceQuestionFactory.QuestionType nextnum;
             Queue<Card> TMPQueueHolder;
@@ -182,7 +189,7 @@ namespace Daijoubu.AppPages.QuizPages
             SaveQueue(TMPQueueHolder);
             //prepare for next queue
 
-
+            this.label_question.FontSize = Computer.LabelFontSize(label_question.Text.Length, Settings.FontSizeMultiplier);
 
             return Threshold;
         }

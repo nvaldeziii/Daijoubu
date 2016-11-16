@@ -33,9 +33,16 @@ namespace Daijoubu.AppPages.ProfilePages
 
             listview_title.Text = title;
 
-            JLPTN5KanaAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>());
-            JLPTN5KatakanaAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>());
-            JLPTN5VocabularyAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
+            if (n5)
+            {
+                JLPTN5KanaAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserKanaCardsN5.ToList<AbstractCardTable>());
+                JLPTN5KatakanaAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserKataKanaCardsN5.ToList<AbstractCardTable>());
+                JLPTN5VocabularyAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN5.ToList<AbstractCardTable>());
+            }else
+            {
+                JLPTN4VocabularyAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserVocabCardsN4.ToList<AbstractCardTable>());
+                JLPTN4GrammarAssesment = Computer.totalcardproficiency(UserDatabase.Table_UserGrammCardsN4.ToList<AbstractCardTable>());
+            }
 
             Assessments.Add(new CardAssessmentComparission(CA, CA_string)
             {
@@ -74,10 +81,6 @@ namespace Daijoubu.AppPages.ProfilePages
                 {
                     Name = "Vocabulary"
                 });
-
-                
-
-                Bind();
             }else
             {
                 listview_title.Text = "JLPT N4 Assessment";
@@ -96,6 +99,7 @@ namespace Daijoubu.AppPages.ProfilePages
 
             listview_assesments.HasUnevenRows = true;
             listview_assesments.ItemsSource = Assessments;
+            Bind();
         }
 
         void Bind()
@@ -109,11 +113,11 @@ namespace Daijoubu.AppPages.ProfilePages
                 percent = (JLPTN4VocabularyAssesment.TotalProficiency + JLPTN4GrammarAssesment.TotalProficiency) / 2.0;
             }
 
-            if (n5 ? percent > ThisApp.TotalJLPTN5 : percent > ThisApp.TotalJLPTN4)
+            if ( (n5 ? percent > ThisApp.TotalJLPTN5 : percent > ThisApp.TotalJLPTN4) )
             {
                 listview_title_New.TextColor = Color.Green;
             }
-            else if (n5 ? percent == ThisApp.TotalJLPTN5 : percent == ThisApp.TotalJLPTN4)
+            else if ( (n5 ? percent == ThisApp.TotalJLPTN5 : percent == ThisApp.TotalJLPTN4) )
             {
                 listview_title_New.TextColor = Color.Gray;
             }

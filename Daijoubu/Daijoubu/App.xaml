@@ -13,6 +13,9 @@
         <Setter Property="TextColor" Value="#000000" />
       </Style>
 
+      <Style TargetType="ListView">
+        <Setter Property="BackgroundColor" Value="#cccccc" />
+      </Style>
       <Style TargetType="Label">
         <!-- <Setter Property="TextColor" Value="#FD6E75" /> -->
         <Setter Property="TextColor" Value="#000000" />
@@ -21,7 +24,7 @@
 
       <!-- Default Style For content page to counter the margin -->
       <Style x:Key="TypicalContentPage" TargetType="ContentPage">
-        <Setter Property="Padding" Value="50" />
+        <!-- <Setter Property="Padding" Value="50" /> -->
         <Setter Property="BackgroundColor" Value="#cccccc" />
         <!-- <Setter Property="BackgroundColor" Value="#85E7E0" /> -->
       </Style>

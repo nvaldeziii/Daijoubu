@@ -4,28 +4,29 @@
              x:Class="Daijoubu.AppPages.QuizPages.ListeningPage"
              Title="Listening Module"
              Style="{StaticResource TypicalContentPage}">
-
-  <StackLayout>
-    <Frame Style="{StaticResource QuestionCardOuterFrame}">
-      <Frame Style="{StaticResource QuestionCardInnerFrame}">
-        <Image x:Name="img_speaker"
-           Source="speaker"
-           Aspect="AspectFit"
-           Scale=".5"/>
+  <ScrollView>
+    <StackLayout>
+      <Frame Style="{StaticResource QuestionCardOuterFrame}">
+        <Frame Style="{StaticResource QuestionCardInnerFrame}">
+          <Image x:Name="img_speaker"
+             Source="speaker"
+             Aspect="AspectFit"
+             Scale=".5"/>
+        </Frame>
       </Frame>
-    </Frame>
 
-    
-    <Label Text=" " />
-    <Label x:Name="lbl_correct_ans"
-           Text=" "
-           FontSize="15"/>
-    
-    <Entry x:Name="edittext_tts_input"
-           Text=""/>
 
-    <Button x:Name="btn_submit"
-            Text="Submit" />
-    
-  </StackLayout>
+      <Label Text="(Type in hiragana)" />
+      <Label x:Name="lbl_correct_ans"
+             Text=" "
+             FontSize="1"/>
+
+      <Entry x:Name="edittext_tts_input"
+             Text=""/>
+
+      <Button x:Name="btn_submit"
+              Text="Submit" />
+
+    </StackLayout>
+  </ScrollView>
 </ContentPage>

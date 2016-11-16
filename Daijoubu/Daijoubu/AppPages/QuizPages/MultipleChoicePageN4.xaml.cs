@@ -38,7 +38,7 @@ namespace Daijoubu.AppPages.QuizPages
             btn_choice2.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
             btn_choice3.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
             btn_choice4.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
-
+            EnableInterfaces(false);
             random = new Random();
             QuizCategory = category;
             QuestionFactory = new MultipleChoiceQuestionFactoryN4();
@@ -48,10 +48,12 @@ namespace Daijoubu.AppPages.QuizPages
             btn_choice4.Clicked += CheckAnswer;
             _english = en;
             Setting = new Settings();
-
+            
             Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () =>
             {
+                EnableInterfaces(false);
                 GenerateQuestion(QuizCategory);
+                EnableInterfaces(true);
                 return false;
             });
         }
@@ -115,7 +117,11 @@ namespace Daijoubu.AppPages.QuizPages
             bool Threshold = false;
             MultipleChoiceQuestionFactoryN4.QuestionType nextnum;
             Queue<Card> TMPQueueHolder;
-     
+
+            //remove labels
+            lbl_meaning.Text = lbl_furigana.Text = "";
+            lbl_meaning.IsVisible = lbl_furigana.IsVisible = false;
+
             if (category == MultipleChoiceCategory.Vocabulary)
             {
                 if (_english)
@@ -161,8 +167,15 @@ namespace Daijoubu.AppPages.QuizPages
                 QuestionFactory.GenerateKanaQuestion(CurrentQuestion.Id, CurrentQuestion.Id, nextnum);
             }
 
+            //generate meaning and furigana
+            if (category == MultipleChoiceCategory.Meaning)
+            {
+                lbl_meaning.IsVisible = lbl_furigana.IsVisible = true;
+                lbl_meaning.Text = JapaneseDatabase.Table_Grammar_N4[QuestionFactory.QuestionID - 1].sentence_en;
+                lbl_furigana.Text = JapaneseDatabase.Table_Grammar_N4[QuestionFactory.QuestionID - 1].sentence_fu;
+            }
 
-            label_question.Text = QuestionFactory.Question;
+                label_question.Text = QuestionFactory.Question;
             Answer = QuestionFactory.Answer;
             GenerateChoices(QuestionFactory.Choices);
 
@@ -312,7 +325,7 @@ namespace Daijoubu.AppPages.QuizPages
                     JLPTN4VocabularyAssesment
                     , "JLPTN4VocabularyAssesment"
                     , "Vocabulary"
-                    , "JLPT N4 Assessment")
+                    , "JLPT N4 Assessment",false)
                 {
                     Padding = 0
                 });
@@ -323,13 +336,13 @@ namespace Daijoubu.AppPages.QuizPages
                     JLPTN4GrammarAssesment
                     , "JLPTN4GrammarAssesment"
                     , "Grammar"
-                    , "JLPT N4 Assessment")
+                    , "JLPT N4 Assessment", false)
                 {
                     Padding = 0
                 });
             }else
             {
-                throw new Exception("Sorry 'bout that");
+                Navigation.PushModalAsync(new ProfilePages.AssesmentPage(false));
             }
             return false;
         }
