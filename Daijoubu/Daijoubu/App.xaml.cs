@@ -17,12 +17,13 @@ namespace Daijoubu
             ThisApp.MasterDetail = new SideMenuPage();
             //BarBackgroundColor = Color.FromHex("#38B4AB"),
             MainPage = new NavigationPage(ThisApp.MasterDetail)
-            {              
+            {
                 //BarBackgroundColor = Color.FromHex("#3B5998"),
                 AutomationId = "auto_navigation"
                
             };
-            MainPage.Padding = -50;
+            //MainPage.BackgroundColor = Color.Gray;
+            //MainPage.Padding = -50;
         }
 
         protected override void OnStart()

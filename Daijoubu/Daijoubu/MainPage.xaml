@@ -4,11 +4,9 @@
              xmlns:local="clr-namespace:Daijoubu"
              x:Class="Daijoubu.MainPage"
              Title="Daijoubu"
-             BackgroundColor="Black"
-             Padding="50,0,0,50">
+             BackgroundColor="#c2c2c2">
 
-  <StackLayout Orientation="Vertical" 
-               Padding="0,0,50,0">
+  <StackLayout Orientation="Vertical">
 
     <Image x:Name="image_homepage_header"
            Source="homepage_header2"
@@ -35,8 +33,7 @@
 
 
 
-    <ListView x:Name="listview_homepage_notifications" ItemsSource="{Binding ListViewNotifications}"
-              BackgroundColor="#cccccc">
+    <ListView x:Name="listview_homepage_notifications" ItemsSource="{Binding ListViewNotifications}">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
