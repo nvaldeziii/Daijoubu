@@ -51,6 +51,11 @@ namespace Daijoubu.AppPages.QuizPages
         public bool CheckAnswer(string user_ans)
         {
             EnableInterfaces(false);
+            if (user_ans == null || user_ans.Length <= 0)
+            {
+                return false;
+            }
+            
             if (user_ans.Trim() == Answer.Trim())
             {
                 //correct answer
