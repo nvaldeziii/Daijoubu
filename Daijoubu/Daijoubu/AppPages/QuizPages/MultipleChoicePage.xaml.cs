@@ -38,7 +38,7 @@ namespace Daijoubu.AppPages.QuizPages
             btn_choice2.Clicked += CheckAnswer;
             btn_choice3.Clicked += CheckAnswer;
             btn_choice4.Clicked += CheckAnswer;
-
+            EnableInterfaces(false);
             Setting = new Settings();
 
             EnableInterfaces(false);
