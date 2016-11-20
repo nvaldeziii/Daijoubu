@@ -14,29 +14,40 @@ namespace Daijoubu.AppPages.ProfilePages
         {
             InitializeComponent();
 
-            btn_vocabulary.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary,false));
-                })
-            });
+            btn_vocabulary.Clicked += (o, e) => {
+                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary, false));
+            };
+            btn_grammar.Clicked += (o, e) => {
+                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Grammar, false));
+            };
+            btn_assess.Clicked += (o, e) => {
+                Navigation.PushAsync(new AssesmentPage(false));
+            };
 
-            btn_grammar.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Grammar, false));
-                })
-            });
+            ///////////////////////////////////////////////////////////////////////////
+            //btn_vocabulary.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary,false));
+            //    })
+            //});
 
-            btn_assess.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new AssesmentPage(false));
-                })
-            });
+            //btn_grammar.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Grammar, false));
+            //    })
+            //});
+
+            //btn_assess.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new AssesmentPage(false));
+            //    })
+            //});
         }
     }
 }

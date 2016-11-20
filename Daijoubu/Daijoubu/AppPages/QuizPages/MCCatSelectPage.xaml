@@ -4,16 +4,32 @@
              Title="Select Category"
              x:Class="Daijoubu.AppPages.QuizPages.MCCatSelectPage"
              Style="{StaticResource TypicalContentPage}">
+
+  <Grid>
+    <Button x:Name="btn_hiragana_quiz"
+                   AutomationId="auto_btn_hiragana_quiz"
+            Text="Hiragana"
+            Grid.Row="0"/>
+    <Button x:Name="btn_katakana_quiz"
+                   AutomationId="auto_btn_katakana_quiz"
+            Text="Katakana"
+            Grid.Row="1"/>
+    <Button x:Name="btn_vocabulary_quiz"
+                   AutomationId="auto_btn_vocabulary_quiz"
+            Text="Vocabulary"
+            Grid.Row="2"/>
+  </Grid>
+  <!--
   <ScrollView>
     <StackLayout>
-      <!-- Button 1 -->
+      <!- Button 1 -
       <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                    x:Name="btn_hiragana_quiz"
                    AutomationId="auto_btn_hiragana_quiz">
-        <!--  <============== Edit the button x:name -->
+        <!-  <============== Edit the button x:name -
         <Image Style="{StaticResource CustomButtonImage}"
                Source="homepage_header2"/>
-        <!--  <============== Edit the source image -->
+        <!-  <============== Edit the source image -
         <Grid Style="{StaticResource CustomButtonGrid}">
           <StackLayout>
             <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -21,19 +37,19 @@
           <StackLayout>
             <Label  Style="{StaticResource CustomButtonLabel}"
                     Text="Hiragana"/>
-            <!--  <===== Edit the label -->
+            <!-  <===== Edit the label -
           </StackLayout>
         </Grid>
       </StackLayout>
 
-      <!-- Button 2 -->
+      <!- Button 2 -
       <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                    x:Name="btn_katakana_quiz"
                    AutomationId="auto_btn_katakana_quiz">
-        <!--  <============== Edit the button x:name -->
+        <!-  <============== Edit the button x:name -
         <Image Style="{StaticResource CustomButtonImage}"
                Source="homepage_header2"/>
-        <!--  <============== Edit the source image -->
+        <!-  <============== Edit the source image -
         <Grid Style="{StaticResource CustomButtonGrid}">
           <StackLayout>
             <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -41,19 +57,19 @@
           <StackLayout>
             <Label  Style="{StaticResource CustomButtonLabel}"
                     Text="Katakana"/>
-            <!--  <===== Edit the label -->
+            <!-  <===== Edit the label -
           </StackLayout>
         </Grid>
       </StackLayout>
 
-      <!-- Button 3 -->
+      <!- Button 3 -
       <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                    x:Name="btn_vocabulary_quiz"
                    AutomationId="auto_btn_vocabulary_quiz">
-        <!--  <============== Edit the button x:name -->
+        <!-  <============== Edit the button x:name -
         <Image Style="{StaticResource CustomButtonImage}"
                Source="homepage_header2"/>
-        <!--  <============== Edit the source image -->
+        <!-  <============== Edit the source image -
         <Grid Style="{StaticResource CustomButtonGrid}">
           <StackLayout>
             <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -61,12 +77,13 @@
           <StackLayout>
             <Label  Style="{StaticResource CustomButtonLabel}"
                     Text="Vocabulary"/>
-            <!--  <===== Edit the label -->
+            <!-  <===== Edit the label -
           </StackLayout>
         </Grid>
       </StackLayout>
     </StackLayout>
   </ScrollView>
+  -->
   <!--
   <StackLayout>
     <Button x:Name="btn_hiragana_quiz"

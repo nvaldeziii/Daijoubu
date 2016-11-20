@@ -9,8 +9,8 @@
 
       <!-- Default Style For buttons -->
       <Style TargetType="Button">
-        <Setter Property="BackgroundColor" Value="#38B4AB" />
-        <Setter Property="TextColor" Value="#000000" />
+        <Setter Property="BackgroundColor" Value="#3B5998" />
+        <Setter Property="TextColor" Value="#FFFFFF" />
       </Style>
 
       <Style TargetType="ListView">

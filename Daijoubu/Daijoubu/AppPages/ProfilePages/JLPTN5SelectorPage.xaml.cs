@@ -13,38 +13,52 @@ namespace Daijoubu.AppPages.ProfilePages
         public JLPTN5SelectorPage()
         {
             InitializeComponent();
+            btn_hiragana_achivements.Clicked += (o, e) => {
+                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Hiragana));
+            };
+            btn_katakana_achivements.Clicked += (o, e) => {
+                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Katakana));
+            };
+            btn_vocabulary_achivements.Clicked += (o, e) => {
+                Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary));
+            };
+            btn_assess.Clicked += (o, e) => {
+                Navigation.PushAsync(new AssesmentPage());
+            };
 
-            btn_hiragana_achivements.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Hiragana));
-                })
-            });
 
-            btn_katakana_achivements.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Katakana));
-                })
-            });
+            ///////////////////////////////////////////////////////////////////////////
+            //btn_hiragana_achivements.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Hiragana));
+            //    })
+            //});
 
-            btn_vocabulary_achivements.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary));
-                })
-            });
+            //btn_katakana_achivements.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Katakana));
+            //    })
+            //});
 
-            btn_assess.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new AssesmentPage());
-                })
-            });
+            //btn_vocabulary_achivements.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new AchivementPage(AppLibrary.Categories.GeneralType.Vocabulary));
+            //    })
+            //});
+
+            //btn_assess.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new AssesmentPage());
+            //    })
+            //});
         }
     }
 }

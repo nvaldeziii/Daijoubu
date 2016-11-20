@@ -16,30 +16,44 @@ namespace Daijoubu.AppPages
             InitializeComponent();
             progress = 0;
 
-            btn_n5.GestureRecognizers.Add(new TapGestureRecognizer
+            btn_n5.Clicked += (o, e) =>
             {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new JLPTN5SelectorPage());
-                })
-            });
+                Navigation.PushAsync(new JLPTN5SelectorPage());
+            };
+            btn_n4.Clicked += (o, e) =>
+            {
+                Navigation.PushAsync(new JLPTN4SelectorPage());
+            };
+            btn_delete_data.Clicked += async (o, e) =>
+            {
+                await deletedata();
+            };
+
+            //////////////////////////////////////////////////////////////////////////
+            //btn_n5.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new JLPTN5SelectorPage());
+            //    })
+            //});
                 
                
-            btn_n4.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new JLPTN4SelectorPage());
-                })
-            });
+            //btn_n4.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new JLPTN4SelectorPage());
+            //    })
+            //});
 
-            btn_delete_data.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command( async () =>
-                {
-                    await deletedata();
-                })
-            });
+            //btn_delete_data.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command( async () =>
+            //    {
+            //        await deletedata();
+            //    })
+            //});
                 
                 
                 
