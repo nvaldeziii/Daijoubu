@@ -4,7 +4,7 @@
              x:Class="Daijoubu.AppPages.QuizPage"
              Title="JLPT N5 Module"
              Style="{StaticResource TypicalContentPage}">
-  <ScrollView>
+  
     <StackLayout Orientation="Vertical">
 
       <!-- Button 1 -->
@@ -87,6 +87,6 @@
         </Grid>
       </StackLayout>
     </StackLayout>
-  </ScrollView>
+  
 
 </ContentPage>

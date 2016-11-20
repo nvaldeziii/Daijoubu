@@ -85,6 +85,47 @@ namespace Daijoubu.UITest
             MultipleChoiceTest();
         }
 
+        [Test]
+        public void MultipleChoice_vocabularyN4_UITest()
+        {
+            //arrange
+            //app.DragCoordinates(10, 800, 650, 800);
+            app.Back();
+            app.Tap("auto_SideMenuButton_QuizN4");
+            app.Tap("auto_btn_multiple");
+            app.Tap("auto_btn_vocabulary_quiz");
+
+            //act
+            MultipleChoiceTest();
+        }
+
+        [Test]
+        public void MultipleChoice_readingN4_UITest()
+        {
+            //arrange
+            //app.DragCoordinates(10, 800, 650, 800);
+            app.Back();
+            app.Tap("auto_SideMenuButton_QuizN4");
+            app.Tap("auto_btn_reading");
+            app.Tap("auto_btn_vocabulary_quiz");
+
+            //act
+            MultipleChoiceTest();
+        }
+
+        [Test]
+        public void MultipleChoice_grammarN4_UITest()
+        {
+            //arrange
+            //app.DragCoordinates(10, 800, 650, 800);
+            app.Back();
+            app.Tap("auto_SideMenuButton_QuizN4");
+            app.Tap("auto_btn_grammar");
+            app.Tap("auto_btn_vocabulary_quiz");
+
+            //act
+            MultipleChoiceTest();
+        }
 
         void MultipleChoiceTest()
         {
