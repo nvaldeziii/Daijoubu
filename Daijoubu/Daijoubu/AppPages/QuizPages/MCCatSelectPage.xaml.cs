@@ -19,32 +19,46 @@ namespace Daijoubu.AppPages.QuizPages
 
         void InitializeClickEvents()
         {
-            btn_hiragana_quiz.GestureRecognizers.Add(new TapGestureRecognizer
+            btn_hiragana_quiz.Clicked += (o, e) =>
             {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Hiragana));
-                })
-            });
-
-
-
-            btn_katakana_quiz.GestureRecognizers.Add(new TapGestureRecognizer
+                Navigation.PushAsync(new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Hiragana));
+            };
+            btn_katakana_quiz.Clicked += (o, e) =>
             {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Katakana));
-                })
-            });
-
-
-            btn_vocabulary_quiz.GestureRecognizers.Add(new TapGestureRecognizer
+                Navigation.PushAsync(new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Katakana));
+            };
+            btn_vocabulary_quiz.Clicked += (o, e) =>
             {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Vocabulary));
-                })
-            });
+                Navigation.PushAsync(new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Vocabulary));
+            };
+
+
+            //btn_hiragana_quiz.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Hiragana));
+            //    })
+            //});
+
+
+
+            //btn_katakana_quiz.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Katakana));
+            //    })
+            //});
+
+
+            //btn_vocabulary_quiz.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new QuizPages.MultipleChoicePage(MultipleChoiceCategory.Vocabulary));
+            //    })
+            //});
 
         }
     }

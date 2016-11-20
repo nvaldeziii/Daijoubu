@@ -5,16 +5,30 @@
              Title="JLPT N4 Module"
              Style="{StaticResource TypicalContentPage}">
 
+  <Grid>
+    <Button x:Name="btn_multiple"
+            AutomationId="auto_btn_multiple"
+            Text="Multiple Choice" 
+            Grid.Row="0"/>
+    <Button x:Name="btn_reading"
+            AutomationId="auto_btn_reading"
+            Text="Reading"
+            Grid.Row="1"/>
+    <Button x:Name="btn_grammar"
+            AutomationId="auto_btn_grammar"
+            Text="Grammar"
+            Grid.Row="2"/>
+  </Grid>
+  <!--
   <StackLayout>
-
-    <!-- Button 1 -->
+    <!- Button 1 
     <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                  x:Name="btn_multiple"
                  AutomationId="auto_btn_multiple">
-      <!--  <============== Edit the button x:name -->
+      <!-  <============== Edit the button x:name 
       <Image Style="{StaticResource CustomButtonImage}"
              Source="Multiple_choice_banner"/>
-      <!--  <============== Edit the source image -->
+      <!-  <============== Edit the source image 
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>
           <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -22,19 +36,19 @@
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
                   Text="Kanji"/>
-          <!--  <===== Edit the label -->
+          <!-  <===== Edit the label 
         </StackLayout>
       </Grid>
     </StackLayout>
 
-    <!-- Button 1 -->
+    <!- Button 1 
     <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                  x:Name="btn_reading"
                  AutomationId="auto_btn_reading">
-      <!--  <============== Edit the button x:name -->
+      <!-  <============== Edit the button x:name 
       <Image Style="{StaticResource CustomButtonImage}"
              Source="Reading_banner"/>
-      <!--  <============== Edit the source image -->
+      <!-  <============== Edit the source image 
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>
           <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -42,19 +56,19 @@
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
                   Text="Meaning"/>
-          <!--  <===== Edit the label -->
+          <!-  <===== Edit the label 
         </StackLayout>
       </Grid>
     </StackLayout>
 
-    <!-- Button 1 -->
+    <!- Button 1 
     <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                  x:Name="btn_grammar"
                  AutomationId="auto_btn_grammar">
-      <!--  <============== Edit the button x:name -->
+      <!-  <============== Edit the button x:name 
       <Image Style="{StaticResource CustomButtonImage}"
              Source="grammar_banner"/>
-      <!--  <============== Edit the source image -->
+      <!-  <============== Edit the source image 
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>
           <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -62,10 +76,16 @@
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
                   Text="Grammar"/>
-          <!--  <===== Edit the label -->
+          <!-  <===== Edit the label 
         </StackLayout>
       </Grid>
+      
+      
     </StackLayout>
+    </StackLayout>
+    -->
+    
+    
     <!--
   <Grid>
 
@@ -127,6 +147,6 @@
     </Grid>
     -->
   
-  </StackLayout>
+  
   
 </ContentPage>

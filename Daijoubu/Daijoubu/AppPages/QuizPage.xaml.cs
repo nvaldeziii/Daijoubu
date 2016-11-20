@@ -19,39 +19,57 @@ namespace Daijoubu.AppPages
 
         void InitializeEvents()
         {
-            btn_multiple.GestureRecognizers.Add(new TapGestureRecognizer
+            btn_multiple.Clicked += (o, e) =>
             {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new QuizPages.MCCatSelectPage());
-                })
-            });
-
-
-            btn_listen.GestureRecognizers.Add(new TapGestureRecognizer
+                Navigation.PushAsync(new QuizPages.MCCatSelectPage());
+            };
+            btn_listen.Clicked += (o, e) =>
             {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new QuizPages.ListeningPage());
-                })
-            });
-
-
-            btn_reading.GestureRecognizers.Add(new TapGestureRecognizer
+                Navigation.PushAsync(new QuizPages.ListeningPage());
+            };
+            btn_reading.Clicked += (o, e) =>
             {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new QuizPages.MultipleChoicePage(Categories.MultipleChoiceCategory.Meaning));
-                })
-            });
-
-            btn_typing.GestureRecognizers.Add(new TapGestureRecognizer
+                Navigation.PushAsync(new QuizPages.MultipleChoicePage(Categories.MultipleChoiceCategory.Meaning));
+            };
+            btn_typing.Clicked += (o, e) =>
             {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new QuizPages.TypingPage());
-                })
-            });
+                Navigation.PushAsync(new QuizPages.TypingPage());
+            };
+
+            ////////////////////////////////////////////////////////////////////////////
+            //btn_multiple.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new QuizPages.MCCatSelectPage());
+            //    })
+            //});
+
+
+            //btn_listen.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new QuizPages.ListeningPage());
+            //    })
+            //});
+
+
+            //btn_reading.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new QuizPages.MultipleChoicePage(Categories.MultipleChoiceCategory.Meaning));
+            //    })
+            //});
+
+            //btn_typing.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new QuizPages.TypingPage());
+            //    })
+            //});
 
 
         }

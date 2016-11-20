@@ -4,17 +4,35 @@
              x:Class="Daijoubu.AppPages.QuizPage"
              Title="JLPT N5 Module"
              Style="{StaticResource TypicalContentPage}">
-  <ScrollView>
+  <Grid>
+    <Button x:Name="btn_multiple"
+            AutomationId="auto_btn_multiple"
+            Text="Multiple Choice"
+            Grid.Row="0"/>
+    <Button x:Name="btn_listen"
+            AutomationId="auto_btn_listen"
+            Text="Listening"
+            Grid.Row="1"/>
+    <Button x:Name="btn_typing"
+            AutomationId="auto_btn_typing"
+            Text="Typing"
+            Grid.Row="2"/>
+    <Button x:Name="btn_reading"
+            AutomationId="auto_btn_reading"
+            Text="Reading"
+            Grid.Row="3"/>
+  </Grid>
+  <!--
     <StackLayout Orientation="Vertical">
 
-      <!-- Button 1 -->
+      <!- Button 1 -
       <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                    x:Name="btn_multiple"
                    AutomationId="auto_btn_multiple">
-        <!--  <============== Edit the button x:name -->
+        <!-  <============== Edit the button x:name -
         <Image Style="{StaticResource CustomButtonImage}"
                Source="Multiple_choice_banner"/>
-        <!--  <============== Edit the source image -->
+        <!-  <============== Edit the source image -
         <Grid Style="{StaticResource CustomButtonGrid}">
           <StackLayout>
             <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -22,19 +40,19 @@
           <StackLayout>
             <Label  Style="{StaticResource CustomButtonLabel}"
                     Text="Multiple Choice"/>
-            <!--  <===== Edit the label -->
+            <!-  <===== Edit the label -
           </StackLayout>
         </Grid>
       </StackLayout>
 
-      <!-- Button 2 -->
+      <!- Button 2 -
       <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                    x:Name="btn_listen"
                    AutomationId="auto_btn_listen">
-        <!--  <============== Edit the button x:name -->
+        <!-  <============== Edit the button x:name ->
         <Image Style="{StaticResource CustomButtonImage}"
                Source="Listening_Banner"/>
-        <!--  <============== Edit the source image -->
+        <!-  <============== Edit the source image ->
         <Grid Style="{StaticResource CustomButtonGrid}">
           <StackLayout>
             <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -42,19 +60,19 @@
           <StackLayout>
             <Label  Style="{StaticResource CustomButtonLabel}"
                     Text="Listening"/>
-            <!--  <===== Edit the label -->
+            <!-  <===== Edit the label ->
           </StackLayout>
         </Grid>
       </StackLayout>
 
-      <!-- Button 3 -->
+      <!- Button 3 ->
       <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                    x:Name="btn_typing"
                    AutomationId="auto_btn_typing">
-        <!--  <============== Edit the button x:name -->
+        <!-  <============== Edit the button x:name ->
         <Image Style="{StaticResource CustomButtonImage}"
                Source="Typing_banner"/>
-        <!--  <============== Edit the source image -->
+        <!-  <============== Edit the source image ->
         <Grid Style="{StaticResource CustomButtonGrid}">
           <StackLayout>
             <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -62,19 +80,19 @@
           <StackLayout>
             <Label  Style="{StaticResource CustomButtonLabel}"
                     Text="Typing"/>
-            <!--  <===== Edit the label -->
+            <!-  <===== Edit the label ->
           </StackLayout>
         </Grid>
       </StackLayout>
 
-      <!-- Button 4 -->
+      <!- Button 4 -
       <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                    x:Name="btn_reading"
                    AutomationId="auto_btn_reading">
-        <!--  <============== Edit the button x:name -->
+        <!-  <============== Edit the button x:name -
         <Image Style="{StaticResource CustomButtonImage}"
                Source="Reading_banner"/>
-        <!--  <============== Edit the source image -->
+        <!-  <============== Edit the source image -
         <Grid Style="{StaticResource CustomButtonGrid}">
           <StackLayout>
             <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -82,11 +100,11 @@
           <StackLayout>
             <Label  Style="{StaticResource CustomButtonLabel}"
                     Text="Reading"/>
-            <!--  <===== Edit the label -->
+            <!-  <===== Edit the label -
           </StackLayout>
         </Grid>
       </StackLayout>
     </StackLayout>
-  </ScrollView>
+  -->
 
 </ContentPage>

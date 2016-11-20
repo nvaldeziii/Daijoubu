@@ -4,17 +4,29 @@
              x:Class="Daijoubu.AppPages.ProfilePages.JLPTN4SelectorPage"
              Title="JLPT N4 Assessment"
              Style="{StaticResource TypicalContentPage}">
-
+  <Grid>
+    <Button x:Name="btn_vocabulary"
+                 AutomationId="auto_btn_vocabulary"
+            Text="Vocabulary Achievement"
+            Grid.Row="0"/>
+    <Button x:Name="btn_grammar"
+                 AutomationId="auto_btn_grammar"
+            Text="Grammatical Achievement"
+            Grid.Row="1"/>
+    <Button x:Name="btn_assess"
+            AutomationId="auto_btn_assess"
+            Text="Overall Assessment"
+            Grid.Row="2"/>
+  </Grid>
+  <!--
   <StackLayout>
 
-    <!-- Button 1 -->
+    <!- Button 1 -
     <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                  x:Name="btn_vocabulary"
                  AutomationId="auto_btn_vocabulary">
-      <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
              Source="homepage_header2"/>
-      <!--  <============== Edit the source image -->
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>
           <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -22,19 +34,16 @@
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
                   Text="Vocabulary Achievement"/>
-          <!--  <===== Edit the label -->
         </StackLayout>
       </Grid>
     </StackLayout>
 
-    <!-- Button 1 -->
+    <!- Button 1 -
     <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                  x:Name="btn_grammar"
                  AutomationId="auto_btn_grammar">
-      <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
              Source="homepage_header2"/>
-      <!--  <============== Edit the source image -->
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>
           <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -42,19 +51,16 @@
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
                   Text="Grammatical Achievement"/>
-          <!--  <===== Edit the label -->
         </StackLayout>
       </Grid>
     </StackLayout>
 
-    <!-- Button 1 -->
+    <!- Button 1 -
     <StackLayout Style="{StaticResource CustomButtonStackLayout}"
                  x:Name="btn_assess"
                  AutomationId="auto_btn_assess">
-      <!--  <============== Edit the button x:name -->
       <Image Style="{StaticResource CustomButtonImage}"
              Source="homepage_header2"/>
-      <!--  <============== Edit the source image -->
       <Grid Style="{StaticResource CustomButtonGrid}">
         <StackLayout>
           <Frame Style="{StaticResource CustomButtonFrame}" />
@@ -62,12 +68,12 @@
         <StackLayout>
           <Label  Style="{StaticResource CustomButtonLabel}"
                   Text="View Assessment"/>
-          <!--  <===== Edit the label -->
         </StackLayout>
       </Grid>
     </StackLayout>
-    
-    <!--
+  </StackLayout>
+  -->
+  <!--
     <Grid>
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="1*" />
@@ -91,7 +97,7 @@
     -->
 
 
-  </StackLayout>
-  
-  
+
+
+
 </ContentPage>
