@@ -17,7 +17,7 @@
                        Padding="5,0,5,5">
                   <StackLayout Orientation="Vertical" Padding="0">
                     <Label Text="{Binding Item}"
-                           FontSize="50"
+                           FontSize="25"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"/>
 

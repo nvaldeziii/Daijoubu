@@ -15,30 +15,44 @@ namespace Daijoubu.AppPages
         {
             InitializeComponent();
 
-            btn_multiple.GestureRecognizers.Add(new TapGestureRecognizer
+            btn_multiple.Clicked += (o, e) =>
             {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Vocabulary));
-                })
-            });
+                Navigation.PushAsync(new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Vocabulary));
+            };
+            btn_reading.Clicked += (o, e) =>
+            {
+                Navigation.PushAsync(new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Vocabulary, true));
+            };
+            btn_grammar.Clicked += (o, e) =>
+            {
+                Navigation.PushAsync(new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Meaning));
+            };
+
+            /////////////////////////////////////////////////////////////////////////////////
+            //btn_multiple.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Vocabulary));
+            //    })
+            //});
                 
 
-            btn_reading.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Vocabulary,true));
-                })
-            });
+            //btn_reading.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Vocabulary,true));
+            //    })
+            //});
 
-            btn_grammar.GestureRecognizers.Add(new TapGestureRecognizer
-            {
-                Command = new Command(() =>
-                {
-                    Navigation.PushAsync(new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Meaning));
-                })
-            });
+            //btn_grammar.GestureRecognizers.Add(new TapGestureRecognizer
+            //{
+            //    Command = new Command(() =>
+            //    {
+            //        Navigation.PushAsync(new QuizPages.MultipleChoicePageN4(Categories.MultipleChoiceCategory.Meaning));
+            //    })
+            //});
         }
     }
 }
