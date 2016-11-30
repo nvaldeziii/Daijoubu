@@ -107,8 +107,8 @@ namespace Daijoubu.AppPages.QuizPages
             System.Random rnd = new System.Random();
             var numbers = Enumerable.Range(0, 4).OrderBy(r => rnd.Next()).ToArray();
 
-            btn_choice1.Text = choices[numbers[0]];
-            btn_choice2.Text = choices[numbers[1]];
+            btn_choice1.Text = choices[numbers[1]];
+            btn_choice2.Text = choices[numbers[0]];
             btn_choice3.Text = choices[numbers[2]];
             btn_choice4.Text = choices[numbers[3]];
         }

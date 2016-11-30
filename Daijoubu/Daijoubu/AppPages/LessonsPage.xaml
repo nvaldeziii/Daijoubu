@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daijoubu.AppPages.LessonsPage"
+             Title="Lessons"
+             Style="{StaticResource TypicalContentPage}">
+
+  <Grid>
+    <Button Text="Hiragana"
+            x:Name="btn_hiragana_lessons"
+            Style="{StaticResource SideMenuButtons}"
+            Grid.Row="0"/>
+    <Button Text="Katakana"
+            x:Name="btn_katakana_lessons"
+            Style="{StaticResource SideMenuButtons}"
+            Grid.Row="1"/>
+    <Button Text="N5 Vocabulary"
+            x:Name="btn_n5vocab_lessons"
+            Style="{StaticResource SideMenuButtons}"
+            Grid.Row="2"/>
+    <Button Text="N4 Vocabulary"
+            x:Name="btn_n4vocab_lessons"
+            Style="{StaticResource SideMenuButtons}"
+            Grid.Row="3"/>
+    <Button Text="N4 Sentences"
+            x:Name="btn_n4grammar_lessons"
+            Style="{StaticResource SideMenuButtons}"
+            Grid.Row="4"/>
+  </Grid>
+  
+</ContentPage>

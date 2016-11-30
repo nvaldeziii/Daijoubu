@@ -31,31 +31,32 @@ namespace Daijoubu
             
             SideMenuButton_Profile.Clicked += (o, e) =>
             {
-                var page = new AppPages.ProfilePage();
-                Navigation.PushAsync(page);
+                Navigation.PushAsync(new AppPages.ProfilePage());
+            };
+
+            SideMenuButton_Lessons.Clicked += (o, e) =>
+            {
+                Navigation.PushAsync(new AppPages.LessonsPage());
             };
 
             SideMenuButton_Settings.Clicked += (o, e) =>
             {
-                var page = new AppPages.SettingsPage();
-                Navigation.PushAsync(page);
+                Navigation.PushAsync(new AppPages.SettingsPage());
             };
 
             SideMenuButton_About.Clicked += (o, e) =>
             {
-                var page = new AppPages.AboutPage();
-                Navigation.PushAsync(page);
+                Navigation.PushAsync(new AppPages.AboutPage());
             };
 
             SideMenuButton_Quiz.Clicked += (o, e) =>
             {
-                var page = new AppPages.QuizPage();
-                Navigation.PushAsync(page);
+                Navigation.PushAsync(new AppPages.QuizPage());
             };
 
-            SideMenuButton_QuizN4.Clicked += (o, e) => {
-                var page = new AppPages.QuizPageN4();
-                Navigation.PushAsync(page);
+            SideMenuButton_QuizN4.Clicked += (o, e) => 
+            {
+                Navigation.PushAsync(new AppPages.QuizPageN4());
             };
 
         }
