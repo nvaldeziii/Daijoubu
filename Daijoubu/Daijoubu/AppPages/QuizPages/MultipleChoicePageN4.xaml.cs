@@ -38,6 +38,7 @@ namespace Daijoubu.AppPages.QuizPages
             btn_choice2.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
             btn_choice3.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
             btn_choice4.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
+
             EnableInterfaces(false);
             random = new Random();
             QuizCategory = category;

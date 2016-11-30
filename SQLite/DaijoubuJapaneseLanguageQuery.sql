@@ -35,6 +35,17 @@ create table tbl_kana(
 	katakana varchar(9),
 	romaji varchar(9)
 );
+
+create table tbl_lesson_hiragana(
+	Id INTEGER PRIMARY KEY AUTOINCREMENT,
+	example varchar(256),
+	sound varchar(256),
+	mnemonic varchar(256)
+);
+
+-- tbl_lesson_hiragana
+insert into tbl_lesson_hiragana (Id,example,sound,mnemonic) values (null,"あお (ao) blue","*a* as in alright","It's an apple. First you draw the leaves on the stem, then you draw the stem down into the apple, and then you draw the round fruit.The t shape is the person and its being wrapped by a snake saying *aaah*");
+
 -- tbl_vocabulary_N5
 insert into tbl_vocabulary_N5 (Id,furigana,kanji,meaning) values (null,"ああ","ああ","Ah");
 insert into tbl_vocabulary_N5 (Id,furigana,kanji,meaning) values (null,"あう","会う","to meet");

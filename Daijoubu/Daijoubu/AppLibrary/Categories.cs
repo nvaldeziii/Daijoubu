@@ -10,5 +10,7 @@ namespace Daijoubu.AppLibrary
     {
         public enum MultipleChoiceCategory { Hiragana, Katakana, Vocabulary, Meaning }
         public enum GeneralType { Hiragana, Katakana, Kanji, Vocabulary, Grammar}
+
+        public enum Lessons { Hiragana,Katakana, VocabularyN4, VocabularyN5, SentencesN4}
     }
 }
