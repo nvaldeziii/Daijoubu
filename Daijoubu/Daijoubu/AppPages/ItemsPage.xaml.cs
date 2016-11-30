@@ -142,10 +142,24 @@ namespace Daijoubu.AppPages
                 case AppLibrary.Categories.Lessons.Hiragana:
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToUpper()
                         : AppModel.JapaneseDatabase.Table_Kana[CurrentItem].hiragana;
+
+                    frame_info.IsVisible = Toogle && AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].example != "";
+
+                    label_info.Text = string.Format("Sound: \n{0} \n\n Mnemonic: \n{1} \n\n Example: \n{2}"
+                        , AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].sound
+                        ,AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].mnemonic
+                        ,AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].example);
+
                     break;
                 case AppLibrary.Categories.Lessons.Katakana:
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToUpper()
                         : AppModel.JapaneseDatabase.Table_Kana[CurrentItem].katakana;
+
+                    frame_info.IsVisible = Toogle && AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].example != "";
+                    label_info.Text = string.Format("Sound: {0} \n\n Mnemonic: {1} \n\n Example: {2}"
+                        , AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].sound
+                        , AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].mnemonic
+                        , AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].example);
                     break;
                 case AppLibrary.Categories.Lessons.VocabularyN5:
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Vocabulary_N5[CurrentItem].furigana

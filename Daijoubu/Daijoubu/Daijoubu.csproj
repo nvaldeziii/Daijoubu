@@ -55,6 +55,7 @@
     <Compile Include="AppModel\lv_binding_hp_notifications.cs" />
     <Compile Include="AppModel\tbl_grammar.cs" />
     <Compile Include="AppModel\tbl_kana.cs" />
+    <Compile Include="AppModel\tbl_lessons_kana.cs" />
     <Compile Include="AppModel\tbl_user_card_data.cs" />
     <Compile Include="AppModel\tbl_user_settings.cs" />
     <Compile Include="AppModel\tbl_vocabulary.cs" />
