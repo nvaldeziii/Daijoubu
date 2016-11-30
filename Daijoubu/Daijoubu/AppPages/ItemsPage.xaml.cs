@@ -30,18 +30,23 @@ namespace Daijoubu.AppPages
             {
                 case AppLibrary.Categories.Lessons.Hiragana:
                     MaxItem = AppModel.JapaneseDatabase.Table_Kana.Count;
+                    this.Title = "Hiragana Lessons";
                     break;
                 case AppLibrary.Categories.Lessons.Katakana:
                     MaxItem = AppModel.JapaneseDatabase.Table_Kana.Count;
+                    this.Title = "Katakana Lessons";
                     break;
                 case AppLibrary.Categories.Lessons.VocabularyN5:
                     MaxItem = AppModel.JapaneseDatabase.Table_Vocabulary_N5.Count;
+                    this.Title = "N5 Vocabulary Lessons";
                     break;
                 case AppLibrary.Categories.Lessons.VocabularyN4:
                     MaxItem = AppModel.JapaneseDatabase.Table_Vocabulary_N4.Count;
+                    this.Title = "N4 Vocabulary Lessons";
                     break;
                 case AppLibrary.Categories.Lessons.SentencesN4:
                     MaxItem = AppModel.JapaneseDatabase.Table_Grammar_N4.Count;
+                    this.Title = "N4 Sentences";
                     break;
                 default:
                     MaxItem = 1;
