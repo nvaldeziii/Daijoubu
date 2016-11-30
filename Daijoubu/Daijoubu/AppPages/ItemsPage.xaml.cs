@@ -31,6 +31,18 @@ namespace Daijoubu.AppPages
                 case AppLibrary.Categories.Lessons.Hiragana:
                     MaxItem = AppModel.JapaneseDatabase.Table_Kana.Count;
                     break;
+                case AppLibrary.Categories.Lessons.Katakana:
+                    MaxItem = AppModel.JapaneseDatabase.Table_Kana.Count;
+                    break;
+                case AppLibrary.Categories.Lessons.VocabularyN5:
+                    MaxItem = AppModel.JapaneseDatabase.Table_Vocabulary_N5.Count;
+                    break;
+                case AppLibrary.Categories.Lessons.VocabularyN4:
+                    MaxItem = AppModel.JapaneseDatabase.Table_Vocabulary_N4.Count;
+                    break;
+                case AppLibrary.Categories.Lessons.SentencesN4:
+                    MaxItem = AppModel.JapaneseDatabase.Table_Grammar_N4.Count;
+                    break;
                 default:
                     MaxItem = 1;
                     break;
@@ -91,6 +103,22 @@ namespace Daijoubu.AppPages
                     label_question.Text = AppModel.JapaneseDatabase.Table_Kana[CurrentItem].hiragana;
                     LessonProgress.Hiragana = CurrentItem;
                     break;
+                case AppLibrary.Categories.Lessons.Katakana:
+                    label_question.Text = AppModel.JapaneseDatabase.Table_Kana[CurrentItem].katakana;
+                    LessonProgress.Katakana = CurrentItem;
+                    break;
+                case AppLibrary.Categories.Lessons.VocabularyN5:
+                    label_question.Text = AppModel.JapaneseDatabase.Table_Vocabulary_N5[CurrentItem].kanji;
+                    LessonProgress.VocabularyN5 = CurrentItem;
+                    break;
+                case AppLibrary.Categories.Lessons.VocabularyN4:
+                    label_question.Text = AppModel.JapaneseDatabase.Table_Vocabulary_N4[CurrentItem].kanji;
+                    LessonProgress.VocabularyN4 = CurrentItem;
+                    break;
+                case AppLibrary.Categories.Lessons.SentencesN4:
+                    label_question.Text = AppModel.JapaneseDatabase.Table_Grammar_N4[CurrentItem].sentence_jp;
+                    LessonProgress.GrammarN4 = CurrentItem;
+                    break;
                 default:
                     break;
             }
@@ -109,6 +137,28 @@ namespace Daijoubu.AppPages
                 case AppLibrary.Categories.Lessons.Hiragana:
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToUpper()
                         : AppModel.JapaneseDatabase.Table_Kana[CurrentItem].hiragana;
+                    break;
+                case AppLibrary.Categories.Lessons.Katakana:
+                    label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToUpper()
+                        : AppModel.JapaneseDatabase.Table_Kana[CurrentItem].katakana;
+                    break;
+                case AppLibrary.Categories.Lessons.VocabularyN5:
+                    label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Vocabulary_N5[CurrentItem].furigana
+                        : AppModel.JapaneseDatabase.Table_Vocabulary_N5[CurrentItem].kanji;
+                    frame_info.IsVisible = Toogle;
+                    label_info.Text = AppModel.JapaneseDatabase.Table_Vocabulary_N5[CurrentItem].meaning.Replace('_', ' ');
+                    break;
+                case AppLibrary.Categories.Lessons.VocabularyN4:
+                    label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Vocabulary_N4[CurrentItem].furigana
+                        : AppModel.JapaneseDatabase.Table_Vocabulary_N5[CurrentItem].kanji;
+                    frame_info.IsVisible = Toogle;
+                    label_info.Text = AppModel.JapaneseDatabase.Table_Vocabulary_N4[CurrentItem].meaning.Replace('_', ' ');
+                    break;
+                case AppLibrary.Categories.Lessons.SentencesN4:
+                    label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Grammar_N4[CurrentItem].sentence_jp
+                        : AppModel.JapaneseDatabase.Table_Grammar_N4[CurrentItem].sentence_en.Replace('_', ' ');
+                    frame_info.IsVisible = Toogle;
+                    label_info.Text = AppModel.JapaneseDatabase.Table_Grammar_N4[CurrentItem].sentence_fu;
                     break;
                 default:
                     break;

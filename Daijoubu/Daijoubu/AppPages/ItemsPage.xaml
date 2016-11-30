@@ -16,7 +16,8 @@
 
     <Frame  x:Name="frame_info"
             IsVisible="False"
-            Style="{StaticResource QuestionCardOuterFrame}">
+            Style="{StaticResource QuestionCardOuterFrame}"
+            Margin="15,0,15,15">
       <Frame Style="{StaticResource QuestionCardInnerFrame}">
         <Label x:Name="label_info"
              Text="Getting Ready ..."

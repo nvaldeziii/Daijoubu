@@ -137,7 +137,11 @@ namespace Daijoubu
             {
                 return Convert.ToInt32(UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_katakana")].info);
             }
-            set { DatabaseManipulator.UpdateUserConfig("lesson_prog_katakana", value.ToString()); }
+            set
+            {
+                DatabaseManipulator.UpdateUserConfig("lesson_prog_katakana", value.ToString());
+                UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_katakana")].info = value.ToString();
+            }
         }
 
         public static int VocabularyN5
@@ -146,7 +150,11 @@ namespace Daijoubu
             {
                 return Convert.ToInt32(UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_n5vocab")].info);
             }
-            set { DatabaseManipulator.UpdateUserConfig("lesson_prog_n5vocab", value.ToString()); }
+            set
+            {
+                DatabaseManipulator.UpdateUserConfig("lesson_prog_n5vocab", value.ToString());
+                UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_n5vocab")].info = value.ToString();
+            }
         }
 
         public static int VocabularyN4
@@ -155,16 +163,24 @@ namespace Daijoubu
             {
                 return Convert.ToInt32(UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_n4vocab")].info);
             }
-            set { DatabaseManipulator.UpdateUserConfig("lesson_prog_n4vocab", value.ToString()); }
+            set
+            {
+                DatabaseManipulator.UpdateUserConfig("lesson_prog_n4vocab", value.ToString());
+                UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_n4vocab")].info = value.ToString();
+            }
         }
 
-        public static int Grammar
+        public static int GrammarN4
         {
             get
             {
                 return Convert.ToInt32(UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_n4grammar")].info);
             }
-            set { DatabaseManipulator.UpdateUserConfig("lesson_prog_n4grammar", value.ToString()); }
+            set
+            {
+                DatabaseManipulator.UpdateUserConfig("lesson_prog_n4grammar", value.ToString());
+                UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_n4grammar")].info = value.ToString();
+            }
         }
 
     }
