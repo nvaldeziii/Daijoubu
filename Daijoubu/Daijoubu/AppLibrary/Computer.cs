@@ -271,6 +271,15 @@ namespace Daijoubu.AppLibrary
         {
             string greeting = "";
             List<string> possible_greetings = new List<string>();
+            possible_greetings.Add("継続は力なり");
+            possible_greetings.Add("早起きは三文の徳");
+
+            possible_greetings.Add("本末転倒");
+            possible_greetings.Add("早い者勝ち");
+            possible_greetings.Add("愚公山を移す");
+            possible_greetings.Add("井戸の中の独言も三年たてば知れる");
+            possible_greetings.Add("亀の甲より年の功");
+
             possible_greetings.Add("進み続けてさえいれば、遅くとも関係ない。");
             possible_greetings.Add("この世界の内に望む変化に、あなた自身が成ってみせなさい。");
             possible_greetings.Add("きっと成功してみせる、と決心する事が何よりも重要だ。");
@@ -299,6 +308,13 @@ namespace Daijoubu.AppLibrary
             }
 
             List<string> possible_greetings = new List<string>();
+            possible_greetings.Add("早起きは三文の徳");
+            possible_greetings.Add("継続は力なり");
+            possible_greetings.Add("本末転倒");
+            possible_greetings.Add("早い者勝ち");
+            possible_greetings.Add("愚公山を移す");
+            possible_greetings.Add("井戸の中の独言も三年たてば知れる");
+            possible_greetings.Add("亀の甲より年の功");
             possible_greetings.Add("べんきょうしましょう！"); //benkyou shimashou
             possible_greetings.Add("お元気ですか？"); //ogenki desu ka
             possible_greetings.Add("がんばってね！"); //ganbatte ne

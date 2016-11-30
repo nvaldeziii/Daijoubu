@@ -17,7 +17,7 @@ namespace Daijoubu.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             base.OnCreate(bundle);
-            Window.SetStatusBarColor(Android.Graphics.Color.Rgb(25, 41, 59));
+            //Window.SetStatusBarColor(Android.Graphics.Color.Rgb(25, 41, 59));
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
         }

@@ -55,12 +55,19 @@
     <Compile Include="AppModel\lv_binding_hp_notifications.cs" />
     <Compile Include="AppModel\tbl_grammar.cs" />
     <Compile Include="AppModel\tbl_kana.cs" />
+    <Compile Include="AppModel\tbl_lessons_kana.cs" />
     <Compile Include="AppModel\tbl_user_card_data.cs" />
     <Compile Include="AppModel\tbl_user_settings.cs" />
     <Compile Include="AppModel\tbl_vocabulary.cs" />
     <Compile Include="AppModel\UserDatabase.cs" />
     <Compile Include="AppPages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\ItemsPage.xaml.cs">
+      <DependentUpon>ItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\LessonsPage.xaml.cs">
+      <DependentUpon>LessonsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppPages\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
@@ -294,6 +301,18 @@
   <ItemGroup>
     <EmbeddedResource Include="SideMenuItems.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppPages\LessonsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppPages\ItemsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
