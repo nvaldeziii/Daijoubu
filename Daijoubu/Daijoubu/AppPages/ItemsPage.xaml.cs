@@ -96,7 +96,7 @@ namespace Daijoubu.AppPages
             label_question.Text = "";
             label_info.Text = "";
             Toogle = false;
-
+            label_question.TextColor = Color.Default;
             switch (Category)
             {
                 case AppLibrary.Categories.Lessons.Hiragana:
@@ -116,7 +116,7 @@ namespace Daijoubu.AppPages
                     LessonProgress.VocabularyN4 = CurrentItem;
                     break;
                 case AppLibrary.Categories.Lessons.SentencesN4:
-                    label_question.Text = AppModel.JapaneseDatabase.Table_Grammar_N4[CurrentItem].sentence_jp;
+                    label_question.Text = AppModel.JapaneseDatabase.Table_Grammar_N4[CurrentItem].sentence_jp.Replace('_', ' ');
                     LessonProgress.GrammarN4 = CurrentItem;
                     break;
                 default:
@@ -150,7 +150,7 @@ namespace Daijoubu.AppPages
                     break;
                 case AppLibrary.Categories.Lessons.VocabularyN4:
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Vocabulary_N4[CurrentItem].furigana
-                        : AppModel.JapaneseDatabase.Table_Vocabulary_N5[CurrentItem].kanji;
+                        : AppModel.JapaneseDatabase.Table_Vocabulary_N4[CurrentItem].kanji;
                     frame_info.IsVisible = Toogle;
                     label_info.Text = AppModel.JapaneseDatabase.Table_Vocabulary_N4[CurrentItem].meaning.Replace('_', ' ');
                     break;
@@ -162,6 +162,7 @@ namespace Daijoubu.AppPages
                 default:
                     break;
             }
+            FontChanger();
         }
 
         public void NextItem(bool next)
