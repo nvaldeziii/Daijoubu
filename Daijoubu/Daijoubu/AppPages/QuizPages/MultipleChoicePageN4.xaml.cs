@@ -38,6 +38,7 @@ namespace Daijoubu.AppPages.QuizPages
             btn_choice2.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
             btn_choice3.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
             btn_choice4.MinimumHeightRequest = Device.GetNamedSize(NamedSize.Large, typeof(Button)) * Settings.FontSizeMultiplier;
+
             EnableInterfaces(false);
             random = new Random();
             QuizCategory = category;
@@ -104,12 +105,13 @@ namespace Daijoubu.AppPages.QuizPages
 
         public void GenerateChoices(string[] choices)
         {
-            choices = choices.OrderBy(x => new Random().Next()).ToArray();
+            System.Random rnd = new System.Random();
+            var numbers = Enumerable.Range(0, 4).OrderBy(r => rnd.Next()).ToArray();
 
-            btn_choice1.Text = choices[0];
-            btn_choice2.Text = choices[1];
-            btn_choice3.Text = choices[2];
-            btn_choice4.Text = choices[3];
+            btn_choice1.Text = choices[numbers[1]];
+            btn_choice2.Text = choices[numbers[0]];
+            btn_choice3.Text = choices[numbers[2]];
+            btn_choice4.Text = choices[numbers[3]];
         }
 
         public bool GenerateQuestion(MultipleChoiceCategory category)
@@ -119,8 +121,10 @@ namespace Daijoubu.AppPages.QuizPages
             Queue<Card> TMPQueueHolder;
 
             //remove labels
-            lbl_meaning.Text = lbl_furigana.Text = "";
-            lbl_meaning.IsVisible = lbl_furigana.IsVisible = false;
+            lbl_meaning.Text = "";
+            //lbl_furigana.Text = "";
+            lbl_meaning.IsVisible  = false;
+            //lbl_furigana.IsVisible = false;
 
             if (category == MultipleChoiceCategory.Vocabulary)
             {
@@ -170,9 +174,10 @@ namespace Daijoubu.AppPages.QuizPages
             //generate meaning and furigana
             if (category == MultipleChoiceCategory.Meaning)
             {
-                lbl_meaning.IsVisible = lbl_furigana.IsVisible = true;
-                lbl_meaning.Text = JapaneseDatabase.Table_Grammar_N4[QuestionFactory.QuestionID - 1].sentence_en;
-                lbl_furigana.Text = JapaneseDatabase.Table_Grammar_N4[QuestionFactory.QuestionID - 1].sentence_fu;
+                lbl_meaning.IsVisible = true;
+                //lbl_furigana.IsVisible = true;
+                lbl_meaning.Text = "T: " + JapaneseDatabase.Table_Grammar_N4[QuestionFactory.QuestionID - 1].sentence_en.Replace('_',' ');
+                //lbl_furigana.Text = JapaneseDatabase.Table_Grammar_N4[QuestionFactory.QuestionID - 1].sentence_fu;
             }
 
                 label_question.Text = QuestionFactory.Question;

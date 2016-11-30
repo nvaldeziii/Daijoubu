@@ -116,6 +116,75 @@ namespace Daijoubu
         }
     }
 
+    public static class LessonProgress
+    {
+        public static int Hiragana
+        {
+            get
+            {
+                return Convert.ToInt32(UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_hiragana")].info);
+            }
+            set
+            {
+                DatabaseManipulator.UpdateUserConfig("lesson_prog_hiragana", value.ToString());
+                UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_hiragana")].info = value.ToString();
+            }
+        }
+
+        public static int Katakana
+        {
+            get
+            {
+                return Convert.ToInt32(UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_katakana")].info);
+            }
+            set
+            {
+                DatabaseManipulator.UpdateUserConfig("lesson_prog_katakana", value.ToString());
+                UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_katakana")].info = value.ToString();
+            }
+        }
+
+        public static int VocabularyN5
+        {
+            get
+            {
+                return Convert.ToInt32(UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_n5vocab")].info);
+            }
+            set
+            {
+                DatabaseManipulator.UpdateUserConfig("lesson_prog_n5vocab", value.ToString());
+                UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_n5vocab")].info = value.ToString();
+            }
+        }
+
+        public static int VocabularyN4
+        {
+            get
+            {
+                return Convert.ToInt32(UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_n4vocab")].info);
+            }
+            set
+            {
+                DatabaseManipulator.UpdateUserConfig("lesson_prog_n4vocab", value.ToString());
+                UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_n4vocab")].info = value.ToString();
+            }
+        }
+
+        public static int GrammarN4
+        {
+            get
+            {
+                return Convert.ToInt32(UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_n4grammar")].info);
+            }
+            set
+            {
+                DatabaseManipulator.UpdateUserConfig("lesson_prog_n4grammar", value.ToString());
+                UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_n4grammar")].info = value.ToString();
+            }
+        }
+
+    }
+
     public static class SRSsettings
     {
         public static double PercentageMultiplier = 26.6667;

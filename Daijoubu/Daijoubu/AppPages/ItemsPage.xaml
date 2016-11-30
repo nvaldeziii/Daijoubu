@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Daijoubu.AppPages.ItemsPage"
+             Title="Lesson"
+             Style="{StaticResource TypicalContentPage}">
+  <ScrollView>
+    <StackLayout>
+
+      <Frame Style="{StaticResource QuestionCardOuterFrame}">
+        <Frame Style="{StaticResource QuestionCardInnerFrame}">
+          <Label x:Name="label_question"
+               Text="Getting Ready ..."
+               Style="{StaticResource SingleQuestionLabel}" />
+        </Frame>
+      </Frame>
+
+      <Frame  x:Name="frame_info"
+              IsVisible="False"
+              Style="{StaticResource QuestionCardOuterFrame}"
+              Margin="15,0,15,15">
+        <Frame Style="{StaticResource QuestionCardInnerFrame}">
+          <Label x:Name="label_info"
+               Text="Getting Ready ..."
+               Style="{StaticResource SingleQuestionLabel}"
+               FontSize="Small"/>
+        </Frame>
+      </Frame>
+
+      <Button x:Name="btn_listen"
+              Text="Listen" />
+      <Button x:Name="btn_meaning"
+              Text="Toggle meaning" />
+
+      <Grid>
+        <Button x:Name="btn_prev"
+                Text="Prev"
+                Grid.Column="0"/>
+        <Button x:Name="btn_next"
+                Text="Next"
+                Grid.Column="1"/>
+      </Grid>
+
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

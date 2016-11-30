@@ -50,8 +50,9 @@
             <StackLayout>
               <Label Text="Special Thanks:" />
               <Label Text="     Mary Jane Samonte"  />
-              <Label Text="     Mika Kawasaki"  />
               <Label Text="     Nida Maramara" />
+              <Label Text="     Paolo 'Jabito' Javier" />
+              <Label Text="     Mika Kawasaki"  />
               <Label Text="     Gonzalo Gumogda" />
             </StackLayout>
           </Frame>
