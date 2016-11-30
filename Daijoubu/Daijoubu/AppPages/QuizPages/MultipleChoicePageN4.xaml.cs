@@ -175,7 +175,7 @@ namespace Daijoubu.AppPages.QuizPages
             {
                 lbl_meaning.IsVisible = true;
                 //lbl_furigana.IsVisible = true;
-                lbl_meaning.Text = JapaneseDatabase.Table_Grammar_N4[QuestionFactory.QuestionID - 1].sentence_en;
+                lbl_meaning.Text = "T: " + JapaneseDatabase.Table_Grammar_N4[QuestionFactory.QuestionID - 1].sentence_en.Replace('_',' ');
                 //lbl_furigana.Text = JapaneseDatabase.Table_Grammar_N4[QuestionFactory.QuestionID - 1].sentence_fu;
             }
 

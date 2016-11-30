@@ -19,7 +19,8 @@
     </Frame>
     <!--<Label x:Name="lbl_furigana" /> -->
     <Label x:Name="lbl_meaning" 
-           FontSize="Small"/>
+           FontSize="Small"
+           Margin="10,0,0,0"/>
     <Grid VerticalOptions="FillAndExpand">
       <Frame Style="{StaticResource AnswerButtonFrame}"
              Grid.Column="0">
