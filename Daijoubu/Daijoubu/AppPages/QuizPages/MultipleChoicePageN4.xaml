@@ -17,7 +17,9 @@
              Style="{StaticResource SingleQuestionLabel}" />
       </Frame>
     </Frame>
-
+    <!--<Label x:Name="lbl_furigana" /> -->
+    <Label x:Name="lbl_meaning" 
+           FontSize="Small"/>
     <Grid VerticalOptions="FillAndExpand">
       <Frame Style="{StaticResource AnswerButtonFrame}"
              Grid.Column="0">
@@ -33,9 +35,7 @@
                 Text="*"
                 Style="{StaticResource MultipleChoiceButtonStyle}"/>
       </Frame>
-    </Grid>
-    <Label x:Name="lbl_furigana" />
-    <Label x:Name="lbl_meaning" />
+    </Grid>  
     <Grid VerticalOptions="FillAndExpand">
 
       <Frame Style="{StaticResource AnswerButtonFrame}"

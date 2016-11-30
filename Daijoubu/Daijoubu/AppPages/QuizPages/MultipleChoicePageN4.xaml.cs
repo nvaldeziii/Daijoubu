@@ -120,8 +120,10 @@ namespace Daijoubu.AppPages.QuizPages
             Queue<Card> TMPQueueHolder;
 
             //remove labels
-            lbl_meaning.Text = lbl_furigana.Text = "";
-            lbl_meaning.IsVisible = lbl_furigana.IsVisible = false;
+            lbl_meaning.Text = "";
+            //lbl_furigana.Text = "";
+            lbl_meaning.IsVisible  = false;
+            //lbl_furigana.IsVisible = false;
 
             if (category == MultipleChoiceCategory.Vocabulary)
             {
@@ -171,9 +173,10 @@ namespace Daijoubu.AppPages.QuizPages
             //generate meaning and furigana
             if (category == MultipleChoiceCategory.Meaning)
             {
-                lbl_meaning.IsVisible = lbl_furigana.IsVisible = true;
+                lbl_meaning.IsVisible = true;
+                //lbl_furigana.IsVisible = true;
                 lbl_meaning.Text = JapaneseDatabase.Table_Grammar_N4[QuestionFactory.QuestionID - 1].sentence_en;
-                lbl_furigana.Text = JapaneseDatabase.Table_Grammar_N4[QuestionFactory.QuestionID - 1].sentence_fu;
+                //lbl_furigana.Text = JapaneseDatabase.Table_Grammar_N4[QuestionFactory.QuestionID - 1].sentence_fu;
             }
 
                 label_question.Text = QuestionFactory.Question;
