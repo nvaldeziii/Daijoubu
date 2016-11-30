@@ -124,7 +124,11 @@ namespace Daijoubu
             {
                 return Convert.ToInt32(UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_hiragana")].info);
             }
-            set { DatabaseManipulator.UpdateUserConfig("lesson_prog_hiragana", value.ToString()); }
+            set
+            {
+                DatabaseManipulator.UpdateUserConfig("lesson_prog_hiragana", value.ToString());
+                UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_hiragana")].info = value.ToString();
+            }
         }
 
         public static int Katakana
