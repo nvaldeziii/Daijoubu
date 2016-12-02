@@ -25,7 +25,8 @@
             AutomationId="auto_SideMenuButton_Lessons"
             Style="{StaticResource SideMenuButtons}"
             Grid.Row="1"
-            Grid.Column="0"/>
+            Grid.Column="0"
+            Image="@drawable/lesson_logo" />
     <Button Text="JLPT N5 Module"
             x:Name="SideMenuButton_Quiz"
             AutomationId="auto_SideMenuButton_Quiz"
