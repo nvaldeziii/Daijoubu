@@ -11,7 +11,7 @@ namespace Daijoubu.Droid.Dependencies
 
     public class BaseURLImplementation : IBaseUrl
     {
-        string IBaseUrl.Get()
+        public string Get()
         {
             return "file:///android_asset/";
         }

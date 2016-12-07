@@ -7,6 +7,8 @@
   <ScrollView>
     <StackLayout>
 
+
+
       <Frame Style="{StaticResource QuestionCardOuterFrame}">
         <StackLayout>
           <Frame Style="{StaticResource QuestionCardInnerFrame}">
@@ -14,26 +16,21 @@
                  Text="Getting Ready ..."
                  Style="{StaticResource SingleQuestionLabel}" />
           </Frame>
-          
-          <!-- 
+
           <Frame x:Name="frame_gif"
-                           Style="{StaticResource QuestionCardInnerFrame}">
-            <StackLayout>
-              <Label Text="Gif is here" />
-                <WebView x:Name="webview_gif"
-                         HorizontalOptions="FillAndExpand"
-                         VerticalOptions="FillAndExpand"/>
-                <Label Text="Gif is here" /> 
-            </StackLayout>
+               Style="{StaticResource QuestionCardInnerFrame}">
+              <WebView x:Name="webview_gif"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="FillAndExpand"/>
           </Frame>
-          -->
+          
           <Button x:Name="btn_listen"
                   Margin="0,10,0,0"
                   Text="Listen" />
         </StackLayout>
       </Frame>
 
-      
+
 
       <Frame  x:Name="frame_info"
               IsVisible="False"
@@ -45,11 +42,11 @@
                  Margin="0"
                  x:Name="frame_info_sub">
             <StackLayout>
-            <Label x:Name="label_info_head" />
-            <Label x:Name="label_info"
-                 Text="Getting Ready ..."
-                 Style="{StaticResource SingleQuestionLabel}"
-                 FontSize="Small"/>
+              <Label x:Name="label_info_head" />
+              <Label x:Name="label_info"
+                   Text="Getting Ready ..."
+                   Style="{StaticResource SingleQuestionLabel}"
+                   FontSize="Small"/>
             </StackLayout>
           </Frame>
           <!-- ######################################################## -->
@@ -58,12 +55,12 @@
                  x:Name="frame_info_sub1"
                  IsVisible="False">
             <StackLayout>
-            <Label x:Name="label_info1_head" />
-            <Label x:Name="label_info1"
-                 Text="Getting Ready ..."
-                 Style="{StaticResource SingleQuestionLabel}"
-                 FontSize="Small"/>
-          </StackLayout>
+              <Label x:Name="label_info1_head" />
+              <Label x:Name="label_info1"
+                   Text="Getting Ready ..."
+                   Style="{StaticResource SingleQuestionLabel}"
+                   FontSize="Small"/>
+            </StackLayout>
           </Frame>
           <!-- ######################################################## -->
           <Frame Style="{StaticResource QuestionCardInnerFrame}"
@@ -71,12 +68,12 @@
                  x:Name="frame_info_sub2"
                  IsVisible="False">
             <StackLayout>
-            <Label x:Name="label_info2_head" />
-            <Label x:Name="label_info2"
-                 Text="Getting Ready ..."
-                 Style="{StaticResource SingleQuestionLabel}"
-                 FontSize="Small"/>
-          </StackLayout>
+              <Label x:Name="label_info2_head" />
+              <Label x:Name="label_info2"
+                   Text="Getting Ready ..."
+                   Style="{StaticResource SingleQuestionLabel}"
+                   FontSize="Small"/>
+            </StackLayout>
           </Frame>
           <!-- ######################################################## -->
           <Frame Style="{StaticResource QuestionCardInnerFrame}"
@@ -84,11 +81,11 @@
                  x:Name="frame_info_sub3"
                  IsVisible="False">
             <StackLayout>
-            <Label x:Name="label_info3_head" />
-            <Label x:Name="label_info3"
-                 Text="Getting Ready ..."
-                 Style="{StaticResource SingleQuestionLabel}"
-                 FontSize="Small"/>
+              <Label x:Name="label_info3_head" />
+              <Label x:Name="label_info3"
+                   Text="Getting Ready ..."
+                   Style="{StaticResource SingleQuestionLabel}"
+                   FontSize="Small"/>
             </StackLayout>
           </Frame>
           <!-- ######################################################## -->

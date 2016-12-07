@@ -295,7 +295,7 @@ namespace Daijoubu.AppLibrary
         public static string ApplicationInitialGreeting()
         {
             string greeting = "";
-            string greeting_en = "";
+           // string greeting_en = "";
             var hours = DateTime.Now.Hour;
             if (hours > 16)
             {
@@ -367,24 +367,20 @@ namespace Daijoubu.AppLibrary
 
             string html2 = @"<html>
 	                            <body>
-		                            <img src='{0}'>
+                                    <p>Stroke Order: </p>
+		                            <img src=""{0}"">
                                 </body >
                             </html> ";
             
             return string.Format(html2,x);
         }
 
-        public static HtmlWebViewSource GIF_WebView()
+        public static HtmlWebViewSource GIF_WebView(string x)
         {
             var htmlSource = new HtmlWebViewSource();
             htmlSource.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
-
-            htmlSource.Html = @"<html>
-                            <body>
-                            <h1>Xamarin.Forms</h1>
-                            <p>The CSS and image are loaded from local files!</p>
-                            </body>
-                            </html>";
+            //htmlSource.BaseUrl = "file:///android_asset/";
+            htmlSource.Html = GIF_HTML(x);
 
             return htmlSource;
         }

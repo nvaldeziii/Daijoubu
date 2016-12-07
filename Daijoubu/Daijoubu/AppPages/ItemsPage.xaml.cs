@@ -22,7 +22,7 @@ namespace Daijoubu.AppPages
         public ItemsPage(AppLibrary.Categories.Lessons Category,int CurrentItem = 0)
         {
             InitializeComponent();
-            
+
             this.Category = Category;
             this.Setting = new Settings();
             
@@ -110,6 +110,8 @@ namespace Daijoubu.AppPages
             frame_info_sub1.IsVisible = false;
             frame_info_sub2.IsVisible = false;
             frame_info_sub3.IsVisible = false;
+
+            frame_gif.IsVisible = false;
             label_question.Text = "";
             label_info.Text = "";
             Toogle = false;
@@ -164,18 +166,13 @@ namespace Daijoubu.AppPages
                 case AppLibrary.Categories.Lessons.Hiragana:
 
                     frame_info_sub.IsVisible = true;// !Toogle;
-                    
-                    //webview_gif.IsVisible = true;
-                    frame_info_sub.IsVisible = true; //!Toogle;
 
-                    //var html = new HtmlWebViewSource();
-                    //html.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
-
-                    //html.Html = Computer.GIF_HTML("a.gif");
-                    //webview_gif.Source = Computer.GIF_WebView();
-
+                    label_question.IsVisible = !Toogle;
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToUpper()
                         : AppModel.JapaneseDatabase.Table_Kana[CurrentItem].hiragana;
+
+                    frame_gif.IsVisible = Toogle;
+                    webview_gif.Source = Computer.GIF_WebView(string.Format("{0}.gif", AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToLower()));
 
                     frame_info.IsVisible = Toogle && AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].example != "";
 
