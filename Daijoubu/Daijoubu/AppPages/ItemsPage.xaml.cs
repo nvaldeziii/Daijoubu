@@ -139,6 +139,7 @@ namespace Daijoubu.AppPages
                     LessonProgress.GrammarN4 = CurrentItem;
                     break;
                 case AppLibrary.Categories.Lessons.Introduction:
+                    label_question.IsVisible = true;
                     label_question.Text = AppModel.JapaneseDatabase.Table_Lesson_Introduction[CurrentItem].val1;
                     LessonProgress.Introduction = CurrentItem;
                     frame_info_sub.IsVisible = false;
