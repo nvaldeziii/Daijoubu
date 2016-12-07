@@ -16,7 +16,7 @@ namespace Daijoubu.AppPages
         {
             InitializeComponent();
 
-            label_version_info.Text = string.Format("Version: {0}", "1.1.0");
+            label_version_info.Text = string.Format("Version: {0}", "1.2.0");
         }
 
     }
