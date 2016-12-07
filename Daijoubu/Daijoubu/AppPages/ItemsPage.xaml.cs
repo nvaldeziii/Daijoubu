@@ -190,10 +190,14 @@ namespace Daijoubu.AppPages
 
                     break;
                 case AppLibrary.Categories.Lessons.Katakana:
+                    label_question.IsVisible = !Toogle;
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToUpper()
                         : AppModel.JapaneseDatabase.Table_Kana[CurrentItem].katakana;
 
                     frame_info.IsVisible = Toogle && AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].example != "";
+
+                    frame_gif.IsVisible = Toogle;
+                    webview_gif.Source = Computer.GIF_WebView(string.Format("katakana/{0}.gif", AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToLower()));
 
                     label_info_head.Text = "Sound: ";
                     label_info.Text = AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].sound;
