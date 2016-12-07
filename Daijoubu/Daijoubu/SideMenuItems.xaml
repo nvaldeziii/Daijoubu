@@ -14,7 +14,7 @@
 
     <!--<Button Text="Home" 
                  x:Name="SideMenuButton_Home"/>-->
-    <Button Text="Profile"
+    <Button Text="Achievement"
             x:Name="SideMenuButton_Profile"
             Style="{StaticResource SideMenuButtons}"
             Grid.Row="0"
