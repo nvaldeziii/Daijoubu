@@ -13,6 +13,7 @@ namespace Daijoubu.AppModel
 
         public static List<tbl_lesson_hiragana> Table_Lesson_Hiragana { get; set; }
         public static List<tbl_lesson_katakana> Table_Lesson_Katakana { get; set; }
+        public static List<tbl_lesson_introduction> Table_Lesson_Introduction { get; set; }
 
         public static readonly string HIRAGANA_ARRAY = "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわゐを";
     }

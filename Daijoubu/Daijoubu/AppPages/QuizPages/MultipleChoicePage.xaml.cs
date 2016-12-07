@@ -115,7 +115,8 @@ namespace Daijoubu.AppPages.QuizPages
             }
             else if (category == MultipleChoiceCategory.Katakana)
             {
-                nextnum = new Random().Next(0, 2) == 0 ? MultipleChoiceQuestionFactory.QuestionType.Katakana : MultipleChoiceQuestionFactory.QuestionType.Romaji;
+                 nextnum = new Random().Next(0, 2) == 0 ? MultipleChoiceQuestionFactory.QuestionType.Katakana : MultipleChoiceQuestionFactory.QuestionType.RomajiK;
+                //nextnum = MultipleChoiceQuestionFactory.QuestionType.Katakana;
                 TMPQueueHolder = UserDatabase.KataKanaCardQueue;
             }
             else if (category == MultipleChoiceCategory.Vocabulary)

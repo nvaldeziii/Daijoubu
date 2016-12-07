@@ -127,6 +127,8 @@ namespace Daijoubu
             japaneseDBO.CreateTable<tbl_vocabulary_N4>();
             japaneseDBO.CreateTable<tbl_grammar_N4>();
 
+            japaneseDBO.CreateTable<tbl_lesson_introduction>();
+            JapaneseDatabase.Table_Lesson_Introduction = japaneseDBO.Table<tbl_lesson_introduction>().ToList();
             japaneseDBO.CreateTable<tbl_lesson_hiragana>();
             JapaneseDatabase.Table_Lesson_Hiragana = japaneseDBO.Table<tbl_lesson_hiragana>().ToList();
             japaneseDBO.CreateTable<tbl_lesson_katakana>();

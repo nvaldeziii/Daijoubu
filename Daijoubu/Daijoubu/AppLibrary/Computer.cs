@@ -1,4 +1,5 @@
 ﻿using Daijoubu.AppModel;
+using Daijoubu.Dependencies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -269,30 +270,32 @@ namespace Daijoubu.AppLibrary
 
         public static string RandomJapaneseProverbs()
         {
-            string greeting = "";
-            List<string> possible_greetings = new List<string>();
-            possible_greetings.Add("継続は力なり");
-            possible_greetings.Add("早起きは三文の徳");
+            //string greeting = "";
+            //List<string> possible_greetings = new List<string>();
+            //possible_greetings.Add("継続は力なり");
+            //possible_greetings.Add("早起きは三文の徳");
 
-            possible_greetings.Add("本末転倒");
-            possible_greetings.Add("早い者勝ち");
-            possible_greetings.Add("愚公山を移す");
-            possible_greetings.Add("井戸の中の独言も三年たてば知れる");
-            possible_greetings.Add("亀の甲より年の功");
+            //possible_greetings.Add("本末転倒");
+            //possible_greetings.Add("早い者勝ち");
+            //possible_greetings.Add("愚公山を移す");
+            //possible_greetings.Add("井戸の中の独言も三年たてば知れる");
+            //possible_greetings.Add("亀の甲より年の功");
 
-            possible_greetings.Add("進み続けてさえいれば、遅くとも関係ない。");
-            possible_greetings.Add("この世界の内に望む変化に、あなた自身が成ってみせなさい。");
-            possible_greetings.Add("きっと成功してみせる、と決心する事が何よりも重要だ。");
+            //possible_greetings.Add("進み続けてさえいれば、遅くとも関係ない。");
+            //possible_greetings.Add("この世界の内に望む変化に、あなた自身が成ってみせなさい。");
+            //possible_greetings.Add("きっと成功してみせる、と決心する事が何よりも重要だ。");
 
-            int rand = new Random().Next(0, possible_greetings.Count);
-            greeting += possible_greetings[rand];
+            //int rand = new Random().Next(0, possible_greetings.Count);
+            //greeting += possible_greetings[rand];
 
-            return greeting;
+            return ApplicationInitialGreeting();
+            //return greeting;
         }
 
         public static string ApplicationInitialGreeting()
         {
             string greeting = "";
+            string greeting_en = "";
             var hours = DateTime.Now.Hour;
             if (hours > 16)
             {
@@ -308,13 +311,13 @@ namespace Daijoubu.AppLibrary
             }
 
             List<string> possible_greetings = new List<string>();
-            possible_greetings.Add("早起きは三文の徳");
-            possible_greetings.Add("継続は力なり");
-            possible_greetings.Add("本末転倒");
-            possible_greetings.Add("早い者勝ち");
-            possible_greetings.Add("愚公山を移す");
-            possible_greetings.Add("井戸の中の独言も三年たてば知れる");
-            possible_greetings.Add("亀の甲より年の功");
+            //possible_greetings.Add("早起きは三文の徳");
+            //possible_greetings.Add("継続は力なり");
+            //possible_greetings.Add("本末転倒");
+            //possible_greetings.Add("早い者勝ち");
+            //possible_greetings.Add("愚公山を移す");
+            //possible_greetings.Add("井戸の中の独言も三年たてば知れる");
+            //possible_greetings.Add("亀の甲より年の功");
             possible_greetings.Add("べんきょうしましょう！"); //benkyou shimashou
             possible_greetings.Add("お元気ですか？"); //ogenki desu ka
             possible_greetings.Add("がんばってね！"); //ganbatte ne
@@ -322,7 +325,9 @@ namespace Daijoubu.AppLibrary
             int rand = new Random().Next(0, possible_greetings.Count);
             greeting += possible_greetings[rand];
 
-            return greeting;
+            //DisplayAlert("Saved!", "Some changes will take efect after app restart", "OK");
+            return "";
+            //return greeting;
         }
 
         public static bool IsHiragana(char x)
@@ -355,6 +360,33 @@ namespace Daijoubu.AppLibrary
                 }
             }
             return h;
+        }
+
+        public static string GIF_HTML(string x)
+        {
+
+            string html2 = @"<html>
+	                            <body>
+		                            <img src='{0}'>
+                                </body >
+                            </html> ";
+            
+            return string.Format(html2,x);
+        }
+
+        public static HtmlWebViewSource GIF_WebView()
+        {
+            var htmlSource = new HtmlWebViewSource();
+            htmlSource.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
+
+            htmlSource.Html = @"<html>
+                            <body>
+                            <h1>Xamarin.Forms</h1>
+                            <p>The CSS and image are loaded from local files!</p>
+                            </body>
+                            </html>";
+
+            return htmlSource;
         }
     }
 }

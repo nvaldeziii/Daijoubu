@@ -11,6 +11,7 @@
       <Style TargetType="Button">
         <Setter Property="BackgroundColor" Value="#3B5998" />
         <Setter Property="TextColor" Value="#FFFFFF" />
+        <Setter Property="FontSize" Value="Medium" />
       </Style>
 
       <Style TargetType="ListView">

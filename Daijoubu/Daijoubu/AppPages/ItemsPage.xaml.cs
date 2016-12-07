@@ -1,4 +1,5 @@
 ﻿using Daijoubu.AppLibrary;
+using Daijoubu.Dependencies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace Daijoubu.AppPages
         public ItemsPage(AppLibrary.Categories.Lessons Category,int CurrentItem = 0)
         {
             InitializeComponent();
+            
             this.Category = Category;
             this.Setting = new Settings();
             
@@ -48,10 +50,17 @@ namespace Daijoubu.AppPages
                     MaxItem = AppModel.JapaneseDatabase.Table_Grammar_N4.Count;
                     this.Title = "N4 Sentences";
                     break;
+                case AppLibrary.Categories.Lessons.Introduction:
+                    MaxItem = AppModel.JapaneseDatabase.Table_Lesson_Introduction.Count;
+                    btn_listen.IsVisible = false;
+                    label_question.FontSize = Computer.LabelFontSize(15, Settings.FontSizeMultiplier);
+                    this.Title = "Introduction";
+                    break;
                 default:
                     MaxItem = 1;
                     break;
             }
+            MaxItem -= 1;
 
             this.CurrentItem = CurrentItem < MaxItem ? CurrentItem : 0;
 
@@ -98,6 +107,9 @@ namespace Daijoubu.AppPages
         {
             //initialize item
             frame_info.IsVisible = false;
+            frame_info_sub1.IsVisible = false;
+            frame_info_sub2.IsVisible = false;
+            frame_info_sub3.IsVisible = false;
             label_question.Text = "";
             label_info.Text = "";
             Toogle = false;
@@ -124,6 +136,12 @@ namespace Daijoubu.AppPages
                     label_question.Text = AppModel.JapaneseDatabase.Table_Grammar_N4[CurrentItem].sentence_jp.Replace('_', ' ');
                     LessonProgress.GrammarN4 = CurrentItem;
                     break;
+                case AppLibrary.Categories.Lessons.Introduction:
+                    label_question.Text = AppModel.JapaneseDatabase.Table_Lesson_Introduction[CurrentItem].val1;
+                    LessonProgress.Introduction = CurrentItem;
+                    frame_info_sub.IsVisible = false;
+                    btn_meaning.Text = "Show Definition";
+                    break;
                 default:
                     break;
             }
@@ -136,19 +154,42 @@ namespace Daijoubu.AppPages
         public void ToggleMeaning()
         {
             Toogle = !Toogle;
+            btn_listen.IsVisible = !Toogle;
+            
+            btn_meaning.Text = Toogle ? "Show Original" : "Show Definition";
             label_question.TextColor = Toogle ? Color.Green : Color.Default;
+            
             switch (Category)
             {
                 case AppLibrary.Categories.Lessons.Hiragana:
+
+                    frame_info_sub.IsVisible = true;// !Toogle;
+                    
+                    //webview_gif.IsVisible = true;
+                    frame_info_sub.IsVisible = true; //!Toogle;
+
+                    //var html = new HtmlWebViewSource();
+                    //html.BaseUrl = DependencyService.Get<IBaseUrl>().Get();
+
+                    //html.Html = Computer.GIF_HTML("a.gif");
+                    //webview_gif.Source = Computer.GIF_WebView();
+
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToUpper()
                         : AppModel.JapaneseDatabase.Table_Kana[CurrentItem].hiragana;
 
                     frame_info.IsVisible = Toogle && AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].example != "";
 
-                    label_info.Text = string.Format("Sound: \n{0} \n\n Mnemonic: \n{1} \n\n Example: \n{2}"
-                        , AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].sound
-                        ,AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].mnemonic
-                        ,AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].example);
+                    label_info_head.Text = "Sound: ";
+                    label_info.Text = AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].sound;
+                        
+
+                    frame_info_sub1.IsVisible = true;
+                    label_info1_head.Text = "Mnemonic: ";
+                    label_info1.Text = AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].mnemonic;
+
+                    frame_info_sub2.IsVisible = true;
+                    label_info2_head.Text = "Example: ";
+                    label_info2.Text = AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].example;
 
                     break;
                 case AppLibrary.Categories.Lessons.Katakana:
@@ -156,10 +197,19 @@ namespace Daijoubu.AppPages
                         : AppModel.JapaneseDatabase.Table_Kana[CurrentItem].katakana;
 
                     frame_info.IsVisible = Toogle && AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].example != "";
-                    label_info.Text = string.Format("Sound: {0} \n\n Mnemonic: {1} \n\n Example: {2}"
-                        , AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].sound
-                        , AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].mnemonic
-                        , AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].example);
+
+                    label_info_head.Text = "Sound: ";
+                    label_info.Text = AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].sound;
+
+
+                    frame_info_sub1.IsVisible = true;
+                    label_info1_head.Text = "Mnemonic: ";
+                    label_info1.Text = AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].mnemonic;
+
+                    frame_info_sub2.IsVisible = true;
+                    label_info2_head.Text = "Example: ";
+                    label_info2.Text = AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].example;
+
                     break;
                 case AppLibrary.Categories.Lessons.VocabularyN5:
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Vocabulary_N5[CurrentItem].furigana
@@ -177,6 +227,21 @@ namespace Daijoubu.AppPages
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Grammar_N4[CurrentItem].sentence_en.Replace('_', ' ') : AppModel.JapaneseDatabase.Table_Grammar_N4[CurrentItem].sentence_jp.Replace('_', ' ');
                     //frame_info.IsVisible = Toogle;
                     //label_info.Text = AppModel.JapaneseDatabase.Table_Grammar_N4[CurrentItem].sentence_fu;
+                    break;
+                case AppLibrary.Categories.Lessons.Introduction:
+
+                    frame_info.IsVisible = Toogle;
+
+            
+                    frame_info_sub1.IsVisible = Toogle;
+                    label_info1_head.Text = "Info: ";
+                    label_info1.Text = AppModel.JapaneseDatabase.Table_Lesson_Introduction[CurrentItem].val2;
+
+
+                    frame_info_sub2.IsVisible = Toogle;
+                    label_info2_head.Text = "More Info: ";
+                    label_info2.Text = AppModel.JapaneseDatabase.Table_Lesson_Introduction[CurrentItem].val3;
+                    
                     break;
                 default:
                     break;
