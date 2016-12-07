@@ -12,7 +12,7 @@ namespace Daijoubu.AppLibrary
     {
         public enum QuestionType
         {
-            Hiragana, Katakana, Romaji, VocabularyJP, VocabularyEN, VocabularyFUJP, VocabularyJPFU, VocabularyENFU, VocabularyFUEN, Grammar
+            Hiragana, Katakana, Romaji, VocabularyJP, VocabularyEN, VocabularyFUJP, VocabularyJPFU, VocabularyENFU, VocabularyFUEN, Grammar, RomajiK
         };
 
         public int QuestionID { get; private set; }
@@ -61,6 +61,12 @@ namespace Daijoubu.AppLibrary
                         Question = kana.romaji;
                         Answer = kana.hiragana;
                         GenerateChoices(() => { return JapaneseDatabase.Table_Kana[random.Next(low, high)].hiragana; });
+                        break;
+                    case QuestionType.RomajiK:
+                        kana = JapaneseDatabase.Table_Kana[cardindex];
+                        Question = kana.romaji;
+                        Answer = kana.katakana;
+                        GenerateChoices(() => { return JapaneseDatabase.Table_Kana[random.Next(low, high)].katakana; });
                         break;
                     case QuestionType.VocabularyJP:
                         vocabulary = JapaneseDatabase.Table_Vocabulary_N5[cardindex];

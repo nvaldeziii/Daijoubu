@@ -13,24 +13,58 @@
                Text="Getting Ready ..."
                Style="{StaticResource SingleQuestionLabel}" />
         </Frame>
+        <Button x:Name="btn_listen"
+                Text="Listen" />
       </Frame>
 
       <Frame  x:Name="frame_info"
               IsVisible="False"
               Style="{StaticResource QuestionCardOuterFrame}"
               Margin="15,0,15,15">
-        <Frame Style="{StaticResource QuestionCardInnerFrame}">
+        <Frame Style="{StaticResource QuestionCardInnerFrame}"
+               x:Name="frame_info_sub">
+          <Label x:Name="label_info_head" />
           <Label x:Name="label_info"
                Text="Getting Ready ..."
                Style="{StaticResource SingleQuestionLabel}"
                FontSize="Small"/>
         </Frame>
+        
+        <Frame Style="{StaticResource QuestionCardInnerFrame}"
+               x:Name="frame_info_sub1">
+          <Label x:Name="label_info1_head" />
+          <Label x:Name="label_info1"
+                 IsVisible="False"
+               Text="Getting Ready ..."
+               Style="{StaticResource SingleQuestionLabel}"
+               FontSize="Small"/>
+        </Frame>
+        
+        <Frame Style="{StaticResource QuestionCardInnerFrame}"
+               x:Name="frame_info_sub2">
+          <Label x:Name="label_info2_head" />
+          <Label x:Name="label_info2"
+                 IsVisible="False"
+               Text="Getting Ready ..."
+               Style="{StaticResource SingleQuestionLabel}"
+               FontSize="Small"/>
+        </Frame>
+        
+        <Frame Style="{StaticResource QuestionCardInnerFrame}"
+               x:Name="frame_info_sub3">
+          <Label x:Name="label_info3_head" />
+          <Label x:Name="label_info3"
+                 IsVisible="False"
+               Text="Getting Ready ..."
+               Style="{StaticResource SingleQuestionLabel}"
+               FontSize="Small"/>
+        </Frame>
+        
       </Frame>
 
-      <Button x:Name="btn_listen"
-              Text="Listen" />
+      
       <Button x:Name="btn_meaning"
-              Text="Toggle meaning" />
+              Text="Show Definition" />
 
       <Grid>
         <Button x:Name="btn_prev"

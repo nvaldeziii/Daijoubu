@@ -98,6 +98,9 @@ namespace Daijoubu.AppPages
         {
             //initialize item
             frame_info.IsVisible = false;
+            frame_info_sub1.IsVisible = false;
+            frame_info_sub2.IsVisible = false;
+            frame_info_sub3.IsVisible = false;
             label_question.Text = "";
             label_info.Text = "";
             Toogle = false;
@@ -136,6 +139,7 @@ namespace Daijoubu.AppPages
         public void ToggleMeaning()
         {
             Toogle = !Toogle;
+            btn_meaning.Text = Toogle ? "Show Original" : "Show Definition";
             label_question.TextColor = Toogle ? Color.Green : Color.Default;
             switch (Category)
             {
@@ -145,10 +149,17 @@ namespace Daijoubu.AppPages
 
                     frame_info.IsVisible = Toogle && AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].example != "";
 
-                    label_info.Text = string.Format("Sound: \n{0} \n\n Mnemonic: \n{1} \n\n Example: \n{2}"
-                        , AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].sound
-                        ,AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].mnemonic
-                        ,AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].example);
+                    label_info_head.Text = "Sound: ";
+                    label_info.Text = AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].sound;
+                        
+
+                    frame_info_sub1.IsVisible = true;
+                    label_info1_head.Text = "Mnemonic: ";
+                    label_info1.Text = AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].mnemonic;
+
+                    frame_info_sub2.IsVisible = true;
+                    label_info2_head.Text = "Example: ";
+                    label_info2.Text = AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].example;
 
                     break;
                 case AppLibrary.Categories.Lessons.Katakana:

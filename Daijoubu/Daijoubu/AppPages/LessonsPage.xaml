@@ -6,26 +6,32 @@
              Style="{StaticResource TypicalContentPage}">
 
   <Grid>
-    <Button Text="Hiragana"
-            x:Name="btn_hiragana_lessons"
+    <Button Text="Introduction"
+            x:Name="btn_introduction"
             Style="{StaticResource SideMenuButtons}"
             Grid.Row="0"/>
-    <Button Text="Katakana"
-            x:Name="btn_katakana_lessons"
+    
+    <Button Text="Hiragana \n (Basic Japanese Writing)"
+            x:Name="btn_hiragana_lessons"
             Style="{StaticResource SideMenuButtons}"
             Grid.Row="1"/>
-    <Button Text="N5 Vocabulary"
-            x:Name="btn_n5vocab_lessons"
+    <Button Text="Katakana \n (Basic Japanese Writing)"
+            x:Name="btn_katakana_lessons"
             Style="{StaticResource SideMenuButtons}"
             Grid.Row="2"/>
-    <Button Text="N4 Vocabulary"
-            x:Name="btn_n4vocab_lessons"
+    <Button Text="N5 (Basic Japanese Vocabulary)"
+            x:Name="btn_n5vocab_lessons"
             Style="{StaticResource SideMenuButtons}"
             Grid.Row="3"/>
-    <Button Text="N4 Sentences"
-            x:Name="btn_n4grammar_lessons"
+    <Button Text="N4 (Intermidiate Japanese Vocabulary)"
+            x:Name="btn_n4vocab_lessons"
             Style="{StaticResource SideMenuButtons}"
             Grid.Row="4"/>
+    <Button Text="N4 Japanese Sentences"
+            x:Name="btn_n4grammar_lessons"
+            Style="{StaticResource SideMenuButtons}"
+            Grid.Row="5"/>
+    
   </Grid>
   
 </ContentPage>
