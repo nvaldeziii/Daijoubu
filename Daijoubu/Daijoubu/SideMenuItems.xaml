@@ -14,19 +14,21 @@
 
     <!--<Button Text="Home" 
                  x:Name="SideMenuButton_Home"/>-->
-    <Button Text="Achievement"
-            x:Name="SideMenuButton_Profile"
-            Style="{StaticResource SideMenuButtons}"
-            Grid.Row="0"
-            Grid.Column="0"
-            Image="@drawable/profile_logo"/>
     <Button Text="Lessons"
             x:Name="SideMenuButton_Lessons"
             AutomationId="auto_SideMenuButton_Lessons"
             Style="{StaticResource SideMenuButtons}"
-            Grid.Row="1"
+            Grid.Row="0"
             Grid.Column="0"
             Image="@drawable/lesson_logo" />
+            
+    <Button Text="Achievement"
+            x:Name="SideMenuButton_Profile"
+            Style="{StaticResource SideMenuButtons}"
+            Grid.Row="1"
+            Grid.Column="0"
+            Image="@drawable/profile_logo"/>
+    
     <Button Text="JLPT N5 Module"
             x:Name="SideMenuButton_Quiz"
             AutomationId="auto_SideMenuButton_Quiz"
