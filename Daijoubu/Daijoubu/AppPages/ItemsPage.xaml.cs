@@ -112,10 +112,16 @@ namespace Daijoubu.AppPages
             frame_info_sub3.IsVisible = false;
 
             frame_gif.IsVisible = false;
+            frame_question.IsVisible = true;
+
             label_question.Text = "";
+            label_question.IsVisible = true;
+            btn_meaning.Text = "Show Definition";
             label_info.Text = "";
             Toogle = false;
             label_question.TextColor = Color.Default;
+            btn_listen.IsVisible = true;
+            
             switch (Category)
             {
                 case AppLibrary.Categories.Lessons.Hiragana:
@@ -168,7 +174,7 @@ namespace Daijoubu.AppPages
 
                     frame_info_sub.IsVisible = true;// !Toogle;
 
-                    label_question.IsVisible = !Toogle;
+                    frame_question.IsVisible = !Toogle;
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToUpper()
                         : AppModel.JapaneseDatabase.Table_Kana[CurrentItem].hiragana;
 
@@ -191,7 +197,7 @@ namespace Daijoubu.AppPages
 
                     break;
                 case AppLibrary.Categories.Lessons.Katakana:
-                    label_question.IsVisible = !Toogle;
+                    frame_question.IsVisible = !Toogle;
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToUpper()
                         : AppModel.JapaneseDatabase.Table_Kana[CurrentItem].katakana;
 
@@ -256,8 +262,6 @@ namespace Daijoubu.AppPages
             EnableInterfaces(false);
 
             CurrentItem = next ? CurrentItem + 1 : CurrentItem - 1;
-  
-            
 
             Device.StartTimer(Setting.MultipleChoice.AnswerFeedBackDelay, () =>
             {

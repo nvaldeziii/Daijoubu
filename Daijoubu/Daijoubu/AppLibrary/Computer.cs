@@ -367,8 +367,10 @@ namespace Daijoubu.AppLibrary
 
             string html2 = @"<html>
 	                            <body>
-                                    <p>Stroke Order: </p>
-		                            <img src=""{0}"">
+                                    <center>    
+                                        <p>Stroke Order: </p>
+		                                <img src=""{0}"">
+                                    </center> 
                                 </body >
                             </html> ";
             
