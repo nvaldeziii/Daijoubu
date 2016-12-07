@@ -50,6 +50,17 @@ create table tbl_lesson_katakana(
 	mnemonic varchar(256)
 );
 
+create table tbl_lesson_introduction(
+	Id INTEGER PRIMARY KEY AUTOINCREMENT,
+	val1 varchar(256),
+	val2 varchar(256),
+	val3 varchar(256),
+	val4 varchar(256)
+);
+
+
+tbl_lesson_introduction (Id,example,sound,mnemonic) values (null, "null","null","null","null");
+
 -- tbl_lesson_hiragana
 insert into tbl_lesson_hiragana (Id,example,sound,mnemonic) values(null,"あお(ao) blue","*a* as in alright.","It's an apple. First you draw the leaves on the stem, then you draw the stem down into the apple, and then you draw the round fruit. The t shape is the person and its being wrapped by a snake saying **aaah**");
 insert into tbl_lesson_hiragana (Id,example,sound,mnemonic) values(null,"いぬ (inu) dog","i as in the beginning of irritate or like the first e in evening","Itch - It's a hooked hand reaching to scratch a back. First you draw the hand, then you draw the back. ");
