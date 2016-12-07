@@ -19,6 +19,7 @@ insert into tbl_user_settings values ("lesson_prog_katakana","0");
 insert into tbl_user_settings values ("lesson_prog_n5vocab","0");
 insert into tbl_user_settings values ("lesson_prog_n4vocab","0");
 insert into tbl_user_settings values ("lesson_prog_n4grammar","0");
+insert into tbl_user_settings values ("lesson_prog_introduction","0");
 
 create table tbl_us_cardknN5Dt(
 		Id INTEGER PRIMARY KEY AUTOINCREMENT,

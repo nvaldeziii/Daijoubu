@@ -56,6 +56,7 @@
     <Compile Include="AppModel\tbl_grammar.cs" />
     <Compile Include="AppModel\tbl_kana.cs" />
     <Compile Include="AppModel\tbl_lessons_kana.cs" />
+    <Compile Include="AppModel\tbl_lesson_introduction.cs" />
     <Compile Include="AppModel\tbl_user_card_data.cs" />
     <Compile Include="AppModel\tbl_user_settings.cs" />
     <Compile Include="AppModel\tbl_vocabulary.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="AppTemplates\HomepageListView.xaml.cs">
       <DependentUpon>HomepageListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dependencies\IBaseUrl.cs" />
     <Compile Include="Dependencies\INotifications.cs" />
     <Compile Include="Dependencies\ISQLite.cs" />
     <Compile Include="Dependencies\ITextToSpeech.cs" />

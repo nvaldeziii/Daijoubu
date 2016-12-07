@@ -59,7 +59,16 @@ create table tbl_lesson_introduction(
 );
 
 
-tbl_lesson_introduction (Id,example,sound,mnemonic) values (null, "null","null","null","null");
+insert into tbl_lesson_introduction (Id,val1,val2,val3,val4) values (null, "What is Kana","First and foremost are the syllabaries Hiragana and Katakana, known together as Kana. A syllabary is much like an alphabet, except that each symbol represents an entire syllable like ka","(More specifically, each Kana symbol represents one mora, a distinction that we'll examine in greater detail.) So Hiragana is spelled hi-ra-ga-na and Katakana as ka-ta-ka-na.","null");
+insert into tbl_lesson_introduction (Id,val1,val2,val3,val4) values (null, "Hiragana and Katakana","each have 46 symbols, representing the same 46 basic syllables","So what's the difference? Quite simply, Hiragana is used for writing native Japanese words (ひらがな/Hiragana, かたかな/Katakana) and Katakana for borrowed words (テレビ/terebi/television), sounds effects (ドン/don/boom), emphasis (like English italics), and the like.","null");
+insert into tbl_lesson_introduction (Id,val1,val2,val3,val4) values (null, "Hiragana (ひらがな) ","Used to write native words for which there are no kanji, including grammatical particles","Example: あ　い　う　え　お　","null");
+insert into tbl_lesson_introduction (Id,val1,val2,val3,val4) values (null, "Katakana (カタカナ)","sometimes used instead of hiragana as furigana to give the pronunciation of a word written in Roman characters, or for a foreign word, which is written as kanji for the meaning, but intended to be pronounced as the original.","Example: ア　イ　ウ　エ　オ　","null");
+insert into tbl_lesson_introduction (Id,val1,val2,val3,val4) values (null, "Kanji (漢字)","Originally, the Japanese had no writing system of their own, and instead wrote in classical Chinese","Today, there are about 2000 Kanji recommended by the government for for general use","null");
+insert into tbl_lesson_introduction (Id,val1,val2,val3,val4) values (null, "Punctuation -> 。","kuten/maru","Like the western period, used at the end of a sentence","null");
+insert into tbl_lesson_introduction (Id,val1,val2,val3,val4) values (null, "Punctuation -> 、","touten","Like the western comma, but mostly optional. Used to mark natural pauses.","null");
+insert into tbl_lesson_introduction (Id,val1,val2,val3,val4) values (null, "Punctuation -> 「」","kagikakko","Equivalent of western quotation marks","null");
+insert into tbl_lesson_introduction (Id,val1,val2,val3,val4) values (null, "Punctuation -> ～","nami dasshu","The wave dash, marking a range like ５：００～６：００. Also used to show a wavering intonation","null");
+insert into tbl_lesson_introduction (Id,val1,val2,val3,val4) values (null, "Learning to Write Japanese","Now that you know a bit about the Japanese writing system, you're ready to start learning Hiragana.","It will take a couple weeks to get comfortable with this, but in the meantime there's no need to worry about Katakana and Kanji, since Hiragana can substitute for both.","null");
 
 -- tbl_lesson_hiragana
 insert into tbl_lesson_hiragana (Id,example,sound,mnemonic) values(null,"あお(ao) blue","*a* as in alright.","It's an apple. First you draw the leaves on the stem, then you draw the stem down into the apple, and then you draw the round fruit. The t shape is the person and its being wrapped by a snake saying **aaah**");

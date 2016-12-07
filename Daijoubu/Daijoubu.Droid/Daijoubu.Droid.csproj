@@ -182,6 +182,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dependencies\BaseURLImplementation.cs" />
     <Compile Include="Dependencies\NotificationImplementation.cs" />
     <Compile Include="Dependencies\SQLiteImplementation.cs" />
     <Compile Include="Dependencies\TextToSpeechImplementation.cs" />

@@ -11,11 +11,11 @@
             Style="{StaticResource SideMenuButtons}"
             Grid.Row="0"/>
     
-    <Button Text="Hiragana \n (Basic Japanese Writing)"
+    <Button Text="Hiragana (Basic Japanese Writing)"
             x:Name="btn_hiragana_lessons"
             Style="{StaticResource SideMenuButtons}"
             Grid.Row="1"/>
-    <Button Text="Katakana \n (Basic Japanese Writing)"
+    <Button Text="Katakana (Basic Japanese Writing)"
             x:Name="btn_katakana_lessons"
             Style="{StaticResource SideMenuButtons}"
             Grid.Row="2"/>

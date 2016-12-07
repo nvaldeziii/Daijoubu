@@ -12,5 +12,6 @@ namespace Daijoubu.AppModel
         public string val1 { get; set; }
         public string val2 { get; set; }
         public string val3 { get; set; }
+        public string val4 { get; set; }
     }
 }

@@ -183,6 +183,19 @@ namespace Daijoubu
             }
         }
 
+        public static int Introduction
+        {
+            get
+            {
+                return Convert.ToInt32(UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_introduction")].info);
+            }
+            set
+            {
+                DatabaseManipulator.UpdateUserConfig("lesson_prog_introduction", value.ToString());
+                UserDatabase.Table_UserSettings[UserDatabase.Table_UserSettings.FindIndex(i => i.name == "lesson_prog_introduction")].info = value.ToString();
+            }
+        }
+
     }
 
     public static class SRSsettings
