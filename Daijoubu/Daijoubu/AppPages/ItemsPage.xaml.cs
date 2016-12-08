@@ -23,6 +23,8 @@ namespace Daijoubu.AppPages
         {
             InitializeComponent();
 
+            webview_gif.Source = Computer.GIF_WebView(string.Format("a.gif"));
+
             this.Category = Category;
             this.Setting = new Settings();
             
@@ -145,6 +147,7 @@ namespace Daijoubu.AppPages
                     LessonProgress.GrammarN4 = CurrentItem;
                     break;
                 case AppLibrary.Categories.Lessons.Introduction:
+                    btn_listen.IsVisible = false;
                     label_question.IsVisible = true;
                     label_question.Text = AppModel.JapaneseDatabase.Table_Lesson_Introduction[CurrentItem].val1;
                     LessonProgress.Introduction = CurrentItem;
@@ -173,12 +176,13 @@ namespace Daijoubu.AppPages
                 case AppLibrary.Categories.Lessons.Hiragana:
 
                     frame_info_sub.IsVisible = true;// !Toogle;
+                    frame_gif.IsVisible = Toogle;
+                    webview_gif.IsVisible = true;
 
                     frame_question.IsVisible = !Toogle;
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToUpper()
                         : AppModel.JapaneseDatabase.Table_Kana[CurrentItem].hiragana;
 
-                    frame_gif.IsVisible = Toogle;
                     webview_gif.Source = Computer.GIF_WebView(string.Format("{0}.gif", AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToLower()));
 
                     frame_info.IsVisible = Toogle && AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].example != "";
@@ -195,6 +199,7 @@ namespace Daijoubu.AppPages
                     label_info2_head.Text = "Example: ";
                     label_info2.Text = AppModel.JapaneseDatabase.Table_Lesson_Hiragana[CurrentItem].example;
 
+                    frame_gif.IsVisible = Toogle;
                     break;
                 case AppLibrary.Categories.Lessons.Katakana:
                     frame_question.IsVisible = !Toogle;
@@ -204,6 +209,7 @@ namespace Daijoubu.AppPages
                     frame_info.IsVisible = Toogle && AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].example != "";
 
                     frame_gif.IsVisible = Toogle;
+                    webview_gif.IsVisible = true;
                     webview_gif.Source = Computer.GIF_WebView(string.Format("katakana/{0}.gif", AppModel.JapaneseDatabase.Table_Kana[CurrentItem].romaji.ToLower()));
 
                     label_info_head.Text = "Sound: ";
@@ -218,6 +224,8 @@ namespace Daijoubu.AppPages
                     label_info2_head.Text = "Example: ";
                     label_info2.Text = AppModel.JapaneseDatabase.Table_Lesson_Katakana[CurrentItem].example;
 
+                    frame_gif.IsVisible = Toogle;
+                    webview_gif.IsVisible = true;
                     break;
                 case AppLibrary.Categories.Lessons.VocabularyN5:
                     label_question.Text = Toogle ? AppModel.JapaneseDatabase.Table_Vocabulary_N5[CurrentItem].furigana
@@ -239,7 +247,7 @@ namespace Daijoubu.AppPages
                 case AppLibrary.Categories.Lessons.Introduction:
 
                     frame_info.IsVisible = Toogle;
-
+                    btn_listen.IsVisible = false;
             
                     frame_info_sub1.IsVisible = Toogle;
                     label_info1_head.Text = "Info: ";
