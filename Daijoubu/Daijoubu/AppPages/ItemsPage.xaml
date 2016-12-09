@@ -13,9 +13,16 @@
         <StackLayout>
           <Frame Style="{StaticResource QuestionCardInnerFrame}"
                  x:Name="frame_question">
-            <Label x:Name="label_question"
-                 Text="Getting Ready ..."
-                 Style="{StaticResource SingleQuestionLabel}" />
+            <StackLayout>
+              <Label x:Name="label_question_highlight"
+                     TextColor="Red"
+                     IsVisible="false"
+                      Text="Getting Ready ..."
+                      Style="{StaticResource SingleQuestionLabel}" />
+              <Label x:Name="label_question"
+                      Text="Getting Ready ..."
+                      Style="{StaticResource SingleQuestionLabel}" />
+            </StackLayout>
           </Frame>
 
           <Frame x:Name="frame_gif"

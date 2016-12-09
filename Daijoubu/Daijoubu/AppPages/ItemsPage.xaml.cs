@@ -92,7 +92,48 @@ namespace Daijoubu.AppPages
                 if (Setting.SpeakWords)
                 {
                     string ToSpeak = AppLibrary.JapaneseCharacter.ContainsAlphabet(label_question.Text) == false ? label_question.Text : "";
-                    DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
+
+                    if (Category != Categories.Lessons.SentencesN4)
+                    {
+                        DependencyService.Get<Dependencies.ITextToSpeech>().Speak(ToSpeak);
+                    }else
+                    {
+                        //label_question.Text = "";
+                        label_question_highlight.Text = "";
+                        label_question_highlight.IsVisible = true;
+                        //karaoke
+                        EnableInterfaces(false);
+                        string[] strLeft = ToSpeak.Split(' ');
+                        int strLeftCurr = 0;
+                        
+                        Device.StartTimer(new TimeSpan(0, 0, 0,0 , 800),  () =>
+                        {
+                            //拳銃が外国から持ち込まれた
+                            try
+                            {
+                                label_question_highlight.Text += strLeft[strLeftCurr];
+                                List<string> Karaoke = new List<string>();
+                                var x = label_question.Text.Split(' ').ToList<string>();
+                                x.RemoveAt(0);
+                                label_question.Text = "";
+                                foreach (string i in x)
+                                {
+                                    label_question.Text += i;
+                                }
+
+                                DependencyService.Get<ITextToSpeech>().SpeakAsync(strLeft[strLeftCurr]);
+
+
+                                EnableInterfaces(true);
+                                return strLeftCurr++ <= strLeft.Length - 1;
+                            }
+                            catch
+                            {
+                                return false;
+                            }
+                        });
+                   
+                    }
                 }
                 else
                 {
@@ -153,6 +194,7 @@ namespace Daijoubu.AppPages
                     LessonProgress.Introduction = CurrentItem;
                     frame_info_sub.IsVisible = false;
                     btn_meaning.Text = "Show Definition";
+                    label_question_highlight.IsVisible = false;
                     break;
                 default:
                     break;

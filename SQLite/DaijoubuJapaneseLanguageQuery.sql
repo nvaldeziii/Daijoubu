@@ -1748,16 +1748,16 @@ insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"政治",
 
 
 -- tbl_grammar_N4
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_My beard grows quickly.","_ 私はひげの 伸びが 速い。","ひげ");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_a 10-story building; a building of ten stories; a building 10-stories high.","_10階建てのビル。","〜かい");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_the intention of the managerial side; the management_s intention.","_ 経営者側の 意向。","〜がわ");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_Oh, really?｜Really?｜Oh, is that so?","_ああそうですか。","ああ");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_My beard grows quickly.","_ 私 は ひげ の 伸びが 速い。","ひげ");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_a 10-story building; a building of ten stories; a building 10-stories high.","_10階 建て の ビル。","〜かい");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_the intention of the managerial side; the management_s intention.","_ 経営 者側 の 意向。","〜がわ");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_Oh, really?｜Really?｜Oh, is that so?","_ああ そう です か。","ああ");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_I don_t know him very well; we do no more than exchange ⌐greetings  morning and evening.","_ 彼をそんなによく 知っているわけではありません.朝夕の 挨拶を 交わす 程度ですから。","あいさつ");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_write close;〔行と行との〕leave less space between the lines.","_ 間を 詰めて 書く。","あいだ");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_Our eyes met  and I bowed slightly.","_ 視線が 合ったので(私は 彼に)会釈した。","あう");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_If you ever want to see me, come down here to the beach.","_ 僕に 会いたくなったらこの 浜辺においで。","あう");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_have a pale face.","青い 顔をしている。","あおい");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_In old ⌐*apartments  the tapwater is sometimes reddish brown, the effect of iron rust.","_ 古いマンションの 水道では 鉄さびのせいで 赤い 水が 出ることがある。","あかい");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_write close;〔行と行との〕leave less space between the lines.","_ 間 を 詰めて 書く。","あいだ");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_Our eyes met  and I bowed slightly.","_ 視線 が 合ったので (私は 彼に) 会釈した。","あう");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_If you ever want to see me, come down here to the beach.","_ 僕 に 会いたく なったら この 浜辺に おいで。","あう");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_have a pale face.","青い 顔を している。","あおい");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_In old ⌐*apartments  the tapwater is sometimes reddish brown, the effect of iron rust.","_ 古い マンション の 水道 では 鉄さび のせいで 赤い 水が 出ること が ある。","あかい");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_a baby whale; a (whale) calf; a whale_s calf.","_クジラの 赤ちゃん。","あかちゃん");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_A firework ⌐went up  (into the sky).","_ 花火が 上がった。","あがる");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_It is still light outside.","_まだ 外は 明るい。","あかるい");

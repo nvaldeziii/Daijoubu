@@ -21,6 +21,7 @@ using Java.Util;
 
 //library for array adapter
 using Android.Widget;
+using System.Threading.Tasks;
 
 namespace SimpleTTS
 {
@@ -97,7 +98,7 @@ namespace SimpleTTS
             // set up the TextToSpeech object
             // third parameter is the speech engine to use
             textToSpeech = new TextToSpeech(context, this, "com.google.android.tts");
-
+   
             //init tts settings
             Settings = new SettingSimpleTTS(ref textToSpeech);
 

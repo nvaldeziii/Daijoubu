@@ -9,5 +9,6 @@ namespace Daijoubu.Dependencies
     public interface ITextToSpeech
     {
         void Speak(string text); //note that interface members are public by default
+        void SpeakAsync(string text);
     }
 }
