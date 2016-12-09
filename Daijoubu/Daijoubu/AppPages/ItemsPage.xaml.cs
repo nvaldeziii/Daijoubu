@@ -107,20 +107,20 @@ namespace Daijoubu.AppPages
                         string[] strLeft = ToSpeak.Split(' ');
                         int strLeftCurr = 0;
                         
-                        Device.StartTimer(new TimeSpan(0, 0, 0,0 , 800),  () =>
+                        Device.StartTimer(new TimeSpan(0, 0, 0,0 , 300),  () =>
                         {
                             //拳銃が外国から持ち込まれた
                             try
                             {
                                 label_question_highlight.Text += strLeft[strLeftCurr];
-                                List<string> Karaoke = new List<string>();
-                                var x = label_question.Text.Split(' ').ToList<string>();
-                                x.RemoveAt(0);
-                                label_question.Text = "";
-                                foreach (string i in x)
-                                {
-                                    label_question.Text += i + " ";
-                                }
+                                 
+                                //var x = label_question.Text.Split(' ').ToList<string>();
+                                //x.RemoveAt(0);
+                                //label_question.Text = "";
+                                //foreach (string i in x)
+                                //{
+                                //    label_question.Text += i + " ";
+                                //}
 
                                 DependencyService.Get<ITextToSpeech>().SpeakAsync(strLeft[strLeftCurr]);
 
