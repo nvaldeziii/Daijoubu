@@ -101,6 +101,7 @@ namespace Daijoubu.AppPages
                         //label_question.Text = "";
                         label_question_highlight.Text = "";
                         label_question_highlight.IsVisible = true;
+                        label_question_highlight.FontSize = label_question.FontSize;
                         //karaoke
                         EnableInterfaces(false);
                         string[] strLeft = ToSpeak.Split(' ');
@@ -118,7 +119,7 @@ namespace Daijoubu.AppPages
                                 label_question.Text = "";
                                 foreach (string i in x)
                                 {
-                                    label_question.Text += i;
+                                    label_question.Text += i + " ";
                                 }
 
                                 DependencyService.Get<ITextToSpeech>().SpeakAsync(strLeft[strLeftCurr]);

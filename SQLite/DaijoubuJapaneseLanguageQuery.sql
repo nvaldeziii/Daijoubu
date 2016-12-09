@@ -1748,11 +1748,11 @@ insert into tbl_vocabulary_N4 (Id,furigana,kanji,meaning) values (null,"政治",
 
 
 -- tbl_grammar_N4
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_My beard grows quickly.","_ 私 は ひげ の 伸びが 速い。","ひげ");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_a 10-story building; a building of ten stories; a building 10-stories high.","_10階 建て の ビル。","〜かい");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_the intention of the managerial side; the management_s intention.","_ 経営 者側 の 意向。","〜がわ");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"My beard grows quickly.","私 は ひげ の 伸びが 速い。","ひげ");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"a 10-story building; a building of ten stories; a building 10-stories high.","10階 建て の ビル。","〜かい");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"the intention of the managerial side; the management_s intention.","経営 者側 の 意向。","〜がわ");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_Oh, really?｜Really?｜Oh, is that so?","_ああ そう です か。","ああ");
-insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_I don_t know him very well; we do no more than exchange ⌐greetings  morning and evening.","_ 彼をそんなによく 知っているわけではありません.朝夕の 挨拶を 交わす 程度ですから。","あいさつ");
+insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_I don_t know him very well; we do no more than exchange ⌐greetings  morning and evening.","彼をそんなによく 知っているわけではありません.朝夕の 挨拶を 交わす 程度ですから。","あいさつ");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_write close;〔行と行との〕leave less space between the lines.","_ 間 を 詰めて 書く。","あいだ");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_Our eyes met  and I bowed slightly.","_ 視線 が 合ったので (私は 彼に) 会釈した。","あう");
 insert into tbl_grammar_N4 (Id,sentence_en,sentence_jp,sentence_fu) values (null,"_If you ever want to see me, come down here to the beach.","_ 僕 に 会いたく なったら この 浜辺に おいで。","あう");
