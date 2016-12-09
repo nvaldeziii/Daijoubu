@@ -13,7 +13,7 @@
         <StackLayout>
           <Frame Style="{StaticResource QuestionCardInnerFrame}"
                  x:Name="frame_question">
-            <StackLayout>
+            <StackLayout Orientation="Ver">
               <Label x:Name="label_question_highlight"
                      TextColor="Red"
                      IsVisible="false"
